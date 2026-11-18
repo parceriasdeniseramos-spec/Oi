@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lívia Monteiro · Estética Facial · Porto Alegre</title>
+<meta name="description" content="Estética facial com atendimento individual em Porto Alegre: toxina botulínica, preenchimento, bioestimulador de colágeno, tratamento de melasma e limpeza de pele, com conforto e cuidado do início ao fim.">
+<meta name="theme-color" content="#f7f2ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Boutique acolhedora: creme quente, preto suave, ouro do monograma e um toque de blush */
+:root{
+  --cream:#f7f2ec; --paper:#fffdfa; --sand:#efe6dc; --blush:#ecd9d1; --gold:#b8955a; --gold-2:#d6bb88;
+  --ink:#1f1b19; --ink-2:#4a423d; --muted:#7a6f68; --line:rgba(31,27,25,.12);
+  --serif:'Cormorant Garamond', Georgia, serif; --sans:'Montserrat', system-ui, sans-serif;
+  --ease:cubic-bezier(.22,.7,.15,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip;font-size:18px}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18.5px;line-height:1.75;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.serif{font-family:var(--serif);font-weight:500;line-height:1.06;letter-spacing:-.01em;text-wrap:balance}
+.serif em{font-style:italic;font-weight:400;color:var(--gold)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
+.h2{font-size:clamp(2.4rem,5vw,4.2rem);margin:16px 0 18px}
+.lede{color:var(--muted);max-width:540px}
+.sec{padding:clamp(90px,11vw,150px) 0;position:relative}
+.ph{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--blush),var(--sand))}
+.ph img{width:100%;height:100%;object-fit:cover}
+.mono{width:56px;height:56px;flex:none}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 30px;border-radius:999px;font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--ink);background:transparent;cursor:pointer;transition:background .5s var(--ease),color .5s,border-color .5s;white-space:nowrap}
+.btn:hover{background:var(--ink);color:var(--cream)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn svg{width:18px;height:18px}
+.btn:focus-visible,.chip input:focus-visible+span,.tcard:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .5s,box-shadow .5s}
+.nav.solid{background:rgba(247,242,236,.94);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:86px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;line-height:1}
+.brand .mono{width:46px;height:46px}
+.brand b{display:block;font-family:var(--serif);font-weight:500;font-size:1.45rem;letter-spacing:.04em;white-space:nowrap}
+.brand small{display:block;font-size:.56rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:5px;white-space:nowrap}
+.menu{display:flex;gap:26px;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.menu a{opacity:.75}.menu a:hover{opacity:1;color:var(--gold)}
+@media(max-width:1240px){.menu{display:none}}
+@media(max-width:520px){.nav .btn .t{display:none}.nav .btn{padding:12px}.brand small{display:none}}
+
+/* HERO */
+.hero{padding:140px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,80px);align-items:center}
+.hero h1{font-size:clamp(3rem,6.6vw,5.8rem);margin:20px 0 24px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:block;transform:translateY(110%);animation:up 1.3s var(--ease) forwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.12s}
+@keyframes up{to{transform:none}}
+@keyframes fade{to{opacity:1}}
+.hero p{color:var(--ink-2);font-size:1.1rem;max-width:520px;opacity:0;animation:fade 1.2s .5s forwards}
+.hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;opacity:0;animation:fade 1.2s .7s forwards}
+.hero .who{display:flex;align-items:center;gap:14px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);opacity:0;animation:fade 1.2s .9s forwards}
+.hero .who b{display:block;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.15}
+.hero .who small{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hero-img{position:relative}
+.hero-img .ph{aspect-ratio:4/5;border-radius:220px 220px 26px 26px;opacity:0;animation:fade 1.6s .2s forwards}
+.hero-img .ph img{object-position:50% 25%;transform:scale(1.1);animation:settle 2.6s var(--ease) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.hero-img .card{position:absolute;left:-28px;bottom:46px;background:var(--paper);border-radius:18px;padding:18px 22px;box-shadow:0 30px 60px -28px rgba(31,27,25,.35);display:flex;gap:14px;align-items:center;max-width:300px;opacity:0;animation:fade 1.2s 1.1s forwards}
+.hero-img .card i{font-style:normal;font-size:1.6rem}
+.hero-img .card span{font-size:.9rem;line-height:1.4;color:var(--ink-2)}
+.hero-img .card b{display:block;font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-img{max-width:440px}.hero-img .card{left:10px}}
+
+/* Faixa de compromisso */
+.promise{background:var(--ink);color:var(--cream);padding:30px 0;overflow:hidden}
+.ptrack{display:flex;width:max-content;animation:mq 50s linear infinite}
+.ptrack span{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.6vw,2.2rem);padding:0 34px;white-space:nowrap;display:flex;align-items:center;gap:68px}
+.ptrack span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Experiência */
+.exp-head{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:60px}
+@media(max-width:860px){.exp-head{grid-template-columns:1fr;gap:6px}}
+.exp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ex{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px 30px;transition:transform .5s var(--ease),box-shadow .5s}
+.ex:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(31,27,25,.35)}
+.ex .ic{width:58px;height:58px;border-radius:50%;background:var(--blush);display:grid;place-items:center;font-size:1.5rem;margin-bottom:20px}
+.ex h3{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.15;margin-bottom:8px}
+.ex p{color:var(--muted);font-size:.98rem}
+.ex.feat{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.ex.feat p{color:#c9bfb7}
+.ex.feat .ic{background:rgba(214,187,136,.18)}
+@media(max-width:960px){.exp{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.exp{grid-template-columns:1fr}}
+
+/* Tratamentos */
+.alt{background:var(--sand)}
+.treats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{display:flex;flex-direction:column;background:var(--paper);border-radius:24px;overflow:hidden;border:1px solid var(--line);text-align:left;cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s;color:inherit}
+.tcard:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(31,27,25,.4)}
+.tcard .ph{aspect-ratio:16/11}
+.tcard .ph img{object-position:50% 30%;transition:transform 1.6s var(--ease)}
+.tcard:hover .ph img{transform:scale(1.05)}
+.tcard .body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.tcard h3{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.1}
+.tcard .aka{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.1rem;margin:2px 0 10px}
+.tcard p{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.tcard .cta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.tcard .cta i{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-style:normal;transition:background .4s}
+.tcard:hover .cta i{background:var(--gold)}
+.treats .tcard.wide{grid-column:span 2}
+.treats .tcard.wide .ph{aspect-ratio:auto;height:240px}
+@media(max-width:960px){.treats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.treats{grid-template-columns:1fr}.treats .tcard.wide{grid-column:auto}}
+
+/* A sala */
+.room{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.room .ph{aspect-ratio:1;border-radius:26px}
+.room ul{list-style:none;margin-top:28px;border-top:1px solid var(--line)}
+.room li{display:flex;gap:16px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line)}
+.room li b{font-family:var(--serif);font-weight:600;font-size:1.25rem;min-width:30px;color:var(--gold)}
+@media(max-width:860px){.room{grid-template-columns:1fr}}
+
+/* Profissional */
+.pro{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,100px);align-items:center}
+.pro .ph{aspect-ratio:4/5;border-radius:26px 26px 220px 220px}
+.pro .ph img{object-position:50% 20%}
+.pro p{color:var(--ink-2);margin-bottom:16px}
+.pro .sig{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--gold);margin-top:10px}
+.pro .reg{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:860px){.pro{grid-template-columns:1fr}.pro .ph{max-width:420px}}
+
+/* Depoimentos */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.q{background:var(--paper);border-radius:24px;padding:34px 30px;border:1px solid var(--line);display:flex;flex-direction:column;gap:18px}
+.q .st{color:var(--gold);letter-spacing:4px}
+.q blockquote{font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.45}
+.q cite{font-style:normal;margin-top:auto;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+/* Contato direto */
+.direct{background:var(--ink);color:var(--cream);border-radius:34px;padding:clamp(50px,7vw,90px);display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+.direct .serif em{color:var(--gold-2)}
+.direct p{color:#c9bfb7;margin-top:10px;max-width:540px}
+.direct .btn{border-color:var(--gold-2);color:var(--cream)}
+.direct .btn:hover{background:var(--gold-2);color:var(--ink)}
+@media(max-width:900px){.direct{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:880px;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.2vw,1.6rem)}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pl{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--sans);transition:transform .4s,background .4s,color .4s}
+.faq details[open] .pl{transform:rotate(45deg);background:var(--ink);color:var(--cream)}
+.faq details p{color:var(--muted);padding:0 50px 24px 0}
+
+/* Footer */
+footer{padding:70px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.legal{font-size:.82rem;line-height:1.6;padding-top:22px;max-width:900px}
+.signature{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.signature svg{width:52px;height:52px}
+.signature small{display:block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.signature b{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--ink)}
+.signature b em{color:var(--gold)}
+
+/* Painel de contato direto */
+.scrim{position:fixed;inset:0;background:rgba(31,27,25,.4);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:opacity .5s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);background:var(--cream);z-index:90;transform:translateX(105%);transition:transform .7s var(--ease);display:flex;flex-direction:column;box-shadow:-30px 0 80px -30px rgba(31,27,25,.4)}
+.drawer.open{transform:none}
+.d-head{display:flex;align-items:center;gap:14px;padding:20px 22px;padding-top:calc(20px + env(safe-area-inset-top,0px));background:var(--ink);color:var(--cream)}
+.d-head .mono{width:52px;height:52px}
+.d-head b{font-family:var(--serif);font-weight:500;font-size:1.35rem;display:block;line-height:1.15}
+.d-head small{font-size:.78rem;opacity:.75}
+.d-close{margin-left:auto;width:42px;height:42px;border-radius:50%;border:1px solid rgba(247,242,236,.35);background:none;color:var(--cream);cursor:pointer;font-size:1.3rem}
+.d-body{flex:1;overflow-y:auto;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:linear-gradient(180deg,var(--sand),var(--cream) 240px)}
+.msg{max-width:90%;background:var(--paper);border:1px solid var(--line);padding:14px 18px;border-radius:4px 20px 20px 20px;font-size:.98rem;line-height:1.55;opacity:0;transform:translateY(10px);transition:.5s var(--ease)}
+.msg em{font-style:normal;font-weight:600;color:var(--gold)}
+.fw{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 18px;opacity:0;transform:translateY(10px);transition:.5s var(--ease)}
+.show{opacity:1!important;transform:none!important}
+.fw > label,.fw .lbl{display:block;font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.field{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:8px 0;font-family:var(--serif);font-size:1.35rem;outline:none}
+.field:focus{border-color:var(--ink)}
+.field::placeholder{color:#b1a69e;font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:9px 15px;border-radius:999px;border:1px solid var(--line);font-size:.88rem;cursor:pointer;transition:.3s;background:var(--cream)}
+.chip span:hover{border-color:var(--ink)}
+.chip input:checked+span{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.typing{display:inline-flex;gap:5px;padding:15px 17px;background:var(--paper);border-radius:4px 20px 20px 20px;border:1px solid var(--line);align-self:flex-start}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:dot 1.3s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes dot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-4px)}}
+.d-foot{padding:16px 22px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--cream)}
+.send{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;border-radius:999px;border:0;background:var(--ink);color:var(--cream);font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .4s}
+.send:hover{background:#1f6b4a}
+.send svg{width:20px;height:20px}
+.d-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:8px}
+.d-err{color:#a03a2c;font-size:.86rem;text-align:center;margin-top:6px;display:none}
+
+/* Flutuantes */
+.float{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--cream);padding:8px 8px 8px 20px;border-radius:999px;border:0;cursor:pointer;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 18px 36px -14px rgba(31,27,25,.5);transform:translateY(120px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.float.show{transform:none;opacity:1}
+.float .wa{width:42px;height:42px;border-radius:50%;background:#25d366;display:grid;place-items:center}
+.float .wa svg{width:22px;height:22px;fill:#fff}
+@media(max-width:520px){.float .t{display:none}.float{padding:7px}}
+.demo-seal{position:fixed;left:max(18px,env(safe-area-inset-left,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:59;display:flex;align-items:center;gap:12px;background:rgba(31,27,25,.92);color:var(--cream);padding:8px 16px 8px 8px;border-radius:999px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;transform:translateY(120px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.demo-seal.show{transform:none;opacity:1}
+.demo-seal svg{width:36px;height:36px;flex:none}
+.demo-seal b{display:block;font-family:var(--serif);font-weight:500;font-size:1.02rem;letter-spacing:.03em;text-transform:none;color:var(--gold-2)}
+.demo-seal .x{background:none;border:0;color:var(--cream);opacity:.6;font-size:1.1rem;cursor:pointer;padding:2px 4px}
+.demo-seal .lbl-m{display:none}
+@media(max-width:600px){.demo-seal{font-size:.54rem;gap:8px;padding:6px 8px 6px 6px}.demo-seal .lbl,.demo-seal .dn{display:none}.demo-seal .lbl-m{display:block}.demo-seal b{font-size:.92rem}.demo-seal svg{width:30px;height:30px}}
+[hidden]{display:none!important}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.hero p,.hero .btns,.hero .who,.hero-img .ph,.hero-img .card{opacity:1}.msg,.fw{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mono" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28.5" fill="none" stroke="#b8955a" stroke-width="1"/><circle cx="30" cy="30" r="24" fill="none" stroke="#b8955a" stroke-width=".5" opacity=".7"/><text x="30" y="37" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="21" fill="#b8955a">LM</text></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand"><svg class="mono"><use href="#mono"/></svg><span><b>Lívia Monteiro</b><small>Farmacêutica esteta</small></span></a>
+    <nav class="menu"><a href="#experiencia">A experiência</a><a href="#tratamentos">Tratamentos</a><a href="#sala">O espaço</a><a href="#sobre">Sobre mim</a><a href="#duvidas">Dúvidas</a></nav>
+    <button class="btn btn-dark" data-open><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg><span class="t">Agendar avaliação</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Estética facial · Porto Alegre</span>
+      <h1 class="serif"><span class="ln"><span>Cuidado de perto.</span></span><span class="ln"><span><em>Resultado natural.</em></span></span></h1>
+      <p>Um atendimento individual, do primeiro contato ao pós-procedimento. Aqui você é recebida por mim, numa sala reservada só para você, com todo o tempo e o conforto que o seu cuidado merece.</p>
+      <div class="btns">
+        <button class="btn btn-dark" data-open><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Agendar minha avaliação</button>
+        <a class="btn" href="#experiencia">Conhecer a experiência</a>
+      </div>
+      <div class="who"><svg class="mono"><use href="#mono"/></svg><div><b>Lívia Monteiro</b><small>Farmacêutica esteta · CRF-RS 00000</small></div></div>
+    </div>
+    <div class="hero-img">
+      <div class="ph"><img data-src="hero" data-w="1100" alt="Mulher com pele bem cuidada e aparência natural"></div>
+      <div class="card"><i>🤍</i><span><b>Só você e eu</b>Sem sala de espera cheia e sem pressa.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="promise" aria-hidden="true"><div class="ptrack">
+  <span>Atendimento individual</span><span>Anestesia para o seu conforto</span><span>Maca com massagem</span><span>Ambiente climatizado</span><span>Acompanhamento no pós</span>
+  <span>Atendimento individual</span><span>Anestesia para o seu conforto</span><span>Maca com massagem</span><span>Ambiente climatizado</span><span>Acompanhamento no pós</span>
+</div></div>
+
+<section class="sec" id="experiencia">
+  <div class="wrap">
+    <div class="exp-head">
+      <div><span class="eyebrow rv">A experiência</span><h2 class="serif h2 rv d1">Detalhes que fazem <em>você relaxar.</em></h2></div>
+      <p class="lede rv d2">Procedimento estético não precisa ser tenso. Cada etapa foi pensada para que você se sinta acolhida, segura e confortável.</p>
+    </div>
+    <div class="exp">
+      <div class="ex feat rv"><div class="ic">🤲</div><h3>Atendimento individual</h3><p>Quem responde a sua mensagem, avalia a sua pele e realiza o procedimento é a mesma pessoa: eu.</p></div>
+      <div class="ex rv d1"><div class="ic">💆‍♀️</div><h3>Maca com massagem</h3><p>A maca vibra suavemente durante o procedimento, ajudando você a relaxar do começo ao fim.</p></div>
+      <div class="ex rv d2"><div class="ic">💉</div><h3>Anestesia para o seu conforto</h3><p>Uso anestésico também na toxina botulínica, para que a aplicação seja o mais tranquila possível.</p></div>
+      <div class="ex rv"><div class="ic">❄️</div><h3>Ambiente climatizado</h3><p>Sala reservada, silenciosa e com temperatura agradável o ano inteiro.</p></div>
+      <div class="ex rv d1"><div class="ic">⏱️</div><h3>Horário respeitado</h3><p>Agenda com hora marcada e tempo reservado só para você, sem atrasos.</p></div>
+      <div class="ex rv d2"><div class="ic">💬</div><h3>Acompanhamento no pós</h3><p>Depois do procedimento, você fala diretamente comigo para tirar dúvidas e acompanhar o resultado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="tratamentos">
+  <div class="wrap">
+    <div class="exp-head">
+      <div><span class="eyebrow rv">Tratamentos</span><h2 class="serif h2 rv d1">Pele bem cuidada, <em>beleza preservada.</em></h2></div>
+      <p class="lede rv d2">Toque no tratamento de interesse para falar comigo. A indicação é sempre definida na avaliação, de acordo com a sua pele.</p>
+    </div>
+    <div class="treats" id="treats"></div>
+  </div>
+</section>
+
+<section class="sec" id="sala">
+  <div class="wrap room">
+    <div class="ph rv"><img data-src="sala" data-w="900" alt="Sala de atendimento acolhedora" loading="lazy"></div>
+    <div>
+      <span class="eyebrow rv">O espaço</span>
+      <h2 class="serif h2 rv d1">Uma sala pensada <em>só para você.</em></h2>
+      <p class="lede rv d2">Sem recepção movimentada e sem sala de espera cheia. Um espaço reservado, bonito e acolhedor, onde o atendimento acontece com calma e privacidade.</p>
+      <ul class="rv d2">
+        <li><b>I</b>Atendimento com hora marcada e privacidade total</li>
+        <li><b>II</b>Maca com massagem vibratória</li>
+        <li><b>III</b>Ambiente climatizado e silencioso</li>
+        <li><b>IV</b>Materiais descartáveis e protocolos de biossegurança</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="sobre">
+  <div class="wrap pro">
+    <div class="ph rv"><img data-src="pro" data-w="900" alt="Lívia Monteiro, farmacêutica esteta" loading="lazy"></div>
+    <div>
+      <span class="eyebrow rv">Sobre mim</span>
+      <h2 class="serif h2 rv d1">Técnica, delicadeza e <em>escuta de verdade.</em></h2>
+      <p class="rv d2">Sou farmacêutica esteta e dedico o meu trabalho a tratamentos faciais com resultado natural. Acredito que cada pele tem uma história, e que o melhor procedimento é aquele que respeita quem você é.</p>
+      <p class="rv d2">Escolhi atender de forma individual porque é assim que consigo oferecer o cuidado que eu gostaria de receber: sem pressa, com explicações claras e acompanhamento próximo.</p>
+      <div class="sig rv d2">Lívia Monteiro</div>
+      <div class="reg rv d2">Farmacêutica esteta · CRF-RS 00000</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="exp-head" style="margin-bottom:44px"><div><span class="eyebrow rv">Pacientes</span><h2 class="serif h2 rv d1">O que elas <em>contam.</em></h2></div></div>
+    <div class="quotes">
+      <div class="q rv"><span class="st">★★★★★</span><blockquote>“Nunca tinha feito botox sem sentir dor. A anestesia e a maca fizeram toda a diferença.”</blockquote><cite>Patrícia R. · Toxina botulínica</cite></div>
+      <div class="q rv d1"><span class="st">★★★★★</span><blockquote>“Um cuidado que eu não tive em outras clínicas. Ela explica tudo e responde no pós.”</blockquote><cite>Cristina M. · Bioestimulador</cite></div>
+      <div class="q rv d2"><span class="st">★★★★★</span><blockquote>“O melasma melhorou muito, e eu me senti acompanhada em cada etapa.”</blockquote><cite>Andréa S. · Melasma</cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="direct rv">
+      <svg class="mono" style="width:90px;height:90px"><use href="#mono"/></svg>
+      <div>
+        <span class="eyebrow" style="color:var(--gold-2)">Contato direto</span>
+        <h2 class="serif" style="font-size:clamp(2rem,4vw,3.2rem);margin-top:12px">Aqui você fala <em>direto comigo.</em></h2>
+        <p>Sem recepção e sem intermediários. Responda a três perguntas rápidas e a sua mensagem chega pronta no meu WhatsApp.</p>
+      </div>
+      <button class="btn" data-open>Falar com a Lívia</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="duvidas" style="padding-top:0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px"><span class="eyebrow rv">Dúvidas</span><h2 class="serif h2 rv d1">Perguntas <em>frequentes.</em></h2></div>
+    <div class="faq">
+      <details class="rv"><summary>A aplicação de botox dói?<span class="pl">+</span></summary><p>Utilizo anestésico também na toxina botulínica, e a maca com massagem ajuda você a relaxar. A maioria das pacientes sente apenas um leve desconforto.</p></details>
+      <details class="rv"><summary>Vou ficar com aparência artificial?<span class="pl">+</span></summary><p>O objetivo é sempre um resultado natural. As doses e técnicas são definidas na avaliação, de acordo com o seu rosto e as suas expectativas.</p></details>
+      <details class="rv"><summary>Quanto tempo duram os resultados?<span class="pl">+</span></summary><p>Depende do tratamento e de cada organismo. Em média, a toxina botulínica dura de 4 a 6 meses. Na avaliação, explico tudo sobre o seu caso.</p></details>
+      <details class="rv"><summary>Quais são as formas de pagamento?<span class="pl">+</span></summary><p>Os valores são informados na avaliação, com condições facilitadas e parcelamento no cartão.</p></details>
+      <details class="rv"><summary>Como funciona o pós-procedimento?<span class="pl">+</span></summary><p>Você recebe todas as orientações por escrito e pode falar comigo diretamente pelo WhatsApp sempre que tiver dúvidas.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow"><a href="#inicio" class="brand"><svg class="mono"><use href="#mono"/></svg><span><b>Lívia Monteiro</b><small>Estética facial</small></span></a><span>Porto Alegre · RS · Atendimento com hora marcada</span></div>
+    <p class="legal">Conteúdo informativo. Os procedimentos são realizados após avaliação individual, e os resultados variam de pessoa para pessoa. Os dados enviados pelo formulário são usados apenas para retornar o seu contato (Lei nº 13.709/2018). Nome, imagens e textos ilustrativos.</p>
+    <div class="signature">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#b8955a" stroke-width="1"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#1f1b19">H2D</text></svg>
+      <div><small>Protótipo de demonstração · Site desenvolvido por</small><b>H2D Studio · <em>Denise Ramos</em></b></div>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-head"><svg class="mono"><use href="#mono"/></svg><div><b>Lívia Monteiro</b><small>Respondo pessoalmente</small></div><button class="d-close" id="dClose" aria-label="Fechar">×</button></div>
+  <form class="d-body" id="chat" novalidate>
+    <div class="msg" data-step>Oi! Aqui é a <em>Lívia</em>. Que bom que você veio até aqui. 🤍</div>
+    <div class="msg" data-step id="msgT">Como posso te chamar?</div>
+    <div class="fw" data-step><label for="cNome">Meu nome é</label><input class="field" id="cNome" placeholder="Seu nome" autocomplete="given-name"></div>
+    <div class="msg" data-step>Qual tratamento você gostaria de conhecer?</div>
+    <div class="fw" data-step><span class="lbl">Tenho interesse em</span><div class="chips" id="cTrat"></div></div>
+    <div class="msg" data-step>Já fez algum procedimento estético antes?</div>
+    <div class="fw" data-step><div class="chips"><label class="chip"><input type="radio" name="exp" value="Será a minha primeira vez"><span>Será a primeira vez</span></label><label class="chip"><input type="radio" name="exp" value="Já fiz procedimentos antes"><span>Já fiz antes</span></label></div></div>
+    <div class="msg" data-step>E qual o melhor período para agendarmos?</div>
+    <div class="fw" data-step><div class="chips"><label class="chip"><input type="radio" name="per" value="pela manhã"><span>Manhã</span></label><label class="chip"><input type="radio" name="per" value="à tarde"><span>Tarde</span></label><label class="chip"><input type="radio" name="per" value="no fim do dia"><span>Fim do dia</span></label></div></div>
+  </form>
+  <div class="d-foot"><button class="send" type="submit" form="chat"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Enviar para a Lívia</button><p class="d-note">Você será direcionada ao meu WhatsApp com a mensagem pronta.</p><p class="d-err" id="dErr">Por favor, informe o seu nome e escolha um tratamento.</p></div>
+</aside>
+
+<button class="float" id="float" data-open><span class="t">Fale com a Lívia</span><span class="wa"><svg viewBox="0 0 24 24"><use href="#wa"/></svg></span></button>
+<div class="demo-seal" id="seal" role="note"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#d6bb88" stroke-width="1"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#f7f2ec">H2D</text></svg><span><span class="lbl">Protótipo de demonstração · por</span><span class="lbl-m">Demonstração</span><b>H2D Studio<span class="dn"> · Denise Ramos</span></b></span><button class="x" type="button" aria-label="Fechar selo" onclick="this.parentNode.hidden=true">×</button></div>
+
+<script>
+var CONFIG = { whatsapp:'5551993759314', nome:'Lívia' };
+var U = function(id){ return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&q=80'; };
+var FOTOS = {
+  hero:['1508214751196-bcfd4ca60f91','1592621385612-4d7129426394'],
+  pro:['1559839734-2b71ea197ec2','1612349317150-e413f6a5b16d'],
+  sala:['1570172619644-dfd03ed5d881','1616394584738-fc6e612e71b9'],
+  limpeza:['1570172619644-dfd03ed5d881','1616394584738-fc6e612e71b9'],
+  botox:['1592621385612-4d7129426394','1508214751196-bcfd4ca60f91'],
+  preenchimento:['1611432579699-484f7990b127','1566616213894-2d4e1baee5d8'],
+  melasma:['1512290923902-8a9f81dc236c','1598440947619-2c35fc9aa908'],
+  colageno:['1566616213894-2d4e1baee5d8','1611432579699-484f7990b127']
+};
+var TRAT = [
+  { id:'botox', nome:'Toxina botulínica', aka:'o botox, com anestesia', txt:'Suaviza as linhas de expressão com naturalidade, e com anestesia para o seu conforto.', wide:false },
+  { id:'colageno', nome:'Bioestimulador de colágeno', aka:'firmeza de dentro para fora', txt:'Estimula o colágeno natural, melhorando a flacidez e a firmeza da pele de forma progressiva.', wide:false },
+  { id:'preenchimento', nome:'Preenchimento', aka:'lábios e “bigode chinês”', txt:'Contorno e hidratação dos lábios e suavização dos sulcos ao redor da boca, com ácido hialurônico.', wide:false },
+  { id:'melasma', nome:'Tratamento de melasma', aka:'controle e uniformização', txt:'Protocolos para clarear manchas e manter o melasma sob controle, com acompanhamento próximo.', wide:true },
+  { id:'limpeza', nome:'Limpeza de pele', aka:'a base de todo cuidado', txt:'Limpeza profunda e personalizada, que prepara a pele e potencializa os outros tratamentos.', wide:false }
+];
+(function(){
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
+  document.getElementById('treats').innerHTML = TRAT.map(function(t,i){
+    return '<button class="tcard rv' + (i%3?' d'+(i%3):'') + (t.wide?' wide':'') + '" type="button" data-open="' + t.id + '"><div class="ph"><img data-src="' + t.id + '" data-w="900" alt="' + esc(t.nome) + '" loading="lazy"></div><div class="body"><h3>' + esc(t.nome) + '</h3><div class="aka">' + esc(t.aka) + '</div><p>' + esc(t.txt) + '</p><span class="cta">Quero saber mais<i>→</i></span></div></button>';
+  }).join('');
+  document.querySelectorAll('img[data-src]').forEach(function(img){
+    var list = (FOTOS[img.getAttribute('data-src')] || []).slice(), w = img.getAttribute('data-w') || 900;
+    function next(){ if(!list.length){ img.style.opacity = 0; return; } img.src = U(list.shift()) + '&w=' + w; }
+    img.addEventListener('error', next); next();
+  });
+  var drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim'), chat=document.getElementById('chat'), trat=document.getElementById('cTrat'), nome=document.getElementById('cNome');
+  trat.innerHTML = TRAT.map(function(t){ var v = t.nome + (t.id==='botox'?' (botox)':''); return '<label class="chip"><input type="checkbox" value="' + esc(v) + '" data-id="' + t.id + '"><span>' + esc(t.nome) + '</span></label>'; }).join('') + '<label class="chip"><input type="checkbox" value="Avaliação geral" data-id="avaliacao"><span>Quero uma avaliação</span></label>';
+  var steps=[].slice.call(chat.querySelectorAll('[data-step]')), timers=[];
+  function open(id){
+    timers.forEach(clearTimeout); timers=[];
+    if (id) trat.querySelectorAll('input').forEach(function(x){ if (x.getAttribute('data-id')===id) x.checked = true; });
+    var ch=[].filter.call(trat.querySelectorAll('input'),function(x){return x.checked}).map(function(x){return x.value});
+    document.getElementById('msgT').innerHTML = ch.length ? 'Vi que você quer saber sobre <em>' + esc(ch.join(', ')) + '</em>. Como posso te chamar?' : 'Como posso te chamar?';
+    drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden','false'); document.body.classList.add('lock');
+    steps.forEach(function(s){ s.classList.remove('show'); });
+    var old=chat.querySelector('.typing'); if(old) old.remove();
+    var ty=document.createElement('div'); ty.className='typing'; ty.innerHTML='<i></i><i></i><i></i>'; chat.insertBefore(ty, steps[0]);
+    timers.push(setTimeout(function(){ ty.remove(); }, 650));
+    steps.forEach(function(s,k){ timers.push(setTimeout(function(){ s.classList.add('show'); }, 650 + k*160)); });
+  }
+  function close(){ drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); document.body.classList.remove('lock'); }
+  document.addEventListener('click', function(e){ var b=e.target.closest('[data-open]'); if(b){ e.preventDefault(); open(b.getAttribute('data-open')); } });
+  document.getElementById('dClose').addEventListener('click', close); scrim.addEventListener('click', close);
+  addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  chat.addEventListener('submit', function(e){
+    e.preventDefault(); var n=nome.value.trim(), ts=[].filter.call(trat.querySelectorAll('input'),function(x){return x.checked}).map(function(x){return x.value}), err=document.getElementById('dErr');
+    if(!n || !ts.length){ err.style.display='block'; return; } err.style.display='none';
+    var ex=chat.querySelector('input[name="exp"]:checked'), pe=chat.querySelector('input[name="per"]:checked');
+    var L=['Oi, ' + CONFIG.nome + '! Meu nome é ' + n + '.','','Gostaria de saber mais sobre: ' + ts.join(', ') + '.'];
+    if(ex) L.push(ex.value + '.'); if(pe) L.push('Prefiro agendar ' + pe.value + '.');
+    L.push('','(Mensagem enviada pelo site)');
+    window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(L.join('\n')), '_blank', 'noopener');
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  var nav=document.getElementById('nav'), fl=document.getElementById('float'), seal=document.getElementById('seal'), tick=false;
+  function frame(){ var y=scrollY; nav.classList.toggle('solid', y>40); var s=y>innerHeight*.7; fl.classList.toggle('show', s); seal.classList.toggle('show', s); tick=false; }
+  addEventListener('scroll', function(){ if(!tick){ requestAnimationFrame(frame); tick=true; } }, {passive:true}); frame();
+})();
+</script>
+</body>
+</html>
