@@ -42,7 +42,7 @@ button,input{font:inherit;color:inherit}
 .btn-gold:hover{background:var(--navy);border-color:var(--navy)}
 .btn-light{border-color:rgba(243,239,231,.5);color:var(--ivory)}
 .btn-light:hover{background:var(--ivory);color:var(--navy)}
-.btn:focus-visible,.opt input:focus-visible+span,.doc input:focus-visible+span{outline:3px solid var(--gold-2);outline-offset:3px}
+.btn:focus-visible,.opt input:focus-visible+span,.doc input:focus-visible+.row{outline:3px solid var(--gold-2);outline-offset:3px}
 
 /* NAV */
 .nav{position:fixed;inset:0 0 auto;z-index:50;color:var(--ivory);transition:background .5s,color .5s,box-shadow .5s}
@@ -168,11 +168,11 @@ section{position:relative}
 .docs h4{font-family:var(--brand);font-size:.82rem;letter-spacing:.18em;color:var(--gold);font-weight:500;margin-bottom:6px}
 .doc{position:relative;display:block;cursor:pointer}
 .doc input{position:absolute;opacity:0;pointer-events:none}
-.doc span{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;padding:14px 4px;border-bottom:1px solid var(--line);font-size:1.02rem;transition:color .3s}
-.doc span::before{content:"";width:24px;height:24px;border:2px solid #b9b2a6;border-radius:4px;margin-top:2px;transition:.3s}
-.doc span small{display:block;color:var(--muted);font-size:.9rem}
-.doc input:checked+span{color:var(--muted)}
-.doc input:checked+span::before{background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--gold)}
+.doc .row{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;padding:14px 4px;border-bottom:1px solid var(--line);font-size:1.02rem;transition:color .3s}
+.doc .row::before{content:"";width:24px;height:24px;border:2px solid #b9b2a6;border-radius:4px;margin-top:2px;transition:.3s}
+.doc .det{color:var(--muted)}
+.doc input:checked+.row{color:var(--muted)}
+.doc input:checked+.row::before{background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--gold)}
 @media(max-width:860px){.checklist{grid-template-columns:1fr}.meter{position:static}}
 
 /* ETAPAS */
@@ -505,7 +505,7 @@ footer .brand{color:var(--navy)}
 <div class="demo-seal" id="seal" role="note"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#cdb07c" stroke-width="1"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#f3efe7">H2D</text></svg><span><span class="lbl">Protótipo de demonstração · por</span><span class="lbl-m">Demonstração</span><b>H2D Studio<span class="dn"> · Denise Ramos</span></b></span><button class="x" type="button" aria-label="Fechar selo" onclick="this.parentNode.hidden=true">×</button></div>
 
 <script>
-var CONFIG = { whatsapp:'5551993759314' /* TESTE (Denise). Final: 5551996673155 */, foneExibicao:'(51) 99667-3155' };
+var CONFIG = { whatsapp:'5551996673155', foneExibicao:'(51) 99667-3155' };
 
 var DOCUMENTOS = [
   { grupo:'Da pessoa falecida', itens:[
@@ -601,7 +601,7 @@ var DOCUMENTOS = [
   docs.innerHTML = DOCUMENTOS.map(function(g){
     return '<div class="rv"><h4>' + esc(g.grupo.toUpperCase()) + '</h4>' + g.itens.map(function(it){
       total++;
-      return '<label class="doc"><input type="checkbox" value="' + esc(it[0]) + '"><span><span>' + esc(it[0]) + (it[1] ? '<small>' + esc(it[1]) + '</small>' : '') + '</span></span></label>';
+      return '<label class="doc"><input type="checkbox" value="' + esc(it[0]) + '"><span class="row"><span class="txt">' + esc(it[0]) + (it[1] ? ' <span class="det">(' + esc(it[1]) + ')</span>' : '') + '</span></span></label>';
     }).join('') + '</div>';
   }).join('');
   document.getElementById('docTotal').textContent = total;
