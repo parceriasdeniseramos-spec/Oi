@@ -90,7 +90,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:150px 0 80px}
 .hero-media{position:absolute;inset:0}
 .hero-media .ph{position:absolute;inset:0;background:radial-gradient(70% 80% at 72% 35%,#4a3628,#241b16 55%,#13100f)}
-.hero-media img{transform:scale(1.18);transition:transform 3.2s var(--ease)}
+.hero-media img{transform:scale(1.18);transition:transform 3.2s var(--ease);object-position:68% 22%}
+@media(max-width:860px){.hero-media img{object-position:60% 15%}}
 .loaded .hero-media img{transform:scale(1.04)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,16,15,.92) 0%,rgba(19,16,15,.55) 45%,rgba(19,16,15,.15) 100%),linear-gradient(0deg,rgba(19,16,15,.95),transparent 45%)}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
@@ -144,7 +145,8 @@ section{position:relative}
 .track{display:flex;gap:28px;padding-left:max(20px,calc((100vw - 1260px)/2));will-change:transform}
 .tcard{flex:none;width:min(420px,78vw);background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .5s,transform .6s var(--ease);text-align:left;color:inherit}
 .tcard:hover{border-color:rgba(201,168,124,.5);transform:translateY(-8px)}
-.tcard .ph{aspect-ratio:16/9}
+.tcard .ph{aspect-ratio:16/10}
+.tcard .ph img{object-position:50% 25%}
 .tcard .ph img{transition:transform 1.8s var(--ease)}
 .tcard:hover .ph img{transform:scale(1.07)}
 .tcard .num{position:absolute;left:20px;top:16px;font-family:var(--display);font-style:italic;font-size:1.5rem;color:var(--champagne-2);text-shadow:0 2px 12px rgba(0,0,0,.5)}
@@ -199,7 +201,7 @@ section{position:relative}
 .doctor{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,7vw,120px);align-items:center}
 .doc-photo{position:relative}
 .doc-photo .ph{aspect-ratio:4/5;border-radius:28px}
-.doc-photo .ph img{height:116%}
+.doc-photo .ph img{height:116%;object-position:50% 15%}
 .doc-photo .sig{position:absolute;left:-28px;bottom:48px;background:rgba(19,16,15,.82);backdrop-filter:blur(12px);border:1px solid var(--line);padding:22px 28px;border-radius:20px}
 .doc-photo .sig b{display:block;font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.1}
 .doc-photo .sig small{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne)}
@@ -568,6 +570,13 @@ var FOTOS = {
   space4: ['1598440947619-2c35fc9aa908','1570172619644-dfd03ed5d881']
 };
 
+/* Enquadramento individual (horizontal% vertical%). 0% = topo/esquerda, 100% = base/direita.
+   Ex.: '50% 10%' sobe a foto para mostrar mais o alto da cabeça. */
+var FOCO = {
+  hero: '68% 22%', doc: '50% 15%',
+  botox: '50% 25%', colageno: '50% 25%', harmonizacao: '50% 25%'
+};
+
 /* Tratamentos. grupo: Rejuvenescimento | Contorno e volume | Qualidade da pele */
 var TRATAMENTOS = [
   { id:'botox', grupo:'Rejuvenescimento', nome:'Toxina botulínica', aka:'o clássico Botox',
@@ -625,6 +634,8 @@ var TRATAMENTOS = [
   /* Fotos com reservas */
   document.querySelectorAll('img[data-src]').forEach(function(img){
     var list = (FOTOS[img.getAttribute('data-src')] || []).slice(), w = img.getAttribute('data-w') || 900;
+    var key = img.getAttribute('data-src');
+    if (FOCO[key] && !(key === 'hero' && innerWidth <= 860)) img.style.objectPosition = FOCO[key];
     function next(){ if(!list.length){ img.style.opacity = 0; return; } img.src = U(list.shift()) + '&w=' + w; }
     img.addEventListener('error', next); next();
   });
