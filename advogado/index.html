@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roberto Thomaz Inventários · Advocacia · OAB/RS 27.222</title>
+<meta name="description" content="Roberto Thomaz, advogado com 36 anos de experiência, dedicado a inventários, partilhas, testamentos e planejamento sucessório no Rio Grande do Sul. OAB/RS 27.222.">
+<meta name="theme-color" content="#0e1b2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: escritório tradicional. Marinho institucional, papel marfim, ouro discreto como selo */
+:root{
+  --navy:#0e1b2e; --navy-2:#16263d; --navy-3:#20334f; --paper:#fbfaf7; --ivory:#f3efe7; --line-soft:#e6e0d5;
+  --gold:#a8844f; --gold-2:#cdb07c; --ink:#18212f; --muted:#56606d; --line:rgba(24,33,47,.14); --line-l:rgba(243,239,231,.16);
+  --brand:'Cinzel', 'Trajan Pro', Georgia, serif;
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --ease:cubic-bezier(.25,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip;font-size:18px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:20px;line-height:1.7;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.serif{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
+.serif em{font-style:italic;color:var(--gold)}
+.kicker{display:inline-flex;align-items:center;gap:14px;font-family:var(--brand);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.kicker::before{content:"";width:34px;height:1px;background:currentColor}
+.h2{font-size:clamp(2.3rem,4.6vw,3.7rem);margin:16px 0 20px}
+.lede{color:var(--muted);max-width:600px;font-size:1.05rem}
+.crown{width:34px;height:20px;color:var(--gold)}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 30px;border-radius:4px;font-weight:600;font-size:.92rem;letter-spacing:.06em;border:1px solid var(--navy);background:transparent;cursor:pointer;transition:background .4s var(--ease),color .4s,border-color .4s}
+.btn:hover{background:var(--navy);color:var(--paper)}
+.btn svg{width:20px;height:20px}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--navy);border-color:var(--navy)}
+.btn-light{border-color:rgba(243,239,231,.5);color:var(--ivory)}
+.btn-light:hover{background:var(--ivory);color:var(--navy)}
+.btn:focus-visible,.opt input:focus-visible+span,.doc input:focus-visible+span{outline:3px solid var(--gold-2);outline-offset:3px}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;color:var(--ivory);transition:background .5s,color .5s,box-shadow .5s}
+.nav.solid{background:rgba(251,250,247,.96);backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:86px}
+.brand{display:flex;align-items:center;gap:14px;line-height:1}
+.brand .crown{width:30px;height:18px}
+.brand b{display:block;font-family:var(--brand);font-weight:500;font-size:1.15rem;letter-spacing:.2em;white-space:nowrap}
+.brand small{display:block;font-family:var(--brand);font-size:.6rem;letter-spacing:.3em;opacity:.75;margin-top:5px;white-space:nowrap}
+.menu{display:flex;gap:30px;font-size:.88rem;font-weight:600;letter-spacing:.04em;white-space:nowrap}
+.menu a{opacity:.85}
+.menu a:hover{opacity:1;color:var(--gold-2)}
+.nav.solid .menu a:hover{color:var(--gold)}
+.nav .btn{padding:12px 20px;font-size:.84rem;white-space:nowrap}
+.nav:not(.solid) .btn{border-color:rgba(243,239,231,.5);color:var(--ivory)}
+.nav.solid .btn{background:var(--navy);color:var(--paper)}
+@media(max-width:1060px){.menu{display:none}}
+@media(max-width:520px){.nav .btn .t{display:none}.nav .btn{padding:12px}.brand small{display:none}}
+
+/* HERO */
+.hero{background:radial-gradient(90% 120% at 85% 10%,var(--navy-3),var(--navy) 60%);color:var(--ivory);padding:150px 0 100px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 119px,rgba(243,239,231,.035) 119px 120px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2.9rem,6vw,5.2rem);margin:22px 0 26px}
+.hero h1 em{color:var(--gold-2)}
+.hero p.lede{color:#c9cfd8;font-size:1.15rem}
+.hero .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.portrait{justify-self:center;text-align:center}
+.portrait .frame{position:relative;width:min(340px,70vw);aspect-ratio:1;margin-inline:auto}
+.portrait .frame::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(205,176,124,.5)}
+.portrait .frame::after{content:"";position:absolute;inset:-28px;border-radius:50%;border:1px solid rgba(205,176,124,.18)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;border-radius:50%;border:4px solid var(--navy-2);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.portrait .name{margin-top:42px;font-family:var(--brand);letter-spacing:.18em;font-size:1.05rem}
+.portrait .oab{font-size:.85rem;letter-spacing:.14em;color:var(--gold-2);margin-top:6px}
+.badge36{position:absolute;right:-6px;bottom:6px;width:112px;height:112px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;line-height:1.05;box-shadow:0 16px 30px -12px rgba(0,0,0,.6)}
+.badge36 b{display:block;font-family:var(--serif);font-size:2.6rem;font-weight:600}
+.badge36 span{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.fade{opacity:0;transform:translateY(18px);animation:in 1.2s var(--ease) forwards}
+@keyframes in{to{opacity:1;transform:none}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.portrait{order:-1}.portrait .frame{width:210px}.badge36{width:86px;height:86px;right:-14px}.badge36 b{font-size:2rem}.portrait .name{margin-top:30px}.hero{padding-top:120px}}
+
+/* faixa */
+.strip{background:var(--navy-2);color:var(--ivory);border-top:1px solid var(--line-l)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div.i{padding:30px 20px;text-align:center;border-right:1px solid var(--line-l)}
+.strip div.i:last-child{border-right:0}
+.strip b{display:block;font-family:var(--serif);font-size:2.3rem;font-weight:500;color:var(--gold-2);line-height:1.1}
+.strip span{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+@media(max-width:760px){.strip .wrap{grid-template-columns:1fr 1fr}.strip div.i:nth-child(2){border-right:0}.strip div.i:nth-child(-n+2){border-bottom:1px solid var(--line-l)}}
+
+section{position:relative}
+.sec{padding:clamp(90px,11vw,140px) 0}
+.alt{background:var(--ivory)}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:56px}
+@media(max-width:860px){.head{grid-template-columns:1fr;gap:4px}}
+
+/* Acolhimento */
+.welcome{display:grid;grid-template-columns:auto 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.welcome .quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.3;color:var(--navy);max-width:760px}
+.welcome .quote::before{content:"“";display:block;font-size:4.5rem;line-height:.6;color:var(--gold);margin-bottom:10px;font-style:normal}
+.welcome p{color:var(--muted);margin-top:22px;max-width:700px}
+@media(max-width:760px){.welcome{grid-template-columns:1fr}}
+
+/* Áreas */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.area{padding:38px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper);transition:background .4s}
+.area:hover{background:#fff}
+.area .n{font-family:var(--brand);color:var(--gold);font-size:.9rem;letter-spacing:.12em}
+.area h3{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.15;margin:12px 0 10px;color:var(--navy)}
+.area p{color:var(--muted);font-size:1rem}
+@media(max-width:960px){.areas{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.areas{grid-template-columns:1fr}}
+
+/* GUIA INTERATIVO */
+.guide{background:var(--navy);color:var(--ivory)}
+.guide .serif em{color:var(--gold-2)}
+.guide .lede{color:#c2c9d3}
+.panel{background:var(--navy-2);border:1px solid var(--line-l);border-radius:10px;padding:clamp(26px,4vw,50px);max-width:900px;margin-inline:auto}
+.steps-bar{display:flex;gap:6px;margin-bottom:30px}
+.steps-bar i{flex:1;height:4px;border-radius:2px;background:rgba(243,239,231,.15);transition:background .4s}
+.steps-bar i.on{background:var(--gold-2)}
+.q{display:none}
+.q.show{display:block;animation:in .6s var(--ease)}
+.q .num{font-family:var(--brand);font-size:.8rem;letter-spacing:.2em;color:var(--gold-2)}
+.q h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;margin:10px 0 8px}
+.q .hint{color:#aeb7c3;font-size:1rem;margin-bottom:24px}
+.opts{display:grid;gap:12px}
+.opt{position:relative;display:block;cursor:pointer}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:flex;align-items:center;gap:16px;padding:18px 22px;border:1px solid var(--line-l);border-radius:8px;font-size:1.05rem;transition:.3s}
+.opt span::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:2px solid rgba(243,239,231,.4);transition:.3s}
+.opt:hover span{border-color:var(--gold-2)}
+.opt input:checked+span{border-color:var(--gold-2);background:rgba(205,176,124,.12)}
+.opt input:checked+span::before{border-color:var(--gold-2);background:radial-gradient(circle,var(--gold-2) 45%,transparent 50%)}
+.opt input[type=checkbox]+span::before{border-radius:4px}
+.opt input[type=checkbox]:checked+span::before{background:var(--gold-2);box-shadow:inset 0 0 0 3px var(--navy-2)}
+.nav-q{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}
+.nav-q .btn-light[disabled]{opacity:.35;pointer-events:none}
+.result{display:none}
+.result.show{display:block;animation:in .7s var(--ease)}
+.result .verdict{border-left:4px solid var(--gold-2);padding:6px 0 6px 22px;margin:14px 0 26px}
+.result .verdict small{font-family:var(--brand);font-size:.78rem;letter-spacing:.2em;color:var(--gold-2)}
+.result .verdict h3{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,3.6vw,2.8rem);line-height:1.15;margin-top:6px}
+.result ul{list-style:none;display:grid;gap:14px;margin-bottom:26px}
+.result li{display:grid;grid-template-columns:28px 1fr;gap:10px;color:#d4dae2;font-size:1.02rem}
+.result li::before{content:"§";font-family:var(--serif);color:var(--gold-2);font-size:1.3rem;line-height:1.3}
+.result .disc{font-size:.88rem;color:#97a2b0;border-top:1px solid var(--line-l);padding-top:18px;margin-top:8px}
+.send{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:22px}
+.send input{background:transparent;border:0;border-bottom:1px solid rgba(243,239,231,.4);padding:12px 2px;font-size:1.1rem;outline:none;color:var(--ivory)}
+.send input::placeholder{color:#8692a2}
+.send input:focus{border-color:var(--gold-2)}
+@media(max-width:600px){.send{grid-template-columns:1fr}}
+
+/* CHECKLIST */
+.checklist{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,80px);align-items:start}
+.meter{position:sticky;top:120px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:34px}
+.meter .big{font-family:var(--serif);font-size:4rem;line-height:1;color:var(--navy);font-weight:500}
+.meter .big small{font-size:1.6rem;color:var(--muted)}
+.meter .bar{height:8px;border-radius:4px;background:var(--line-soft);margin:18px 0 14px;overflow:hidden}
+.meter .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .6s var(--ease)}
+.meter p{color:var(--muted);font-size:1rem;margin-bottom:22px}
+.docs{display:grid;gap:22px}
+.docs h4{font-family:var(--brand);font-size:.82rem;letter-spacing:.18em;color:var(--gold);font-weight:500;margin-bottom:6px}
+.doc{position:relative;display:block;cursor:pointer}
+.doc input{position:absolute;opacity:0;pointer-events:none}
+.doc span{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;padding:14px 4px;border-bottom:1px solid var(--line);font-size:1.02rem;transition:color .3s}
+.doc span::before{content:"";width:24px;height:24px;border:2px solid #b9b2a6;border-radius:4px;margin-top:2px;transition:.3s}
+.doc span small{display:block;color:var(--muted);font-size:.9rem}
+.doc input:checked+span{color:var(--muted)}
+.doc input:checked+span::before{background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--gold)}
+@media(max-width:860px){.checklist{grid-template-columns:1fr}.meter{position:static}}
+
+/* ETAPAS */
+.timeline{position:relative;display:grid;gap:0;max-width:880px}
+.timeline::before{content:"";position:absolute;left:31px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.timeline .line-fill{position:absolute;left:31px;top:10px;width:1px;background:var(--gold);height:0}
+.stp{position:relative;display:grid;grid-template-columns:64px 1fr;gap:24px;padding:18px 0 30px}
+.stp .dot{width:64px;height:64px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-size:1.6rem;color:var(--navy);position:relative;z-index:1;transition:background .5s,color .5s,border-color .5s}
+.stp.lit .dot{background:var(--navy);color:var(--gold-2);border-color:var(--navy)}
+.stp h3{font-family:var(--serif);font-weight:600;font-size:1.65rem;color:var(--navy);line-height:1.2;margin-top:10px}
+.stp p{color:var(--muted);font-size:1.02rem;margin-top:6px}
+
+/* SOBRE */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,100px);align-items:center}
+.about .card{background:var(--navy);color:var(--ivory);border-radius:10px;padding:46px 36px;text-align:center}
+.about .card img{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:50% 30%;margin:0 auto 24px;border:3px solid var(--gold-2)}
+.about .card b{display:block;font-family:var(--brand);font-weight:500;letter-spacing:.16em;font-size:1.1rem}
+.about .card small{display:block;color:var(--gold-2);letter-spacing:.12em;margin-top:6px;font-size:.88rem}
+.about p{color:var(--muted);margin-bottom:18px}
+.facts{list-style:none;border-top:1px solid var(--line);margin:30px 0}
+.facts li{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.facts li span{font-family:var(--brand);font-size:.76rem;letter-spacing:.16em;color:var(--gold);padding-top:4px}
+@media(max-width:900px){.about{grid-template-columns:1fr}}
+@media(max-width:520px){.facts li{grid-template-columns:1fr;gap:2px}}
+
+/* FAQ */
+.faq{max-width:900px;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.2vw,1.6rem);color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pl{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--sans);transition:transform .4s,background .4s,color .4s}
+.faq details[open] .pl{transform:rotate(45deg);background:var(--navy);color:var(--paper)}
+.faq details p{color:var(--muted);padding:0 50px 24px 0}
+
+/* CONTATO */
+.contact{background:var(--navy);color:var(--ivory);border-radius:12px;padding:clamp(46px,7vw,90px);display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.contact .serif em{color:var(--gold-2)}
+.contact p{color:#c2c9d3;margin-top:12px}
+.contact .info{display:grid;gap:14px;font-size:1.05rem}
+.contact .info span{display:block;font-family:var(--brand);font-size:.72rem;letter-spacing:.18em;color:var(--gold-2)}
+@media(max-width:860px){.contact{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{padding:70px 0 40px;color:var(--muted);font-size:.95rem}
+.ftop{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid var(--line)}
+footer .brand{color:var(--navy)}
+.legal{font-size:.86rem;line-height:1.6;padding-top:24px;max-width:920px}
+.signature{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.signature svg{width:52px;height:52px}
+.signature small{display:block;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase}
+.signature b{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--navy)}
+.signature b em{color:var(--gold)}
+
+/* Flutuantes */
+.wa-float{border:1px solid rgba(205,176,124,.45);position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:12px;background:var(--navy);color:var(--ivory);padding:8px 8px 8px 20px;border-radius:999px;font-weight:600;font-size:.88rem;box-shadow:0 18px 36px -14px rgba(14,27,46,.6);transform:translateY(120px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.wa-float.show{transform:none;opacity:1}
+.wa-float .ic{width:44px;height:44px;border-radius:50%;background:#25d366;display:grid;place-items:center}
+.wa-float svg{width:24px;height:24px;fill:#fff}
+@media(max-width:520px){.wa-float .t{display:none}.wa-float{padding:7px}}
+.demo-seal{position:fixed;left:max(18px,env(safe-area-inset-left,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:59;display:flex;align-items:center;gap:12px;background:rgba(14,27,46,.94);color:var(--ivory);padding:8px 16px 8px 8px;border-radius:999px;border:1px solid rgba(205,176,124,.4);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;transform:translateY(120px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.demo-seal.show{transform:none;opacity:1}
+.demo-seal svg{width:38px;height:38px;flex:none}
+.demo-seal b{display:block;font-family:var(--serif);font-weight:500;font-size:1.05rem;letter-spacing:.03em;text-transform:none;color:var(--gold-2)}
+.demo-seal .x{background:none;border:0;color:var(--ivory);opacity:.6;font-size:1.1rem;cursor:pointer;padding:2px 4px}
+.demo-seal .lbl-m{display:none}
+@media(max-width:600px){.demo-seal{font-size:.54rem;gap:8px;padding:6px 8px 6px 6px}.demo-seal .lbl,.demo-seal .dn{display:none}.demo-seal .lbl-m{display:block}.demo-seal b{font-size:.95rem}.demo-seal svg{width:30px;height:30px}}
+[hidden]{display:none!important}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.fade{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="crown" viewBox="0 0 60 34"><path d="M4 30h52v3H4zM6 27L2 8l13 9L30 1l15 16 13-9-4 19z" fill="currentColor"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand"><svg class="crown"><use href="#crown"/></svg><span><b>ROBERTO THOMAZ</b><small>INVENTÁRIOS · OAB/RS 27.222</small></span></a>
+    <nav class="menu">
+      <a href="#atuacao">Atuação</a>
+      <a href="#guia">Guia do inventário</a>
+      <a href="#documentos">Documentos</a>
+      <a href="#etapas">Etapas</a>
+      <a href="#advogado">O advogado</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn" data-wa="Olá, Dr. Roberto! Vim pelo site e gostaria de uma orientação sobre inventário." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg><span class="t">Fale com o advogado</span></a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker fade" style="color:var(--gold-2)">Advocacia em inventários e sucessões</span>
+      <h1 class="serif fade" style="animation-delay:.12s">Inventários conduzidos com <em>experiência, serenidade</em> e segurança jurídica.</h1>
+      <p class="lede fade" style="animation-delay:.25s">Há 36 anos, Roberto Thomaz orienta famílias em um dos momentos mais delicados da vida: a organização e a partilha do patrimônio de quem partiu, com clareza em cada etapa e respeito ao tempo de cada família.</p>
+      <div class="btns fade" style="animation-delay:.38s">
+        <a class="btn btn-gold" data-wa="Olá, Dr. Roberto! Vim pelo site e gostaria de uma orientação sobre inventário." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Conversar pelo WhatsApp</a>
+        <a class="btn btn-light" href="#guia">Entender o meu caso</a>
+      </div>
+    </div>
+    <div class="portrait fade" style="animation-delay:.2s">
+      <div class="frame"><img src="roberto-thomaz.jpg" alt="Advogado Roberto Thomaz"><div class="badge36"><div><b>36</b><span>anos de<br>advocacia</span></div></div></div>
+      <div class="name">ROBERTO THOMAZ</div>
+      <div class="oab">ADVOGADO · OAB/RS 27.222</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="i"><b>36 anos</b><span>de advocacia</span></div>
+    <div class="i"><b>Judicial</b><span>e em cartório</span></div>
+    <div class="i"><b>Atendimento</b><span>pessoal e direto</span></div>
+    <div class="i"><b>RS</b><span>Rio Grande do Sul</span></div>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="wrap welcome">
+    <svg class="crown rv" style="width:60px;height:34px"><use href="#crown"/></svg>
+    <div>
+      <p class="quote rv d1">Perder alguém já é difícil o bastante. O inventário não precisa ser mais uma fonte de angústia para a família.</p>
+      <p class="rv d2">O papel do advogado é organizar o que parece confuso: reunir documentos, explicar cada decisão em linguagem simples, buscar o caminho mais adequado e conduzir o processo até que cada herdeiro receba, de forma segura, o que lhe cabe.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="atuacao">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Áreas de atuação</span><h2 class="serif h2 rv d1">Dedicação ao <em>Direito das Sucessões.</em></h2></div>
+      <p class="lede rv d2">Atuação concentrada em inventários e nas questões que surgem em torno deles, da abertura do processo ao registro dos bens em nome dos herdeiros.</p>
+    </div>
+    <div class="areas">
+      <div class="area rv"><span class="n">I</span><h3>Inventário judicial e extrajudicial</h3><p>Condução do inventário na Justiça ou diretamente em cartório, conforme o caso permitir.</p></div>
+      <div class="area rv d1"><span class="n">II</span><h3>Partilha de bens</h3><p>Divisão de imóveis, veículos, aplicações e demais bens entre cônjuge e herdeiros.</p></div>
+      <div class="area rv d2"><span class="n">III</span><h3>Testamentos</h3><p>Orientação para elaborar um testamento e para o cumprimento de testamentos já existentes.</p></div>
+      <div class="area rv"><span class="n">IV</span><h3>Herdeiros necessários</h3><p>Esclarecimento sobre quem tem direito à herança e sobre a parte garantida por lei.</p></div>
+      <div class="area rv d1"><span class="n">V</span><h3>Cessão de direitos hereditários</h3><p>Formalização da venda ou transferência da parte da herança de um herdeiro.</p></div>
+      <div class="area rv d2"><span class="n">VI</span><h3>Sobrepartilha</h3><p>Quando um bem é descoberto depois do inventário encerrado: como incluí-lo na partilha.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec guide" id="guia">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv" style="color:var(--gold-2)">Guia interativo</span><h2 class="serif h2 rv d1">Inventário em cartório ou <em>na Justiça?</em></h2></div>
+      <p class="lede rv d2">Responda a cinco perguntas simples e veja, de forma geral, qual caminho costuma se aplicar à sua situação. Leva menos de um minuto.</p>
+    </div>
+    <div class="panel rv">
+      <div class="steps-bar" id="sbar"><i></i><i></i><i></i><i></i><i></i></div>
+      <form id="quiz" novalidate>
+        <div class="q show" data-q="0">
+          <span class="num">PERGUNTA 1 DE 5</span>
+          <h3>Todos os herdeiros estão de acordo sobre a divisão dos bens?</h3>
+          <p class="hint">Considere o cônjuge (se houver) e todos os filhos ou demais herdeiros.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q0" value="Sim"><span>Sim, todos estão de acordo</span></label>
+            <label class="opt"><input type="radio" name="q0" value="Não"><span>Não, há divergência entre os herdeiros</span></label>
+            <label class="opt"><input type="radio" name="q0" value="Ainda não sei"><span>Ainda não sei</span></label>
+          </div>
+        </div>
+        <div class="q" data-q="1">
+          <span class="num">PERGUNTA 2 DE 5</span>
+          <h3>A pessoa que faleceu deixou testamento?</h3>
+          <p class="hint">Se não souber, é possível consultar a existência de testamento nos registros oficiais.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q1" value="Sim"><span>Sim, deixou testamento</span></label>
+            <label class="opt"><input type="radio" name="q1" value="Não"><span>Não deixou</span></label>
+            <label class="opt"><input type="radio" name="q1" value="Não sei"><span>Não sei</span></label>
+          </div>
+        </div>
+        <div class="q" data-q="2">
+          <span class="num">PERGUNTA 3 DE 5</span>
+          <h3>Há algum herdeiro menor de idade ou incapaz?</h3>
+          <p class="hint">Incapaz é a pessoa que, por lei, precisa de representação para atos da vida civil.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q2" value="Sim"><span>Sim</span></label>
+            <label class="opt"><input type="radio" name="q2" value="Não"><span>Não</span></label>
+          </div>
+        </div>
+        <div class="q" data-q="3">
+          <span class="num">PERGUNTA 4 DE 5</span>
+          <h3>Há quanto tempo ocorreu o falecimento?</h3>
+          <p class="hint">A lei prevê um prazo para a abertura do inventário.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q3" value="Menos de 2 meses"><span>Menos de 2 meses</span></label>
+            <label class="opt"><input type="radio" name="q3" value="Mais de 2 meses"><span>Mais de 2 meses</span></label>
+          </div>
+        </div>
+        <div class="q" data-q="4">
+          <span class="num">PERGUNTA 5 DE 5</span>
+          <h3>Quais bens fazem parte da herança?</h3>
+          <p class="hint">Marque todas as opções que se aplicam.</p>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="q4" value="Imóveis"><span>Imóveis (casa, apartamento, terreno)</span></label>
+            <label class="opt"><input type="checkbox" name="q4" value="Veículos"><span>Veículos</span></label>
+            <label class="opt"><input type="checkbox" name="q4" value="Contas e aplicações"><span>Contas bancárias e aplicações</span></label>
+            <label class="opt"><input type="checkbox" name="q4" value="Empresa ou cotas"><span>Empresa ou participação em sociedade</span></label>
+            <label class="opt"><input type="checkbox" name="q4" value="Ainda não sei"><span>Ainda não sei ao certo</span></label>
+          </div>
+        </div>
+        <div class="result" id="result"></div>
+        <div class="nav-q" id="navq">
+          <button type="button" class="btn btn-light" id="back" disabled>Voltar</button>
+          <button type="button" class="btn btn-gold" id="next">Continuar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="documentos">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Checklist</span><h2 class="serif h2 rv d1">Quais documentos <em>você já tem?</em></h2></div>
+      <p class="lede rv d2">Marque o que já está em mãos. Ao final, você pode enviar a lista do que falta e receber orientação sobre como obter cada documento.</p>
+    </div>
+    <div class="checklist">
+      <div class="meter rv">
+        <div class="big"><span id="docCount">0</span><small> / <span id="docTotal">0</span></small></div>
+        <div class="bar"><i id="docBar"></i></div>
+        <p id="docMsg">Comece marcando os documentos que você já possui.</p>
+        <a class="btn btn-gold" id="docSend" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Enviar minha lista</a>
+      </div>
+      <div class="docs" id="docs"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="etapas">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Passo a passo</span><h2 class="serif h2 rv d1">As etapas de um <em>inventário.</em></h2></div>
+      <p class="lede rv d2">Uma visão geral do caminho, do primeiro contato até os bens registrados em nome dos herdeiros. A duração varia conforme cada caso.</p>
+    </div>
+    <div class="timeline" id="timeline">
+      <i class="line-fill" id="lineFill"></i>
+      <div class="stp"><div class="dot">1</div><div><h3>Conversa inicial e análise do caso</h3><p>Entendimento da família, dos bens e da existência de acordo entre os herdeiros, para definir o melhor caminho.</p></div></div>
+      <div class="stp"><div class="dot">2</div><div><h3>Reunião de documentos e certidões</h3><p>Levantamento dos documentos pessoais, dos bens e das certidões necessárias.</p></div></div>
+      <div class="stp"><div class="dot">3</div><div><h3>Avaliação dos bens e cálculo do imposto</h3><p>Apuração dos valores e do ITCD, o imposto estadual sobre a transmissão por herança.</p></div></div>
+      <div class="stp"><div class="dot">4</div><div><h3>Pagamento do ITCD</h3><p>Recolhimento do imposto, condição para a formalização da partilha.</p></div></div>
+      <div class="stp"><div class="dot">5</div><div><h3>Escritura ou sentença de partilha</h3><p>Em cartório, a partilha é feita por escritura pública. Na Justiça, por decisão judicial e formal de partilha.</p></div></div>
+      <div class="stp"><div class="dot">6</div><div><h3>Registro e transferência dos bens</h3><p>Registro dos imóveis, transferência de veículos e liberação de valores em nome de cada herdeiro.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="advogado">
+  <div class="wrap about">
+    <div class="card rv">
+      <img src="roberto-thomaz.jpg" alt="Roberto Thomaz">
+      <svg class="crown" style="margin:0 auto 14px;display:block;width:40px;height:23px;color:var(--gold-2)"><use href="#crown"/></svg>
+      <b>ROBERTO THOMAZ</b>
+      <small>ADVOGADO · OAB/RS 27.222</small>
+    </div>
+    <div>
+      <span class="kicker rv">O advogado</span>
+      <h2 class="serif h2 rv d1">36 anos dedicados <em>à advocacia.</em></h2>
+      <p class="rv d2">Ao longo de mais de três décadas de profissão, Roberto Thomaz acompanhou de perto a realidade das famílias gaúchas diante da sucessão patrimonial. Hoje, dedica sua atuação aos inventários e às questões sucessórias.</p>
+      <p class="rv d2">O atendimento é pessoal e direto: cada família conversa com o próprio advogado, recebe explicações claras e acompanha o andamento do processo do início ao fim.</p>
+      <ul class="facts rv d3">
+        <li><span>EXPERIÊNCIA</span>36 anos de advocacia</li>
+        <li><span>DEDICAÇÃO</span>Inventários, partilhas e sucessões</li>
+        <li><span>ATENDIMENTO</span>Pessoal, com explicações em linguagem simples</li>
+        <li><span>REGISTRO</span>OAB/RS 27.222</li>
+      </ul>
+      <a class="btn btn-gold rv d3" data-wa="Olá, Dr. Roberto! Vim pelo site e gostaria de agendar uma conversa sobre inventário." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Agendar uma conversa</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="duvidas">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px"><span class="kicker rv">Dúvidas frequentes</span><h2 class="serif h2 rv d1">Perguntas comuns sobre <em>inventário.</em></h2></div>
+    <div class="faq">
+      <details class="rv"><summary>Qual é o prazo para abrir o inventário?<span class="pl">+</span></summary><p>A lei prevê a abertura em até 2 meses após o falecimento (Código de Processo Civil, art. 611). O atraso pode gerar multa sobre o imposto, conforme a legislação do estado. Mesmo depois do prazo, o inventário pode e deve ser aberto.</p></details>
+      <details class="rv"><summary>É obrigatório ter advogado no inventário em cartório?<span class="pl">+</span></summary><p>Sim. Tanto no inventário judicial quanto no feito em cartório, a participação de advogado é obrigatória. Um mesmo advogado pode representar todos os herdeiros quando há acordo entre eles.</p></details>
+      <details class="rv"><summary>Dá para fazer em cartório se houver herdeiro menor de idade?<span class="pl">+</span></summary><p>Desde 2024, normas do Conselho Nacional de Justiça passaram a admitir o inventário em cartório mesmo com herdeiros menores ou incapazes, desde que haja acordo entre todos e a manifestação favorável do Ministério Público. Cada caso deve ser analisado.</p></details>
+      <details class="rv"><summary>E se um bem for descoberto depois do inventário?<span class="pl">+</span></summary><p>É possível fazer a sobrepartilha: um procedimento para incluir e dividir bens que ficaram de fora do inventário original.</p></details>
+      <details class="rv"><summary>Quais custos envolvem um inventário?<span class="pl">+</span></summary><p>Em geral, o imposto estadual (ITCD), as despesas de cartório ou custas judiciais e os honorários advocatícios. Os valores dependem de cada caso e são apresentados após a análise da situação da família.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:clamp(70px,9vw,110px)">
+  <div class="wrap">
+    <div class="contact rv">
+      <div>
+        <span class="kicker" style="color:var(--gold-2)">Contato</span>
+        <h2 class="serif" style="font-size:clamp(2.1rem,4vw,3.2rem);margin-top:14px">Converse diretamente <em>com o advogado.</em></h2>
+        <p>Explique a sua situação pelo WhatsApp. O retorno é feito pessoalmente pelo Dr. Roberto Thomaz.</p>
+        <div style="margin-top:28px"><a class="btn btn-gold" data-wa="Olá, Dr. Roberto! Vim pelo site e gostaria de uma orientação sobre inventário." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Conversar pelo WhatsApp</a></div>
+      </div>
+      <div class="info">
+        <div><span>WHATSAPP</span><b id="foneTxt"></b></div>
+        <div><span>INSTAGRAM</span><a href="https://instagram.com/carlosrobertoferrao" target="_blank" rel="noopener">@carlosrobertoferrao</a></div>
+        <div><span>REGISTRO</span>OAB/RS 27.222</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <a href="#inicio" class="brand"><svg class="crown"><use href="#crown"/></svg><span><b>ROBERTO THOMAZ</b><small>INVENTÁRIOS · OAB/RS 27.222</small></span></a>
+      <span>Rio Grande do Sul</span>
+    </div>
+    <p class="legal">Conteúdo de caráter exclusivamente informativo, em conformidade com o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021 do Conselho Federal da OAB. As informações deste site e do guia interativo são gerais e não substituem a análise do caso concreto por um advogado.</p>
+    <div class="signature">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#a8844f" stroke-width="1"/><circle cx="24" cy="24" r="19" fill="none" stroke="#a8844f" stroke-width=".5" opacity=".6"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#0e1b2e">H2D</text></svg>
+      <div><small>Protótipo de demonstração · Site desenvolvido por</small><b>H2D Studio · <em>Denise Ramos</em></b></div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" data-wa="Olá, Dr. Roberto! Vim pelo site e gostaria de uma orientação sobre inventário." href="#"><span class="t">Fale com o advogado</span><span class="ic"><svg viewBox="0 0 24 24"><use href="#wa"/></svg></span></a>
+<div class="demo-seal" id="seal" role="note"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#cdb07c" stroke-width="1"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#f3efe7">H2D</text></svg><span><span class="lbl">Protótipo de demonstração · por</span><span class="lbl-m">Demonstração</span><b>H2D Studio<span class="dn"> · Denise Ramos</span></b></span><button class="x" type="button" aria-label="Fechar selo" onclick="this.parentNode.hidden=true">×</button></div>
+
+<script>
+var CONFIG = { whatsapp:'5551996673155', foneExibicao:'(51) 99667-3155' };
+
+var DOCUMENTOS = [
+  { grupo:'Da pessoa falecida', itens:[
+    ['Certidão de óbito',''],
+    ['RG e CPF',''],
+    ['Certidão de casamento ou de nascimento','atualizada'],
+    ['Certidão de inexistência de testamento','ou cópia do testamento, se houver'] ]},
+  { grupo:'Do cônjuge e dos herdeiros', itens:[
+    ['RG e CPF de cada um',''],
+    ['Certidões de casamento ou de nascimento',''],
+    ['Comprovante de endereço',''] ]},
+  { grupo:'Dos bens', itens:[
+    ['Matrícula atualizada dos imóveis','emitida pelo Registro de Imóveis'],
+    ['Carnê ou certidão do IPTU',''],
+    ['Documento dos veículos','CRLV'],
+    ['Extratos de contas e aplicações','na data do falecimento'],
+    ['Contrato social','se houver empresa ou cotas'] ]},
+  { grupo:'Certidões e declarações', itens:[
+    ['Certidões negativas de débitos','federal, estadual e municipal'],
+    ['Última declaração de Imposto de Renda','da pessoa falecida'] ]}
+];
+
+(function(){
+  function wa(m){ return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(m); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
+  document.querySelectorAll('[data-wa]').forEach(function(a){ a.href = wa(a.getAttribute('data-wa')); a.target = '_blank'; a.rel = 'noopener'; });
+  document.getElementById('foneTxt').textContent = CONFIG.foneExibicao;
+
+  /* ===== Guia interativo ===== */
+  var qs = [].slice.call(document.querySelectorAll('.q')), cur = 0;
+  var bars = [].slice.call(document.querySelectorAll('#sbar i'));
+  var back = document.getElementById('back'), next = document.getElementById('next'), result = document.getElementById('result'), navq = document.getElementById('navq');
+  function answered(i){ return !!document.querySelector('.q[data-q="' + i + '"] input:checked'); }
+  function show(i){
+    qs.forEach(function(q,k){ q.classList.toggle('show', k === i); });
+    bars.forEach(function(b,k){ b.classList.toggle('on', k <= i); });
+    back.disabled = i === 0;
+    next.textContent = i === qs.length - 1 ? 'Ver resultado' : 'Continuar';
+    next.disabled = false;
+  }
+  document.querySelectorAll('.q input[type=radio]').forEach(function(r){
+    r.addEventListener('change', function(){ setTimeout(function(){ if (cur < qs.length - 1){ cur++; show(cur); } }, 350); });
+  });
+  back.addEventListener('click', function(){ if (cur > 0){ cur--; show(cur); } });
+  next.addEventListener('click', function(){
+    if (!answered(cur)){ next.textContent = 'Escolha uma opção'; setTimeout(function(){ show(cur); }, 1200); return; }
+    if (cur < qs.length - 1){ cur++; show(cur); } else finish();
+  });
+  function val(n){ var x = document.querySelector('input[name="' + n + '"]:checked'); return x ? x.value : ''; }
+  function finish(){
+    var acordo = val('q0'), test = val('q1'), menor = val('q2'), prazo = val('q3');
+    var bens = [].map.call(document.querySelectorAll('input[name="q4"]:checked'), function(x){ return x.value; });
+    var titulo, sub, pts = [];
+    if (acordo === 'Não'){
+      titulo = 'Inventário judicial (na Justiça)';
+      pts.push('Quando não há acordo entre os herdeiros, a partilha precisa ser decidida pelo juiz. O processo tende a ser mais longo, e a condução técnica faz grande diferença.');
+    } else if (acordo === 'Sim'){
+      titulo = 'Inventário em cartório costuma ser possível';
+      pts.push('Com acordo entre todos os herdeiros, o inventário pode ser feito por escritura pública em cartório, em geral de forma mais rápida que na Justiça. A presença de advogado é obrigatória.');
+    } else {
+      titulo = 'O caminho depende do acordo entre os herdeiros';
+      pts.push('Se todos concordarem com a divisão, o inventário pode ser feito em cartório, de forma mais rápida. Havendo divergência, o caminho é o judicial. Uma conversa inicial ajuda a avaliar o cenário.');
+    }
+    if (test === 'Sim') pts.push('Havendo testamento, ele precisa antes ser apresentado e registrado na Justiça. Depois disso, existindo acordo, o inventário pode prosseguir em cartório.');
+    if (test === 'Não sei') pts.push('É possível verificar a existência de testamento por meio de certidão emitida pelos registros oficiais dos cartórios. Esse é um dos primeiros passos.');
+    if (menor === 'Sim') pts.push('Desde 2024, normas do Conselho Nacional de Justiça admitem o inventário em cartório mesmo com herdeiros menores ou incapazes, desde que haja acordo e manifestação favorável do Ministério Público.');
+    if (prazo === 'Mais de 2 meses') pts.push('O prazo legal para abrir o inventário é de 2 meses após o falecimento. O atraso pode gerar multa sobre o imposto (ITCD), mas o inventário ainda deve ser aberto o quanto antes.');
+    if (prazo === 'Menos de 2 meses') pts.push('Você ainda está dentro do prazo legal de 2 meses para a abertura do inventário. Organizar os documentos agora evita multa sobre o imposto.');
+    if (bens.indexOf('Empresa ou cotas') > -1) pts.push('A existência de empresa ou cotas exige atenção especial à avaliação e à continuidade do negócio.');
+    var resumo = ['Olá, Dr. Roberto! Fiz o guia de inventário no site.', '',
+      '• Herdeiros de acordo: ' + acordo, '• Testamento: ' + test, '• Herdeiro menor ou incapaz: ' + menor, '• Tempo do falecimento: ' + prazo,
+      '• Bens: ' + (bens.length ? bens.join(', ') : 'não informado'), '', 'Resultado do guia: ' + titulo + '.', '', 'Gostaria de uma orientação sobre o meu caso.'];
+    qs.forEach(function(q){ q.classList.remove('show'); });
+    bars.forEach(function(b){ b.classList.add('on'); });
+    navq.style.display = 'none';
+    result.innerHTML = '<span class="num" style="font-family:var(--brand);font-size:.8rem;letter-spacing:.2em;color:var(--gold-2)">RESULTADO DO GUIA</span>' +
+      '<div class="verdict"><small>CAMINHO MAIS PROVÁVEL</small><h3>' + esc(titulo) + '</h3></div>' +
+      '<ul>' + pts.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
+      '<p style="color:#d4dae2">Quer que o Dr. Roberto analise o seu caso? Informe seu nome e envie este resumo pelo WhatsApp.</p>' +
+      '<div class="send"><input id="qNome" placeholder="Seu nome" autocomplete="name"><a class="btn btn-gold" id="qSend" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Enviar resumo</a></div>' +
+      '<p class="disc">Orientação geral e informativa. Somente a análise do caso concreto por um advogado define o caminho adequado. <a href="#" id="redo" style="color:var(--gold-2);text-decoration:underline">Refazer o guia</a></p>';
+    result.classList.add('show');
+    var send = document.getElementById('qSend'), nome = document.getElementById('qNome');
+    function upd(){ var n = nome.value.trim(); var r = resumo.slice(); if (n) r[0] = 'Olá, Dr. Roberto! Meu nome é ' + n + '. Fiz o guia de inventário no site.'; send.href = wa(r.join('\n')); }
+    nome.addEventListener('input', upd); upd(); send.target = '_blank'; send.rel = 'noopener';
+    document.getElementById('redo').addEventListener('click', function(e){ e.preventDefault(); document.getElementById('quiz').reset(); result.classList.remove('show'); navq.style.display = ''; cur = 0; show(0); });
+    document.getElementById('guia').scrollIntoView({behavior:'smooth'});
+  }
+  show(0);
+
+  /* ===== Checklist ===== */
+  var docs = document.getElementById('docs'), total = 0;
+  docs.innerHTML = DOCUMENTOS.map(function(g){
+    return '<div class="rv"><h4>' + esc(g.grupo.toUpperCase()) + '</h4>' + g.itens.map(function(it){
+      total++;
+      return '<label class="doc"><input type="checkbox" value="' + esc(it[0]) + '"><span><span>' + esc(it[0]) + (it[1] ? '<small>' + esc(it[1]) + '</small>' : '') + '</span></span></label>';
+    }).join('') + '</div>';
+  }).join('');
+  document.getElementById('docTotal').textContent = total;
+  var send = document.getElementById('docSend');
+  function updDocs(){
+    var all = [].slice.call(docs.querySelectorAll('input')), have = all.filter(function(x){ return x.checked; });
+    var missing = all.filter(function(x){ return !x.checked; }).map(function(x){ return x.value; });
+    document.getElementById('docCount').textContent = have.length;
+    document.getElementById('docBar').style.width = (have.length / all.length * 100) + '%';
+    document.getElementById('docMsg').textContent = !have.length ? 'Comece marcando os documentos que você já possui.' :
+      (missing.length ? 'Faltam ' + missing.length + ' documento' + (missing.length > 1 ? 's' : '') + '. Envie a lista e receba orientação para obtê-los.' : 'Você já reuniu todos os documentos da lista!');
+    send.href = wa('Olá, Dr. Roberto! Usei o checklist de documentos do site.\n\nJá tenho ' + have.length + ' de ' + all.length + ' documentos.' +
+      (missing.length ? '\n\nAinda faltam:\n• ' + missing.join('\n• ') : '') + '\n\nGostaria de orientação para dar andamento ao inventário.');
+  }
+  docs.addEventListener('change', updDocs); updDocs(); send.target = '_blank'; send.rel = 'noopener';
+
+  /* ===== Movimento ===== */
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  var nav = document.getElementById('nav'), fl = document.getElementById('waFloat'), seal = document.getElementById('seal');
+  var tl = document.getElementById('timeline'), fill = document.getElementById('lineFill'), stps = [].slice.call(tl.querySelectorAll('.stp')), tick = false;
+  function frame(){
+    var y = scrollY; nav.classList.toggle('solid', y > 40);
+    var s = y > innerHeight * .7; fl.classList.toggle('show', s); seal.classList.toggle('show', s);
+    var r = tl.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / (r.height - 40)));
+    fill.style.height = (p * (r.height - 20)) + 'px';
+    stps.forEach(function(st){ st.classList.toggle('lit', st.getBoundingClientRect().top + 32 < innerHeight * .6); });
+    tick = false;
+  }
+  addEventListener('scroll', function(){ if (!tick){ requestAnimationFrame(frame); tick = true; } }, {passive:true});
+  addEventListener('resize', frame); frame();
+})();
+</script>
+</body>
+</html>
