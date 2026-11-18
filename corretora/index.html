@@ -340,7 +340,7 @@ footer .brand{color:var(--ivory);margin-bottom:24px}
         <a href="#imoveis" class="btn btn-light" style="border-color:transparent;padding-inline:8px">Ver imóveis →</a>
       </div>
       <a href="#assessoria" class="broker">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&h=240&q=75" alt="Foto da corretora Helena Duarte">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&h=240&q=75" alt="Foto da corretora Helena Duarte" data-alt="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=240&h=240&q=80|https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=240&h=240&q=80|https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=240&h=240&q=80">
         <span><b>Helena Duarte</b><small>Corretora responsável · CRECI/RS 00.000</small></span>
       </a>
     </div>
@@ -404,7 +404,7 @@ footer .brand{color:var(--ivory);margin-bottom:24px}
 <section class="sec" id="assessoria">
   <div class="wrap about">
     <div class="about-media">
-      <div class="main mask"><img data-px="-0.06" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1100&q=80" alt="Helena Duarte, corretora responsável" loading="lazy"><div class="tagname"><b>Helena Duarte</b><span>CRECI/RS 00.000</span></div></div>
+      <div class="main mask"><img data-px="-0.06" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1100&q=80" alt="Helena Duarte, corretora responsável" loading="lazy" data-alt="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1100&q=80|https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=1100&q=80|https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1100&q=80"><div class="tagname"><b>Helena Duarte</b><span>CRECI/RS 00.000</span></div></div>
       <div class="small rv d2"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=75" alt="Praia do litoral" loading="lazy"></div>
       <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><circle cx="60" cy="60" r="59" fill="#14211f"/><text font-family="Jost" font-size="9.2" letter-spacing="3.4" fill="#c9ad7f"><textPath href="#c">ASSESSORIA IMOBILIÁRIA · ALTO PADRÃO ·</textPath></text><text x="60" y="68" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="26" fill="#f6f2ea">Á</text></svg>
     </div>
@@ -807,7 +807,15 @@ var INTERESSES = [
   document.getElementById('foneTxt').textContent = CONFIG.foneExibicao;
   document.getElementById('creciTxt').textContent = CONFIG.creci;
   document.getElementById('ano').textContent = new Date().getFullYear();
-  document.querySelectorAll('img').forEach(function(img){ img.addEventListener('error', function(){ img.style.opacity = 0; }); });
+  function imgFail(img){
+    var alt = (img.getAttribute('data-alt') || '').split('|').filter(Boolean);
+    if (alt.length) { img.setAttribute('data-alt', alt.slice(1).join('|')); img.src = alt[0]; }
+    else img.style.opacity = 0;
+  }
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){ imgFail(img); });
+    if (img.complete && img.naturalWidth === 0 && img.src) imgFail(img);
+  });
 
   /* ---------- Movimento: reveal, parallax, nav ---------- */
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
