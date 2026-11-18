@@ -1,0 +1,16 @@
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
+await p.goto('file:///home/user/Oi/corretora/index.html');await p.waitForTimeout(2500);
+await p.addStyleTag({content:'*,*::before,*::after{transition:none!important;animation:none!important}.rv,.mask{opacity:1!important;transform:none!important;clip-path:none!important}.hero h1 .ln>span{transform:none!important}.hero p,.hero .btns,.broker{opacity:1!important}.hero-media{display:none}.hero{background:linear-gradient(180deg,#2b3f3c 0%,#5d6f6a 45%,#b9a888 100%)}.wa-float{display:none!important}.broker img{visibility:hidden}.broker{padding-left:26px}.typing{display:none}'});
+await p.fill('#nome','Marina Souza');
+await p.evaluate(()=>{document.querySelector('#in0').checked=true;document.querySelector('#in4').checked=true;document.querySelector('#rg0').checked=true;document.getElementById('q-permuta').classList.add('show');document.getElementById('permuta').value='Apartamento de 3 dormitórios em Porto Alegre';document.getElementById('faixa').selectedIndex=3;document.getElementById('bubble').textContent='Perfeito, Marina. Indique a região e, quando quiser, sigo com você para o WhatsApp.';
+document.getElementById('pnome').value='J.R.';document.getElementById('pdia').value='2026-12-12';document.getElementById('pq2').checked=true;document.getElementById('phora').selectedIndex=2;});
+await p.waitForTimeout(300);
+const g=async s=>p.evaluate(s=>{const r=document.querySelector(s).getBoundingClientRect();return [r.top+scrollY,r.bottom+scrollY]},s);
+const hero=await g('.hero'),intents=await g('.intents'),ih=await g('.intent-head'),cg=await g('#concierge'),pv=await g('#private');
+const shot=(n,a,z)=>p.screenshot({path:n,fullPage:true,clip:{x:0,y:a,width:390,height:z-a}});
+await shot('c1.png',0,hero[1]);
+await shot('c2.png',ih[0]-30,intents[0]+700);
+await shot('c3.png',cg[0]+40,cg[1]-40);
+await shot('c4.png',pv[0]+40,pv[1]);
+await b.close();})();

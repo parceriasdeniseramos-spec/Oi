@@ -1,0 +1,136 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=block" rel="stylesheet">
+<style>
+:root{--ivory:#f6f2ea;--sand:#ece4d6;--ink:#14211f;--gold:#a8875a;--gold2:#c9ad7f;--muted:#53554f}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ivory)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Jost',sans-serif}
+.sc{position:absolute;inset:0;opacity:0}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:300}
+.c{position:absolute;left:0;right:0;text-align:center}
+.eyebrow{font-size:30px;letter-spacing:12px;text-transform:uppercase;color:var(--gold)}
+.line{position:absolute;left:50%;height:2px;background:var(--gold);transform-origin:center}
+#s1{background:var(--ivory)}
+#logo{top:800px;font-size:190px;color:var(--ink);font-weight:400}
+#logo span{display:inline-block}
+#s2{background:var(--ink);color:var(--ivory)}
+#s2 .w{display:inline-block;margin:0 .12em}
+#s2 em{color:var(--gold2);font-style:italic}
+#s3{background:var(--ivory)}
+.phone{position:absolute;left:50%;top:330px;width:640px;height:1290px;margin-left:-320px;border-radius:92px;background:#1b1b1b;padding:22px;box-shadow:0 0 0 3px #3a3a3a,0 0 0 9px #0f0f0f,0 80px 160px -30px rgba(20,33,31,.45)}
+.screen{position:relative;width:596px;height:1246px;border-radius:72px;overflow:hidden;background:#f6f2ea}
+.screen img{position:absolute;left:0;top:0;width:596px}
+.notch{position:absolute;left:50%;top:18px;width:170px;height:46px;margin-left:-85px;border-radius:30px;background:#000;z-index:3}
+.tag{position:absolute;background:var(--ink);color:var(--ivory);padding:26px 34px;font-size:34px;line-height:1.25;box-shadow:0 30px 60px -20px rgba(20,33,31,.5);border-left:4px solid var(--gold);white-space:nowrap}
+.tag small{display:block;font-size:22px;letter-spacing:6px;text-transform:uppercase;color:var(--gold2);margin-bottom:8px}
+.tag.light{background:var(--ivory);color:var(--ink);border:1px solid rgba(168,135,90,.6);border-left:4px solid var(--gold)}
+#s4{background:var(--ink);color:var(--ivory)}
+#s4 .item{font-size:62px;color:var(--ivory)}
+#s4 .item i{color:var(--gold2)}
+#s5{background:var(--ivory)}
+.dust{position:absolute;border-radius:50%;background:var(--gold2)}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 60%,rgba(20,33,31,.18) 100%);z-index:20}
+#leak{position:absolute;width:1400px;height:1400px;border-radius:50%;background:radial-gradient(circle,rgba(201,173,127,.35),transparent 60%);z-index:19;pointer-events:none;mix-blend-mode:soft-light}
+</style></head><body>
+<div id="stage">
+  <div class="sc" id="s1">
+    <div class="line" id="l1" style="top:760px;width:520px;margin-left:-260px"></div>
+    <div class="c serif" id="logo"></div>
+    <div class="c eyebrow" id="sub1" style="top:1030px">Litoral · Imóveis de Alto Padrão</div>
+    <div class="line" id="l2" style="top:1110px;width:520px;margin-left:-260px"></div>
+    <div class="c eyebrow" id="loc1" style="top:1700px;font-size:24px;color:#8a8579">Xangri-Lá · Capão da Canoa · Atlântida</div>
+  </div>
+  <div class="sc" id="s2">
+    <div class="c eyebrow" id="e2" style="top:690px;color:var(--gold2)">Um novo conceito de site</div>
+    <div class="c serif" id="h2" style="top:790px;font-size:118px;line-height:1.08"></div>
+  </div>
+  <div class="sc" id="s3">
+    <div class="c eyebrow" id="e3" style="top:120px">O site da corretora</div>
+    <div class="c serif" id="t3" style="top:170px;font-size:92px;color:var(--ink)">feito para <em style="color:var(--gold);font-style:italic">vender mais.</em></div>
+    <div class="phone" id="phone"><div class="screen"><div class="notch"></div><img id="strip" src="strip.png"></div></div>
+    <div class="tag" id="g1" style="left:30px;top:820px"><small>I.</small>Compra, permuta,<br>locação e planta</div>
+    <div class="tag light" id="g2" style="right:30px;top:1020px"><small>II.</small>Concierge virtual<br>24 horas</div>
+    <div class="tag" id="g3" style="left:30px;top:1240px"><small>III.</small>Cliente qualificado<br>direto no WhatsApp</div>
+    <div class="tag light" id="g4" style="right:30px;top:1440px"><small>IV.</small>Atendimento<br>Private</div>
+  </div>
+  <div class="sc" id="s4">
+    <div class="c eyebrow" id="e4" style="top:560px;color:var(--gold2)">Atendimento Private</div>
+    <div class="c serif" id="h4" style="top:640px;font-size:104px;line-height:1.1">Para atletas, artistas<br>e <em style="color:var(--gold2);font-style:italic">personalidades.</em></div>
+    <div class="line" id="l4" style="top:960px;width:300px;margin-left:-150px;background:var(--gold2)"></div>
+    <div class="c serif item" id="i1" style="top:1040px">Agenda exclusiva</div>
+    <div class="c serif item" id="i2" style="top:1140px">Visita <i>reservada</i></div>
+    <div class="c serif item" id="i3" style="top:1240px">Sigilo absoluto</div>
+  </div>
+  <div class="sc" id="s5">
+    <div class="c serif" id="f1" style="top:660px;font-size:116px;line-height:1.08;color:var(--ink)">Um site à altura<br>dos <em style="color:var(--gold);font-style:italic">seus clientes.</em></div>
+    <div class="line" id="l5" style="top:980px;width:420px;margin-left:-210px"></div>
+    <div class="c serif" id="f2" style="top:1040px;font-size:120px;letter-spacing:30px;color:var(--ink);font-weight:400">ÁUREA</div>
+    <div class="c" id="f3" style="top:1230px;font-size:40px;letter-spacing:2px;color:var(--muted)">aurea-litoral-imoveis.netlify.app</div>
+  </div>
+  <div id="dusts"></div>
+  <div id="leak"></div>
+  <div id="vig"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const P=(t,a,b)=>clamp((t-a)/(b-a));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eo=p=>1-Math.pow(1-p,3);            // ease out cubic
+const eio=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+const win=(t,a,b,f=.6)=>Math.min(P(t,a,a+f),1-P(t,b-f,b));
+let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+
+'ÁUREA'.split('').forEach(c=>{const s=document.createElement('span');s.textContent=c;$('logo').appendChild(s)});
+const words=['Onde','o','mar','encontra','<br>','o','seu','<em>próximo</em>','<em>endereço.</em>'];
+$('h2').innerHTML=words.map(w=>w==='<br>'?'<br>':`<span class="w">${w}</span>`).join('');
+const dust=[];for(let i=0;i<34;i++){const d=document.createElement('div');d.className='dust';$('dusts').appendChild(d);dust.push({el:d,x:rnd()*1080,y:rnd()*1920,s:2+rnd()*5,v:12+rnd()*30,ph:rnd()*6.3})}
+
+function fadeUp(id,t,a,d=.9,dist=40){const p=eo(P(t,a,a+d));const e=$(id);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*dist}px)`;e.style.filter=`blur(${(1-p)*6}px)`}
+function lineDraw(id,t,a,d=1.2){$(id).style.transform=`scaleX(${eio(P(t,a,a+d))})`}
+
+function render(t){
+  // scene opacity windows (crossfades)
+  $('s1').style.opacity=win(t,-1,3.4,.7);
+  $('s2').style.opacity=win(t,2.9,5.8,.6);
+  $('s3').style.opacity=win(t,5.3,12.0,.6);
+  $('s4').style.opacity=win(t,11.5,14.2,.6);
+  $('s5').style.opacity=win(t,13.7,99,.7);
+
+  // S1 logo
+  lineDraw('l1',t,.2,1.4);lineDraw('l2',t,.5,1.4);
+  [...$('logo').children].forEach((s,i)=>{const p=eo(P(t,.5+i*.12,1.6+i*.12));s.style.opacity=p;s.style.transform=`translateY(${(1-p)*30}px)`;s.style.filter=`blur(${(1-p)*8}px)`});
+  $('logo').style.letterSpacing=lerp(10,46,eo(P(t,.4,3.2)))+'px';
+  fadeUp('sub1',t,1.5);fadeUp('loc1',t,2.0);
+
+  // S2 headline words
+  fadeUp('e2',t,3.2,.8);
+  [...$('h2').querySelectorAll('.w')].forEach((w,i)=>{const p=eo(P(t,3.45+i*.13,4.25+i*.13));w.style.opacity=p;w.style.transform=`translateY(${(1-p)*36}px)`;w.style.filter=`blur(${(1-p)*8}px)`});
+  $('h2').style.transform=`scale(${lerp(1,1.04,P(t,3.2,5.8))})`;
+
+  // S3 phone
+  fadeUp('e3',t,5.5,.8);fadeUp('t3',t,5.65,.8);
+  const pin=eo(P(t,5.4,6.4));
+  $('phone').style.transform=`translateY(${(1-pin)*500}px) scale(${lerp(.82,.86,P(t,5.4,12))})`;
+  const k=596/780, stops=[[6.3,2380],[7.3,4900],[8.4,7250],[9.6,10050],[10.7,11950]];
+  let y=0,prev=0;stops.forEach(([a,v])=>{if(t>=a)y=lerp(prev,v,eio(P(t,a,a+.85)));prev=v});
+  $('strip').style.transform=`translateY(${-y*k}px)`;
+  [['g1',6.6,7.65],['g2',7.65,8.75],['g3',8.75,9.95],['g4',9.95,11.9]].forEach(([g,a,b],i)=>{const p=eo(P(t,a,a+.6));const e=$(g);e.style.opacity=Math.min(p,1-P(t,b-.35,b));e.style.transform=`translateX(${(1-p)*(i%2?60:-60)}px)`});
+
+  // S4 private
+  fadeUp('e4',t,11.8,.8);fadeUp('h4',t,11.95,.9);lineDraw('l4',t,12.3,1);
+  fadeUp('i1',t,12.5,.7,24);fadeUp('i2',t,12.75,.7,24);fadeUp('i3',t,13.0,.7,24);
+
+  // S5 final
+  fadeUp('f1',t,14.0,1);lineDraw('l5',t,14.5,1.1);fadeUp('f2',t,14.8,1);fadeUp('f3',t,15.1,.9,20);
+  $('f2').style.letterSpacing=lerp(14,30,eo(P(t,14.8,16)))+'px';
+
+  // ambient gold dust + light leak
+  dust.forEach(d=>{let y=(d.y-t*d.v)%1960;if(y<-20)y+=1960;d.el.style.cssText=`left:${d.x+Math.sin(t*.6+d.ph)*20}px;top:${y}px;width:${d.s}px;height:${d.s}px;opacity:${.25+.35*Math.abs(Math.sin(t*.9+d.ph))};box-shadow:0 0 ${d.s*3}px #c9ad7f`});
+  $('leak').style.left=(lerp(-500,500,(Math.sin(t*.35)+1)/2))+'px';$('leak').style.top=(lerp(-300,900,(Math.cos(t*.27)+1)/2))+'px';
+}
+window.render=render;
+Promise.all([document.fonts.load('300 100px "Cormorant Garamond"'),document.fonts.load('italic 300 100px "Cormorant Garamond"'),document.fonts.load('400 40px Jost')]).then(()=>document.fonts.ready).then(()=>{render(0);window.READY=true});
+</script>
+</body></html>
