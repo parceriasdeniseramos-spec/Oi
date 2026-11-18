@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumina · Dermatologia Estética · Dra. Helena Vasconcellos</title>
+<meta name="description" content="Rejuvenescimento com naturalidade: toxina botulínica, bioestimuladores de colágeno, harmonização facial e tratamentos para a qualidade da pele com a dermatologista Dra. Helena Vasconcellos.">
+<meta name="theme-color" content="#2b1d26">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: editorial de revista de beleza, colunas assimétricas, arcos como moldura das fotos */
+:root{
+  --porcelain:#fbf8f6; --blush:#f2e8e3; --petal:#e8d6ce; --rose:#b98679; --rose-deep:#8e5d52;
+  --plum:#2b1d26; --plum-2:#45313d; --mauve:#6a5862; --line:rgba(43,29,38,.13);
+  --display:'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --sans:'Manrope', system-ui, -apple-system, sans-serif;
+  --ease:cubic-bezier(.22,.7,.15,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip;font-size:18px}
+body{background:var(--porcelain);color:var(--plum);font-family:var(--sans);font-size:19px;line-height:1.75;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.display{font-family:var(--display);font-weight:400;line-height:1.06;letter-spacing:-.01em;text-wrap:balance}
+.display em{font-style:italic;color:var(--rose-deep)}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.78rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--rose-deep)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.h2{font-size:clamp(2.3rem,4.8vw,4rem);margin:18px 0 22px}
+.lede{color:var(--mauve);max-width:560px;font-size:1.05rem}
+.ph{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--petal),var(--blush) 55%,#f7efeb)}
+.ph img{width:100%;height:100%;object-fit:cover}
+
+/* Botões */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--plum);cursor:pointer;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s;background:transparent}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--plum);transform:translateY(101%);transition:transform .55s var(--ease);border-radius:inherit}
+.btn:hover{color:var(--porcelain)}
+.btn:hover::before{transform:none}
+.btn .arr{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--rose);color:#fff;transition:transform .5s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn .arr svg{width:12px;height:12px}
+.btn-solid{background:var(--plum);color:var(--porcelain)}
+.btn-solid::before{background:var(--rose-deep)}
+.btn-light{border-color:rgba(251,248,246,.6);color:var(--porcelain)}
+.btn-light::before{background:var(--porcelain)}
+.btn-light:hover{color:var(--plum)}
+.btn:focus-visible,.chip input:focus-visible+span,.proc-btn:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .5s,box-shadow .5s}
+.nav.solid{background:rgba(251,248,246,.93);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;gap:20px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.9rem;letter-spacing:.18em}
+.brand small{font-size:.58rem;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:var(--rose-deep);margin-top:7px;white-space:nowrap}
+.menu{display:flex;gap:30px;font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.menu a{opacity:.8;transition:opacity .3s,color .3s}
+.menu a:hover{opacity:1;color:var(--rose-deep)}
+.nav .btn{padding:13px 22px;font-size:.72rem;white-space:nowrap}
+@media(max-width:1100px){.menu{display:none}}
+@media(max-width:520px){.nav .btn .t{display:none}.nav .btn{padding:10px}}
+
+/* HERO */
+.hero{padding:150px 0 90px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-12%;top:-20%;width:70vw;height:70vw;max-width:980px;max-height:980px;border-radius:50%;background:radial-gradient(circle,var(--blush),transparent 65%);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:center}
+.hero h1{font-size:clamp(3rem,6.6vw,6rem);margin:22px 0 26px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:block;transform:translateY(110%);animation:up 1.4s var(--ease) forwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.14s}
+.hero h1 .ln:nth-child(3)>span{animation-delay:.28s}
+@keyframes up{to{transform:none}}
+@keyframes fade{to{opacity:1}}
+.hero p.lede{font-size:1.15rem;opacity:0;animation:fade 1.3s .6s forwards}
+.hero .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;opacity:0;animation:fade 1.3s .8s forwards}
+.trust{display:flex;align-items:center;gap:16px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line);opacity:0;animation:fade 1.3s 1s forwards}
+.trust .ph{width:64px;height:64px;border-radius:50%;flex:none}
+.trust b{display:block;font-family:var(--display);font-weight:400;font-size:1.35rem;line-height:1.15}
+.trust small{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mauve)}
+.arch{position:relative;aspect-ratio:4/5;border-radius:999px 999px 24px 24px;opacity:0;animation:fade 1.6s .3s forwards}
+.arch img{transform:scale(1.12);animation:settle 2.4s var(--ease) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.arch-wrap{position:relative}
+.arch-wrap .badge{position:absolute;left:-30px;bottom:60px;background:var(--porcelain);padding:20px 24px;border-radius:18px;box-shadow:0 30px 60px -25px rgba(43,29,38,.35);display:flex;gap:14px;align-items:center;max-width:290px;opacity:0;animation:fade 1.2s 1.2s forwards}
+.badge .n{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--rose-deep)}
+.badge span{font-size:.9rem;line-height:1.4;color:var(--mauve)}
+.arch-wrap .ring{position:absolute;right:-26px;top:-26px;width:130px;height:130px;animation:spin 36s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.arch-wrap{max-width:460px;margin:20px auto 0}.arch-wrap .badge{left:0}.arch-wrap .ring{right:0}}
+
+/* MANIFESTO */
+.manifesto{background:var(--plum);color:var(--porcelain);padding:clamp(90px,12vw,150px) 0}
+.manifesto .display{font-size:clamp(2.2rem,4.6vw,3.8rem);max-width:980px}
+.manifesto .display em{color:var(--petal)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:70px}
+.pillars div{border-top:1px solid rgba(251,248,246,.2);padding-top:26px}
+.pillars i{font-family:var(--display);font-style:italic;color:var(--petal);font-size:1.2rem}
+.pillars b{display:block;font-family:var(--display);font-weight:400;font-size:1.7rem;margin:8px 0 10px}
+.pillars p{opacity:.82;font-size:1rem}
+@media(max-width:820px){.pillars{grid-template-columns:1fr;gap:26px}}
+
+section{position:relative}
+.sec{padding:clamp(90px,12vw,160px) 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:64px}
+@media(max-width:860px){.head{grid-template-columns:1fr;gap:6px}}
+
+/* TRATAMENTOS */
+.groups{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.groups button{border:1px solid var(--line);background:none;padding:12px 22px;border-radius:999px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.4s var(--ease)}
+.groups button:hover{border-color:var(--plum)}
+.groups button.on{background:var(--plum);border-color:var(--plum);color:var(--porcelain)}
+.procs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.proc{display:flex;flex-direction:column;background:#fff;border-radius:26px;overflow:hidden;border:1px solid var(--line);transition:transform .6s var(--ease),box-shadow .6s}
+.proc:hover{transform:translateY(-6px);box-shadow:0 40px 70px -40px rgba(43,29,38,.4)}
+.proc.hide{display:none}
+.proc .ph{aspect-ratio:5/4}
+.proc .ph img{transition:transform 1.6s var(--ease)}
+.proc:hover .ph img{transform:scale(1.05)}
+.proc .tag{position:absolute;left:18px;top:18px;background:rgba(251,248,246,.92);padding:7px 14px;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-deep)}
+.proc .body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+.proc h3{font-family:var(--display);font-weight:400;font-size:1.85rem;line-height:1.12}
+.proc .aka{font-size:.86rem;color:var(--rose-deep);font-weight:600;margin:6px 0 14px}
+.proc p{color:var(--mauve);font-size:1rem;margin-bottom:20px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;padding:18px 0;border-top:1px solid var(--line);margin-top:auto}
+.facts span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mauve);display:block}
+.facts b{font-weight:600;font-size:.95rem}
+.proc-btn{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:16px 20px 16px 24px;border-radius:999px;border:1px solid var(--plum);background:none;cursor:pointer;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .5s var(--ease),color .5s}
+.proc-btn:hover{background:var(--plum);color:var(--porcelain)}
+.proc-btn .arr{width:30px;height:30px;border-radius:50%;background:var(--rose);color:#fff;display:grid;place-items:center;flex:none}
+.proc-btn .arr svg{width:13px;height:13px}
+@media(max-width:1000px){.procs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.procs{grid-template-columns:1fr}}
+
+/* FASES DA PELE */
+.phases{background:var(--blush)}
+.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.phase{padding:44px 36px 40px;border-right:1px solid var(--line)}
+.phase:last-child{border-right:0}
+.phase .age{font-family:var(--display);font-size:clamp(3.4rem,6vw,5rem);line-height:1;color:var(--rose-deep)}
+.phase .age sup{font-size:.4em;vertical-align:top;margin-left:4px}
+.phase h3{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:16px 0 12px}
+.phase p{color:var(--plum-2);font-size:1rem;margin-bottom:18px}
+.phase ul{list-style:none;display:grid;gap:8px}
+.phase li{display:flex;gap:12px;align-items:baseline;font-size:.98rem}
+.phase li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--rose);transform:translateY(-2px)}
+@media(max-width:860px){.phase-grid{grid-template-columns:1fr}.phase{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* DOUTORA */
+.doctor{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.doc-photo{position:relative}
+.doc-photo .ph{aspect-ratio:4/5;border-radius:24px 24px 999px 999px}
+.doc-photo .ph img{height:115%;will-change:transform}
+.doc-photo .sig{position:absolute;right:-20px;bottom:40px;background:var(--plum);color:var(--porcelain);padding:22px 26px;border-radius:18px;box-shadow:0 30px 60px -25px rgba(43,29,38,.5)}
+.doc-photo .sig b{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem}
+.doc-photo .sig small{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--petal)}
+.doctor p{color:var(--plum-2);margin-bottom:18px}
+.creds{list-style:none;display:grid;gap:0;margin:34px 0;border-top:1px solid var(--line)}
+.creds li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.creds li span{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-deep);padding-top:3px}
+@media(max-width:900px){.doctor{grid-template-columns:1fr}.doc-photo{max-width:460px}.doc-photo .sig{right:0}}
+@media(max-width:520px){.creds li{grid-template-columns:1fr;gap:2px}}
+
+/* AMBIENTE */
+.space{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:300px 300px;gap:18px}
+.space .ph{border-radius:22px}
+.space .ph img{height:120%;will-change:transform}
+.space .big{grid-row:span 2}
+.space .cap{position:absolute;left:18px;bottom:16px;color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+@media(max-width:860px){.space{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px 240px}.space .big{grid-column:span 2;grid-row:auto}}
+
+/* DEPOIMENTOS */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.quote{background:#fff;border:1px solid var(--line);border-radius:26px;padding:36px 32px;display:flex;flex-direction:column;gap:24px}
+.quote .stars{color:var(--rose);letter-spacing:4px}
+.quote blockquote{font-family:var(--display);font-style:italic;font-size:1.3rem;line-height:1.5;color:var(--plum)}
+.quote cite{font-style:normal;margin-top:auto;font-size:.86rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.quote cite small{display:block;font-weight:500;letter-spacing:.04em;text-transform:none;color:var(--mauve);font-size:.92rem}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+/* CTA RECEPÇÃO */
+.reception{background:linear-gradient(135deg,var(--plum),#3a2532);color:var(--porcelain);border-radius:36px;padding:clamp(50px,7vw,90px);display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+.reception .display em{color:var(--petal)}
+.avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(145deg,var(--rose),var(--rose-deep));display:grid;place-items:center;font-family:var(--display);font-style:italic;font-size:3.2rem;color:#fff;position:relative;flex:none}
+.avatar::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(232,214,206,.5)}
+.avatar .on{position:absolute;right:6px;bottom:8px;width:18px;height:18px;border-radius:50%;background:#5fbf8a;border:3px solid var(--plum)}
+.reception p{opacity:.85;max-width:520px;margin-top:10px}
+@media(max-width:900px){.reception{grid-template-columns:1fr;text-align:left}}
+
+/* FAQ */
+.faq{max-width:900px;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-family:var(--display);font-size:clamp(1.25rem,2.2vw,1.55rem)}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pl{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--sans);transition:transform .4s var(--ease),background .4s,color .4s}
+.faq details[open] .pl{transform:rotate(45deg);background:var(--plum);color:var(--porcelain)}
+.faq details p{color:var(--mauve);padding:0 50px 26px 0}
+
+/* FOOTER */
+footer{background:var(--plum);color:rgba(251,248,246,.78);padding:100px 0 40px;font-size:.95rem}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px;border-bottom:1px solid rgba(251,248,246,.12)}
+footer h4{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--petal);font-weight:700;margin-bottom:18px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer a:hover{color:var(--petal)}
+footer .brand{color:var(--porcelain);margin-bottom:22px}
+footer .brand small{color:var(--petal)}
+.legal{font-size:.82rem;opacity:.7;line-height:1.6;padding-top:28px;max-width:900px}
+.signature{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:44px;padding-top:30px;border-top:1px solid rgba(251,248,246,.12)}
+.signature svg{width:56px;height:56px}
+.signature small{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;opacity:.65}
+.signature b{font-family:var(--display);font-weight:400;font-size:1.3rem;color:var(--porcelain)}
+.signature b em{color:var(--petal)}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+
+/* RECEPCIONISTA (painel) */
+.scrim{position:fixed;inset:0;background:rgba(43,29,38,.45);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);background:var(--porcelain);z-index:90;transform:translateX(105%);transition:transform .7s var(--ease);display:flex;flex-direction:column;box-shadow:-30px 0 80px -30px rgba(43,29,38,.5)}
+.drawer.open{transform:none}
+.d-head{display:flex;align-items:center;gap:16px;padding:22px 24px;padding-top:calc(22px + env(safe-area-inset-top,0px));background:var(--plum);color:var(--porcelain)}
+.d-head .avatar{width:56px;height:56px;font-size:1.6rem}
+.d-head .avatar::after{inset:-5px}
+.d-head .avatar .on{width:13px;height:13px;right:1px;bottom:2px;border-width:2px}
+.d-head b{font-family:var(--display);font-weight:400;font-size:1.35rem;display:block;line-height:1.2}
+.d-head small{font-size:.8rem;opacity:.75}
+.d-close{margin-left:auto;background:none;border:1px solid rgba(251,248,246,.35);color:var(--porcelain);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.3rem;line-height:1}
+.d-close:hover{background:rgba(251,248,246,.12)}
+.d-body{flex:1;overflow-y:auto;padding:26px 24px 30px;display:flex;flex-direction:column;gap:16px;background:linear-gradient(180deg,var(--blush),var(--porcelain) 260px)}
+.msg{max-width:88%;background:#fff;border:1px solid var(--line);padding:14px 18px;border-radius:4px 20px 20px 20px;font-size:1rem;line-height:1.55;box-shadow:0 10px 24px -18px rgba(43,29,38,.4);opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.msg.show{opacity:1;transform:none}
+.msg em{font-style:normal;font-weight:700;color:var(--rose-deep)}
+.typing{display:inline-flex;gap:5px;padding:16px 18px;background:#fff;border-radius:4px 20px 20px 20px;border:1px solid var(--line);align-self:flex-start}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--rose);animation:dot 1.3s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes dot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-4px)}}
+.field-wrap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.field-wrap.show{opacity:1;transform:none}
+.field-wrap label,.field-wrap .lbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:10px}
+.field{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:8px 0;font-family:var(--display);font-size:1.35rem;outline:none}
+.field:focus{border-color:var(--plum)}
+.field::placeholder{color:#b3a6ac;font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid var(--line);font-size:.92rem;cursor:pointer;transition:.35s var(--ease);background:var(--porcelain)}
+.chip span:hover{border-color:var(--plum)}
+.chip input:checked+span{background:var(--plum);color:var(--porcelain);border-color:var(--plum)}
+.d-foot{padding:18px 24px;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--porcelain)}
+.wa-send{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;padding:18px;border-radius:999px;background:var(--plum);color:var(--porcelain);border:0;cursor:pointer;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:background .5s var(--ease)}
+.wa-send:hover{background:#1f6b4a}
+.wa-send svg{width:20px;height:20px}
+.d-note{font-size:.8rem;color:var(--mauve);text-align:center;margin-top:10px;line-height:1.4}
+.d-err{color:#a03a2c;font-size:.86rem;text-align:center;margin-top:8px;display:none}
+
+/* Flutuantes */
+.float{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:12px;background:var(--plum);color:var(--porcelain);padding:8px 8px 8px 20px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 20px 40px -14px rgba(43,29,38,.55);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:translateY(120px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.float.show{transform:none;opacity:1}
+.float .avatar{width:44px;height:44px;font-size:1.3rem}
+.float .avatar::after{display:none}
+.float .avatar .on{width:11px;height:11px;right:0;bottom:1px;border-width:2px}
+@media(max-width:520px){.float .t{display:none}.float{padding:6px}}
+.demo-seal{position:fixed;left:max(18px,env(safe-area-inset-left,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:59;display:flex;align-items:center;gap:12px;background:rgba(43,29,38,.92);backdrop-filter:blur(10px);color:var(--porcelain);padding:8px 16px 8px 8px;border-radius:999px;border:1px solid rgba(232,214,206,.4);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
+.demo-seal{transform:translateY(120px);opacity:0;transition:transform .6s var(--ease),opacity .6s}
+.demo-seal.show{transform:none;opacity:1}
+.demo-seal svg{width:38px;height:38px;flex:none}
+.demo-seal b{display:block;font-family:var(--display);font-weight:400;font-size:1rem;letter-spacing:.04em;text-transform:none;color:var(--petal)}
+.demo-seal .x{background:none;border:0;color:var(--porcelain);opacity:.6;font-size:1.1rem;cursor:pointer;padding:2px 4px}
+.demo-seal .lbl-m{display:none}
+@media(max-width:600px){.demo-seal{font-size:.56rem;gap:8px;padding:6px 8px 6px 6px}.demo-seal .lbl,.demo-seal .dn{display:none}.demo-seal .lbl-m{display:block}.demo-seal b{font-size:.92rem}.demo-seal svg{width:30px;height:30px}}
+[hidden]{display:none!important}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.hero p.lede,.hero .btns,.trust,.arch,.arch-wrap .badge{opacity:1}.msg,.field-wrap{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand"><b>LUMINA</b><small>Dermatologia Estética</small></a>
+    <nav class="menu">
+      <a href="#filosofia">Filosofia</a>
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#fases">Cada fase</a>
+      <a href="#doutora">A doutora</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <button class="btn btn-solid" data-open><span class="t">Agendar avaliação</span><span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></button>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Rejuvenescimento com naturalidade</span>
+      <h1 class="display">
+        <span class="ln"><span>A sua beleza,</span></span>
+        <span class="ln"><span><em>no tempo certo</em></span></span>
+        <span class="ln"><span>e do seu jeito.</span></span>
+      </h1>
+      <p class="lede">Tratamentos faciais pensados para a pele madura: suavizamos sinais, devolvemos firmeza e luminosidade, preservando a expressão que conta a sua história.</p>
+      <div class="btns">
+        <button class="btn btn-solid" data-open>Agendar minha avaliação <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></button>
+        <a class="btn" href="#tratamentos">Conhecer os tratamentos</a>
+      </div>
+      <div class="trust">
+        <div class="ph"><img data-src="doc" data-w="160" alt="Dra. Helena Vasconcellos"></div>
+        <div><b>Dra. Helena Vasconcellos</b><small>Dermatologista · CRM-RS 00000 · RQE 0000</small></div>
+      </div>
+    </div>
+    <div class="arch-wrap">
+      <div class="arch ph"><img data-src="hero" data-w="1100" alt="Mulher madura com pele luminosa e expressão natural"></div>
+      <div class="badge"><span class="n">18</span><span>anos dedicados à pele madura, com naturalidade e segurança</span></div>
+      <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cr" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><circle cx="60" cy="60" r="59" fill="#2b1d26"/><text font-family="Manrope" font-weight="600" font-size="8.6" letter-spacing="3.2" fill="#e8d6ce"><textPath href="#cr">NATURALIDADE · SEGURANÇA · CIÊNCIA ·</textPath></text><text x="60" y="69" text-anchor="middle" font-family="Bodoni Moda" font-style="italic" font-size="26" fill="#fbf8f6">L</text></svg>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="filosofia">
+  <div class="wrap">
+    <span class="eyebrow rv" style="color:var(--petal)">Nossa filosofia</span>
+    <p class="display rv d1" style="margin-top:22px">Rejuvenescer não é mudar quem você é. É voltar a se reconhecer no espelho, <em>com leveza, frescor e a mesma expressão de sempre.</em></p>
+    <div class="pillars">
+      <div class="rv"><i>i.</i><b>Naturalidade</b><p>Doses e técnicas precisas, para que percebam que você está bem, sem saber o que fez.</p></div>
+      <div class="rv d1"><i>ii.</i><b>Segurança médica</b><p>Todos os procedimentos são realizados pela própria médica, com produtos registrados na Anvisa.</p></div>
+      <div class="rv d2"><i>iii.</i><b>Protocolo individual</b><p>Cada rosto é avaliado em detalhes: estrutura, pele e expectativas, para um plano feito só para você.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section class="sec" id="tratamentos">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow rv">Tratamentos</span>
+        <h2 class="display h2 rv d1">Cuidados que respeitam <em>a sua expressão.</em></h2>
+      </div>
+      <p class="lede rv d2">Escolha um tratamento e fale com a nossa recepção. A indicação final é sempre definida pela doutora, na consulta de avaliação.</p>
+    </div>
+    <div class="groups rv" role="tablist">
+      <button class="on" data-g="todos">Todos</button>
+      <button data-g="rejuvenescimento">Rejuvenescimento</button>
+      <button data-g="contorno">Contorno e volume</button>
+      <button data-g="pele">Qualidade da pele</button>
+    </div>
+    <div class="procs" id="procs"></div>
+  </div>
+</section>
+
+<!-- FASES -->
+<section class="sec phases" id="fases">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow rv">Para cada fase da pele</span>
+        <h2 class="display h2 rv d1">Cada década pede <em>um cuidado diferente.</em></h2>
+      </div>
+      <p class="lede rv d2" style="color:var(--plum-2)">A pele muda com o tempo, e o tratamento certo também. Estas são as indicações mais comuns em cada fase. O seu plano é definido na avaliação.</p>
+    </div>
+    <div class="phase-grid">
+      <div class="phase rv"><div class="age">40<sup>+</sup></div><h3>Prevenção e frescor</h3><p>Primeiras linhas de expressão e perda discreta de viço.</p><ul><li>Toxina botulínica</li><li>Skinbooster</li><li>Peelings suaves</li></ul></div>
+      <div class="phase rv d1"><div class="age">50<sup>+</sup></div><h3>Firmeza e sustentação</h3><p>Redução do colágeno, flacidez inicial e contorno menos definido.</p><ul><li>Bioestimulador de colágeno</li><li>Ultrassom microfocado</li><li>Preenchimento estrutural</li></ul></div>
+      <div class="phase rv d2"><div class="age">60<sup>+</sup></div><h3>Qualidade e luminosidade</h3><p>Pele mais fina, manchas e sulcos mais marcados.</p><ul><li>Protocolos combinados</li><li>Tratamento de manchas</li><li>Bioestimulação de pescoço e colo</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOUTORA -->
+<section class="sec" id="doutora">
+  <div class="wrap doctor">
+    <div class="doc-photo rv">
+      <div class="ph"><img data-src="doc" data-w="1000" data-px="-0.06" alt="Dra. Helena Vasconcellos em seu consultório"></div>
+      <div class="sig"><b>Dra. Helena Vasconcellos</b><small>CRM-RS 00000 · RQE 0000</small></div>
+    </div>
+    <div>
+      <span class="eyebrow rv">A doutora</span>
+      <h2 class="display h2 rv d1">Ciência, olhar estético e <em>escuta atenta.</em></h2>
+      <p class="rv d2">Médica dermatologista, a Dra. Helena dedica a carreira ao cuidado da pele madura. Acredita que o melhor resultado é aquele que ninguém consegue apontar: um rosto descansado, iluminado e fiel à própria história.</p>
+      <p class="rv d2">Cada consulta começa com uma conversa sem pressa sobre a sua rotina, as suas expectativas e o que realmente incomoda você. Só depois vem o plano de tratamento.</p>
+      <ul class="creds rv d3">
+        <li><span>Formação</span>Medicina e residência em Dermatologia</li>
+        <li><span>Título</span>Especialista pela Sociedade Brasileira de Dermatologia</li>
+        <li><span>Foco</span>Rejuvenescimento facial e pele madura</li>
+        <li><span>Registro</span>CRM-RS 00000 · RQE 0000</li>
+      </ul>
+      <button class="btn btn-solid rv d3" data-open>Conversar com a recepção <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENTE -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:40px">
+      <div><span class="eyebrow rv">A clínica</span><h2 class="display h2 rv d1">Um ambiente pensado para <em>o seu bem-estar.</em></h2></div>
+      <p class="lede rv d2">Atendimento com hora marcada, privacidade e tempo para você. Sem salas de espera cheias, sem pressa.</p>
+    </div>
+    <div class="space">
+      <div class="ph big rv"><img data-src="space1" data-w="1100" data-px="-0.05" alt="Sala de atendimento da clínica" loading="lazy"><span class="cap">Sala de procedimentos</span></div>
+      <div class="ph rv d1"><img data-src="space2" data-w="700" data-px="-0.05" alt="Detalhe de cuidados com a pele" loading="lazy"><span class="cap">Cuidados com a pele</span></div>
+      <div class="ph rv d2"><img data-src="space3" data-w="700" data-px="-0.05" alt="Produtos dermatológicos" loading="lazy"><span class="cap">Dermocosméticos</span></div>
+      <div class="ph rv d1" style="grid-column:span 2"><img data-src="space4" data-w="1100" data-px="-0.05" alt="Paciente em tratamento facial" loading="lazy"><span class="cap">Atendimento individual</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:44px"><div><span class="eyebrow rv">Pacientes</span><h2 class="display h2 rv d1">O que elas <em>sentem.</em></h2></div></div>
+    <div class="quotes">
+      <div class="quote rv"><span class="stars">★★★★★</span><blockquote>“Tinha medo de ficar artificial. Hoje as minhas amigas dizem que pareço descansada, e ninguém sabe o motivo.”</blockquote><cite>Marília S.<small>58 anos · Toxina botulínica</small></cite></div>
+      <div class="quote rv d1"><span class="stars">★★★★★</span><blockquote>“A doutora me ouviu de verdade. O bioestimulador devolveu a firmeza que eu achava que tinha perdido.”</blockquote><cite>Regina M.<small>62 anos · Bioestimulador de colágeno</small></cite></div>
+      <div class="quote rv d2"><span class="stars">★★★★★</span><blockquote>“Atendimento delicado do começo ao fim. Me senti cuidada, não apressada. Voltei a gostar do espelho.”</blockquote><cite>Beatriz A.<small>51 anos · Protocolo combinado</small></cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECEPÇÃO VIRTUAL -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="reception rv">
+      <div class="avatar">C<span class="on"></span></div>
+      <div>
+        <span class="eyebrow" style="color:var(--petal)">Recepção virtual</span>
+        <h2 class="display" style="font-size:clamp(2rem,4vw,3.2rem);margin-top:14px">Eu sou a <em>Clara.</em> Posso ajudar?</h2>
+        <p>Conte em poucos toques o que você procura. Eu encaminho a sua mensagem para a nossa recepção no WhatsApp, e uma de nossas atendentes responde você pessoalmente.</p>
+      </div>
+      <button class="btn btn-light" data-open>Falar com a Clara <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="duvidas" style="padding-top:0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px"><span class="eyebrow rv">Dúvidas frequentes</span><h2 class="display h2 rv d1">Perguntas que <em>sempre recebemos.</em></h2></div>
+    <div class="faq">
+      <details class="rv"><summary>Vou ficar com aparência artificial?<span class="pl">+</span></summary><p>O nosso trabalho é guiado pela naturalidade. As doses e os pontos de aplicação são definidos para suavizar, nunca para transformar. Você continua com as suas expressões.</p></details>
+      <details class="rv"><summary>Os procedimentos doem?<span class="pl">+</span></summary><p>A maioria causa apenas um leve desconforto. Utilizamos anestésico tópico e técnicas delicadas para que a experiência seja a mais tranquila possível.</p></details>
+      <details class="rv"><summary>Quanto tempo duram os resultados?<span class="pl">+</span></summary><p>Varia conforme o tratamento e cada organismo. Em média, a toxina botulínica dura de 4 a 6 meses e os bioestimuladores, de 12 a 24 meses. A doutora explica tudo na avaliação.</p></details>
+      <details class="rv"><summary>Nunca fiz nenhum procedimento. Por onde começo?<span class="pl">+</span></summary><p>Pela consulta de avaliação. Nela, a doutora analisa a sua pele, ouve as suas expectativas e indica o caminho mais adequado, sem nenhum compromisso de realizar o procedimento no mesmo dia.</p></details>
+      <details class="rv"><summary>Posso voltar à rotina no mesmo dia?<span class="pl">+</span></summary><p>Na maioria dos casos, sim. Alguns tratamentos podem causar vermelhidão ou pequenos hematomas por poucos dias. Você recebe todas as orientações antes e depois.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="#inicio" class="brand"><b>LUMINA</b><small>Dermatologia Estética</small></a><p style="max-width:320px">Rejuvenescimento facial com naturalidade, ciência e cuidado individual.</p></div>
+      <div><h4>Navegação</h4><ul><li><a href="#tratamentos">Tratamentos</a></li><li><a href="#fases">Cada fase</a></li><li><a href="#doutora">A doutora</a></li><li><a href="#duvidas">Dúvidas</a></li></ul></div>
+      <div><h4>Atendimento</h4><ul><li>Segunda a sexta · 9h às 19h</li><li>Sábado · 9h às 13h</li><li>Somente com hora marcada</li></ul></div>
+      <div><h4>Contato</h4><ul><li><button data-open style="background:none;border:0;cursor:pointer;text-align:left;padding:0">WhatsApp <span id="foneTxt"></span></button></li><li>Moinhos de Vento · Porto Alegre</li><li>Responsável técnica:<br>Dra. Helena Vasconcellos<br>CRM-RS 00000 · RQE 0000</li></ul></div>
+    </div>
+    <p class="legal">Conteúdo de caráter informativo. Os procedimentos são realizados somente após consulta e avaliação médica, e os resultados variam de pessoa para pessoa. Seus dados enviados pela recepção virtual são usados apenas para retornar o seu contato, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). Imagens ilustrativas.</p>
+    <div class="signature">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#e8d6ce" stroke-width="1"/><circle cx="24" cy="24" r="19" fill="none" stroke="#e8d6ce" stroke-width=".5" opacity=".6"/><text x="24" y="29.5" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="14" letter-spacing="1" fill="#fbf8f6">H2D</text></svg>
+      <div><small>Protótipo de demonstração · Site desenvolvido por</small><b>H2D Studio · <em>Denise Ramos</em></b></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Recepcionista virtual (painel) -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Recepção virtual" aria-hidden="true">
+  <div class="d-head">
+    <div class="avatar">C<span class="on"></span></div>
+    <div><b>Clara · Recepção Lumina</b><small>Online agora · responde em minutos</small></div>
+    <button class="d-close" id="dClose" aria-label="Fechar">×</button>
+  </div>
+  <form class="d-body" id="chat" novalidate>
+    <div class="msg" data-step="1">Olá, seja bem-vinda à <em>Lumina</em>. Eu sou a Clara, da recepção. 🌿</div>
+    <div class="msg" data-step="2" id="msgTrat">Para começar, como posso chamar você?</div>
+    <div class="field-wrap" data-step="3">
+      <label for="cNome">Meu nome é</label>
+      <input class="field" id="cNome" placeholder="Seu nome" autocomplete="given-name">
+    </div>
+    <div class="msg" data-step="4">Sobre qual tratamento você gostaria de saber?</div>
+    <div class="field-wrap" data-step="5"><span class="lbl">Tenho interesse em</span><div class="chips" id="cTrat"></div></div>
+    <div class="msg" data-step="6">Você já realizou algum procedimento estético antes?</div>
+    <div class="field-wrap" data-step="7"><div class="chips" id="cExp">
+      <label class="chip"><input type="radio" name="exp" value="Será a minha primeira vez"><span>Será a minha primeira vez</span></label>
+      <label class="chip"><input type="radio" name="exp" value="Já fiz procedimentos antes"><span>Já fiz antes</span></label>
+    </div></div>
+    <div class="msg" data-step="8">E qual o melhor período para a nossa recepção responder você?</div>
+    <div class="field-wrap" data-step="9"><div class="chips" id="cPer">
+      <label class="chip"><input type="radio" name="per" value="pela manhã"><span>Manhã</span></label>
+      <label class="chip"><input type="radio" name="per" value="à tarde"><span>Tarde</span></label>
+      <label class="chip"><input type="radio" name="per" value="no início da noite"><span>Início da noite</span></label>
+    </div></div>
+  </form>
+  <div class="d-foot">
+    <button class="wa-send" type="submit" form="chat"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Enviar para a recepção</button>
+    <p class="d-note">Você será direcionada ao WhatsApp da clínica com a mensagem pronta.</p>
+    <p class="d-err" id="dErr">Por gentileza, informe seu nome e escolha ao menos um tratamento.</p>
+  </div>
+</aside>
+
+<button class="float" id="float" data-open><span class="t">Fale com a Clara</span><span class="avatar">C<span class="on"></span></span></button>
+<div class="demo-seal" id="seal" role="note"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#e8d6ce" stroke-width="1"/><text x="24" y="29.5" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="14" fill="#fbf8f6">H2D</text></svg><span><span class="lbl">Protótipo de demonstração · por</span><span class="lbl-m">Demonstração</span><b>H2D Studio<span class="dn"> · Denise Ramos</span></b></span><button class="x" type="button" aria-label="Fechar selo" onclick="this.parentNode.hidden=true">×</button></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol></svg>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO (edite aqui)
+   ============================================================ */
+var CONFIG = {
+  whatsapp: '5551993759314',
+  foneExibicao: '(51) 99375-9314',
+  clinica: 'Lumina',
+  recepcionista: 'Clara'
+};
+
+/* Fotos (banco de imagens Unsplash, uso livre). Cada item tem reservas
+   caso a primeira não carregue. */
+var U = function(id){ return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&q=80'; };
+var FOTOS = {
+  hero:   ['1567532939604-b6b5b0db2604','1548142813-c348350df52b','1566616213894-2d4e1baee5d8','1581579438747-104c53d7fbc4'],
+  doc:    ['1559839734-2b71ea197ec2','1612349317150-e413f6a5b16d','1594824476967-48c8b964273f'],
+  botox:  ['1548142813-c348350df52b','1567532939604-b6b5b0db2604','1566616213894-2d4e1baee5d8'],
+  colageno:['1566616213894-2d4e1baee5d8','1581579438747-104c53d7fbc4','1567532939604-b6b5b0db2604'],
+  harmonizacao:['1581579438747-104c53d7fbc4','1548142813-c348350df52b','1567532939604-b6b5b0db2604'],
+  skinbooster:['1570172619644-dfd03ed5d881','1616394584738-fc6e612e71b9','1512290923902-8a9f81dc236c'],
+  ultrassom:['1616394584738-fc6e612e71b9','1570172619644-dfd03ed5d881','1519824145371-296894a0daa9'],
+  manchas:['1556228578-8c89e6adf883','1512290923902-8a9f81dc236c','1570172619644-dfd03ed5d881'],
+  space1: ['1629909613654-28e377c37b09','1519494026892-80bbd2d6fd0d','1570172619644-dfd03ed5d881'],
+  space2: ['1570172619644-dfd03ed5d881','1616394584738-fc6e612e71b9'],
+  space3: ['1556228578-8c89e6adf883','1512290923902-8a9f81dc236c'],
+  space4: ['1616394584738-fc6e612e71b9','1570172619644-dfd03ed5d881','1519824145371-296894a0daa9']
+};
+
+/* Tratamentos: copie um bloco para incluir outro. grupo: rejuvenescimento | contorno | pele */
+var TRATAMENTOS = [
+  { id:'botox', grupo:'rejuvenescimento', nome:'Toxina botulínica', aka:'Conhecida como Botox',
+    texto:'Suaviza as linhas de expressão da testa, entre as sobrancelhas e ao redor dos olhos, mantendo a naturalidade dos movimentos.',
+    sessao:'20 a 30 min', duracao:'4 a 6 meses*', botao:'Quero saber sobre Botox' },
+  { id:'colageno', grupo:'rejuvenescimento', nome:'Bioestimulador de colágeno', aka:'Firmeza de dentro para fora',
+    texto:'Estimula a produção natural de colágeno, melhorando a flacidez e a firmeza do rosto, do pescoço e do colo de forma progressiva.',
+    sessao:'40 min', duracao:'12 a 24 meses*', botao:'Quero saber sobre bioestimulador' },
+  { id:'harmonizacao', grupo:'contorno', nome:'Harmonização facial', aka:'Com ácido hialurônico',
+    texto:'Repõe volumes perdidos com o tempo e redefine o contorno de mandíbula, maçãs do rosto e sulcos, sempre em equilíbrio com seus traços.',
+    sessao:'45 a 60 min', duracao:'12 a 18 meses*', botao:'Quero saber sobre harmonização' },
+  { id:'skinbooster', grupo:'pele', nome:'Skinbooster', aka:'Hidratação profunda',
+    texto:'Hidrata a pele em profundidade, devolvendo viço, maciez e luminosidade. Indicado para rosto, pescoço, colo e mãos.',
+    sessao:'30 min', duracao:'6 a 9 meses*', botao:'Quero saber sobre skinbooster' },
+  { id:'ultrassom', grupo:'contorno', nome:'Ultrassom microfocado', aka:'Efeito lifting sem cirurgia',
+    texto:'Tecnologia que atua nas camadas profundas da pele, promovendo sustentação e um contorno facial mais definido.',
+    sessao:'60 min', duracao:'até 12 meses*', botao:'Quero saber sobre o ultrassom' },
+  { id:'manchas', grupo:'pele', nome:'Tratamento de manchas', aka:'Melasma e manchas do sol',
+    texto:'Protocolos com peelings e ativos dermatológicos para uniformizar o tom da pele e recuperar a luminosidade.',
+    sessao:'30 a 45 min', duracao:'conforme protocolo', botao:'Quero saber sobre manchas' }
+];
+
+(function(){
+  var ARR = '<span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>';
+  var GRUPOS = { rejuvenescimento:'Rejuvenescimento', contorno:'Contorno e volume', pele:'Qualidade da pele' };
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
+  function wa(m){ return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(m); }
+
+  /* Cards de tratamento */
+  document.getElementById('procs').innerHTML = TRATAMENTOS.map(function(t,i){
+    return '<article class="proc rv' + (i%3?' d'+(i%3):'') + '" data-g="' + t.grupo + '">' +
+      '<div class="ph"><img data-src="' + t.id + '" data-w="800" alt="' + esc(t.nome) + '" loading="lazy"><span class="tag">' + GRUPOS[t.grupo] + '</span></div>' +
+      '<div class="body"><h3>' + esc(t.nome) + '</h3><div class="aka">' + esc(t.aka) + '</div><p>' + esc(t.texto) + '</p>' +
+      '<div class="facts"><div><span>Sessão</span><b>' + esc(t.sessao) + '</b></div><div><span>Duração média</span><b>' + esc(t.duracao) + '</b></div></div>' +
+      '<button class="proc-btn" data-open="' + t.id + '">' + esc(t.botao) + ARR + '</button></div></article>';
+  }).join('') + '<p style="grid-column:1/-1;font-size:.86rem;color:var(--mauve)">* Valores médios de referência. A duração varia de pessoa para pessoa e é avaliada em consulta.</p>';
+
+  document.querySelectorAll('.groups button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.groups button').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on'); var g = b.getAttribute('data-g');
+      document.querySelectorAll('.proc').forEach(function(p){ p.classList.toggle('hide', g!=='todos' && p.getAttribute('data-g')!==g); p.classList.add('in'); });
+    });
+  });
+
+  /* Fotos com reservas */
+  function setImg(img){
+    var list = (FOTOS[img.getAttribute('data-src')] || []).slice(), w = img.getAttribute('data-w') || 900;
+    function next(){ if(!list.length){ img.style.opacity = 0; return; } img.src = U(list.shift()) + '&w=' + w; }
+    img.addEventListener('error', next); next();
+  }
+  document.querySelectorAll('img[data-src]').forEach(setImg);
+
+  /* Recepcionista */
+  var drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim'), chat = document.getElementById('chat');
+  var trat = document.getElementById('cTrat'), nome = document.getElementById('cNome');
+  trat.innerHTML = TRATAMENTOS.map(function(t){ return '<label class="chip"><input type="checkbox" value="' + esc(t.nome + (t.id==='botox' ? ' (Botox)' : '')) + '" data-id="' + t.id + '"><span>' + esc(t.nome) + '</span></label>'; }).join('') +
+    '<label class="chip"><input type="checkbox" value="Avaliação geral" data-id="avaliacao"><span>Ainda não sei, quero uma avaliação</span></label>';
+  var steps = [].slice.call(chat.querySelectorAll('[data-step]')), timers = [];
+
+  function openDrawer(id){
+    timers.forEach(clearTimeout); timers = [];
+    if (id) trat.querySelectorAll('input').forEach(function(i){ if(i.getAttribute('data-id')===id) i.checked = true; });
+    var chosen = [].filter.call(trat.querySelectorAll('input'), function(i){return i.checked}).map(function(i){return i.value});
+    document.getElementById('msgTrat').innerHTML = chosen.length ? 'Que bom! Vi que você tem interesse em <em>' + esc(chosen.join(', ')) + '</em>. Como posso chamar você?' : 'Para começar, como posso chamar você?';
+    drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    steps.forEach(function(s){ s.classList.remove('show'); });
+    var typing = document.createElement('div'); typing.className = 'typing'; typing.innerHTML = '<i></i><i></i><i></i>';
+    chat.insertBefore(typing, steps[0]);
+    var t = 650;
+    timers.push(setTimeout(function(){ typing.remove(); }, t));
+    steps.forEach(function(s, i){ timers.push(setTimeout(function(){ s.classList.add('show'); }, t + i * 170)); });
+    timers.push(setTimeout(function(){ nome.focus({preventScroll:true}); }, t + 500));
+  }
+  function closeDrawer(){ drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+  document.querySelectorAll('[data-open]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); openDrawer(b.getAttribute('data-open')); }); });
+  document.getElementById('dClose').addEventListener('click', closeDrawer);
+  scrim.addEventListener('click', closeDrawer);
+  addEventListener('keydown', function(e){ if(e.key==='Escape') closeDrawer(); });
+
+  chat.addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = nome.value.trim();
+    var ts = [].filter.call(trat.querySelectorAll('input'), function(i){return i.checked}).map(function(i){return i.value});
+    var err = document.getElementById('dErr');
+    if (!n || !ts.length){ err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    var exp = chat.querySelector('input[name="exp"]:checked'), per = chat.querySelector('input[name="per"]:checked');
+    var L = ['Olá! Meu nome é ' + n + '.', '', 'Gostaria de saber mais sobre: ' + ts.join(', ') + '.'];
+    if (exp) L.push(exp.value + '.');
+    if (per) L.push('Prefiro ser respondida ' + per.value + '.');
+    L.push('', '(Mensagem enviada pela recepcionista virtual ' + CONFIG.recepcionista + ', site ' + CONFIG.clinica + ')');
+    window.open(wa(L.join('\n')), '_blank', 'noopener');
+  });
+
+  document.getElementById('foneTxt').textContent = CONFIG.foneExibicao;
+
+  /* Movimento */
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  var nav = document.getElementById('nav'), fl = document.getElementById('float'), px = [].slice.call(document.querySelectorAll('[data-px]')), tick = false;
+  function frame(){
+    nav.classList.toggle('solid', scrollY > 40);
+    fl.classList.toggle('show', scrollY > innerHeight * .7);
+    document.getElementById('seal').classList.toggle('show', scrollY > innerHeight * .7);
+    if (!reduce) px.forEach(function(el){
+      var r = el.parentElement.getBoundingClientRect(); if (r.bottom < -100 || r.top > innerHeight + 100) return;
+      el.style.transform = 'translate3d(0,' + ((r.top + r.height/2 - innerHeight/2) * -parseFloat(el.getAttribute('data-px'))).toFixed(1) + 'px,0)';
+    });
+    tick = false;
+  }
+  addEventListener('scroll', function(){ if(!tick){ requestAnimationFrame(frame); tick = true; } }, {passive:true});
+  addEventListener('resize', frame); frame();
+})();
+</script>
+</body>
+</html>
