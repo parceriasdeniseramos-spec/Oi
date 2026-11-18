@@ -18,34 +18,73 @@ h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2rem;margin:
 figure{position:relative;background:var(--card);border-radius:14px;overflow:hidden;aspect-ratio:3/4}
 figure img{width:100%;height:100%;object-fit:cover;display:block}
 figure .n{position:absolute;left:8px;top:8px;background:var(--gold);color:#13100f;font-weight:700;font-size:1.05rem;min-width:40px;height:40px;border-radius:20px;display:grid;place-items:center;padding:0 10px}
+figure{cursor:pointer;transition:transform .3s}
+figure.sel{outline:4px solid var(--gold);outline-offset:-4px;transform:scale(.97)}
+figure.sel::after{content:"✓";position:absolute;right:8px;top:8px;width:40px;height:40px;border-radius:50%;background:var(--gold);color:#13100f;font-weight:700;font-size:1.3rem;display:grid;place-items:center}
+figure .zoom{position:absolute;right:8px;bottom:8px;width:40px;height:40px;border-radius:50%;background:rgba(19,16,15,.75);border:1px solid rgba(201,168,124,.6);color:var(--ivory);font-size:1.1rem;display:grid;place-items:center;cursor:pointer}
+.bar{position:fixed;left:0;right:0;bottom:0;background:rgba(19,16,15,.96);backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,124,.4);padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;z-index:10}
+.bar #sum{font-size:.95rem;color:var(--muted);flex:1;min-width:200px}
+.bar #sum b{color:var(--ivory)}
+.bar button{background:var(--gold);color:#13100f;border:0;border-radius:999px;padding:15px 24px;font-weight:700;font-size:.9rem;letter-spacing:.06em;cursor:pointer}
+.bar button:disabled{opacity:.4}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:20;display:none;place-items:center;padding:20px}
+.lb.open{display:grid}
+.lb img{max-width:100%;max-height:82vh;border-radius:12px}
+.lb p{color:var(--ivory);text-align:center;margin-top:12px}
+body{padding-bottom:140px}
 figure .fail{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:.85rem;text-align:center;padding:10px}
 </style>
 </head>
 <body>
 <h1>Escolha as fotos da <em>Lumina</em></h1>
-<p class="intro">Toque nas fotos para ver maiores. Anote os números das que você gostar em cada grupo e mande para o Claude, por exemplo: "Mulheres: 4, 9 e 12. Doutora: 3. Clínica: 2, 5 e 8". Se alguma foto não carregar, ela aparece como "indisponível".</p>
+<p class="intro"><b style="color:var(--ivory)">1.</b> Toque nas fotos que você gostar: elas ficam marcadas com ✓ dourado (toque de novo para desmarcar).<br><b style="color:var(--ivory)">2.</b> Para ver uma foto maior, toque na lupa 🔍 no canto dela.<br><b style="color:var(--ivory)">3.</b> No fim, toque em <b style="color:var(--gold)">Copiar minha escolha</b> e cole a mensagem na conversa com o Claude.</p>
 
 <h2>Mulheres 50+ com pele bem cuidada</h2><div class="grid" id="g1"></div>
 <h2>A doutora</h2><div class="grid" id="g2"></div>
 <h2>Clínica, cuidados e texturas</h2><div class="grid" id="g3"></div>
 
+<div class="lb" id="lb"><div><img id="lbImg" alt=""><p>Toque em qualquer lugar para fechar</p></div></div>
+<div class="bar"><div id="sum">Nenhuma foto marcada ainda.</div><button id="copy" disabled>Copiar minha escolha</button></div>
 <script>
 var G = {
   g1:['1567532939604-b6b5b0db2604','1548142813-c348350df52b','1566616213894-2d4e1baee5d8','1581579438747-104c53d7fbc4','1594824476967-48c8b964273f','1551836022-d5d88e9218df','1573496359142-b8d87734a5a2','1580489944761-15a19d654956','1438761681033-6461ffad8d80','1508214751196-bcfd4ca60f91','1499952127939-9bbf5af6c51c','1531123897727-8f129e1688ce','1592621385612-4d7129426394','1609505848912-b7c3b8b4beda','1595152772835-219674b2a8a6','1611432579699-484f7990b127','1559563458-527698bf5295','1541823709867-1b206113eafd','1554151228-14d9def656e4','1546961329-78bef0414d7c','1601412436009-d964bd02edbc','1563620915-8478239e9aab','1526510747491-58f928ec870f','1557296387-5358ad7997bb','1607746882042-944635dfe10e','1614283233556-f35b0c801ef1','1610276198568-eb6d0ff53e48','1596815064285-45ed8a9c0463','1584043720379-b56cd9199c94','1620122303020-87ec826cf70d','1629425733761-caae3b5f2e50','1604072366595-e75dc92d6bdc','1598550874175-4d0ef436c909','1590086783191-a0694c7d1e6e','1612817288484-6f916006741a','1515377905703-c4788e51af15'],
   g2:['1559839734-2b71ea197ec2','1612349317150-e413f6a5b16d','1622253692010-333f2da6031d','1651008376811-b90baee60c1f','1527613426441-4da17471b66d','1582750433449-648ed127bb54','1614608682850-e0d6ed316d47','1594824476967-48c8b964273f','1573496359142-b8d87734a5a2'],
   g3:['1570172619644-dfd03ed5d881','1616394584738-fc6e612e71b9','1512290923902-8a9f81dc236c','1556228578-8c89e6adf883','1629909613654-28e377c37b09','1519824145371-296894a0daa9','1540555700478-4be289fbecef','1544161515-4ab6ce6db874','1600334089648-b0d9d3028eb2','1596178060671-7a80dc8059ea','1570554886111-e80fcca6a029','1608248543803-ba4f8c70ae0b','1620916566398-39f1143ab7be','1631729371254-42c2892f0e6e','1598440947619-2c35fc9aa908','1519494026892-80bbd2d6fd0d']
 };
+var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+lb.addEventListener('click', function(){ lb.classList.remove('open'); lbImg.src = ''; });
+var NOMES = { g1:'Mulheres 50+', g2:'Doutora', g3:'Clínica' }, texto = '';
+function update(){
+  var parts = [];
+  Object.keys(NOMES).forEach(function(g){
+    var ns = [].map.call(document.querySelectorAll('figure.sel[data-g="' + g + '"]'), function(f){ return f.getAttribute('data-n'); });
+    if (ns.length) parts.push(NOMES[g] + ': ' + ns.join(', '));
+  });
+  texto = parts.length ? 'Fotos escolhidas para a Lumina: ' + parts.join(' | ') : '';
+  document.getElementById('sum').innerHTML = parts.length ? '<b>' + parts.join('<br>') + '</b>' : 'Nenhuma foto marcada ainda.';
+  document.getElementById('copy').disabled = !parts.length;
+}
+document.getElementById('copy').addEventListener('click', function(){
+  var btn = this;
+  function ok(){ btn.textContent = 'Copiado! Agora cole no Claude'; setTimeout(function(){ btn.textContent = 'Copiar minha escolha'; }, 3000); }
+  if (navigator.clipboard) navigator.clipboard.writeText(texto).then(ok, fallback); else fallback();
+  function fallback(){ var t = document.createElement('textarea'); t.value = texto; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch(e) { prompt('Copie o texto:', texto); } t.remove(); }
+});
 var n = 0;
 Object.keys(G).forEach(function(k){
   var el = document.getElementById(k);
   G[k].forEach(function(id){
     n++;
     var f = document.createElement('figure');
-    var a = document.createElement('a'); a.href = 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=1400&q=80'; a.target = '_blank'; a.rel = 'noopener';
     var img = new Image(); img.loading = 'lazy'; img.alt = 'Opção ' + n;
     img.src = 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=420&h=560&q=70';
     img.onerror = function(){ img.remove(); var d = document.createElement('div'); d.className = 'fail'; d.textContent = 'indisponível'; f.appendChild(d); };
-    a.appendChild(img); f.appendChild(a);
+    f.appendChild(img);
+    var z = document.createElement('span'); z.className = 'zoom'; z.textContent = '🔍'; z.setAttribute('role','button'); z.setAttribute('aria-label','Ver maior');
+    z.addEventListener('click', function(e){ e.stopPropagation(); lbImg.src = 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=1200&q=80'; lb.classList.add('open'); });
+    f.appendChild(z);
+    f.setAttribute('data-n', n); f.setAttribute('data-g', k);
+    f.addEventListener('click', function(){ f.classList.toggle('sel'); update(); });
     var s = document.createElement('span'); s.className = 'n'; s.textContent = n; f.appendChild(s);
     f.setAttribute('data-id', id);
     el.appendChild(f);
