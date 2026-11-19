@@ -329,6 +329,23 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 .concept span{position:absolute;top:8px;right:8px;background:rgba(11,9,7,.88);backdrop-filter:blur(6px);color:var(--g1);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 11px;border-radius:999px;border:1px solid rgba(214,162,101,.4)}
 @media(max-width:960px){.concepts{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:520px){.concepts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Depoimentos e confiança */
+.testis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.testi{display:flex;flex-direction:column;gap:18px;padding:32px 28px;border-radius:24px;border:1px solid var(--line);background:var(--bg-2)}
+.testi .q{font-size:3.4rem;line-height:.5;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.testi blockquote{font-size:1.12rem;font-weight:600;line-height:1.5}
+.testi cite{margin-top:auto;font-style:normal;display:flex;align-items:center;gap:12px}
+.testi cite i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#1a0f06;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.9rem}
+.testi cite b{display:block;font-size:.95rem}
+.testi cite small{color:var(--muted);font-size:.8rem}
+.trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px}
+.trust div{padding:22px 20px;border-radius:20px;border:1px dashed rgba(214,162,101,.35)}
+.trust b{display:block;font-size:1rem;margin:8px 0 4px}
+.trust span{font-size:.86rem;color:var(--muted)}
+.trust i{font-style:normal;font-size:1.5rem}
+@media(max-width:960px){.testis{grid-template-columns:minmax(0,1fr)}.trust{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.trust{grid-template-columns:minmax(0,1fr)}}
+
 /* Quem faz */
 .team{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
 .duo{position:relative;min-height:480px}
@@ -553,6 +570,26 @@ footer a:hover{color:var(--g1)}
       <a class="concept rv" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-odonto.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site interativo para clínica odontológica"><span>Odonto</span></a>
       <a class="concept rv d1" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-farmacias.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site interativo para farmácia"><span>Farmácia</span></a>
       <a class="concept rv d2" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-educacao.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site para projeto de tecnologia na educação"><span>Educação</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="depoimentos" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Depoimentos</span><h2 class="h2 rv d1">O que dizem sobre <span class="gt">o nosso trabalho.</span></h2></div>
+      <p class="lede rv d2">Opiniões reais de profissionais que conheceram os nossos projetos.</p>
+    </div>
+    <div class="testis">
+      <figure class="testi rv"><span class="q">“</span><blockquote>Ficou maravilhoso. Achei muito legal!</blockquote><cite><i>J.B.</i><span><b>J. B.</b><small>Farmacêutica esteta · sobre o projeto para clínica de estética</small></span></cite></figure>
+      <figure class="testi rv d1"><span class="q">“</span><blockquote>O texto e o conteúdo estão bons. Parabéns pelo belo trabalho!</blockquote><cite><i>C.T.</i><span><b>C. T.</b><small>Advogado · sobre o site do seu escritório</small></span></cite></figure>
+      <figure class="testi rv d2"><span class="q">“</span><blockquote>Com relação ao site interativo, adorei. Adorei mesmo!</blockquote><cite><i>A.</i><span><b>A.</b><small>Cirurgiã-dentista · sobre o projeto para clínica odontológica</small></span></cite></figure>
+    </div>
+    <div class="trust">
+      <div class="rv"><i>🛡️</i><b>Garantia de 15 dias</b><span>Ajustamos ou devolvemos 100% do valor do pacote.</span></div>
+      <div class="rv d1"><i>👀</i><b>Prévia antes da entrega</b><span>Você vê e aprova o site antes de ele ir ao ar.</span></div>
+      <div class="rv d2"><i>🔗</i><b>Portfólio no ar</b><span>Abra os nossos sites e teste a recepcionista virtual.</span></div>
+      <div class="rv d3"><i>👩‍👦</i><b>Direto com quem faz</b><span>Você fala com a Denise e o Diogo, sem intermediários.</span></div>
     </div>
   </div>
 </section>
