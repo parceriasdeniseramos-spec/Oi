@@ -29,7 +29,7 @@
  {"@type":"ProfessionalService","@id":"https://h2d-studio.netlify.app/#empresa","name":"H2D Studio","alternateName":"H2D Studio · Criação de Sites",
   "description":"Criação de sites profissionais, modernos e otimizados para o Google, com recepcionista virtual integrada ao WhatsApp.",
   "url":"https://h2d-studio.netlify.app/","image":"https://h2d-studio.netlify.app/og-image.png","logo":"https://h2d-studio.netlify.app/favicon.svg",
-  "telephone":"+55 51 99375-9314","founder":{"@type":"Person","name":"Denise Ramos"},
+  "telephone":"+55 51 99375-9314","founder":[{"@type":"Person","name":"Denise Ramos","image":"https://h2d-studio.netlify.app/img/denise-ramos.webp"},{"@type":"Person","name":"Diogo Spolador"}],"sameAs":["https://www.instagram.com/h2d.studio/"],
   "address":{"@type":"PostalAddress","addressRegion":"RS","addressCountry":"BR"},
   "areaServed":[{"@type":"City","name":"Porto Alegre"},{"@type":"State","name":"Rio Grande do Sul"},{"@type":"Country","name":"Brasil"}],
   "slogan":"Sites que impressionam. Experiências que conectam.",
@@ -45,6 +45,7 @@
   {"@type":"Question","name":"O meu site vai aparecer no Google?","acceptedAnswer":{"@type":"Answer","text":"Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google."}},
   {"@type":"Question","name":"O site funciona no celular?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela."}},
   {"@type":"Question","name":"Preciso ter domínio próprio?","acceptedAnswer":{"@type":"Answer","text":"Não é obrigatório para começar, mas é recomendado. A H2D Studio registra e configura o seu domínio .com.br como serviço extra."}},
+  {"@type":"Question","name":"Já tenho Instagram. Preciso de um site?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Instagram ajuda a ser visto, mas quem pesquisa no Google só encontra sites. Com o site, você tem um endereço próprio, informações organizadas e uma recepcionista virtual que atende 24 horas."}},
   {"@type":"Question","name":"E se eu não gostar do site?","acceptedAnswer":{"@type":"Answer","text":"Você tem 15 dias de garantia de satisfação a partir da entrega: ajustamos o site ou devolvemos 100% do valor investido no pacote."}}]}
 ]}
 </script>
@@ -269,6 +270,47 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 .qbox .btn{width:100%;justify-content:center;margin-top:8px}
 .qerr{display:none;color:#f0a294;font-size:.86rem;margin-top:10px;text-align:center}
 
+/* Instagram x site */
+.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.vcol{border-radius:24px;padding:32px 28px;border:1px solid var(--line);background:var(--bg-2)}
+.vcol.best{border-color:rgba(214,162,101,.55);background:linear-gradient(170deg,#2a1d12,#140f0b)}
+.vcol h3{font-size:1.35rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.vcol ul{list-style:none;display:grid;gap:12px}
+.vcol li{display:grid;grid-template-columns:24px 1fr;gap:10px;font-size:.96rem;color:var(--muted)}
+.vcol.best li{color:var(--cream)}
+.vcol li i{font-style:normal;font-weight:800}
+.vcol li i.no{color:#c96f5a}.vcol li i.ok{color:var(--g1)}
+.vs-note{margin-top:22px;text-align:center;color:var(--muted);max-width:760px;margin-inline:auto}
+.vs-note b{color:var(--cream)}
+@media(max-width:760px){.vs{grid-template-columns:minmax(0,1fr)}}
+/* Projetos conceito */
+.concepts-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:60px 0 22px}
+.concepts-head h3{font-size:1.4rem}
+.concepts-head a{font-weight:700;font-size:.9rem;color:var(--g1)}
+.concepts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.concept{position:relative;display:block;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:var(--bg-3);transition:transform .4s var(--ease),border-color .4s}
+.concept:hover{transform:translateY(-6px);border-color:rgba(214,162,101,.5)}
+.concept img{width:100%;height:100%;object-fit:cover}
+.concept span{position:absolute;top:8px;right:8px;background:rgba(11,9,7,.88);backdrop-filter:blur(6px);color:var(--g1);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 11px;border-radius:999px;border:1px solid rgba(214,162,101,.4)}
+@media(max-width:960px){.concepts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){.concepts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Quem faz */
+.team{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
+.duo{position:relative;min-height:480px}
+.duo .p1{position:absolute;left:0;top:0;width:68%;aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:1px solid rgba(214,162,101,.35);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.duo .p1 img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.duo .p2{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--bg);outline:2px solid var(--g2);box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.duo .p2 img{width:100%;height:100%;object-fit:cover}
+.duo .tag{position:absolute;background:var(--cream);color:var(--bg);border-radius:12px;padding:8px 12px;font-size:.74rem;font-weight:700;line-height:1.25;box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
+.duo .tag b{display:block;font-size:.9rem}
+.duo .t1{left:6%;bottom:20%}.duo .t2{right:4%;bottom:-14px}
+.team p{color:#d8ccbf;margin-bottom:16px}
+.team .who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.team .who div{border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.team .who b{display:block;font-size:1.05rem}
+.team .who span{font-size:.84rem;color:var(--gold)}
+@media(max-width:900px){.team{grid-template-columns:minmax(0,1fr)}.duo{min-height:0;aspect-ratio:1/1.05;max-width:460px;width:100%}}
+
 /* FAQ */
 .faq{max-width:880px;margin-inline:auto}
 .faq details{border-bottom:1px solid var(--line)}
@@ -321,7 +363,7 @@ footer a:hover{color:var(--g1)}
   <div class="wrap">
     <a href="#inicio" class="brand" aria-label="H2D Studio, início"><svg aria-hidden="true"><use href="#logo"/></svg><span>H2D Studio<small>CRIAÇÃO DE SITES</small></span></a>
     <nav class="menu" aria-label="Menu principal">
-      <a href="#servicos">Serviços</a><a href="#segmentos">Segmentos</a><a href="#portfolio">Portfólio</a><a href="#pacotes">Pacotes e preços</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a>
+      <a href="#servicos">Serviços</a><a href="#segmentos">Segmentos</a><a href="#portfolio">Portfólio</a><a href="#quem-somos">Quem somos</a><a href="#pacotes">Pacotes e preços</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a>
     </nav>
     <a class="btn btn-gold" data-wa="Olá, Denise! Vim pelo site da H2D Studio e quero um orçamento de site." href="#orcamento"><svg aria-hidden="true"><use href="#wa"/></svg><span class="t">Pedir orçamento</span></a>
   </div>
@@ -393,16 +435,67 @@ footer a:hover{color:var(--g1)}
   </div>
 </section>
 
+<section class="sec" id="instagram-ou-site">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Já tenho Instagram</span><h2 class="h2 rv d1">Preciso mesmo de <span class="gt">um site?</span></h2></div>
+      <p class="lede rv d2">O Instagram é ótimo para ser visto. O site é o lugar onde o cliente decide. Um não substitui o outro: juntos, eles vendem muito mais.</p>
+    </div>
+    <div class="vs">
+      <div class="vcol rv"><h3>📱 Só Instagram</h3><ul>
+        <li><i class="no">✕</i>Quem pesquisa no Google não encontra o seu negócio</li>
+        <li><i class="no">✕</i>O algoritmo decide quem vê os seus posts</li>
+        <li><i class="no">✕</i>Informações espalhadas entre posts, destaques e legendas</li>
+        <li><i class="no">✕</i>Toda dúvida vira uma mensagem para você responder</li>
+        <li><i class="no">✕</i>Se a conta cair, você perde tudo</li></ul></div>
+      <div class="vcol best rv d1"><h3>✨ Instagram + site H2D</h3><ul>
+        <li><i class="ok">✓</i>Você aparece no Google para quem procura o seu serviço</li>
+        <li><i class="ok">✓</i>Um endereço que é seu, com o seu nome e a sua marca</li>
+        <li><i class="ok">✓</i>Tudo organizado: serviços, preços, dúvidas e localização</li>
+        <li><i class="ok">✓</i>Recepcionista virtual que atende e qualifica 24 horas</li>
+        <li><i class="ok">✓</i>Mais credibilidade: cliente que vê site, confia mais</li></ul></div>
+    </div>
+    <p class="vs-note rv">Coloque o link do site na bio do Instagram e veja a diferença: <b>o seguidor chega ao WhatsApp já sabendo o que quer.</b></p>
+  </div>
+</section>
+
 <section class="sec" id="portfolio">
   <div class="wrap">
     <div class="head">
       <div><span class="kicker rv">Portfólio</span><h2 class="h2 rv d1">Sites que <span class="gt">impressionam.</span></h2></div>
-      <p class="lede rv d2">Projetos demonstrativos criados pela H2D Studio. Abra, navegue e teste a recepcionista virtual de cada um.</p>
+      <p class="lede rv d2">Projetos criados pela H2D Studio para diferentes segmentos. Abra os sites, navegue e teste a recepcionista virtual de cada um.</p>
     </div>
     <div class="works">
       <article class="work rv"><div class="cover cv1"><div><b>ÁUREA</b><small>Imóveis de alto padrão</small></div></div><div class="info"><span class="seg">Corretora de imóveis</span><h3>Áurea Litoral</h3><p>Concierge virtual, portfólio com filtros e atendimento reservado para personalidades.</p><a class="go" href="https://aurea-litoral-imoveis.netlify.app" target="_blank" rel="noopener">Ver o site →</a></div></article>
       <article class="work rv d1"><div class="cover cv2"><div><b>LUMINA</b><small>Dermatologia estética</small></div></div><div class="info"><span class="seg">Clínica de estética</span><h3>Lumina</h3><p>Visual de luxo, tratamentos em rolagem horizontal e recepcionista que agenda pelo WhatsApp.</p><a class="go" href="https://lumina-dermatologia-estetica.netlify.app" target="_blank" rel="noopener">Ver o site →</a></div></article>
       <article class="work rv d2"><div class="cover cv3"><div><b>ADVOCACIA</b><small>Inventários e sucessões</small></div></div><div class="info"><span class="seg">Escritório de advocacia</span><h3>Advocacia em inventários</h3><p>Guia interativo "cartório ou Justiça?", checklist de documentos e linha do tempo do processo.</p><span class="soon">Em breve no ar</span></div></article>
+    </div>
+    <div class="concepts-head rv"><h3>Projetos conceito por segmento</h3><a href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener">Ver mais no Instagram @h2d.studio →</a></div>
+    <div class="concepts">
+      <a class="concept rv" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-corretores.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site interativo para corretores de imóveis"><span>Imóveis</span></a>
+      <a class="concept rv d1" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-veiculos.webp" width="360" height="480" loading="lazy" decoding="async" alt="Vitrine digital para consultor de veículos"><span>Veículos</span></a>
+      <a class="concept rv d2" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-cafeteria.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site interativo para cafeteria com cardápio"><span>Cafeteria</span></a>
+      <a class="concept rv" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-odonto.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site interativo para clínica odontológica"><span>Odonto</span></a>
+      <a class="concept rv d1" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-farmacias.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site interativo para farmácia"><span>Farmácia</span></a>
+      <a class="concept rv d2" href="https://www.instagram.com/h2d.studio/" target="_blank" rel="noopener"><img src="img/portfolio-educacao.webp" width="360" height="480" loading="lazy" decoding="async" alt="Site para projeto de tecnologia na educação"><span>Educação</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="quem-somos">
+  <div class="wrap team">
+    <div class="duo rv">
+      <div class="p1"><img src="img/denise-ramos.webp" width="560" height="700" loading="lazy" decoding="async" alt="Denise Ramos, fundadora da H2D Studio"></div>
+      <div class="p2"><img src="img/diogo-spolador.webp" width="480" height="480" loading="lazy" decoding="async" alt="Diogo Spolador, cofundador da H2D Studio"></div>
+      <div class="tag t1"><b>Denise Ramos</b>Fundadora</div>
+      <div class="tag t2"><b>Diogo Spolador</b>Cofundador</div>
+    </div>
+    <div>
+      <span class="kicker rv">Quem faz a H2D Studio</span>
+      <h2 class="h2 rv d1">Uma empresa de família, <span class="gt">feita com cuidado.</span></h2>
+      <p class="rv d2">A H2D Studio nasceu da parceria entre mãe e filho. Denise cuida da estratégia, do atendimento e de cada detalhe que faz o cliente se sentir especial. Diogo, professor e apaixonado por tecnologia, traz o olhar técnico e a inovação.</p>
+      <p class="rv d2">Juntos, criamos sites que unem sensibilidade e tecnologia, para que o seu negócio seja encontrado, compreendido e escolhido.</p>
+      <div class="who rv d3"><div><b>Denise Ramos</b><span>Estratégia e atendimento</span></div><div><b>Diogo Spolador</b><span>Tecnologia e inovação</span></div></div>
     </div>
   </div>
 </section>
@@ -499,6 +592,7 @@ footer a:hover{color:var(--g1)}
       <details class="rv"><summary>O meu site vai aparecer no Google?<span class="pl">+</span></summary><p>Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google.</p></details>
       <details class="rv"><summary>O site funciona no celular?<span class="pl">+</span></summary><p>Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela.</p></details>
       <details class="rv"><summary>Preciso ter domínio próprio?<span class="pl">+</span></summary><p>Não é obrigatório para começar, mas é recomendado. Registramos e configuramos o seu domínio .com.br como serviço extra.</p></details>
+      <details class="rv"><summary>Já tenho Instagram. Preciso de um site?<span class="pl">+</span></summary><p>Sim. O Instagram ajuda a ser visto, mas quem pesquisa no Google só encontra sites. Com o site, você tem um endereço próprio, informações organizadas e uma recepcionista virtual que atende 24 horas. Os dois juntos vendem muito mais.</p></details>
       <details class="rv"><summary>E se eu não gostar do site?<span class="pl">+</span></summary><p>Você tem 15 dias de garantia de satisfação a partir da entrega: ajustamos o site ou devolvemos 100% do valor investido no pacote.</p></details>
     </div>
   </div>
