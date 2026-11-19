@@ -48,6 +48,7 @@
   {"@type":"Question","name":"O meu site vai aparecer no Google?","acceptedAnswer":{"@type":"Answer","text":"Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google."}},
   {"@type":"Question","name":"O site funciona no celular?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela."}},
   {"@type":"Question","name":"Preciso ter domínio próprio?","acceptedAnswer":{"@type":"Answer","text":"Não é obrigatório para começar, mas é recomendado. A H2D Studio registra e configura o seu domínio .com.br como serviço extra."}},
+  {"@type":"Question","name":"O que está incluso na manutenção mensal?","acceptedAnswer":{"@type":"Answer","text":"A manutenção mantém o seu site no ar, rápido e seguro (hospedagem e certificado de segurança), inclui atualizações de fotos, textos, preços e serviços, promoções e datas especiais, cuidados com o Google e suporte pelo WhatsApp. São até 2 alterações por mês no Íris, até 4 no Lívia e até 6 no Lumina. Nos pacotes Express, o compromisso mínimo é de 6 meses."}},
   {"@type":"Question","name":"Já tenho Instagram. Preciso de um site?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Instagram ajuda a ser visto, mas quem pesquisa no Google só encontra sites. Com o site, você tem um endereço próprio, informações organizadas e uma recepcionista virtual que atende 24 horas."}},
   {"@type":"Question","name":"E se eu não gostar do site?","acceptedAnswer":{"@type":"Answer","text":"Você tem 15 dias de garantia de satisfação a partir da entrega: ajustamos o site ou devolvemos 100% do valor investido no pacote."}}]}
 ]}
@@ -96,15 +97,15 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 .nav{position:fixed;inset:0 0 auto;z-index:60;transition:background .35s,box-shadow .35s}
 .nav.solid{background:rgba(11,9,7,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.15rem;letter-spacing:.04em;white-space:nowrap}
+.brand{display:flex;align-items:center;flex:none;gap:12px;font-weight:800;font-size:1.15rem;letter-spacing:.04em;white-space:nowrap}
 .brand svg{width:44px;height:44px}
 .brand small{display:block;font-size:.58rem;font-weight:600;letter-spacing:.32em;color:var(--gold)}
-.menu{display:flex;gap:26px;font-size:.84rem;font-weight:600;white-space:nowrap}
+.menu{display:flex;gap:22px;font-size:.82rem;font-weight:600;white-space:nowrap}
 .menu a{opacity:.8;position:relative}
 .menu a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:width .3s}
 .menu a:hover{opacity:1}.menu a:hover::after{width:100%}
 .nav .btn{padding:12px 20px;font-size:.82rem}
-@media(max-width:1080px){.menu{display:none}}
+@media(max-width:1180px){.menu{display:none}}
 @media(max-width:480px){.nav .btn .t{display:none}.nav .btn{padding:12px}.brand{font-size:1rem}}
 
 /* HERO */
@@ -345,6 +346,31 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 .team .who span{font-size:.84rem;color:var(--gold)}
 @media(max-width:900px){.team{grid-template-columns:minmax(0,1fr)}.duo{min-height:0;aspect-ratio:1/.9;max-width:460px;width:100%}.duo .t2{bottom:auto;top:84%}}
 
+/* Área do cliente */
+.client{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,6vw,80px);align-items:start}
+.reqs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.req{position:relative;display:block;cursor:pointer}
+.req input{position:absolute;opacity:0;pointer-events:none}
+.req span{display:flex;flex-direction:column;gap:8px;height:100%;padding:20px 18px;border-radius:18px;border:1px solid var(--line);background:var(--bg-2);font-weight:700;font-size:.95rem;line-height:1.3;transition:.3s}
+.req span i{font-style:normal;font-size:1.6rem}
+.req span small{font-weight:500;font-size:.8rem;color:var(--muted)}
+.req span:hover{border-color:var(--gold)}
+.req input:checked+span{border-color:transparent;background:linear-gradient(170deg,#3a2716,#1d150e);box-shadow:inset 0 0 0 2px var(--g2)}
+.req input:focus-visible+span{outline:3px solid var(--g1);outline-offset:3px}
+.cform{margin-top:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cform .full{grid-column:1/-1}
+.cform label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.cform input,.cform textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(246,239,230,.25);padding:10px 2px;font-size:1rem;outline:none;color:var(--cream);font-family:inherit}
+.cform textarea{resize:vertical;min-height:70px}
+.cform input:focus,.cform textarea:focus{border-color:var(--gold)}
+.cform .btn{justify-content:center}
+.cerr{display:none;color:#f0a294;font-size:.86rem;text-align:center}
+.limits{list-style:none;margin-top:24px;border-top:1px solid var(--line)}
+.limits li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--muted)}
+.limits li b{color:var(--cream)}
+@media(max-width:900px){.client{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.reqs{grid-template-columns:repeat(2,minmax(0,1fr))}.cform{grid-template-columns:minmax(0,1fr)}}
+
 /* FAQ */
 .faq{max-width:880px;margin-inline:auto}
 .faq details{border-bottom:1px solid var(--line)}
@@ -397,7 +423,7 @@ footer a:hover{color:var(--g1)}
   <div class="wrap">
     <a href="#inicio" class="brand" aria-label="H2D Studio, início"><svg aria-hidden="true"><use href="#logo"/></svg><span>H2D Studio<small>CRIAÇÃO DE SITES</small></span></a>
     <nav class="menu" aria-label="Menu principal">
-      <a href="#servicos">Serviços</a><a href="#segmentos">Segmentos</a><a href="#portfolio">Portfólio</a><a href="#quem-somos">Quem somos</a><a href="#pacotes">Pacotes e preços</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a>
+      <a href="#servicos">Serviços</a><a href="#segmentos">Segmentos</a><a href="#portfolio">Portfólio</a><a href="#quem-somos">Quem somos</a><a href="#pacotes">Preços</a><a href="#area-do-cliente">Área do cliente</a><a href="#duvidas">Dúvidas</a>
     </nav>
     <a class="btn btn-gold" data-wa="Olá, Denise! Vim pelo site da H2D Studio e quero um orçamento de site." href="#orcamento"><svg aria-hidden="true"><use href="#wa"/></svg><span class="t">Pedir orçamento</span></a>
   </div>
@@ -649,6 +675,38 @@ footer a:hover{color:var(--g1)}
   </div>
 </section>
 
+<section class="sec" id="area-do-cliente">
+  <div class="wrap client">
+    <div>
+      <span class="kicker rv">Área do cliente</span>
+      <h2 class="h2 rv d1">Já é cliente? <span class="gt">Peça a sua atualização.</span></h2>
+      <p class="lede rv d2">Escolha o que você precisa, conte em poucas palavras e envie. O seu pedido chega organizado no nosso WhatsApp e entra na fila de atualizações do mês.</p>
+      <ul class="limits rv d3">
+        <li><span>Íris (Express e Sob Medida)</span><b>até 2 alterações/mês</b></li>
+        <li><span>Lívia (Express e Sob Medida)</span><b>até 4 alterações/mês</b></li>
+        <li><span>Lumina (Express e Sob Medida)</span><b>até 6 alterações/mês</b></li>
+      </ul>
+    </div>
+    <form class="qbox rv" id="cform" novalidate>
+      <div class="reqs" id="reqs">
+        <label class="req"><input type="checkbox" value="Atualizar fotos"><span><i>📷</i>Atualizar fotos<small>Trocar ou incluir imagens</small></span></label>
+        <label class="req"><input type="checkbox" value="Atualizar textos e preços"><span><i>✏️</i>Textos e preços<small>Valores, descrições, horários</small></span></label>
+        <label class="req"><input type="checkbox" value="Incluir ou remover serviços"><span><i>➕</i>Serviços<small>Incluir ou remover</small></span></label>
+        <label class="req"><input type="checkbox" value="Promoção ou data especial"><span><i>🎁</i>Promoções<small>Datas especiais e campanhas</small></span></label>
+        <label class="req"><input type="checkbox" value="Aparecer no Google"><span><i>🔎</i>Google<small>Busca e Perfil da Empresa</small></span></label>
+        <label class="req"><input type="checkbox" value="Hospedagem, domínio e segurança"><span><i>🛡️</i>Hospedagem<small>Domínio e segurança</small></span></label>
+      </div>
+      <div class="cform">
+        <div><label for="cNome">Seu nome</label><input type="text" id="cNome" autocomplete="name" placeholder="Como posso te chamar?"></div>
+        <div><label for="cSite">Seu site ou empresa</label><input type="text" id="cSite" placeholder="Ex.: Clínica Lumina"></div>
+        <div class="full"><label for="cDet">O que você precisa</label><textarea id="cDet" placeholder="Ex.: trocar a foto do topo e atualizar o preço do botox"></textarea></div>
+        <button class="btn btn-gold full" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar pedido de atualização</button>
+        <p class="cerr full" id="cErr">Por favor, escolha o tipo de pedido e informe o seu nome.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
 <section class="sec" id="duvidas">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px"><span class="kicker rv">Dúvidas frequentes</span><h2 class="h2 rv d1">Perguntas sobre <span class="gt">criação de sites.</span></h2></div>
@@ -658,6 +716,7 @@ footer a:hover{color:var(--g1)}
       <details class="rv"><summary>O meu site vai aparecer no Google?<span class="pl">+</span></summary><p>Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google.</p></details>
       <details class="rv"><summary>O site funciona no celular?<span class="pl">+</span></summary><p>Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela.</p></details>
       <details class="rv"><summary>Preciso ter domínio próprio?<span class="pl">+</span></summary><p>Não é obrigatório para começar, mas é recomendado. Registramos e configuramos o seu domínio .com.br como serviço extra.</p></details>
+      <details class="rv"><summary>O que está incluso na manutenção mensal?<span class="pl">+</span></summary><p>A manutenção mantém o seu site no ar, rápido e seguro (hospedagem e certificado de segurança), inclui atualizações de fotos, textos, preços e serviços, promoções e datas especiais, cuidados com o Google e suporte pelo WhatsApp. São até 2 alterações por mês no Íris, até 4 no Lívia e até 6 no Lumina. Nos pacotes Express, o compromisso mínimo é de 6 meses.</p></details>
       <details class="rv"><summary>Já tenho Instagram. Preciso de um site?<span class="pl">+</span></summary><p>Sim. O Instagram ajuda a ser visto, mas quem pesquisa no Google só encontra sites. Com o site, você tem um endereço próprio, informações organizadas e uma recepcionista virtual que atende 24 horas. Os dois juntos vendem muito mais.</p></details>
       <details class="rv"><summary>E se eu não gostar do site?<span class="pl">+</span></summary><p>Você tem 15 dias de garantia de satisfação a partir da entrega: ajustamos o site ou devolvemos 100% do valor investido no pacote.</p></details>
     </div>
@@ -680,7 +739,7 @@ footer a:hover{color:var(--g1)}
   <div class="wrap">
     <div class="fgrid">
       <div><a href="#inicio" class="brand" style="margin-bottom:14px"><svg aria-hidden="true"><use href="#logo"/></svg><span>H2D Studio<small>CRIAÇÃO DE SITES</small></span></a><p>Criação de sites profissionais com SEO e WhatsApp para clínicas de estética, advogados, corretores de imóveis e profissionais liberais.</p></div>
-      <div><h4>Navegação</h4><ul><li><a href="#servicos">Serviços</a></li><li><a href="#segmentos">Segmentos</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#pacotes">Pacotes e preços</a></li></ul></div>
+      <div><h4>Navegação</h4><ul><li><a href="#servicos">Serviços</a></li><li><a href="#segmentos">Segmentos</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#pacotes">Pacotes e preços</a></li><li><a href="#area-do-cliente">Área do cliente</a></li></ul></div>
       <div><h4>Sites para</h4><ul><li><a href="#segmentos">Clínicas de estética</a></li><li><a href="#segmentos">Advogados</a></li><li><a href="#segmentos">Corretores de imóveis</a></li><li><a href="#segmentos">Profissionais liberais</a></li></ul></div>
       <div><h4>Contato</h4><ul><li><a data-wa="Olá, Denise! Vim pelo site da H2D Studio." href="#orcamento">WhatsApp (51) 99375-9314</a></li><li>Rio Grande do Sul</li><li>Atendimento em todo o Brasil</li></ul></div>
     </div>
@@ -728,6 +787,19 @@ footer a:hover{color:var(--g1)}
     if (v('plan')) L.push('• Pacote de interesse: ' + v('plan') + (v('line') ? ' ' + v('line') : ''));
     if (v('has')) L.push('• ' + v('has'));
     L.push('', '(Enviado pelo site da H2D Studio)');
+    window.open(wa(L.join('\n')), '_blank', 'noopener');
+  });
+
+  /* Área do cliente */
+  document.getElementById('cform').addEventListener('submit', function(e){
+    e.preventDefault();
+    var tipos = [].map.call(document.querySelectorAll('#reqs input:checked'), function(i){ return i.value; });
+    var nome = document.getElementById('cNome').value.trim(), site = document.getElementById('cSite').value.trim(), det = document.getElementById('cDet').value.trim(), err = document.getElementById('cErr');
+    if (!tipos.length || !nome){ err.style.display = 'block'; return; } err.style.display = 'none';
+    var L = ['Olá, Denise! Sou ' + nome + (site ? ', de ' + site : '') + '.', '', 'Pedido de atualização do site:'];
+    tipos.forEach(function(t){ L.push('• ' + t); });
+    if (det) L.push('', 'Detalhes: ' + det);
+    L.push('', '(Enviado pela Área do cliente, site da H2D Studio)');
     window.open(wa(L.join('\n')), '_blank', 'noopener');
   });
 
