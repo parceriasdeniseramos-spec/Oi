@@ -1,0 +1,11 @@
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
+await p.goto('file:///home/user/Oi/h2d-studio/index.html');await p.waitForTimeout(2500);
+await p.addStyleTag({content:'*,*::before,*::after{transition:none!important}.colm{animation:none!important}.rv,.fx{opacity:1!important;transform:none!important}.wa-float,.progress{display:none!important}.nav{background:rgba(11,9,7,.9)}'});
+await p.evaluate(()=>{document.querySelectorAll('img').forEach(i=>i.loading='eager');document.querySelectorAll('#rot span').forEach((s,i)=>{s.className=i===0?'gt on':'gt'})});
+await p.waitForTimeout(1500);
+const g=async s=>p.evaluate(s=>{const r=document.querySelector(s).getBoundingClientRect();return [r.top+scrollY,r.bottom+scrollY]},s);
+const hero=await g('.hero'),ig=await g('#instagram-ou-site'),pf=await g('#portfolio'),pk=await g('#pacotes'),qt=await g('#orcamento');
+const shot=(n,a,z)=>p.screenshot({path:n,fullPage:true,clip:{x:0,y:a,width:390,height:z-a}});
+await shot('c1.png',0,hero[1]);await shot('c2.png',pf[0],pf[1]);await shot('c3.png',pk[0],pk[0]+1500);await shot('c4.png',qt[0],qt[1]);
+await b.close();})();
