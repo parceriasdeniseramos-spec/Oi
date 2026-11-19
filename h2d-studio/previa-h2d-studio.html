@@ -35,12 +35,15 @@
   "slogan":"Sites que impressionam. Experiências que conectam.",
   "knowsAbout":["Criação de sites","Site responsivo","SEO","Landing page","Site para clínica de estética","Site para advogado","Site para corretor de imóveis","Integração com WhatsApp"],
   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Pacotes de criação de sites","itemListElement":[
+   {"@type":"Offer","name":"Íris Express","price":"349","priceCurrency":"BRL","itemOffered":{"@type":"Service","name":"Site de página única a partir de modelo pronto"}},
+   {"@type":"Offer","name":"Lívia Express","price":"549","priceCurrency":"BRL","itemOffered":{"@type":"Service","name":"Site completo a partir de modelo pronto, com assistente virtual"}},
+   {"@type":"Offer","name":"Lumina Express","price":"997","priceCurrency":"BRL","itemOffered":{"@type":"Service","name":"Site de luxo a partir de modelo pronto, com recepcionista virtual"}},
    {"@type":"Offer","name":"Pacote Íris","price":"990","priceCurrency":"BRL","priceValidUntil":"2027-01-31","itemOffered":{"@type":"Service","name":"Site de página única (onepage) com WhatsApp e SEO básico"}},
    {"@type":"Offer","name":"Pacote Lívia","price":"1990","priceCurrency":"BRL","priceValidUntil":"2027-01-31","itemOffered":{"@type":"Service","name":"Site completo com assistente virtual e SEO local"}},
    {"@type":"Offer","name":"Pacote Lumina","price":"3490","priceCurrency":"BRL","priceValidUntil":"2027-01-31","itemOffered":{"@type":"Service","name":"Site de alto padrão com recepcionista virtual e Perfil da Empresa no Google"}}]}},
  {"@type":"WebSite","@id":"https://h2d-studio.netlify.app/#site","url":"https://h2d-studio.netlify.app/","name":"H2D Studio","inLanguage":"pt-BR","publisher":{"@id":"https://h2d-studio.netlify.app/#empresa"}},
  {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"Quanto custa um site profissional?","acceptedAnswer":{"@type":"Answer","text":"Na H2D Studio, com os valores de lançamento (válidos até 31 de janeiro de 2027), a criação de sites começa em R$ 990 no Pacote Íris (de R$ 1.490). O Pacote Lívia, um site completo com assistente virtual, sai por R$ 1.990 (de R$ 2.990), e o Pacote Lumina, de alto padrão, por R$ 3.490 (de R$ 4.990). Todos com garantia de satisfação de 15 dias."}},
+  {"@type":"Question","name":"Quanto custa um site profissional?","acceptedAnswer":{"@type":"Answer","text":"Na H2D Studio há duas linhas. Express, a partir de modelos prontos: Íris R$ 349, Lívia R$ 549 e Lumina R$ 997. Sob Medida, criado do zero, com valores de lançamento válidos até 31 de janeiro de 2027: Íris R$ 990 (de R$ 1.490), Lívia R$ 1.990 (de R$ 2.990) e Lumina R$ 3.490 (de R$ 4.990). Todos com garantia de satisfação de 15 dias."}},
   {"@type":"Question","name":"Quanto tempo leva para criar um site?","acceptedAnswer":{"@type":"Answer","text":"De 7 a 25 dias, conforme o pacote: até 7 dias no Íris, até 15 dias no Lívia e até 25 dias no Lumina."}},
   {"@type":"Question","name":"O meu site vai aparecer no Google?","acceptedAnswer":{"@type":"Answer","text":"Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google."}},
   {"@type":"Question","name":"O site funciona no celular?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela."}},
@@ -248,6 +251,13 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 .plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:50%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a0f06' stroke-width='3.5'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/11px no-repeat,var(--grad)}
 .plan li.g{color:var(--g1);font-weight:600}
 .plan .btn{justify-content:center}
+.ptabs{display:flex;justify-content:center;gap:8px;margin:0 auto 26px;padding:6px;border-radius:999px;border:1px solid var(--line);background:var(--bg);width:max-content;max-width:100%}
+.ptabs button{border:0;background:none;cursor:pointer;padding:12px 24px;border-radius:999px;font-weight:800;font-size:.95rem;color:var(--muted);transition:.3s}
+.ptabs button small{display:block;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.ptabs button.on{background:var(--grad);color:#1a0f06}
+.ptabs button:focus-visible{outline:3px solid var(--g1);outline-offset:3px}
+.pdesc{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 26px;font-size:.98rem}
+[hidden]{display:none!important}
 .launch{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:-20px auto 34px;padding:14px 22px;border-radius:18px;border:1px solid rgba(214,162,101,.5);background:rgba(214,162,101,.08);font-size:.92rem;font-weight:600;text-align:center;max-width:780px}
 .launch b{background:var(--grad);color:#1a0f06;border-radius:999px;padding:5px 12px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .plan .old{font-size:1rem;color:var(--muted);text-decoration:line-through;text-decoration-color:#c96f5a;font-weight:600}
@@ -535,8 +545,14 @@ footer a:hover{color:var(--g1)}
   <div class="wrap">
     <div class="head">
       <div><span class="kicker rv">Pacotes e preços</span><h2 class="h2 rv d1">Quanto custa um <span class="gt">site profissional?</span></h2></div>
-      <p class="lede rv d2">Três pacotes, do essencial ao alto padrão, com preço claro e sem surpresas, agora com valores especiais de lançamento. Pagamento em 50% no início e 50% na entrega, ou em até 3x no cartão.</p>
+      <p class="lede rv d2">Duas linhas para cada momento do seu negócio: Sob Medida, criado do zero, e Express, a partir de modelos prontos. Preço claro e sem surpresas. Pagamento em 50% no início e 50% na entrega, ou em até 3x no cartão.</p>
     </div>
+    <div class="ptabs rv" role="tablist" aria-label="Linhas de sites">
+      <button type="button" role="tab" id="tab-sob" aria-selected="true" aria-controls="pane-sob" class="on">Sob Medida <small>personalizado</small></button>
+      <button type="button" role="tab" id="tab-exp" aria-selected="false" aria-controls="pane-exp">Express <small>modelo pronto</small></button>
+    </div>
+    <div class="pane" id="pane-sob" role="tabpanel" aria-labelledby="tab-sob">
+    <p class="pdesc">Criado do zero para o seu negócio: estrutura, textos, design e recepcionista pensados exclusivamente para você.</p>
     <p class="launch rv"><b>🎉 Lançamento</b>Valores especiais de lançamento da H2D Studio, válidos para contratos fechados até 31 de janeiro de 2027.</p>
     <div class="plans">
       <article class="plan rv"><h3>Íris</h3><p class="for">Para começar com elegância</p><span class="lt">Valor de lançamento</span><div class="old">De R$ 1.490</div><div class="price">R$ 990</div><p class="mt">Manutenção: R$ 97/mês</p>
@@ -548,6 +564,21 @@ footer a:hover{color:var(--g1)}
       <article class="plan rv d2"><h3>Lumina</h3><p class="for">Alto padrão</p><span class="lt">Valor de lançamento</span><div class="old">De R$ 4.990</div><div class="price">R$ 3.490</div><p class="mt">Manutenção: R$ 297/mês</p>
         <ul><li>Tudo do Lívia, e mais:</li><li>Design exclusivo de luxo</li><li>Serviços ilimitados</li><li>Recepcionista virtual com nome próprio</li><li>Seção para equipe</li><li>Vídeo de apresentação do site</li><li>Perfil da Empresa no Google</li><li>3 rodadas de ajustes · até 25 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
         <a class="btn btn-ghost" href="#orcamento" data-plan="Lumina">Escolher Lumina</a></article>
+    </div>
+    </div>
+    <div class="pane" id="pane-exp" role="tabpanel" aria-labelledby="tab-exp" hidden>
+    <p class="pdesc">Um dos nossos modelos prontos, adaptado com o seu nome, cores, fotos, textos e WhatsApp. Rápido e acessível, com a mesma qualidade técnica.</p>
+    <div class="plans">
+      <article class="plan rv"><span class="lt">Express · modelo pronto</span><h3>Íris Express</h3><p class="for">Presença profissional em poucos dias</p><div class="price">R$ 349</div><p class="mt">Manutenção: R$ 97/mês (mínimo de 6 meses)</p>
+        <ul><li>Página única a partir de modelo pronto</li><li>Seu nome, cores, fotos e textos</li><li>Botão de WhatsApp com mensagem pronta</li><li>Site responsivo</li><li>SEO básico para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <a class="btn btn-ghost" href="#orcamento" data-plan="Íris Express">Escolher Íris Express</a></article>
+      <article class="plan feat rv d1"><span class="rib">⭐ Mais escolhido</span><span class="lt">Express · modelo pronto</span><h3>Lívia Express</h3><p class="for">O modelo completo, pronto para você</p><div class="price gt">R$ 549</div><p class="mt">Manutenção: R$ 197/mês (mínimo de 6 meses)</p>
+        <ul><li>Modelo completo com todas as seções</li><li>Seu nome, cores, fotos e textos</li><li>Assistente virtual integrada ao WhatsApp</li><li>Animações e acabamento sofisticado</li><li>SEO para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <a class="btn btn-gold" href="#orcamento" data-plan="Lívia Express">Escolher Lívia Express</a></article>
+      <article class="plan rv d2"><span class="lt">Express · modelo pronto</span><h3>Lumina Express</h3><p class="for">O visual de luxo, a partir de modelo</p><div class="price">R$ 997</div><p class="mt">Manutenção: R$ 297/mês (mínimo de 6 meses)</p>
+        <ul><li>Modelo de luxo com abertura animada</li><li>Seu nome, cores, fotos e textos</li><li>Recepcionista virtual integrada ao WhatsApp</li><li>Efeitos de rolagem e acabamento premium</li><li>SEO para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <a class="btn btn-ghost" href="#orcamento" data-plan="Lumina Express">Escolher Lumina Express</a></article>
+    </div>
     </div>
     <div class="extras">
       <div class="rv"><b>Domínio .com.br</b>Registro e configuração: R$ 150</div>
@@ -602,6 +633,9 @@ footer a:hover{color:var(--g1)}
         <label class="opt"><input type="radio" name="plan" value="Lívia"><span>Lívia</span></label>
         <label class="opt"><input type="radio" name="plan" value="Lumina"><span>Lumina</span></label>
         <label class="opt"><input type="radio" name="plan" value="Ainda não sei"><span>Ainda não sei</span></label>
+      </div><div class="opts" style="margin-top:10px">
+        <label class="opt"><input type="radio" name="line" value="Sob Medida"><span>Sob Medida</span></label>
+        <label class="opt"><input type="radio" name="line" value="Express"><span>Express</span></label>
       </div></div>
       <div class="qstep"><span>3. Já tem site?</span><div class="opts">
         <label class="opt"><input type="radio" name="has" value="Ainda não tenho site"><span>Não tenho</span></label>
@@ -619,7 +653,7 @@ footer a:hover{color:var(--g1)}
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px"><span class="kicker rv">Dúvidas frequentes</span><h2 class="h2 rv d1">Perguntas sobre <span class="gt">criação de sites.</span></h2></div>
     <div class="faq">
-      <details class="rv"><summary>Quanto custa um site profissional?<span class="pl">+</span></summary><p>Na H2D Studio, com os valores de lançamento (válidos até 31 de janeiro de 2027), a criação de sites começa em R$ 990 no Pacote Íris (de R$ 1.490). O Pacote Lívia, um site completo com assistente virtual, sai por R$ 1.990 (de R$ 2.990), e o Pacote Lumina, de alto padrão, por R$ 3.490 (de R$ 4.990). Todos com garantia de satisfação de 15 dias.</p></details>
+      <details class="rv"><summary>Quanto custa um site profissional?<span class="pl">+</span></summary><p>Na H2D Studio há duas linhas. Express, a partir de modelos prontos: Íris R$ 349, Lívia R$ 549 e Lumina R$ 997. Sob Medida, criado do zero, com valores de lançamento válidos até 31 de janeiro de 2027: Íris R$ 990 (de R$ 1.490), Lívia R$ 1.990 (de R$ 2.990) e Lumina R$ 3.490 (de R$ 4.990). Todos com garantia de satisfação de 15 dias.</p></details>
       <details class="rv"><summary>Quanto tempo leva para criar um site?<span class="pl">+</span></summary><p>De 7 a 25 dias, conforme o pacote: até 7 dias no Íris, até 15 dias no Lívia e até 25 dias no Lumina.</p></details>
       <details class="rv"><summary>O meu site vai aparecer no Google?<span class="pl">+</span></summary><p>Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google.</p></details>
       <details class="rv"><summary>O site funciona no celular?<span class="pl">+</span></summary><p>Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela.</p></details>
@@ -672,9 +706,16 @@ footer a:hover{color:var(--g1)}
     setTimeout(function(){ cur.classList.remove('out'); }, 700);
   }, 2400);
 
+  /* Abas Express / Sob Medida */
+  var tabs = [].slice.call(document.querySelectorAll('.ptabs button'));
+  tabs.forEach(function(b){ b.addEventListener('click', function(){
+    tabs.forEach(function(x){ var on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+    document.querySelectorAll('.pane:not([hidden]) .rv').forEach(function(el){ el.classList.add('in'); });
+  }); });
+
   /* Botões que pré-selecionam o orçamento */
   function pick(name, v){ document.querySelectorAll('input[name="' + name + '"]').forEach(function(i){ i.checked = i.value === v; }); }
-  document.querySelectorAll('[data-plan]').forEach(function(b){ b.addEventListener('click', function(){ pick('plan', b.getAttribute('data-plan')); }); });
+  document.querySelectorAll('[data-plan]').forEach(function(b){ b.addEventListener('click', function(){ var d = b.getAttribute('data-plan'); var ex = / Express$/.test(d); pick('plan', d.replace(' Express','')); pick('line', ex ? 'Express' : 'Sob Medida'); }); });
   document.querySelectorAll('[data-seg]').forEach(function(b){ b.addEventListener('click', function(){ pick('seg', b.getAttribute('data-seg')); }); });
 
   /* Orçamento */
@@ -684,7 +725,7 @@ footer a:hover{color:var(--g1)}
     var nome = document.getElementById('qNome').value.trim(), seg = v('seg'), err = document.getElementById('qErr');
     if (!nome || !seg){ err.style.display = 'block'; return; } err.style.display = 'none';
     var L = ['Olá, Denise! Meu nome é ' + nome + '.', '', 'Quero um orçamento de site.', '• Segmento: ' + seg];
-    if (v('plan')) L.push('• Pacote de interesse: ' + v('plan'));
+    if (v('plan')) L.push('• Pacote de interesse: ' + v('plan') + (v('line') ? ' ' + v('line') : ''));
     if (v('has')) L.push('• ' + v('has'));
     L.push('', '(Enviado pelo site da H2D Studio)');
     window.open(wa(L.join('\n')), '_blank', 'noopener');
