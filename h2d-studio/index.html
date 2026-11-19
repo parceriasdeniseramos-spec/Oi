@@ -297,19 +297,19 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 /* Quem faz */
 .team{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
 .duo{position:relative;min-height:480px}
-.duo .p1{position:absolute;left:0;top:0;width:68%;aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:1px solid rgba(214,162,101,.35);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.duo .p1{position:absolute;left:0;top:0;width:56%;aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:1px solid rgba(214,162,101,.35);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
 .duo .p1 img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.duo .p2{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--bg);outline:2px solid var(--g2);box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
-.duo .p2 img{width:100%;height:100%;object-fit:cover}
+.duo .p2{position:absolute;right:0;top:16%;width:52%;aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:4px solid var(--bg);outline:1px solid rgba(214,162,101,.6);box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.duo .p2 img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
 .duo .tag{position:absolute;background:var(--cream);color:var(--bg);border-radius:12px;padding:8px 12px;font-size:.74rem;font-weight:700;line-height:1.25;box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
 .duo .tag b{display:block;font-size:.9rem}
-.duo .t1{left:6%;bottom:20%}.duo .t2{right:4%;bottom:-14px}
+.duo .t1{left:4%;top:calc(56% * 1.25 - 64px)}.duo .t2{right:4%;bottom:-6px}
 .team p{color:#d8ccbf;margin-bottom:16px}
 .team .who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
 .team .who div{border:1px solid var(--line);border-radius:16px;padding:16px 18px}
 .team .who b{display:block;font-size:1.05rem}
 .team .who span{font-size:.84rem;color:var(--gold)}
-@media(max-width:900px){.team{grid-template-columns:minmax(0,1fr)}.duo{min-height:0;aspect-ratio:1/1.05;max-width:460px;width:100%}}
+@media(max-width:900px){.team{grid-template-columns:minmax(0,1fr)}.duo{min-height:0;aspect-ratio:1/.9;max-width:460px;width:100%}.duo .t2{bottom:auto;top:84%}}
 
 /* FAQ */
 .faq{max-width:880px;margin-inline:auto}
@@ -486,7 +486,7 @@ footer a:hover{color:var(--g1)}
   <div class="wrap team">
     <div class="duo rv">
       <div class="p1"><img src="img/denise-ramos.webp" width="560" height="700" loading="lazy" decoding="async" alt="Denise Ramos, fundadora da H2D Studio"></div>
-      <div class="p2"><img src="img/diogo-spolador.webp" width="480" height="480" loading="lazy" decoding="async" alt="Diogo Spolador, cofundador da H2D Studio"></div>
+      <div class="p2"><img src="img/diogo-spolador.webp" width="560" height="700" loading="lazy" decoding="async" alt="Diogo Spolador, cofundador da H2D Studio"></div>
       <div class="tag t1"><b>Denise Ramos</b>Fundadora</div>
       <div class="tag t2"><b>Diogo Spolador</b>Cofundador</div>
     </div>
