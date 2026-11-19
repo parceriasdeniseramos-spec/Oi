@@ -1,0 +1,121 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0907;--bg2:#141110;--bg3:#1d1815;--cream:#f6efe6;--muted:#b3a597;--line:rgba(246,239,230,.12);--g1:#f0cf98;--g2:#d29a5b;--g3:#9a6533;--grad:linear-gradient(120deg,var(--g1),var(--g2) 45%,var(--g3));--red:#e2675a;--green:#25d366}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#333;font-family:Montserrat,sans-serif;color:var(--cream)}
+.s{width:1080px;height:1350px;position:relative;overflow:hidden;background:radial-gradient(80% 60% at 85% 0%,#2a1f16 0%,var(--bg) 60%);padding:96px 90px;display:flex;flex-direction:column}
+.s::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 179px,rgba(246,239,230,.025) 179px 180px);pointer-events:none}
+.top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:26px;letter-spacing:.06em;position:relative;z-index:1}
+.top .brand{display:flex;align-items:center;gap:16px}.top svg{width:62px;height:62px}
+.top .pg{color:var(--muted);font-weight:600;letter-spacing:.2em;font-size:22px}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.kick{font-weight:700;font-size:26px;letter-spacing:.3em;color:var(--g2);text-transform:uppercase;margin-bottom:30px}
+h1{font-weight:900;font-size:104px;line-height:1.02;letter-spacing:-.02em}
+h2{font-weight:900;font-size:76px;line-height:1.05;letter-spacing:-.015em;margin-bottom:34px}
+p.lead{font-size:38px;line-height:1.4;color:var(--muted);font-weight:500;margin-top:40px}
+.num{font-weight:900;font-size:190px;line-height:.8;margin-bottom:22px}
+.bad,.good{border-radius:28px;padding:30px 38px;font-size:32px;line-height:1.4;font-weight:500}
+.bad{border:2px solid rgba(226,103,90,.45);background:rgba(226,103,90,.08);margin-bottom:26px}
+.good{border:2px solid rgba(240,207,152,.45);background:rgba(214,162,101,.10)}
+.bad b,.good b{display:block;font-size:24px;letter-spacing:.22em;margin-bottom:10px;font-weight:800}
+.bad b{color:var(--red)}.good b{color:var(--g1)}
+.foot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;font-size:24px;color:var(--muted);font-weight:600}
+.arrow{display:flex;align-items:center;gap:14px;color:var(--g1);font-weight:700}
+.chat{background:#0f1c17;border-radius:26px;padding:22px;margin-top:14px;border:1px solid rgba(37,211,102,.25)}
+.bub{background:#005c4b;color:#e9fbe9;border-radius:22px 22px 6px 22px;padding:22px 28px;font-size:30px;line-height:1.35;max-width:88%;margin-left:auto;font-weight:500}
+.bub small{display:block;text-align:right;font-size:20px;opacity:.7;margin-top:6px}
+ul.ck{list-style:none;display:grid;gap:28px;margin-top:10px}
+ul.ck li{display:grid;grid-template-columns:70px 1fr;gap:24px;align-items:start;font-size:38px;line-height:1.3;font-weight:600}
+ul.ck li i{width:70px;height:70px;border-radius:50%;background:var(--grad);color:#1a0f06;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:34px}
+ul.ck li small{display:block;font-size:28px;color:var(--muted);font-weight:500;margin-top:6px}
+.cta{background:var(--grad);color:#1a0f06;border-radius:999px;padding:30px 50px;font-weight:800;font-size:36px;display:inline-flex;gap:18px;align-items:center;align-self:flex-start;margin-top:46px}
+.tagrow{display:flex;gap:16px;flex-wrap:wrap;margin-top:44px}
+.tag{border:2px solid var(--line);border-radius:999px;padding:16px 28px;font-size:28px;font-weight:600}
+.cover h1 .sm{display:block;font-size:56px;font-weight:800;margin-top:22px;color:var(--cream)}
+.sticker{position:absolute;right:90px;top:200px;width:170px;height:170px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;transform:rotate(-10deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);z-index:2}
+.sticker svg{width:92px;height:92px;fill:#fff}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf98"/><stop offset=".45" stop-color="#d29a5b"/><stop offset="1" stop-color="#9a6533"/></linearGradient></defs>
+<symbol id="logo" viewBox="0 0 400 400"><circle cx="200" cy="200" r="186" fill="none" stroke="url(#lg)" stroke-width="10"/><g fill="none" stroke="url(#lg)" stroke-width="9" stroke-linejoin="round"><rect x="176" y="100" width="88" height="66" rx="10"/><rect x="148" y="122" width="88" height="66" rx="10" fill="#0b0907"/></g><text x="200" y="268" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="112" fill="url(#lg)">H2D</text></symbol>
+<symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol></svg>
+
+<!-- 1 CAPA -->
+<section class="s cover">
+ <div class="top"><span class="brand"><svg><use href="#logo"/></svg>H2D STUDIO</span><span class="pg">1 / 6</span></div>
+ <div class="sticker"><svg><use href="#wa"/></svg></div>
+ <div class="body">
+  <div class="kick">Dica rápida</div>
+  <h1><span class="gt">3 erros</span> que fazem o cliente desistir de te chamar no WhatsApp<span class="sm">(o nº 2 quase todo mundo comete)</span></h1>
+ </div>
+ <div class="foot"><span>@h2d.studio</span><span class="arrow">Arrasta para o lado →</span></div>
+</section>
+
+<!-- 2 ERRO 1 -->
+<section class="s">
+ <div class="top"><span class="brand"><svg><use href="#logo"/></svg>H2D STUDIO</span><span class="pg">2 / 6</span></div>
+ <div class="body">
+  <div class="num gt">01</div>
+  <h2>Fazer o cliente procurar o seu contato</h2>
+  <div class="bad"><b>✕ O ERRO</b>Número só dentro de uma foto, link que não abre, "chama no direct" e ele nunca encontra o WhatsApp.</div>
+  <div class="good"><b>✓ COMO RESOLVER</b>Botão de WhatsApp visível em todo lugar: bio, site, destaques e Stories. <u>Um toque</u> e a conversa abre.</div>
+ </div>
+ <div class="foot"><span>@h2d.studio</span><span class="arrow">→</span></div>
+</section>
+
+<!-- 3 ERRO 2 -->
+<section class="s">
+ <div class="top"><span class="brand"><svg><use href="#logo"/></svg>H2D STUDIO</span><span class="pg">3 / 6</span></div>
+ <div class="body">
+  <div class="num gt">02</div>
+  <h2>Deixar o cliente sem saber o que escrever</h2>
+  <div class="bad"><b>✕ O ERRO</b>A conversa abre em branco. A pessoa fica sem graça, pensa "depois eu mando"… e não manda.</div>
+  <div class="good"><b>✓ COMO RESOLVER</b>Link com a mensagem já escrita. É só tocar em enviar:
+   <div class="chat"><div class="bub">Olá! Vi o seu site e gostaria de agendar uma avaliação. 😊<small>✓✓</small></div></div>
+  </div>
+ </div>
+ <div class="foot"><span>@h2d.studio</span><span class="arrow">→</span></div>
+</section>
+
+<!-- 4 ERRO 3 -->
+<section class="s">
+ <div class="top"><span class="brand"><svg><use href="#logo"/></svg>H2D STUDIO</span><span class="pg">4 / 6</span></div>
+ <div class="body">
+  <div class="num gt">03</div>
+  <h2>Demorar para responder</h2>
+  <div class="bad"><b>✕ O ERRO</b>Quem está pesquisando costuma chamar mais de um lugar ao mesmo tempo. Quem responde primeiro, geralmente leva o cliente.</div>
+  <div class="good"><b>✓ COMO RESOLVER</b>Mensagem de boas-vindas automática no WhatsApp Business e um site que tira as dúvidas 24h, mesmo quando você está atendendo.</div>
+ </div>
+ <div class="foot"><span>@h2d.studio</span><span class="arrow">→</span></div>
+</section>
+
+<!-- 5 RESUMO -->
+<section class="s">
+ <div class="top"><span class="brand"><svg><use href="#logo"/></svg>H2D STUDIO</span><span class="pg">5 / 6</span></div>
+ <div class="body">
+  <div class="kick">Resumindo</div>
+  <h2>Para o cliente <span class="gt">chamar</span>, ele precisa:</h2>
+  <ul class="ck">
+   <li><i>1</i><span>Encontrar o WhatsApp em 1 toque<small>botão visível, link que funciona</small></span></li>
+   <li><i>2</i><span>Saber o que escrever<small>mensagem pronta no link</small></span></li>
+   <li><i>3</i><span>Receber resposta rápida<small>boas-vindas automática + site 24h</small></span></li>
+  </ul>
+  <p class="lead">Salva este post para conferir no seu perfil. 🔖</p>
+ </div>
+ <div class="foot"><span>@h2d.studio</span><span class="arrow">→</span></div>
+</section>
+
+<!-- 6 CTA -->
+<section class="s">
+ <div class="top"><span class="brand"><svg><use href="#logo"/></svg>H2D STUDIO</span><span class="pg">6 / 6</span></div>
+ <div class="body">
+  <div class="kick">E no seu site?</div>
+  <h2>Nos sites da H2D, os <span class="gt">3 já vêm resolvidos.</span></h2>
+  <p class="lead" style="margin-top:0">Botão de WhatsApp em todas as telas, mensagens prontas e recepcionista virtual que atende 24h.</p>
+  <div class="tagrow"><span class="tag">Clínicas</span><span class="tag">Advogados</span><span class="tag">Imobiliárias</span><span class="tag">Seu negócio</span></div>
+  <span class="cta"><svg style="width:40px;height:40px;fill:#1a0f06"><use href="#wa"/></svg>Peça seu orçamento · link na bio</span>
+ </div>
+ <div class="foot"><span>Manda para quem tem um negócio 💛</span><span>@h2d.studio</span></div>
+</section>
+</body></html>
