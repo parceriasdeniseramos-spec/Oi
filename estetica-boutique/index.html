@@ -231,6 +231,13 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line);color:var(--muted);f
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.hero p,.hero .btns,.hero .who,.hero-img .ph,.hero-img .card{opacity:1}.msg,.fw{opacity:1;transform:none}}
 </style>
+<noscript><style>
+.rv,.reveal,.mask,.fx,.fade,.arch,.badge,.trust,.broker,.hero p,.hero .btns,.hero .lede,.hero .who,.hero-img .ph,.hero-img .card,.hero-media,.portrait,.msg,.field-wrap,.fw{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;animation:none!important}
+.hero h1 .ln>span,.hero h1 .w,.hero .w{opacity:1!important;transform:none!important;filter:none!important}
+.loader{display:none!important}
+.manifesto .text span{color:inherit!important}
+.reveal img,.arch img{transform:none!important}
+</style></noscript>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -400,6 +407,7 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line);color:var(--muted);f
 <div class="demo-seal" id="seal" role="note"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#d6bb88" stroke-width="1"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#f7f2ec">H2D</text></svg><span><span class="lbl">Protótipo de demonstração · por</span><span class="lbl-m">Demonstração</span><b>H2D Studio<span class="dn"> · Denise Ramos</span></b></span><button class="x" type="button" aria-label="Fechar selo" onclick="this.parentNode.hidden=true">×</button></div>
 
 <script>
+if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv,.reveal,.mask').forEach(function(e){e.classList.add('in')});}
 var CONFIG = { whatsapp:'5551993759314', nome:'Lívia' };
 var U = function(id){ return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&q=80'; };
 var FOTOS = {

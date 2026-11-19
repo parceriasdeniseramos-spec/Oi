@@ -405,6 +405,13 @@ footer a:hover{color:var(--g1)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.fx{opacity:1;transform:none}.rot span.on{transform:none}}
 </style>
+<noscript><style>
+.rv,.reveal,.mask,.fx,.fade,.arch,.badge,.trust,.broker,.hero p,.hero .btns,.hero .lede,.hero .who,.hero-img .ph,.hero-img .card,.hero-media,.portrait,.msg,.field-wrap,.fw{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;animation:none!important}
+.hero h1 .ln>span,.hero h1 .w,.hero .w{opacity:1!important;transform:none!important;filter:none!important}
+.loader{display:none!important}
+.manifesto .text span{color:inherit!important}
+.reveal img,.arch img{transform:none!important}
+</style></noscript>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -751,6 +758,7 @@ footer a:hover{color:var(--g1)}
 <a class="wa-float" data-wa="Olá, Denise! Vim pelo site da H2D Studio e quero saber mais sobre criação de sites." href="#orcamento" aria-label="Falar pelo WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg></a>
 
 <script>
+if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv,.reveal,.mask').forEach(function(e){e.classList.add('in')});}
 (function(){
   var WA = '5551993759314';
   function wa(m){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); }

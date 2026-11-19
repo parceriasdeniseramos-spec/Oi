@@ -238,6 +238,13 @@ footer{padding:70px 0 40px;color:var(--muted);font-size:.92rem}
   .fade-in{opacity:1}
 }
 </style>
+<noscript><style>
+.rv,.reveal,.mask,.fx,.fade,.arch,.badge,.trust,.broker,.hero p,.hero .btns,.hero .lede,.hero .who,.hero-img .ph,.hero-img .card,.hero-media,.portrait,.msg,.field-wrap,.fw{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;animation:none!important}
+.hero h1 .ln>span,.hero h1 .w,.hero .w{opacity:1!important;transform:none!important;filter:none!important}
+.loader{display:none!important}
+.manifesto .text span{color:inherit!important}
+.reveal img,.arch img{transform:none!important}
+</style></noscript>
 </head>
 <body>
 
@@ -579,6 +586,7 @@ footer{padding:70px 0 40px;color:var(--muted);font-size:.92rem}
 </svg>
 
 <script>
+if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv,.reveal,.mask').forEach(function(e){e.classList.add('in')});}
 (function(){
   // ===== WhatsApp: todos os botões com data-wa levam ao número com mensagem pronta =====
   var WA_NUMBER = '5551993759314';
