@@ -31,10 +31,14 @@
 </script>
 <link rel="preload" as="image" href="img/angelica-teixeira-480.webp" media="(max-width:700px)">
 <link rel="preload" as="image" href="img/angelica-teixeira.webp" media="(min-width:701px)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="fonts/sora-latin-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin-400-normal.woff2" crossorigin>
 <style>
+@font-face{font-family:'Sora';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/sora-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Sora';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/sora-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format('woff2')}
 :root{
   --bg:#071226; --bg2:#0a1a33; --bg3:#0f2345; --ink:#eef4ff; --muted:#a9b9d3; --dim:#7d8fae;
   --blue:#2f7cf6; --sky:#7cc4ff; --cyan:#4fd6ff; --orange:#f07a3a; --orange2:#ffa766;
@@ -196,6 +200,9 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.025em;line-height:1.1;font-weight
 .send{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
 .send input{min-width:0;width:100%;background:rgba(7,18,38,.6);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--ink);font:inherit;font-size:.95rem;outline:none}
 .send input:focus{border-color:var(--sky)}
+.priv{display:flex;gap:12px;align-items:flex-start;margin:4px 0 14px;padding:14px 16px;border-radius:14px;background:rgba(62,224,143,.08);border:1px solid rgba(62,224,143,.25);font-size:.86rem;color:var(--muted);line-height:1.5}
+.priv svg{width:20px;height:20px;flex:none;color:#3ee08f;margin-top:1px}
+.priv b{color:var(--ink)}
 .res .disc{font-size:.8rem;color:var(--dim);margin-top:14px}
 @media(max-width:900px){.dpanel{grid-template-columns:minmax(0,1fr)}.gauge{position:static;padding:26px}}
 @media(max-width:520px){.opts,.qq .hint{margin-left:0}.send{grid-template-columns:1fr}.qq{padding:18px}}
@@ -525,9 +532,10 @@ footer{padding:60px 0 40px;color:var(--dim);font-size:.88rem}
   <div class="wrap">
     <div class="ft">
       <a href="#inicio" class="brand"><span class="mk"><svg style="color:#fff"><use href="#i-shield"/></svg></span><span><b style="color:var(--ink)">Angélica Teixeira</b><small>DPO · LGPD · TI</small></span></a>
-      <nav class="fnav" aria-label="Rodapé"><a href="#servicos">Serviços</a><a href="#diagnostico">Diagnóstico</a><a href="#como-funciona">Como funciona</a><a href="#sobre">Quem sou</a><a href="#palestras">Palestras</a><a href="#duvidas">Dúvidas</a><a href="https://www.instagram.com/angelica.somaxi/" target="_blank" rel="noopener">Instagram</a></nav>
+      <nav class="fnav" aria-label="Rodapé"><a href="#servicos">Serviços</a><a href="#diagnostico">Diagnóstico</a><a href="#como-funciona">Como funciona</a><a href="#sobre">Quem sou</a><a href="#palestras">Palestras</a><a href="#duvidas">Dúvidas</a><a href="#privacidade">Privacidade</a><a href="https://www.instagram.com/angelica.somaxi/" target="_blank" rel="noopener">Instagram</a></nav>
     </div>
     <p class="legal">Conteúdo de caráter informativo sobre proteção de dados pessoais (Lei nº 13.709/2018). A adequação à LGPD reduz riscos, mas não garante a ausência de incidentes ou de sanções: os resultados dependem das medidas efetivamente implantadas. O diagnóstico deste site é uma autoavaliação geral e não substitui uma análise completa.</p>
+    <p class="legal" id="privacidade"><b style="color:var(--muted)">Privacidade:</b> este site não usa cookies de rastreamento nem ferramentas de publicidade, e não guarda o que você digita. As respostas do diagnóstico ficam só no seu aparelho. Se você decidir conversar pelo WhatsApp, os dados da conversa são usados apenas para responder ao seu contato, conforme a LGPD.</p>
     <p class="credit" style="margin-top:18px">WhatsApp: <a href="https://wa.me/5551933005496" target="_blank" rel="noopener">(51) 93300-5496</a> · Porto Alegre/RS e online para todo o Brasil</p>
     <p class="credit">© <span id="ano">2026</span> Angélica Teixeira · Site desenvolvido por <a href="https://h2d-studio.netlify.app/" target="_blank" rel="noopener">H2D Studio</a></p>
   </div>
@@ -628,7 +636,8 @@ var PERGUNTAS = [
                         'A sua empresa está exposta a riscos. A boa notícia: com um plano de ação por prioridade, os primeiros ajustes já reduzem muito essa exposição.';
     res.innerHTML = '<h3>Resultado: ' + p + '% · <span style="color:' + nv[1] + '">' + esc(nv[0]) + '</span></h3><p>' + esc(txt) + '</p>' +
       (gaps.length ? '<p style="margin-top:14px;color:var(--ink);font-weight:600">Pontos para priorizar:</p><ul>' + gaps.map(function(g){ return '<li>' + esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</li>'; }).join('') + '</ul>' : '<ul><li>Nenhuma lacuna nas perguntas básicas. Vale uma revisão completa para confirmar.</li></ul>') +
-      '<div class="send"><input id="dNome" placeholder="Seu nome" autocomplete="name" aria-label="Seu nome"><input id="dEmp" placeholder="Empresa e segmento" aria-label="Empresa e segmento"></div>' +
+      '<p class="priv"><svg><use href="#i-lock"/></svg><span><b>Seus dados estão protegidos.</b> Nome e empresa são opcionais e servem só para montar a mensagem no seu WhatsApp. Nada fica guardado neste site, e você confere tudo antes de enviar.</span></p>' +
+      '<div class="send"><input id="dNome" placeholder="Seu nome (opcional)" autocomplete="name" aria-label="Seu nome"><input id="dEmp" placeholder="Empresa e segmento (opcional)" aria-label="Empresa e segmento"></div>' +
       '<a class="btn btn-main" id="dSend" href="#"><svg fill="currentColor"><use href="#wa"/></svg>Receber orientação no WhatsApp</a>' +
       '<p class="disc">Autoavaliação geral e informativa. Uma análise completa considera a realidade de cada empresa. <a href="#" id="dRedo" style="color:var(--sky);text-decoration:underline">Refazer</a></p>';
     res.classList.add('show');
