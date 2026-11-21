@@ -271,7 +271,12 @@ section{position:relative}
 .mapa-txt .hr{font-size:1rem;margin:14px 0 26px}
 .mapa .serif em{font-style:italic;color:var(--gold)}
 .mapa-frame{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--ivory)}
-.mapa-frame iframe{width:100%;height:100%;border:0;display:block}
+.mapa-frame{position:relative}
+.mapa-frame iframe{position:relative;z-index:1;width:100%;height:100%;border:0;display:block}
+.mapa-fb{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px;text-align:center;color:var(--navy);padding:20px}
+.mapa-fb svg{width:46px;height:46px;color:var(--gold)}
+.mapa-fb b{font-family:var(--serif);font-weight:600;font-size:1.4rem}
+.mapa-fb span{font-size:.9rem;color:var(--muted);text-decoration:underline;text-decoration-color:var(--gold)}
 @media(max-width:860px){.mapa{grid-template-columns:1fr}.mapa-frame{aspect-ratio:1}}
 
 /* FOOTER */
@@ -579,7 +584,7 @@ footer .brand{color:var(--navy)}
         <p class="hr">Segunda a sexta, em horário comercial. Atendimento presencial ou por videochamada.</p>
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Bom+Fim,+351,+Praia+da+Cal,+Torres+-+RS,+95560-000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>Como chegar</a>
       </div>
-      <div class="mapa-frame"><iframe title="Mapa do escritório do Dr. Carlos Roberto Thomaz na Praia da Cal, Torres/RS" src="https://www.google.com/maps?q=Rua+Bom+Fim,+351,+Praia+da+Cal,+Torres+-+RS,+95560-000&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="mapa-frame"><a class="mapa-fb" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Bom+Fim%2C+351%2C+Praia+da+Cal%2C+Torres+RS+95560-000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><b>Praia da Cal · Torres/RS</b><span>Toque para abrir no Google Maps</span></a><iframe title="Mapa do escritório do Dr. Carlos Roberto Thomaz na Praia da Cal, Torres/RS" src="https://www.google.com/maps?q=Rua+Bom+Fim,+351,+Praia+da+Cal,+Torres+-+RS,+95560-000&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
   </div>
 </section>
