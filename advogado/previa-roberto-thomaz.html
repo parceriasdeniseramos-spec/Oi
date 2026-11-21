@@ -264,6 +264,15 @@ section{position:relative}
 .contact .info span{display:block;font-family:var(--brand);font-size:.72rem;letter-spacing:.18em;color:var(--gold-2)}
 @media(max-width:860px){.contact{grid-template-columns:1fr}}
 
+/* MAPA */
+.mapa{margin-top:clamp(40px,6vw,70px);display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,60px);align-items:center}
+.mapa-txt p{color:var(--muted);margin-top:6px}
+.mapa-txt .hr{font-size:1rem;margin:14px 0 26px}
+.mapa .serif em{font-style:italic;color:var(--gold)}
+.mapa-frame{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--ivory)}
+.mapa-frame iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:860px){.mapa{grid-template-columns:1fr}.mapa-frame{aspect-ratio:1}}
+
 /* FOOTER */
 footer{padding:70px 0 40px;color:var(--muted);font-size:.95rem}
 .ftop{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid var(--line)}
@@ -561,6 +570,16 @@ footer .brand{color:var(--navy)}
         <div><span>REGISTRO</span>OAB/RS 27.222</div>
       </div>
     </div>
+    <div class="mapa rv" id="localizacao">
+      <div class="mapa-txt">
+        <span class="kicker">Localização</span>
+        <h2 class="serif" style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin:12px 0 10px;color:var(--navy)">Escritório na <em>Praia da Cal</em>, em Torres.</h2>
+        <p>Rua Bom Fim, 351/401 · Praia da Cal<br>Torres/RS · CEP 95560-000</p>
+        <p class="hr">Segunda a sexta, em horário comercial. Atendimento presencial ou por videochamada.</p>
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Bom+Fim,+351,+Praia+da+Cal,+Torres+-+RS,+95560-000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>Como chegar</a>
+      </div>
+      <div class="mapa-frame"><iframe title="Mapa do escritório do Dr. Carlos Roberto Thomaz na Praia da Cal, Torres/RS" src="https://www.google.com/maps?q=Rua+Bom+Fim,+351,+Praia+da+Cal,+Torres+-+RS,+95560-000&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
   </div>
 </section>
 
@@ -572,7 +591,7 @@ footer .brand{color:var(--navy)}
       <a href="#inicio" class="brand"><svg class="crown"><use href="#crown"/></svg><span><b>CARLOS ROBERTO THOMAZ</b><small>INVENTÁRIOS · OAB/RS 27.222</small></span></a>
       <span>Rua Bom Fim, 351/401 · Praia da Cal · Torres/RS · CEP 95560-000</span>
     </div>
-    <nav class="fnav" aria-label="Seções do site"><a href="#atuacao">Atuação</a><a href="#guia">Guia do inventário</a><a href="#documentos">Documentos</a><a href="#etapas">Etapas</a><a href="#advogado">O advogado</a><a href="#duvidas">Dúvidas</a></nav>
+    <nav class="fnav" aria-label="Seções do site"><a href="#atuacao">Atuação</a><a href="#guia">Guia do inventário</a><a href="#documentos">Documentos</a><a href="#etapas">Etapas</a><a href="#advogado">O advogado</a><a href="#duvidas">Dúvidas</a><a href="#localizacao">Localização</a></nav>
     <p class="legal">Conteúdo de caráter exclusivamente informativo, em conformidade com o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021 do Conselho Federal da OAB. As informações deste site e do guia interativo são gerais e não substituem a análise do caso concreto por um advogado.</p>
     <div class="signature">
       <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#a8844f" stroke-width="1"/><circle cx="24" cy="24" r="19" fill="none" stroke="#a8844f" stroke-width=".5" opacity=".6"/><text x="24" y="29.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#0e1b2e">H2D</text></svg>
