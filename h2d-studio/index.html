@@ -15,7 +15,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="H2D Studio">
 <meta property="og:title" content="H2D Studio · Criação de sites que impressionam e vendem">
-<meta property="og:description" content="Sites modernos, rápidos e otimizados para o Google, com recepcionista virtual integrada ao WhatsApp. Garantia de 15 dias.">
+<meta property="og:description" content="Sites modernos, rápidos e otimizados para o Google, com recepcionista virtual integrada ao WhatsApp. Teste grátis por 15 dias: você só paga se aprovar.">
 <meta property="og:url" content="https://h2d-studio.netlify.app/">
 <meta property="og:image" content="https://h2d-studio.netlify.app/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -43,14 +43,14 @@
    {"@type":"Offer","name":"Pacote Lumina","price":"3490","priceCurrency":"BRL","priceValidUntil":"2027-01-31","itemOffered":{"@type":"Service","name":"Site de alto padrão com recepcionista virtual e Perfil da Empresa no Google"}}]}},
  {"@type":"WebSite","@id":"https://h2d-studio.netlify.app/#site","url":"https://h2d-studio.netlify.app/","name":"H2D Studio","inLanguage":"pt-BR","publisher":{"@id":"https://h2d-studio.netlify.app/#empresa"}},
  {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"Quanto custa um site profissional?","acceptedAnswer":{"@type":"Answer","text":"Na H2D Studio há duas linhas. Express, a partir de modelos prontos: Íris R$ 349, Lívia R$ 549 e Lumina R$ 997. Sob Medida, criado do zero, com valores de lançamento válidos até 31 de janeiro de 2027: Íris R$ 990 (de R$ 1.490), Lívia R$ 1.990 (de R$ 2.990) e Lumina R$ 3.490 (de R$ 4.990). Todos com garantia de satisfação de 15 dias."}},
+  {"@type":"Question","name":"Quanto custa um site profissional?","acceptedAnswer":{"@type":"Answer","text":"Na H2D Studio há duas linhas. Express, a partir de modelos prontos: Íris R$ 349, Lívia R$ 549 e Lumina R$ 997. Sob Medida, criado do zero, com valores de lançamento válidos até 31 de janeiro de 2027: Íris R$ 990 (de R$ 1.490), Lívia R$ 1.990 (de R$ 2.990) e Lumina R$ 3.490 (de R$ 4.990). Todos com teste grátis de 15 dias antes do pagamento."}},
   {"@type":"Question","name":"Quanto tempo leva para criar um site?","acceptedAnswer":{"@type":"Answer","text":"De 7 a 25 dias, conforme o pacote: até 7 dias no Íris, até 15 dias no Lívia e até 25 dias no Lumina."}},
   {"@type":"Question","name":"O meu site vai aparecer no Google?","acceptedAnswer":{"@type":"Answer","text":"Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google."}},
   {"@type":"Question","name":"O site funciona no celular?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela."}},
   {"@type":"Question","name":"Preciso ter domínio próprio?","acceptedAnswer":{"@type":"Answer","text":"Não é obrigatório para começar, mas é recomendado. A H2D Studio registra e configura o seu domínio .com.br como serviço extra."}},
   {"@type":"Question","name":"O que está incluso na manutenção mensal?","acceptedAnswer":{"@type":"Answer","text":"A manutenção mantém o seu site no ar, rápido e seguro (hospedagem e certificado de segurança), inclui atualizações de fotos, textos, preços e serviços, promoções e datas especiais, cuidados com o Google e suporte pelo WhatsApp. São até 2 alterações por mês no Íris, até 4 no Lívia e até 6 no Lumina. Nos pacotes Express, o compromisso mínimo é de 6 meses."}},
   {"@type":"Question","name":"Já tenho Instagram. Preciso de um site?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Instagram ajuda a ser visto, mas quem pesquisa no Google só encontra sites. Com o site, você tem um endereço próprio, informações organizadas e uma recepcionista virtual que atende 24 horas."}},
-  {"@type":"Question","name":"E se eu não gostar do site?","acceptedAnswer":{"@type":"Answer","text":"Você tem 15 dias de garantia de satisfação a partir da entrega: ajustamos o site ou devolvemos 100% do valor investido no pacote."}}]}
+  {"@type":"Question","name":"Como funciona o teste grátis de 15 dias?","acceptedAnswer":{"@type":"Answer","text":"Você usa o seu site publicado por 15 dias sem pagar nada e pode pedir ajustes. Se aprovar, confirma o pagamento e o site segue no ar. Se decidir não seguir, o site é pausado ao fim do período, sem custo, e pode ser reativado depois com todo o conteúdo."}}]}
 ]}
 </script>
 <style>
@@ -276,6 +276,7 @@ h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balanc
 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;padding:clamp(34px,5vw,56px);border-radius:28px;background:var(--grad);color:#1a0f06}
 .guarantee .seal{width:130px;height:130px;border-radius:50%;border:3px solid #1a0f06;display:grid;place-items:center;text-align:center;font-weight:900;line-height:1}
 .guarantee .seal b{display:block;font-size:2.8rem}
+.guarantee p.small{font-size:.9rem;opacity:.85;margin-top:10px}
 .guarantee .seal span{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
 .guarantee h2{font-size:clamp(1.8rem,3.6vw,2.8rem)}
 .guarantee p{margin-top:10px;font-weight:500;max-width:720px}
@@ -470,7 +471,7 @@ footer a:hover{color:var(--g1)}
         <a class="btn btn-gold pulse" href="#orcamento"><svg aria-hidden="true"><use href="#wa"/></svg>Quero meu site</a>
         <a class="btn btn-ghost" href="#portfolio">Ver portfólio</a>
       </div>
-      <div class="chips fx" style="animation-delay:.4s"><span>Site responsivo</span><span>SEO para o Google</span><span>Integração com WhatsApp</span><span>Garantia de 15 dias</span></div>
+      <div class="chips fx" style="animation-delay:.4s"><span>Site responsivo</span><span>SEO para o Google</span><span>Integração com WhatsApp</span><span>15 dias de teste grátis</span></div>
     </div>
     <div class="show fx" style="animation-delay:.25s">
       <div class="cols">
@@ -510,7 +511,7 @@ footer a:hover{color:var(--g1)}
       <div class="rv"><b class="gt">7 dias</b><span>prazo a partir de</span></div>
       <div class="rv d1"><b class="gt">100%</b><span>responsivo no celular</span></div>
       <div class="rv d2"><b class="gt">SEO</b><span>incluso em todos os sites</span></div>
-      <div class="rv d3"><b class="gt">15 dias</b><span>de garantia de satisfação</span></div>
+      <div class="rv d3"><b class="gt">15 dias</b><span>para testar antes de pagar</span></div>
     </div>
   </div>
 </section>
@@ -589,7 +590,7 @@ footer a:hover{color:var(--g1)}
       <figure class="testi rv d2"><span class="q">“</span><blockquote>Com relação ao site interativo, adorei. Adorei mesmo!</blockquote><cite><i>A.O.</i><span><b>Dra. Ângela Osdeberg</b><small>Cirurgiã-dentista</small></span></cite></figure>
     </div>
     <div class="trust">
-      <div class="rv"><i>🛡️</i><b>Garantia de 15 dias</b><span>Ajustamos ou devolvemos 100% do valor do pacote.</span></div>
+      <div class="rv"><i>🛡️</i><b>Teste grátis de 15 dias</b><span>Você usa o site no ar e só paga se aprovar.</span></div>
       <div class="rv d1"><i>👀</i><b>Prévia antes da entrega</b><span>Você vê e aprova o site antes de ele ir ao ar.</span></div>
       <div class="rv d2"><i>🔗</i><b>Portfólio no ar</b><span>Abra os nossos sites e teste a recepcionista virtual.</span></div>
       <div class="rv d3"><i>👩‍👦</i><b>Direto com quem faz</b><span>Você fala com a Denise e o Diogo, sem intermediários.</span></div>
@@ -629,13 +630,13 @@ footer a:hover{color:var(--g1)}
     <p class="pdesc">Um dos nossos modelos prontos, adaptado com o seu nome, cores, fotos, textos e WhatsApp. Rápido e acessível, com a mesma qualidade técnica.</p>
     <div class="plans">
       <article class="plan rv"><span class="lt">Express · modelo pronto</span><h3>Íris Express</h3><p class="for">Presença profissional em poucos dias</p><div class="price">R$ 349</div><p class="mt">Manutenção: R$ 97/mês (mínimo de 6 meses)</p>
-        <ul><li>Página única a partir de modelo pronto</li><li>Seu nome, cores, fotos e textos</li><li>Botão de WhatsApp com mensagem pronta</li><li>Site responsivo</li><li>SEO básico para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <ul><li>Página única a partir de modelo pronto</li><li>Seu nome, cores, fotos e textos</li><li>Botão de WhatsApp com mensagem pronta</li><li>Site responsivo</li><li>SEO básico para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Teste grátis de 15 dias</li></ul>
         <a class="btn btn-ghost" href="#orcamento" data-plan="Íris Express">Escolher Íris Express</a></article>
       <article class="plan feat rv d1"><span class="rib">⭐ Mais escolhido</span><span class="lt">Express · modelo pronto</span><h3>Lívia Express</h3><p class="for">O modelo completo, pronto para você</p><div class="price gt">R$ 549</div><p class="mt">Manutenção: R$ 147/mês (mínimo de 6 meses)</p>
-        <ul><li>Modelo completo com todas as seções</li><li>Seu nome, cores, fotos e textos</li><li>Assistente virtual integrada ao WhatsApp</li><li>Animações e acabamento sofisticado</li><li>SEO para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <ul><li>Modelo completo com todas as seções</li><li>Seu nome, cores, fotos e textos</li><li>Assistente virtual integrada ao WhatsApp</li><li>Animações e acabamento sofisticado</li><li>SEO para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Teste grátis de 15 dias</li></ul>
         <a class="btn btn-gold" href="#orcamento" data-plan="Lívia Express">Escolher Lívia Express</a></article>
       <article class="plan rv d2"><span class="lt">Express · modelo pronto</span><h3>Lumina Express</h3><p class="for">O visual de luxo, a partir de modelo</p><div class="price">R$ 997</div><p class="mt">Manutenção: R$ 197/mês (mínimo de 6 meses)</p>
-        <ul><li>Modelo de luxo com abertura animada</li><li>Seu nome, cores, fotos e textos</li><li>Recepcionista virtual integrada ao WhatsApp</li><li>Efeitos de rolagem e acabamento premium</li><li>SEO para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <ul><li>Modelo de luxo com abertura animada</li><li>Seu nome, cores, fotos e textos</li><li>Recepcionista virtual integrada ao WhatsApp</li><li>Efeitos de rolagem e acabamento premium</li><li>SEO para o Google</li><li>Entrega em 3 a 5 dias</li><li class="g">Teste grátis de 15 dias</li></ul>
         <a class="btn btn-ghost" href="#orcamento" data-plan="Lumina Express">Escolher Lumina Express</a></article>
     </div>
     </div>
@@ -644,13 +645,13 @@ footer a:hover{color:var(--g1)}
     <p class="launch rv"><b>🎉 Lançamento</b>Valores especiais de lançamento da H2D Studio, válidos para contratos fechados até 31 de janeiro de 2027.</p>
     <div class="plans">
       <article class="plan rv"><h3>Íris</h3><p class="for">Para começar com elegância</p><span class="lt">Valor de lançamento</span><div class="old">De R$ 1.490</div><div class="price">R$ 990</div><p class="mt">Manutenção: R$ 97/mês</p>
-        <ul><li>Página única (onepage) elegante</li><li>Até 4 serviços em destaque</li><li>Botão de WhatsApp com mensagem pronta</li><li>Site responsivo</li><li>SEO básico para o Google</li><li>1 rodada de ajustes</li><li>Entrega em até 7 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <ul><li>Página única (onepage) elegante</li><li>Até 4 serviços em destaque</li><li>Botão de WhatsApp com mensagem pronta</li><li>Site responsivo</li><li>SEO básico para o Google</li><li>1 rodada de ajustes</li><li>Entrega em até 7 dias</li><li class="g">Teste grátis de 15 dias</li></ul>
         <a class="btn btn-ghost" href="#orcamento" data-plan="Íris">Escolher Íris</a></article>
       <article class="plan feat rv d1"><span class="rib">⭐ Mais escolhido</span><h3>Lívia</h3><p class="for">A experiência completa</p><span class="lt">Valor de lançamento</span><div class="old">De R$ 2.990</div><div class="price gt">R$ 1.990</div><p class="mt">Manutenção: R$ 197/mês</p>
-        <ul><li>Tudo do Íris, e mais:</li><li>Site completo com todas as seções</li><li>Até 8 serviços com botão próprio</li><li>Assistente virtual integrada ao WhatsApp</li><li>Animações e acabamento sofisticado</li><li>SEO local (cidade e bairro)</li><li>2 rodadas de ajustes</li><li>Entrega em até 15 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <ul><li>Tudo do Íris, e mais:</li><li>Site completo com todas as seções</li><li>Até 8 serviços com botão próprio</li><li>Assistente virtual integrada ao WhatsApp</li><li>Animações e acabamento sofisticado</li><li>SEO local (cidade e bairro)</li><li>2 rodadas de ajustes</li><li>Entrega em até 15 dias</li><li class="g">Teste grátis de 15 dias</li></ul>
         <a class="btn btn-gold" href="#orcamento" data-plan="Lívia">Escolher Lívia</a></article>
       <article class="plan rv d2"><h3>Lumina</h3><p class="for">Alto padrão</p><span class="lt">Valor de lançamento</span><div class="old">De R$ 4.990</div><div class="price">R$ 3.490</div><p class="mt">Manutenção: R$ 297/mês</p>
-        <ul><li>Tudo do Lívia, e mais:</li><li>Design exclusivo de luxo</li><li>Serviços ilimitados</li><li>Recepcionista virtual com nome próprio</li><li>Seção para equipe</li><li>Vídeo de apresentação do site</li><li>Perfil da Empresa no Google</li><li>3 rodadas de ajustes · até 25 dias</li><li class="g">Garantia de satisfação de 15 dias</li></ul>
+        <ul><li>Tudo do Lívia, e mais:</li><li>Design exclusivo de luxo</li><li>Serviços ilimitados</li><li>Recepcionista virtual com nome próprio</li><li>Seção para equipe</li><li>Vídeo de apresentação do site</li><li>Perfil da Empresa no Google</li><li>3 rodadas de ajustes · até 25 dias</li><li class="g">Teste grátis de 15 dias</li></ul>
         <a class="btn btn-ghost" href="#orcamento" data-plan="Lumina">Escolher Lumina</a></article>
     </div>
     </div>
@@ -666,8 +667,8 @@ footer a:hover{color:var(--g1)}
 <section class="sec" id="garantia" style="padding-bottom:0">
   <div class="wrap">
     <div class="guarantee rv">
-      <div class="seal"><div><b>15</b><span>dias de<br>garantia</span></div></div>
-      <div><h2>Garantia de Satisfação H2D Studio.</h2><p>Use o seu site por 15 dias a partir da entrega. Se não estiver satisfeito, ajustamos o que for necessário ou devolvemos 100% do valor investido no pacote. A manutenção só começa depois desse período.</p></div>
+      <div class="seal"><div><b>15</b><span>dias de<br>teste grátis</span></div></div>
+      <div><h2>Teste antes de pagar.</h2><p>O seu site vai ao ar e você usa por 15 dias, sem pagar nada, pedindo os ajustes que quiser. Gostou? Basta confirmar o pagamento e ele segue no ar, com a indexação no Google e a manutenção, que só começa depois desse período.</p><p class="small">Se decidir não seguir, o site é pausado ao fim dos 15 dias, sem custo e sem compromisso, e pode ser reativado a qualquer momento com todo o conteúdo. O site e os arquivos passam a ser seus após a quitação.</p></div>
     </div>
   </div>
 </section>
@@ -759,14 +760,14 @@ footer a:hover{color:var(--g1)}
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px"><span class="kicker rv">Dúvidas frequentes</span><h2 class="h2 rv d1">Perguntas sobre <span class="gt">criação de sites.</span></h2></div>
     <div class="faq">
-      <details class="rv"><summary>Quanto custa um site profissional?<span class="pl">+</span></summary><p>Na H2D Studio há duas linhas. Express, a partir de modelos prontos: Íris R$ 349, Lívia R$ 549 e Lumina R$ 997. Sob Medida, criado do zero, com valores de lançamento válidos até 31 de janeiro de 2027: Íris R$ 990 (de R$ 1.490), Lívia R$ 1.990 (de R$ 2.990) e Lumina R$ 3.490 (de R$ 4.990). Todos com garantia de satisfação de 15 dias.</p></details>
+      <details class="rv"><summary>Quanto custa um site profissional?<span class="pl">+</span></summary><p>Na H2D Studio há duas linhas. Express, a partir de modelos prontos: Íris R$ 349, Lívia R$ 549 e Lumina R$ 997. Sob Medida, criado do zero, com valores de lançamento válidos até 31 de janeiro de 2027: Íris R$ 990 (de R$ 1.490), Lívia R$ 1.990 (de R$ 2.990) e Lumina R$ 3.490 (de R$ 4.990). Todos com teste grátis de 15 dias antes do pagamento.</p></details>
       <details class="rv"><summary>Quanto tempo leva para criar um site?<span class="pl">+</span></summary><p>De 7 a 25 dias, conforme o pacote: até 7 dias no Íris, até 15 dias no Lívia e até 25 dias no Lumina.</p></details>
       <details class="rv"><summary>O meu site vai aparecer no Google?<span class="pl">+</span></summary><p>Todos os sites são entregues otimizados para o Google (SEO): títulos, descrições, palavras-chave, velocidade e dados estruturados. O posicionamento depende também da concorrência e do tempo, e pode ser acelerado com o Perfil da Empresa no Google.</p></details>
       <details class="rv"><summary>O site funciona no celular?<span class="pl">+</span></summary><p>Sim. Todos os sites são responsivos, criados primeiro para o celular e testados em diferentes tamanhos de tela.</p></details>
       <details class="rv"><summary>Preciso ter domínio próprio?<span class="pl">+</span></summary><p>Não é obrigatório para começar, mas é recomendado. Registramos e configuramos o seu domínio .com.br como serviço extra.</p></details>
       <details class="rv"><summary>O que está incluso na manutenção mensal?<span class="pl">+</span></summary><p>A manutenção mantém o seu site no ar, rápido e seguro (hospedagem e certificado de segurança), inclui atualizações de fotos, textos, preços e serviços, promoções e datas especiais, cuidados com o Google e suporte pelo WhatsApp. São até 2 alterações por mês no Íris, até 4 no Lívia e até 6 no Lumina. Nos pacotes Express, o compromisso mínimo é de 6 meses.</p></details>
       <details class="rv"><summary>Já tenho Instagram. Preciso de um site?<span class="pl">+</span></summary><p>Sim. O Instagram ajuda a ser visto, mas quem pesquisa no Google só encontra sites. Com o site, você tem um endereço próprio, informações organizadas e uma recepcionista virtual que atende 24 horas. Os dois juntos vendem muito mais.</p></details>
-      <details class="rv"><summary>E se eu não gostar do site?<span class="pl">+</span></summary><p>Você tem 15 dias de garantia de satisfação a partir da entrega: ajustamos o site ou devolvemos 100% do valor investido no pacote.</p></details>
+      <details class="rv"><summary>Como funciona o teste grátis de 15 dias?<span class="pl">+</span></summary><p>Você usa o seu site publicado por 15 dias sem pagar nada e pode pedir ajustes. Se aprovar, confirma o pagamento e o site segue no ar, com a indexação no Google. Se decidir não seguir, o site é pausado (sai do ar) ao fim do período, sem custo, e pode ser reativado depois com todo o conteúdo.</p></details>
     </div>
   </div>
 </section>
