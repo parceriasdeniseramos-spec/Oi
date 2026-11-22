@@ -143,7 +143,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
     </div>
   </div>
 
-  <div class="stitle"><h2 class="h">Módulo Base</h2><span>Comece por aqui · 15 min por dia</span></div>
+  <div class="stitle"><h2 class="h">Módulo Base</h2><span>Comece por aqui · 1 lição por dia</span></div>
   <div class="lessons" id="baseList"></div>
 
   <div class="review" id="reviewBox" hidden>
@@ -214,16 +214,24 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 /* ============ CONTEÚDO ============
    Cada item: [inglês, como se fala (aprox. em português), tradução, dica, alternativas aceitas] */
 var LICOES = [
- { id:'b1', modulo:'base', em:'👋', titulo:'Primeiros contatos', sub:'Cumprimentar e se despedir', itens:[
+ { id:'b1', modulo:'base', em:'👋', titulo:'Primeiros contatos', sub:'Cumprimentar, se apresentar e se despedir', itens:[
    ['Hello','rê-LÔU','Olá','O “h” tem som de “r” leve, como em “rato”.'],
+   ['Hi','RÁI','Oi','Mais informal que “Hello”.'],
    ['Good morning','gud MÓR-nin','Bom dia','O “g” final quase não aparece: “mór-nin”.'],
    ['Good afternoon','gud éf-ter-NUN','Boa tarde','A força fica no final: “NUN”.'],
-   ['Good evening','gud ÍV-nin','Boa noite (ao chegar)','Para se despedir à noite, diga “Good night”.'],
+   ['Good evening','gud ÍV-nin','Boa noite (ao chegar)','Use quando chega em algum lugar à noite.'],
+   ['Good night','gud NÁIT','Boa noite (ao se despedir)','Use para se despedir ou na hora de dormir.'],
    ['Nice to meet you','NÁIS tu MÍT iu','Prazer em conhecer','Fale tudo junto, sem pausas: “náistumítiu”.'],
    ['How are you','RÁU ar iu','Como vai você?','Resposta comum: “I’m fine, thank you”.'],
    ["I'm fine, thank you",'áim FÁIN, THÉNK iu','Estou bem, obrigado(a)','No “th”, coloque a pontinha da língua entre os dentes.',['i am fine thank you','im fine thank you']],
+   ["What's your name",'UÓTS iór NÊIM','Qual é o seu nome?','Resposta: “My name is…”',['what is your name','whats your name']],
+   ['Where are you from','UÉR ar iu FRÓM','De onde você é?','Pergunta muito comum ao conhecer alguém.'],
+   ["I'm from Brazil",'áim from bra-ZÍL','Eu sou do Brasil','Em inglês, Brasil se escreve com “z”: Brazil.',['i am from brazil','im from brazil']],
+   ['Excuse me','eks-KIÚZ mi','Com licença','Para chamar a atenção de alguém ou pedir passagem.'],
+   ["You're welcome",'iór UÉL-kam','De nada','Resposta para “Thank you”.',['you are welcome','your welcome']],
    ['Goodbye','gud-BÁI','Tchau','A força fica no “BÁI”.'],
-   ['See you later','SÍ iu LÊI-ter','Até mais tarde','O “ter” final soa como “ter” em português, bem curtinho.']
+   ['See you later','SÍ iu LÊI-ter','Até mais tarde','O “ter” final é bem curtinho.'],
+   ['Take care','TÊIK KÉR','Se cuida','Despedida carinhosa.']
  ]},
  { id:'b2', modulo:'base', em:'🤝', titulo:'Palavras amigas', sub:'Parecidas com o português', itens:[
    ['Information','in-for-MÊI-xan','Informação','Termina com “xan”, e não “ção”.'],
@@ -233,42 +241,147 @@ var LICOES = [
    ['Possible','PÓ-si-bol','Possível','Termina com “bol”.'],
    ['Hospital','RÓS-pi-tal','Hospital','O “h” tem som de “r” leve.'],
    ['Restaurant','RÉS-te-rant','Restaurante','A força fica no começo: “RÉS”.'],
+   ['Hotel','rou-TÉL','Hotel','A força fica no final: “TÉL”.'],
    ['Family','FÉ-mi-li','Família','O “a” soa como “é”.'],
+   ['Doctor','DÓK-ter','Médico, doutor','O “or” final soa como “ter”.'],
+   ['Music','MIÚ-zik','Música','O “s” tem som de “z”.'],
+   ['Telephone','TÉ-le-foun','Telefone','No dia a dia, também se diz só “phone” (FÔUN).'],
+   ['Computer','kom-PIÚ-ter','Computador','A força fica no “PIÚ”.'],
    ['Internet','ÍN-ter-net','Internet','A força fica no começo: “ÍN”.'],
-   ['Actually','ÉK-tchu-a-li','Na verdade','⚠️ Palavra “traiçoeira”: NÃO quer dizer “atualmente”!']
+   ['Natural','NÉ-tchu-ral','Natural','O “t” soa como “tch”.'],
+   ['Television','TÉ-le-vi-jan','Televisão','O “s” soa como “j”: “vi-jan”.']
  ]},
- { id:'b3', modulo:'base', em:'⭐', titulo:'As mais usadas', sub:'Frases que salvam o dia', itens:[
+ { id:'b3', modulo:'base', em:'⚠️', titulo:'Falsos amigos', sub:'Parecem português, mas não são!', itens:[
+   ['Actually','ÉK-tchu-a-li','Na verdade','⚠️ NÃO quer dizer “atualmente”! (atualmente = currently)'],
+   ['Pretend','pri-TÉND','Fingir','⚠️ NÃO quer dizer “pretender”! (pretender = intend)'],
+   ['Push','PUCH','Empurrar','⚠️ Nas portas! “Push” é EMPURRAR, não puxar.'],
+   ['Pull','PUL','Puxar','Nas portas: “Pull” é PUXAR.'],
+   ['Library','LÁI-bre-ri','Biblioteca','⚠️ NÃO é livraria! (livraria = bookstore)'],
+   ['Parents','PÉ-rents','Pais (pai e mãe)','⚠️ NÃO quer dizer “parentes”! (parentes = relatives)'],
+   ['College','KÓ-lej','Faculdade','⚠️ NÃO é colégio! (colégio = school)'],
+   ['Exquisite','êks-KUÍ-zit','Requintado, refinado','⚠️ NÃO é “esquisito”! É um elogio.'],
+   ['Fabric','FÉ-brik','Tecido','⚠️ NÃO é fábrica! (fábrica = factory)'],
+   ['Lunch','LÂNTCH','Almoço','⚠️ NÃO é lanche! (lanche = snack)']
+ ]},
+ { id:'b4', modulo:'base', em:'⭐', titulo:'As mais usadas', sub:'Frases que salvam o dia', itens:[
+   ['Yes','IÉS','Sim','O “s” final é bem marcado.'],
+   ['No','NÔU','Não','Soa como “nôu”, não como “nó”.'],
+   ['Okay','ôu-KÊI','Está bem, ok','A força fica no “KÊI”.'],
    ['Please','PLÍZ','Por favor','Termine com um “z” vibrando.'],
    ['Thank you','THÉNK iu','Obrigado(a)','Língua entre os dentes no “th”.'],
-   ['Sorry','SÓ-ri','Desculpe','O “r” é suave, como o “r” do inglês americano.'],
-   ['I need help','ái NÍD RÉLP','Eu preciso de ajuda','“Help” tem o “h” como “r” leve.'],
-   ['Can you help me','KÉN iu RÉLP mi','Você pode me ajudar?','Fale tudo junto, subindo a voz no final.'],
-   ['Where is','UÉR iz','Onde fica…?','Depois, complete: “Where is the bathroom?” (o banheiro).'],
-   ['How much','RÁU MÂTCH','Quanto custa?','“Much” rima com “tchâ”.'],
+   ['Sorry','SÓ-ri','Desculpe','Para pedir desculpas ou dizer “como?” quando não entendeu.'],
+   ['Of course','óv KÓRS','Claro, com certeza','Fale junto: “ovkórs”.'],
+   ['No problem','nôu PRÁ-blem','Sem problema','Resposta simpática e muito usada.'],
+   ["I don't know",'ái dôunt NÔU','Eu não sei','Fale junto e rápido: “aidôuntnôu”.',['i do not know','i dont know']],
    ["I don't understand",'ái DÔUNT ân-der-STÉND','Eu não entendo','A força fica no “STÉND”.',['i do not understand','i dont understand']],
+   ['I need help','ái NÍD RÉLP','Eu preciso de ajuda','“Help” tem o “h” como “r” leve.'],
+   ['Can you help me','KÉN iu RÉLP mi','Você pode me ajudar?','Suba a voz no final, como numa pergunta.'],
+   ['Where is','UÉR iz','Onde fica…?','Complete: “Where is the bathroom?” (o banheiro).'],
+   ['How much','RÁU MÂTCH','Quanto custa?','“Much” rima com “tchâ”.'],
    ['Again, please','a-GUÉN, PLÍZ','De novo, por favor','Muito útil quando você não entendeu!'],
    ['Slowly, please','SLÔU-li, PLÍZ','Devagar, por favor','Peça sem vergonha: todo mundo entende.']
  ]},
- { id:'b4', modulo:'base', em:'💼', titulo:'Frases de trabalho', sub:'Para o dia a dia profissional', itens:[
+ { id:'b5', modulo:'base', em:'❓', titulo:'Perguntas', sub:'Para perguntar qualquer coisa', itens:[
+   ['What','UÓT','O quê? / Qual?','O “h” não se pronuncia.'],
+   ['Where','UÉR','Onde?','Parecido com “wear” (vestir): soa igual!'],
+   ['When','UÉN','Quando?','O “h” não se pronuncia.'],
+   ['Who','RÚ','Quem?','Aqui o “w” some e o “h” soa como “r” leve.'],
+   ['Why','UÁI','Por quê?','Soa como a letra “Y” em inglês.'],
+   ['How','RÁU','Como?','“How are you?” = Como vai você?'],
+   ['Which','UÍTCH','Qual? (entre opções)','Para escolher: “Which one?” = Qual deles?'],
+   ['What is this','UÓT iz DÍS','O que é isto?','O “th” de “this” soa quase como “d”.',["what's this",'whats this']],
+   ['What time is it','UÓT TÁIM iz it','Que horas são?','Fale junto: “uóttáimizit”.'],
+   ['Do you speak Portuguese','du iu SPÍK pór-tchu-GUÍZ','Você fala português?','“Portuguese” termina com “GUÍZ”.'],
+   ['Do you have','du iu RÉV','Você tem…?','Complete: “Do you have water?” (água).'],
+   ['Is it far','iz it FÁR','É longe?','Resposta: “It’s near” (é perto).']
+ ]},
+ { id:'b6', modulo:'base', em:'🏃', titulo:'Verbos do dia a dia', sub:'Para falar de você', itens:[
+   ['I am','ái ÉM','Eu sou / Eu estou','Em inglês, “ser” e “estar” são o mesmo verbo!',["i'm",'im']],
+   ['I have','ái RÉV','Eu tenho','O “h” soa como “r” leve.'],
+   ['I want','ái UÓNT','Eu quero','Para pedir algo com educação, prefira “I would like”.'],
+   ['I would like','ái uud LÁIK','Eu gostaria','A forma educada de pedir.',["i'd like",'id like']],
+   ['I like','ái LÁIK','Eu gosto','“I like coffee” = Eu gosto de café.'],
+   ['I can','ái KÉN','Eu posso / Eu consigo','“I can help” = Eu posso ajudar.'],
+   ['I go','ái GÔU','Eu vou','“Let’s go!” = Vamos!'],
+   ['I know','ái NÔU','Eu sei','O “k” não se pronuncia!'],
+   ['I think','ái THÍNK','Eu acho / Eu penso','Língua entre os dentes no “th”.'],
+   ['I work','ái UÂRK','Eu trabalho','“I work with…” = Eu trabalho com…'],
+   ['I live','ái LÍV','Eu moro','“I live in Porto Alegre”.'],
+   ['I speak','ái SPÍK','Eu falo','“I speak a little English” = Falo um pouco de inglês.'],
+   ['I understand','ái ân-der-STÉND','Eu entendo','A força fica no “STÉND”.'],
+   ['I love','ái LÂV','Eu amo, eu adoro','O “o” soa como “â”.']
+ ]},
+ { id:'b7', modulo:'base', em:'🔢', titulo:'Números', sub:'Preços, horários e telefones', itens:[
+   ['One','UÂN','Um','Soa como “uân”.',['1']],
+   ['Two','TÚ','Dois','O “w” não se pronuncia.',['2','to','too']],
+   ['Three','THRÍ','Três','Língua entre os dentes no “th”.',['3']],
+   ['Four','FÓR','Quatro','Soa igual a “for” (para).',['4','for']],
+   ['Five','FÁIV','Cinco','Termina com “v” vibrando.',['5']],
+   ['Six','SÍKS','Seis','O “x” soa como “ks”.',['6']],
+   ['Seven','SÉ-ven','Sete','A força fica no começo.',['7']],
+   ['Eight','ÊIT','Oito','O “gh” não se pronuncia.',['8']],
+   ['Nine','NÁIN','Nove','Soa como “náin”.',['9']],
+   ['Ten','TÉN','Dez','Bem curtinho.',['10']],
+   ['Twenty','TUÉN-ti','Vinte','A força fica no começo.',['20']],
+   ['Fifty','FÍF-ti','Cinquenta','Cuidado: “fifteen” (FIF-TÍN) é quinze!',['50']],
+   ['One hundred','uân RÂN-dred','Cem','O “h” soa como “r” leve.',['100']],
+   ['One thousand','uân THÁU-zand','Mil','Língua entre os dentes no “th”.',['1000','1 000']]
+ ]},
+ { id:'b8', modulo:'base', em:'📅', titulo:'Dias e horários', sub:'Para marcar compromissos', itens:[
+   ['Today','tu-DÊI','Hoje','A força fica no “DÊI”.'],
+   ['Tomorrow','tu-MÓ-rou','Amanhã','A força fica no meio: “MÓ”.'],
+   ['Yesterday','IÉS-ter-dêi','Ontem','A força fica no começo.'],
+   ['Now','NÁU','Agora','“Right now” = agora mesmo.'],
+   ['Later','LÊI-ter','Mais tarde','“See you later!”'],
+   ['Monday','MÂN-dêi','Segunda-feira','Todos os dias da semana terminam em “dêi”.'],
+   ['Tuesday','TIÚZ-dêi','Terça-feira','O “s” soa como “z”.'],
+   ['Wednesday','UÊNZ-dêi','Quarta-feira','O primeiro “d” não se pronuncia!'],
+   ['Thursday','THÂRZ-dêi','Quinta-feira','Língua entre os dentes no “th”.'],
+   ['Friday','FRÁI-dêi','Sexta-feira','A força fica no “FRÁI”.'],
+   ['Saturday','SÉ-ter-dêi','Sábado','A força fica no começo.'],
+   ['Sunday','SÂN-dêi','Domingo','O “u” soa como “â”.'],
+   ['Week','UÍK','Semana','“Next week” = semana que vem.'],
+   ['Month','MÂNTH','Mês','Termina com a língua entre os dentes.']
+ ]},
+ { id:'b9', modulo:'base', em:'💼', titulo:'Frases de trabalho', sub:'Para o dia a dia profissional', itens:[
    ['My name is','mái NÊIM iz','Meu nome é…','Depois, diga o seu nome: “My name is Denise”.'],
    ['Let me check','LÉT mi TCHÉK','Deixa eu verificar','Ótima para ganhar tempo numa conversa.'],
+   ['Let me think','LÉT mi THÍNK','Deixa eu pensar','Outra frase para ganhar tempo.'],
+   ['Could you repeat that','kud iu ri-PÍT dét','Pode repetir, por favor?','O “l” de “could” não se pronuncia.'],
+   ['I agree','ái a-GRÍ','Eu concordo','A força fica no “GRÍ”.'],
+   ['Good idea','gud ai-DÍ-a','Boa ideia','“Idea” se fala “ai-DÍ-a”.'],
    ["Let's schedule a meeting",'léts SKÉ-djul a MÍ-tin','Vamos marcar uma reunião','“Schedule” se fala “ské-djul”.',['lets schedule a meeting','let us schedule a meeting']],
    ['I will send you an email','ái uil SÉND iu an Í-meil','Vou te mandar um e-mail','“Email” se fala “Í-meil”.',["i'll send you an email",'ill send you an email']],
-   ['What time','UÓT TÁIM','Que horas?','Para perguntar o horário de algo.'],
+   ['Customer','KÂS-to-mer','Cliente','Também se usa “client” (KLÁI-ent).'],
+   ['Price','PRÁIS','Preço','“What’s the price?” = Qual é o preço?'],
+   ['Deadline','DÉD-lain','Prazo final','Palavra muito usada em empresas.'],
    ['Thank you for your time','THÉNK iu for iór TÁIM','Obrigado(a) pelo seu tempo','Frase educada para encerrar reuniões.'],
    ['Talk to you soon','TÓK tu iu SUN','Falamos em breve','O “l” de “talk” não se pronuncia.'],
    ['Have a nice day','RÉV a NÁIS DÊI','Tenha um ótimo dia','Para se despedir com simpatia.']
  ]},
  { id:'t1', modulo:'internet', em:'🌐', titulo:'Botões e avisos', sub:'Amostra da trilha Internet', itens:[
    ['Sign in','SÁIN in','Entrar (na sua conta)','O “g” não se pronuncia.'],
-   ['Sign up','SÁIN âp','Cadastrar-se, criar conta','Diferente de “Sign in”: “up” é para criar a conta.'],
+   ['Sign up','SÁIN âp','Cadastrar-se, criar conta','“Up” é para criar a conta; “in” é para entrar.'],
+   ['Log out','LÓG áut','Sair da conta','Também aparece como “Sign out”.',['logout']],
+   ['Forgot password','for-GÓT PÉS-uârd','Esqueceu a senha?','Aparece embaixo do campo de senha.'],
+   ['Password','PÉS-uârd','Senha','O “w” quase não aparece.'],
    ['Download','DÁUN-lôud','Baixar','A força fica no “DÁUN”.'],
+   ['Upload','ÂP-lôud','Enviar (um arquivo)','O contrário de “download”.'],
    ['Settings','SÉ-tins','Configurações','O ícone costuma ser uma engrenagem ⚙️.'],
    ['Search','SÂRTCH','Pesquisar','O ícone costuma ser uma lupa 🔍.'],
-   ['Password','PÉS-uârd','Senha','O “w” quase não aparece.'],
+   ['Save','SÊIV','Salvar','Termina com “v” vibrando.'],
+   ['Delete','di-LÍT','Apagar, excluir','A força fica no “LÍT”.'],
+   ['Send','SÉND','Enviar','“Send message” = enviar mensagem.'],
+   ['Share','XÉR','Compartilhar','O “sh” soa como “x”.'],
+   ['Follow','FÓ-lou','Seguir','Nas redes sociais.'],
+   ['Like','LÁIK','Curtir','O famoso coraçãozinho ou joinha 👍.'],
+   ['Subscribe','sâb-SKRÁIB','Inscrever-se','No YouTube, para receber os vídeos do canal.'],
    ['Cancel','KÉN-sel','Cancelar','A força fica no “KÉN”.'],
    ['Next','NÉKST','Próximo','Aparece em botões de “avançar”.'],
    ['Skip','SKÍP','Pular','Ex.: “Skip ad” = pular anúncio.'],
+   ['Try again','TRÁI a-GUÉN','Tente de novo','Aparece quando algo deu errado.'],
+   ['Learn more','LÂRN MÓR','Saiba mais','Leva para mais informações.'],
+   ['Free','FRÍ','Grátis','“Free trial” = teste grátis.'],
    ['Error','É-ror','Erro','“Something went wrong” também quer dizer “deu erro”.']
  ]}
 ];
@@ -300,7 +413,7 @@ function speak(text, lang, rate, done){
 
 /* ============ RECONHECIMENTO ============ */
 var SR = window.SpeechRecognition || window.webkitSpeechRecognition, rec = null, listening = false;
-function norm(s){ return String(s).toLowerCase().replace(/[’‘`]/g,"'").replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim(); }
+function norm(s){ return String(s).toLowerCase().replace(/[’‘`]/g,"'").replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
 function lev(a,b){ var m = a.length, n = b.length, d = [], i, j; for (i = 0; i <= m; i++){ d[i] = [i]; } for (j = 0; j <= n; j++) d[0][j] = j;
   for (i = 1; i <= m; i++) for (j = 1; j <= n; j++) d[i][j] = Math.min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + (a[i-1] === b[j-1] ? 0 : 1)); return d[m][n]; }
 function score(heard, item){
