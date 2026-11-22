@@ -77,7 +77,13 @@ section.s{padding:clamp(56px,8vw,96px) 0}
 .list li{list-style:none;display:flex;gap:10px;align-items:flex-start}
 .list svg{color:var(--ok);margin-top:3px;width:20px;height:20px}
 .price{max-width:560px;margin:30px auto 0;text-align:center;background:#fff;border:2px solid var(--primary);border-radius:24px;padding:30px 24px}
-.price .v{font-size:1.5rem;font-weight:800;margin:6px 0}
+.price .v{font-size:3rem;font-weight:800;line-height:1;margin:4px 0 8px;color:var(--primary-d)}
+.price .de{color:var(--muted);margin-top:12px}
+.price .tag{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--primary-s);color:var(--primary-d);font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.duo{max-width:560px;margin:14px auto 0;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:1.5px dashed var(--primary);border-radius:20px;padding:18px 20px}
+.duo b{font-size:1.08rem}
+.duo p{color:var(--muted);font-size:.94rem;margin-top:2px}
+.duo>div{flex:1;min-width:200px}
 .faq{max-width:780px;margin:30px auto 0;display:grid;gap:10px}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:16px}
 .faq summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:700;display:flex;justify-content:space-between;gap:12px}
@@ -116,7 +122,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <h1>Fale inglês <span>sem medo</span>, uma aula por dia.</h1>
     <p class="lede">Em 30 dias, você aprende o inglês que usa de verdade: cumprimentar, pedir ajuda, fazer compras, se virar em viagens e no trabalho. Tudo explicado em português, no seu ritmo.</p>
     <div class="btns"><a class="btn btn-p" href="app.html">Fazer a primeira aula grátis <svg class="i"><use href="#i-right"/></svg></a><a class="btn btn-o" href="#modulos">Ver os módulos</a></div>
-    <div class="facts"><span><svg class="i"><use href="#i-check"/></svg>30 dias · cerca de 15 min por dia</span><span><svg class="i"><use href="#i-check"/></svg>Mais de 300 palavras e frases</span><span><svg class="i"><use href="#i-check"/></svg>Celular, tablet ou computador</span></div>
+    <div class="facts"><span><svg class="i"><use href="#i-check"/></svg>30 dias · cerca de 15 min por dia</span><span><svg class="i"><use href="#i-check"/></svg>Mais de 300 palavras e frases</span><span><svg class="i"><use href="#i-check"/></svg>Celular, tablet ou computador</span><span><svg class="i"><use href="#i-check"/></svg>Lançamento: R$&nbsp;47</span></div>
   </div>
   <div class="phone" aria-hidden="true">
     <div class="st"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
@@ -189,15 +195,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section class="s alt" id="acesso"><div class="wrap">
   <div style="text-align:center"><span class="k">Acesso e condições</span><h2 class="h2">O que está incluído</h2></div>
   <div class="price">
-    <p style="color:var(--muted)">Condição especial de lançamento</p>
-    <p class="v">Fale com a gente pelo WhatsApp</p>
+    <span class="tag">Preço de lançamento</span>
+    <p class="de">De <s>R$&nbsp;97</s> por</p>
+    <p class="v">R$&nbsp;47</p>
+    <p style="color:var(--muted)">pagamento único · acesso por 12 meses</p>
     <ul class="list" style="text-align:left;margin:18px 0 22px">
       <li><svg class="i"><use href="#i-check"/></svg>30 dias de conteúdo: 25 aulas e 5 avaliações</li>
       <li><svg class="i"><use href="#i-check"/></svg>Revisão espaçada, painel de progresso e conquistas</li>
       <li><svg class="i"><use href="#i-check"/></svg>Aula bônus: entender a internet</li>
       <li><svg class="i"><use href="#i-check"/></svg>Certificado de conclusão</li>
     </ul>
-    <a class="btn btn-p" id="ctaWa" href="#" style="width:100%"><svg class="i"><use href="#i-wa"/></svg>Quero me inscrever</a>
+    <a class="btn btn-p" id="ctaWa" href="#" style="width:100%"><svg class="i"><use href="#i-wa"/></svg>Quero o meu acesso por R$&nbsp;47</a>
+  </div>
+  <div class="duo">
+    <div><b>Traga uma amiga</b><p>2 acessos por <strong>R$&nbsp;77</strong>: cada uma sai por R$&nbsp;38,50. Estudar junto é mais gostoso!</p></div>
+    <a class="btn btn-o" id="ctaDuo" href="#"><svg class="i"><use href="#i-wa"/></svg>Quero com uma amiga</a>
   </div>
 </div></section>
 
@@ -209,6 +221,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <details><summary>O microfone corrige a minha pronúncia?</summary><p>O microfone mostra se a sua fala foi reconhecida e com que clareza. É um ótimo treino, mas não é uma avaliação completa de sotaque feita por um professor. Para ajudar, as aulas trazem o guia dos sons difíceis, com a posição da língua e da boca.</p></details>
     <details><summary>Funciona no celular?</summary><p>Sim, em Android, iPhone, tablet e computador. O reconhecimento de fala funciona no Google Chrome (Android e computador) e no Safari (iPhone, com o Ditado ativado).</p></details>
     <details><summary>Perco o meu progresso se fechar o site?</summary><p>Não. O progresso é salvo automaticamente no seu aparelho. Use sempre o mesmo aparelho e o mesmo navegador.</p></details>
+    <details><summary>Quanto custa e por quanto tempo tenho acesso?</summary><p>No lançamento, o curso sai de R$&nbsp;97 por R$&nbsp;47, em pagamento único, com acesso por 12 meses. Na promoção “Traga uma amiga”, são 2 acessos por R$&nbsp;77. A primeira aula é gratuita para você experimentar antes.</p></details>
     <details><summary>Recebo certificado?</summary><p>Sim. Ao ser aprovado(a) na avaliação final do dia 30, você gera o seu certificado de conclusão para salvar ou imprimir.</p></details>
   </div>
 </div></section>
@@ -226,9 +239,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <script>
 var WA = '5551993759314';
 function wa(m){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); }
-document.getElementById('ctaWa').href = wa('Olá! Quero me inscrever no curso Fala Fácil. Pode me passar a condição de lançamento?');
+document.getElementById('ctaWa').href = wa('Olá! Quero o meu acesso ao curso Fala Fácil pelo preço de lançamento de R$ 47.');
+document.getElementById('ctaDuo').href = wa('Olá! Quero a promoção do Fala Fácil para 2 pessoas por R$ 77 (eu e uma amiga).');
 document.getElementById('sup').href = wa('Olá! Tenho uma dúvida sobre o curso Fala Fácil.');
-['ctaWa','sup'].forEach(function(id){ var a = document.getElementById(id); a.target = '_blank'; a.rel = 'noopener'; });
+['ctaWa','ctaDuo','sup'].forEach(function(id){ var a = document.getElementById(id); a.target = '_blank'; a.rel = 'noopener'; });
 document.getElementById('ano').textContent = new Date().getFullYear();
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
 document.getElementById('mods').innerHTML = MODULOS.map(function(m, i){
