@@ -120,6 +120,14 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 .row{display:grid;gap:10px}
 .btn2{padding:16px;border-radius:16px;font-weight:800;background:#fff;border:2px solid var(--line)}
 
+.conf{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.conf span{position:absolute;top:-40px;animation:fall 1.7s cubic-bezier(.2,.6,.4,1) forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(360deg);opacity:.2}}
+.vozbox{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.vozbox label{display:block;font-weight:800;margin:10px 0 6px;font-size:.92rem}
+.vozbox select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);font:inherit;font-size:.95rem;background:#fff}
+.vozbox .tst{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--sky);font-weight:800}
+
 /* aviso */
 .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);opacity:0;visibility:hidden;background:var(--navy);color:#fff;padding:12px 18px;border-radius:14px;font-size:.92rem;max-width:min(92vw,520px);text-align:center;transition:transform .35s,opacity .35s,visibility .35s;z-index:50}
 .toast.show{transform:translateX(-50%);opacity:1;visibility:visible}
@@ -160,6 +168,14 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 
   <div class="stitle"><h2 class="h">Trilhas</h2><span>Escolha o seu objetivo</span></div>
   <div class="tracks" id="trackList"></div>
+
+  <details class="vozbox"><summary style="font-weight:800;cursor:pointer">🎙️ Escolher a voz do tutor</summary>
+    <p style="color:var(--muted);font-size:.88rem;margin-top:8px">As vozes vêm do seu aparelho. Experimente e escolha a que você achar mais agradável.</p>
+    <label for="vPt">Voz em português (o tutor)</label><select id="vPt"></select>
+    <button class="tst" type="button" id="tPt">▶ Ouvir</button>
+    <label for="vEn">Voz em inglês (as palavras)</label><select id="vEn"></select>
+    <button class="tst" type="button" id="tEn">▶ Ouvir</button>
+  </details>
 
   <p class="note">Protótipo para testes · Funciona melhor no Google Chrome, com o microfone liberado e internet.</p>
 </section>
@@ -646,12 +662,27 @@ function loadVoices(){ if (synth) voices = synth.getVoices(); }
 if (synth){ loadVoices(); synth.onvoiceschanged = loadVoices; }
 function voice(lang){ var v = voices.filter(function(x){ return x.lang && x.lang.replace('_','-').toLowerCase().indexOf(lang) === 0; });
   return v.filter(function(x){ return /google|natural|premium|enhanced|samantha|luciana/i.test(x.name); })[0] || v[0] || null; }
+function chosen(lang){ var key = lang === 'pt' ? S.vozPt : S.vozEn; if (!key) return null; return voices.filter(function(x){ return x.name === key; })[0] || null; }
 function speak(text, lang, rate, done){
   if (!synth){ toast('Este aparelho não tem voz disponível.'); return; }
   synth.cancel();
-  var u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = rate || 1; var v = voice(lang.slice(0,2).toLowerCase() === 'en' ? 'en-us' : 'pt-br') || voice(lang.slice(0,2).toLowerCase());
-  if (v) u.voice = v; if (done) u.onend = done; synth.speak(u);
+  var pt = lang.slice(0,2).toLowerCase() === 'pt';
+  var u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = rate || 1;
+  var v = chosen(pt ? 'pt' : 'en') || voice(pt ? 'pt-br' : 'en-us') || voice(lang.slice(0,2).toLowerCase());
+  if (v) u.voice = v;
+  if (pt){ u.pitch = 1.2; u.rate = Math.max(u.rate, 1.08); }
+  if (done) u.onend = done; synth.speak(u);
 }
+/* som de acerto e confete */
+var actx = null;
+function chime(){ try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); var t = actx.currentTime;
+  [523.25, 659.25, 783.99, 1046.5].forEach(function(f, i){ var o = actx.createOscillator(), g = actx.createGain(); o.type = 'sine'; o.frequency.value = f;
+    g.gain.setValueAtTime(0, t + i*.09); g.gain.linearRampToValueAtTime(.18, t + i*.09 + .02); g.gain.exponentialRampToValueAtTime(.001, t + i*.09 + .45);
+    o.connect(g); g.connect(actx.destination); o.start(t + i*.09); o.stop(t + i*.09 + .5); }); } catch(e){} }
+function confetti(){ if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; var box = document.createElement('div'); box.className = 'conf';
+  var em = ['🎉','⭐','✨','💛','🎊','👏'];
+  for (var i = 0; i < 22; i++){ var sp = document.createElement('span'); sp.textContent = em[i % em.length]; sp.style.left = (Math.random()*100) + '%'; sp.style.animationDelay = (Math.random()*.3) + 's'; sp.style.fontSize = (18 + Math.random()*18) + 'px'; box.appendChild(sp); }
+  document.body.appendChild(box); setTimeout(function(){ box.remove(); }, 1900); }
 
 /* ============ RECONHECIMENTO ============ */
 var SR = window.SpeechRecognition || window.webkitSpeechRecognition, rec = null, listening = false;
@@ -742,16 +773,19 @@ function fallback(msg){ setBubble('mid', msg); $('selfBox').hidden = false; }
 $('selfOk').addEventListener('click', function(){ success(1, null); });
 $('selfAgain').addEventListener('click', function(){ tries++; setBubble('mid', 'Vamos de novo! Ouça devagar 🐢 e repita sílaba por sílaba: <b>' + esc(items[idx][1]) + '</b>'); speak(items[idx][0], 'en-US', .5); });
 
-var ELOGIOS = ['Perfeito!','Muito bem!','Excelente!','Isso mesmo!','Mandou bem!'];
+var ELOGIOS = ['Uau, perfeito!','Isso aí, arrasou!','Que pronúncia linda!','Excelente! Continue assim!','Bah, que beleza!','Maravilha! Você está indo super bem!','Muito bem! Que orgulho!','Show! Falou igualzinho!'];
+var QUASE = ['Tá quase lá! Vamos de novo, você consegue!','Quase! Mais uma vez, que já está saindo!','Pertinho! Escuta de novo e tenta outra vez!'];
+var CALMA = ['Sem pressa! Escuta devagarinho e tenta de novo.','Tudo bem, todo mundo começa assim! Vamos juntos, devagar.','Respira e tenta de novo, sem pressa!'];
+function pick(a){ return a[Math.floor(Math.random() * a.length)]; }
 function judge(alts){
   stopRec(); tries++; var it = items[idx], s = score(alts, it), heard = alts[0] || '';
   if (s >= .78) success(s, heard);
   else if (s >= .5){
-    setBubble('mid', '<b>Quase! 💪</b> Eu entendi: <i lang="en">“' + esc(heard) + '”</i>.<br>Ouça de novo, devagar, e tente outra vez: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
-    speak('Quase! Tente de novo.', 'pt-BR', 1, function(){ speak(it[0], 'en-US', .6); });
+    setBubble('mid', '<b>Tá quase lá! 💪</b> Eu entendi: <i lang="en">“' + esc(heard) + '”</i>.<br>Ouça de novo, devagar, e tente outra vez: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
+    speak(pick(QUASE), 'pt-BR', 1, function(){ speak(it[0], 'en-US', .6); });
   } else {
-    setBubble('bad', (heard ? 'Eu entendi: <i lang="en">“' + esc(heard) + '”</i>. ' : '') + 'Vamos com calma. 😊 Ouça devagar e repita sílaba por sílaba: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
-    speak('Vamos com calma. Escute devagar.', 'pt-BR', 1, function(){ speak(it[0], 'en-US', .5); });
+    setBubble('bad', (heard ? 'Eu entendi: <i lang="en">“' + esc(heard) + '”</i>. ' : '') + 'Sem pressa! 😊 Ouça devagarinho e repita sílaba por sílaba: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
+    speak(pick(CALMA), 'pt-BR', 1, function(){ speak(it[0], 'en-US', .5); });
   }
   if (tries >= 3) $('nextBtn').disabled = false;
 }
@@ -760,7 +794,7 @@ function success(s, heard){
   S.ok[it[0]] = 1; if (tries <= 2) delete S.rev[it[0]]; else S.rev[it[0]] = 1; save();
   var e = ELOGIOS[Math.floor(Math.random() * ELOGIOS.length)];
   setBubble('good', '<b>' + e + ' 🎉</b> ' + (heard ? 'Eu entendi: <i lang="en">“' + esc(heard) + '”</i>.' : '') + '<small>“' + esc(it[0]) + '” = ' + esc(it[2]) + '</small>');
-  speak(e, 'pt-BR', 1.05); $('nextBtn').disabled = false; $('selfBox').hidden = true; $('micBtn').disabled = true;
+  chime(); confetti(); setTimeout(function(){ speak(e, 'pt-BR', 1.08); }, 350); $('nextBtn').disabled = false; $('selfBox').hidden = true; $('micBtn').disabled = true;
 }
 $('skipBtn').addEventListener('click', function(){ var it = items[idx]; S.rev[it[0]] = 1; save(); if (missed.indexOf(it[0]) < 0) missed.push(it[0]); advance(); });
 $('nextBtn').addEventListener('click', function(){ var it = items[idx]; if (!S.ok[it[0]] || S.rev[it[0]]){ S.rev[it[0]] = 1; save(); if (missed.indexOf(it[0]) < 0) missed.push(it[0]); } advance(); });
@@ -774,11 +808,21 @@ function finish(){
   $('eStars').textContent = stars(st);
   $('eText').textContent = 'Você acertou ' + firstTry + ' de ' + n + ' de primeira. ' + (st === 3 ? 'Que orgulho! 🌟' : st === 2 ? 'Muito bom! Amanhã fica ainda mais fácil.' : 'Todo começo é assim. A revisão vai te ajudar!');
   $('eRev').hidden = !missed.length; $('eChips').innerHTML = missed.map(function(w){ return '<span lang="en">' + esc(w) + '</span>'; }).join('');
-  show('end'); speak(st === 3 ? 'Parabéns! Lição concluída!' : 'Lição concluída! Muito bem!', 'pt-BR', 1);
+  show('end'); chime(); confetti(); setTimeout(function(){ speak(st === 3 ? 'Parabéns! Lição concluída com nota máxima! Você arrasou!' : 'Lição concluída! Muito bem, amanhã tem mais!', 'pt-BR', 1.08); }, 400);
 }
 $('eHome').addEventListener('click', function(){ renderHome(); show('home'); });
 $('eRedo').addEventListener('click', function(){ startLesson(L.id); });
 
+function fillVoices(){
+  var pt = voices.filter(function(v){ return /^pt/i.test(v.lang); }), en = voices.filter(function(v){ return /^en/i.test(v.lang); });
+  function opts(list, cur){ return '<option value="">Automática (recomendada)</option>' + list.map(function(v){ return '<option value="' + esc(v.name) + '"' + (v.name === cur ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + ')</option>'; }).join(''); }
+  $('vPt').innerHTML = opts(pt, S.vozPt); $('vEn').innerHTML = opts(en, S.vozEn);
+}
+if (synth){ fillVoices(); synth.addEventListener && synth.addEventListener('voiceschanged', fillVoices); setTimeout(fillVoices, 800); }
+$('vPt').addEventListener('change', function(){ S.vozPt = this.value; save(); speak('Oi! Eu sou o seu tutor. Vamos aprender juntos!', 'pt-BR', 1); });
+$('vEn').addEventListener('change', function(){ S.vozEn = this.value; save(); speak('Hello! Nice to meet you!', 'en-US', .9); });
+$('tPt').addEventListener('click', function(){ speak('Uau, perfeito! Você está indo super bem!', 'pt-BR', 1); });
+$('tEn').addEventListener('click', function(){ speak('Hello! Nice to meet you!', 'en-US', .9); });
 renderHome();
 </script>
 </body>
