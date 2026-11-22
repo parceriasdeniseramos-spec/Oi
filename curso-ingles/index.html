@@ -46,6 +46,11 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 .lesson:active{transform:scale(.98)}
 .lesson .em{width:56px;height:56px;border-radius:16px;background:var(--sky);display:grid;place-items:center;font-size:1.7rem;flex:none}
 .lesson b{display:block;font-size:1.05rem}
+.lesson .dia{display:block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--coral)}
+.unit{font-size:.95rem;font-weight:800;color:var(--navy);margin:18px 2px 2px;padding-top:6px;border-top:2px dashed var(--line)}
+.unit:first-child{border-top:0;margin-top:0}
+.revl{background:linear-gradient(135deg,#fff8e6,#fff);border-color:#f6d58c}
+.revl .em{background:var(--amber-bg)}
 .lesson small{color:var(--muted);font-size:.86rem}
 .lesson .st{margin-left:auto;text-align:right;font-size:.85rem;color:var(--muted);flex:none}
 .lesson .st .stars{font-size:1.05rem;letter-spacing:2px;color:var(--amber)}
@@ -136,6 +141,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
   <div class="hero">
     <h1 class="h">Inglês sem vergonha, no seu ritmo.</h1>
     <p>O tutor fala, você repete até acertar. Só o que você vai usar no dia a dia, explicado em português.</p>
+    <p style="margin-top:12px;font-weight:700;color:#fff">📅 30 dias · 5 unidades · mais de 300 palavras e frases</p>
     <div class="how">
       <div><b>👂</b>Ouça a palavra, normal ou devagar</div>
       <div><b>👀</b>Veja como se fala, em português</div>
@@ -143,7 +149,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
     </div>
   </div>
 
-  <div class="stitle"><h2 class="h">Módulo Base</h2><span>Comece por aqui · 1 lição por dia</span></div>
+  <div class="stitle"><h2 class="h">Módulo Base</h2><span>30 dias · 1 lição por dia</span></div>
   <div class="lessons" id="baseList"></div>
 
   <div class="review" id="reviewBox" hidden>
@@ -311,7 +317,7 @@ var LICOES = [
    ['I understand','ái ân-der-STÉND','Eu entendo','A força fica no “STÉND”.'],
    ['I love','ái LÂV','Eu amo, eu adoro','O “o” soa como “â”.']
  ]},
- { id:'b7', modulo:'base', em:'🔢', titulo:'Números', sub:'Preços, horários e telefones', itens:[
+ { id:'b7', modulo:'base', em:'🔢', titulo:'Números 1', sub:'De um a mil', itens:[
    ['One','UÂN','Um','Soa como “uân”.',['1']],
    ['Two','TÚ','Dois','O “w” não se pronuncia.',['2','to','too']],
    ['Three','THRÍ','Três','Língua entre os dentes no “th”.',['3']],
@@ -385,6 +391,242 @@ var LICOES = [
    ['Error','É-ror','Erro','“Something went wrong” também quer dizer “deu erro”.']
  ]}
 ];
+var NOVAS = [
+ { id:'n2', em:'🔢', titulo:'Números 2', sub:'Dezenas, ordem e metade', itens:[
+   ['Eleven','i-LÉ-ven','Onze','A força fica no “LÉ”.',['11']],
+   ['Twelve','TUÉLV','Doze','Termina com “v” vibrando.',['12']],
+   ['Thirteen','thâr-TÍN','Treze','Os números “-teen” têm a força no final: “TÍN”.',['13']],
+   ['Fifteen','fif-TÍN','Quinze','Cuidado: “fifty” (FÍF-ti) é cinquenta!',['15']],
+   ['Thirty','THÂR-ti','Trinta','Força no começo. “Thirteen” (13) tem força no final.',['30']],
+   ['Forty','FÓR-ti','Quarenta','Escreve-se sem “u”: forty.',['40']],
+   ['Sixty','SÍKS-ti','Sessenta','Força no começo.',['60']],
+   ['Ninety','NÁIN-ti','Noventa','Força no começo.',['90']],
+   ['One million','uân MÍ-lion','Um milhão','“Million” soa parecido com o português.',['1000000','1 million']],
+   ['First','FÂRST','Primeiro','“First floor” = primeiro andar.',['1st']],
+   ['Second','SÉ-kond','Segundo','Também quer dizer “segundo” do relógio.',['2nd']],
+   ['Third','THÂRD','Terceiro','Língua entre os dentes no “th”.',['3rd']],
+   ['Half','RÉF','Metade, meio','O “l” não se pronuncia!']
+ ]},
+ { id:'mh', em:'🕒', titulo:'Meses e horas', sub:'Datas e horários', itens:[
+   ['January','DJÉ-niu-é-ri','Janeiro','Os meses sempre começam com letra maiúscula.'],
+   ['February','FÉ-bru-é-ri','Fevereiro','Força no começo.'],
+   ['March','MÁRTCH','Março','Também quer dizer “marchar”.'],
+   ['April','ÊI-pril','Abril','O “A” soa como “êi”.'],
+   ['May','MÊI','Maio','Também quer dizer “pode ser que”.'],
+   ['June','DJUN','Junho','O “J” soa como “dj”.'],
+   ['July','dju-LÁI','Julho','Força no final: “LÁI”.'],
+   ['August','Ó-gâst','Agosto','Força no começo.'],
+   ['September','sep-TÉM-ber','Setembro','Força no meio: “TÉM”.'],
+   ['October','ok-TÔU-ber','Outubro','Força no meio: “TÔU”.'],
+   ['November','no-VÉM-ber','Novembro','Força no meio: “VÉM”.'],
+   ['December','di-SÉM-ber','Dezembro','Força no meio: “SÉM”.'],
+   ["It's three o'clock",'its THRÍ o-KLÓK','São três horas','“O’clock” é usado para horas exatas.',["it's 3 o'clock",'its 3 oclock',"it is three o'clock",'its three oclock','3 oclock']],
+   ['In the morning','in de MÓR-nin','De manhã','“In the afternoon” = à tarde.']
+ ]},
+ { id:'fam', em:'👨‍👩‍👧', titulo:'Família', sub:'As pessoas da sua vida', itens:[
+   ['Mother','MÂ-der','Mãe','O “th” soa quase como “d”.'],
+   ['Father','FÁ-der','Pai','O “th” soa quase como “d”.'],
+   ['Son','SÂN','Filho','Soa igual a “sun” (sol).'],
+   ['Daughter','DÓ-ter','Filha','O “gh” não se pronuncia.'],
+   ['Husband','RÂZ-band','Marido','O “s” soa como “z”.'],
+   ['Wife','UÁIF','Esposa','Bem curtinho: “uáif”.'],
+   ['Brother','BRÂ-der','Irmão','O “th” soa quase como “d”.'],
+   ['Sister','SÍS-ter','Irmã','Força no começo.'],
+   ['Grandmother','GRÉND-mâ-der','Avó','No dia a dia, também se diz “grandma” (GRÉN-ma).'],
+   ['Grandfather','GRÉND-fá-der','Avô','No dia a dia, também se diz “grandpa” (GRÉN-pa).'],
+   ['Children','TCHÍL-dren','Filhos, crianças','Uma criança = “child” (TCHÁILD).'],
+   ['Baby','BÊI-bi','Bebê','Força no começo.'],
+   ['Friend','FRÉND','Amigo(a)','“Best friend” = melhor amigo(a).']
+ ]},
+ { id:'prof', em:'👩‍💼', titulo:'Profissões', sub:'Falar do seu trabalho', itens:[
+   ['What do you do','UÓT du iu DÚ','Você trabalha com quê?','Resposta: “I’m a teacher” (sou professora).'],
+   ['Lawyer','LÓ-ier','Advogado(a)','Força no começo.'],
+   ['Nurse','NÂRS','Enfermeiro(a)','Soa como “nârs”.'],
+   ['Teacher','TÍ-tcher','Professor(a)','Força no começo.'],
+   ['Dentist','DÉN-tist','Dentista','Parecido com o português!'],
+   ['Engineer','én-dji-NÍR','Engenheiro(a)','Força no final: “NÍR”.'],
+   ['Salesperson','SÊILZ-pâr-son','Vendedor(a)','“Sales” = vendas.'],
+   ['Manager','MÉ-ni-djer','Gerente','O “g” soa como “dj”.'],
+   ['Owner','ÔU-ner','Dono(a), proprietário(a)','O “w” não se pronuncia.'],
+   ['Employee','em-plói-Í','Funcionário(a)','Força no final: “Í”.'],
+   ['Business','BÍZ-nes','Negócio, empresa','Só duas sílabas: “BÍZ-nes”.'],
+   ['Retired','ri-TÁIRD','Aposentado(a)','“I’m retired” = sou aposentado(a).']
+ ]},
+ { id:'sent', em:'😊', titulo:'Como você está', sub:'Sentimentos e estados', itens:[
+   ['Happy','RÉ-pi','Feliz','O “h” soa como “r” leve.'],
+   ['Sad','SÉD','Triste','O “a” soa como “é”.'],
+   ['Tired','TÁI-erd','Cansado(a)','Termina com “erd”.'],
+   ['Hungry','RÂN-gri','Com fome','“I’m hungry” = estou com fome.'],
+   ['Thirsty','THÂRS-ti','Com sede','Língua entre os dentes no “th”.'],
+   ['Busy','BÍ-zi','Ocupado(a)','O “u” soa como “i”!'],
+   ['Ready','RÉ-di','Pronto(a)','“Are you ready?” = Está pronto(a)?'],
+   ['Sick','SÍK','Doente','“I feel sick” = estou passando mal.'],
+   ['Cold','KÔULD','Frio / com frio','“I’m cold” = estou com frio.'],
+   ['Hot','RÓT','Quente / com calor','“It’s hot” = está calor.'],
+   ['Nervous','NÂR-vas','Nervoso(a), ansioso(a)','Força no começo.'],
+   ['Excited','ek-SÁI-ted','Animado(a), empolgado(a)','⚠️ Quer dizer ANIMADO, e não “excitado”!']
+ ]},
+ { id:'cor', em:'🎨', titulo:'Cores e tamanhos', sub:'Para descrever as coisas', itens:[
+   ['Red','RÉD','Vermelho','O “r” é suave, “enrolado”.'],
+   ['Blue','BLU','Azul','Bem curtinho.'],
+   ['Green','GRÍN','Verde','O “ee” soa como “í” longo.'],
+   ['Yellow','IÉ-lou','Amarelo','O “y” soa como “i”.'],
+   ['Black','BLÉK','Preto','O “a” soa como “é”.'],
+   ['White','UÁIT','Branco','O “h” não se pronuncia.'],
+   ['Big','BÍG','Grande','Termine marcando o “g”.'],
+   ['Small','SMÓL','Pequeno','Soa como “smól”.'],
+   ['Expensive','eks-PÉN-siv','Caro','Força no meio: “PÉN”.'],
+   ['Cheap','TCHÍP','Barato','O “ch” soa como “tch”.'],
+   ['New','NIÚ','Novo','Soa como “niú”.'],
+   ['Old','ÔULD','Velho, antigo','“How old are you?” = Quantos anos você tem?']
+ ]},
+ { id:'sau', em:'🩺', titulo:'Corpo e saúde', sub:'Para não passar sufoco', itens:[
+   ['Head','RÉD','Cabeça','O “h” soa como “r” leve.'],
+   ['Stomach','STÂ-mak','Estômago, barriga','O “ch” soa como “k”.'],
+   ['Back','BÉK','Costas','Também quer dizer “de volta”.'],
+   ['Tooth','TÚTH','Dente','No plural: “teeth” (TÍTH), dentes.'],
+   ['Pain','PÊIN','Dor','“I’m in pain” = estou com dor.'],
+   ['Headache','RÉD-êik','Dor de cabeça','“Ache” = dor, e se fala “êik”.'],
+   ['Fever','FÍ-ver','Febre','Força no começo.'],
+   ['Medicine','MÉ-di-sin','Remédio','Também quer dizer “medicina”.'],
+   ['Pharmacy','FÁR-ma-si','Farmácia','O “ph” soa como “f”.'],
+   ['I feel sick','ái FÍL SÍK','Estou passando mal','Frase importante em viagens.'],
+   ['Appointment','a-PÓINT-ment','Consulta, hora marcada','Força no meio: “PÓINT”.'],
+   ['Emergency','i-MÂR-djen-si','Emergência','Força no “MÂR”.']
+ ]},
+ { id:'cid', em:'🗺️', titulo:'Na cidade', sub:'Lugares e direções', itens:[
+   ['Street','STRÍT','Rua','O “ee” soa como “í” longo.'],
+   ['Left','LÉFT','Esquerda','“On the left” = à esquerda.'],
+   ['Right','RÁIT','Direita / certo','O “gh” não se pronuncia.'],
+   ['Straight ahead','STRÊIT a-RÉD','Em frente, reto','“Go straight ahead” = siga em frente.'],
+   ['Turn left','TÂRN LÉFT','Vire à esquerda','“Turn right” = vire à direita.'],
+   ['Near','NÍR','Perto','“Near here” = perto daqui.'],
+   ['Far','FÁR','Longe','“Is it far?” = É longe?'],
+   ['Bank','BÉNK','Banco','O “a” soa como “é”.'],
+   ['Supermarket','SU-per-már-ket','Supermercado','Força no começo.'],
+   ['Bus stop','BÂS STÓP','Ponto de ônibus','O “u” de “bus” soa como “â”.'],
+   ['Airport','ÉR-port','Aeroporto','Força no começo.'],
+   ['Bathroom','BÉTH-rum','Banheiro','Também se diz “restroom” (RÉST-rum).']
+ ]},
+ { id:'com', em:'🍽️', titulo:'Comida e bebida', sub:'O básico da mesa', itens:[
+   ['Water','UÓ-ter','Água','O “t” soa quase como “r” no inglês americano: “uó-rer”.'],
+   ['Coffee','KÓ-fi','Café','Força no começo.'],
+   ['Tea','TÍ','Chá','Bem curtinho.'],
+   ['Milk','MÍLK','Leite','Marque o “l” e o “k”.'],
+   ['Juice','DJÚS','Suco','O “J” soa como “dj”.'],
+   ['Bread','BRÉD','Pão','O “ea” soa como “é”.'],
+   ['Cheese','TCHÍZ','Queijo','“Say cheese!” = Diga “xis” (para a foto)!'],
+   ['Chicken','TCHÍ-ken','Frango','Força no começo.'],
+   ['Meat','MÍT','Carne','Soa igual a “meet” (conhecer).'],
+   ['Fish','FÍCH','Peixe','O “sh” soa como “ch”.'],
+   ['Rice and beans','RÁIS end BÍNZ','Arroz e feijão','O prato brasileiro!'],
+   ['Breakfast','BRÉK-fast','Café da manhã','Força no começo.'],
+   ['Dinner','DÍ-ner','Jantar','“Lunch” = almoço.']
+ ]},
+ { id:'res', em:'🍷', titulo:'No restaurante', sub:'Pedir sem medo', itens:[
+   ['A table for two, please','a TÊI-bol for TÚ, PLÍZ','Uma mesa para dois, por favor','Troque o número conforme o grupo.',['a table for 2 please','table for two please','table for 2 please']],
+   ['Menu','MÉ-niu','Cardápio','“The menu, please” = o cardápio, por favor.'],
+   ['Waiter','UÊI-ter','Garçom','Garçonete = “waitress” (UÊI-tres).'],
+   ['Water, please','UÓ-ter, PLÍZ','Água, por favor','Água com gás = “sparkling water”.'],
+   ['Without sugar','ui-DÁUT XÚ-gar','Sem açúcar','“Without” = sem.'],
+   ["I'm allergic to",'áim a-LÂR-djik tu','Tenho alergia a…','Complete: “I’m allergic to shrimp” (camarão).',['i am allergic to','im allergic to']],
+   ['Delicious','di-LÍ-xas','Delicioso','Força no meio: “LÍ”.'],
+   ['The bill, please','de BÍL, PLÍZ','A conta, por favor','Também se diz “the check, please”.',['the check please']],
+   ['Can I pay by card','KÉN ái PÊI bai KÁRD','Posso pagar no cartão?','“Card” = cartão.'],
+   ['Take away','TÊIK a-UÊI','Para viagem','Também se diz “to go”.',['takeaway','to go']]
+ ]},
+ { id:'cmp', em:'🛍️', titulo:'Compras e dinheiro', sub:'Lojas, preços e pagamento', itens:[
+   ['Store','STÓR','Loja','Também se diz “shop” (XÓP).'],
+   ['Open','ÔU-pen','Aberto','Placa comum na porta das lojas.'],
+   ['Closed','KLÔUZD','Fechado','Placa comum na porta das lojas.'],
+   ['Sale','SÊIL','Liquidação, promoção','“On sale” = em promoção.'],
+   ['How much is it','RÁU MÂTCH iz it','Quanto custa?','Fale junto: “ráumâtchizit”.'],
+   ['Money','MÂ-ni','Dinheiro','O “o” soa como “â”.'],
+   ['Cash','KÉCH','Dinheiro vivo','“In cash” = em dinheiro.'],
+   ['Credit card','KRÉ-dit KÁRD','Cartão de crédito','“Debit card” = cartão de débito.'],
+   ['Discount','DÍS-kaunt','Desconto','Força no começo.'],
+   ['Receipt','ri-SÍT','Recibo, nota fiscal','O “p” não se pronuncia!'],
+   ['Size','SÁIZ','Tamanho','“What size?” = Qual tamanho?'],
+   ['Can I try it on','KÉN ái TRÁI it ÓN','Posso provar?','Para roupas e sapatos.'],
+   ["I'm just looking",'áim DJÂST LÚ-kin','Só estou olhando','Resposta educada para o vendedor.',['i am just looking','im just looking']]
+ ]},
+ { id:'tel', em:'📱', titulo:'Telefone e mensagens', sub:'Ligações e WhatsApp', itens:[
+   ['Call','KÓL','Ligar / ligação','“Call me” = me liga.'],
+   ['Message','MÉ-sedj','Mensagem','Força no começo.'],
+   ['Phone number','FÔUN NÂM-ber','Número de telefone','“What’s your phone number?” = Qual é o seu telefone?'],
+   ['Voice message','VÓIS MÉ-sedj','Mensagem de voz (áudio)','O famoso “áudio” do WhatsApp.'],
+   ["Who's calling",'RÚZ KÓ-lin','Quem fala?','Para atender o telefone.',['who is calling','whos calling']],
+   ['Hold on, please','RÔULD ón, PLÍZ','Aguarde, por favor','Para pedir que a pessoa espere na linha.'],
+   ['Can you hear me','KÉN iu RÍR mi','Está me ouvindo?','Muito usado em chamadas de vídeo.'],
+   ["I'll call you back",'áil KÓL iu BÉK','Te ligo de volta','“Back” = de volta.',['i will call you back','ill call you back']],
+   ['Wrong number','RÓNG NÂM-ber','Número errado','O “w” de “wrong” não se pronuncia.'],
+   ['Battery','BÉ-te-ri','Bateria','“Low battery” = bateria fraca.'],
+   ['Wi-Fi','UÁI-fai','Wi-Fi','“What’s the Wi-Fi password?” = Qual a senha do Wi-Fi?',['wifi','wi fi']]
+ ]},
+ { id:'reu', em:'🗂️', titulo:'Reuniões', sub:'Presenciais e online', itens:[
+   ['Meeting','MÍ-tin','Reunião','O “g” final quase não aparece.'],
+   ['Agenda','a-DJÉN-da','Pauta','⚠️ Em inglês, “agenda” é a pauta da reunião.'],
+   ["Let's start",'léts STÁRT','Vamos começar','Para abrir a reunião.',['lets start','let us start']],
+   ["I'm sorry I'm late",'áim SÓ-ri áim LÊIT','Desculpe o atraso','“Late” = atrasado.',['i am sorry i am late','im sorry im late','sorry im late',"sorry i'm late"]],
+   ["You're on mute",'iór ón MIÚT','Você está no mudo','Frase campeã das reuniões online! 😄',['you are on mute','your on mute']],
+   ['Can you share your screen','KÉN iu XÉR iór SKRÍN','Pode compartilhar a tela?','“Screen” = tela.'],
+   ['I have a question','ái RÉV a KUÉS-tchan','Tenho uma pergunta','“Question” se fala “kués-tchan”.'],
+   ['Any questions','É-ni KUÉS-tchans','Alguma pergunta?','Para abrir espaço para dúvidas.'],
+   ["Let's move on",'léts MÚV ón','Vamos seguir','Para passar ao próximo assunto.',['lets move on','let us move on']],
+   ['Next steps','NÉKST STÉPS','Próximos passos','Para combinar o que fazer depois.'],
+   ['Report','ri-PÓRT','Relatório','Força no final: “PÓRT”.'],
+   ['To sum up','tu SÂM âp','Resumindo','Para fechar a reunião.']
+ ]},
+ { id:'eml', em:'✉️', titulo:'E-mails', sub:'Escrever e entender', itens:[
+   ['Dear','DÍR','Prezado(a)','Para começar o e-mail: “Dear Mr. Smith”.'],
+   ['Subject','SÂB-djekt','Assunto','O campo de assunto do e-mail.'],
+   ['Attached','a-TÉTCHT','Em anexo','“Please find attached” = segue em anexo.'],
+   ['Reply','ri-PLÁI','Responder','“Reply all” = responder a todos.'],
+   ['Forward','FÓR-uârd','Encaminhar','Também quer dizer “para a frente”.'],
+   ['Invoice','ÍN-vois','Fatura, nota fiscal','Força no começo.'],
+   ['Follow up','FÓ-lou âp','Retorno, acompanhamento','“Just a follow up” = só para dar um retorno.',['followup']],
+   ['As soon as possible','éz SUN éz PÓ-si-bol','O mais rápido possível','Abreviado: ASAP (êi-és-êi-PÍ).',['asap']],
+   ['Thanks in advance','THÉNKS in ad-VÉNS','Desde já, obrigado(a)','Para fechar pedidos com educação.'],
+   ['Sorry for the delay','SÓ-ri for de di-LÊI','Desculpe a demora','“Delay” = atraso, demora.'],
+   ['Best regards','BÉST ri-GÁRDZ','Atenciosamente','Para encerrar o e-mail.']
+ ]},
+ { id:'ate', em:'🛎️', titulo:'Atendimento ao cliente', sub:'Receber bem quem chega', itens:[
+   ['Welcome','UÉL-kam','Bem-vindo(a)','Também é “de nada” em “You’re welcome”.'],
+   ['How can I help you','RÁU KÉN ái RÉLP iu','Como posso ajudar?','A frase mais importante do atendimento.'],
+   ['Just a moment, please','DJÂST a MÔU-ment, PLÍZ','Um momento, por favor','Para pedir que a pessoa espere.'],
+   ['Please have a seat','PLÍZ RÉV a SÍT','Sente-se, por favor','“Seat” = assento.'],
+   ['Do you have an appointment','du iu RÉV an a-PÓINT-ment','O(a) senhor(a) tem horário marcado?','Muito usada em clínicas e escritórios.'],
+   ['Can I have your name','KÉN ái RÉV iór NÊIM','Qual é o seu nome, por favor?','Forma educada de pedir o nome.'],
+   ['Here you are','RÍR iu ÁR','Aqui está','Ao entregar algo para a pessoa.'],
+   ['Sorry for the wait','SÓ-ri for de UÊIT','Desculpe a espera','“Wait” = espera.'],
+   ['We are open from nine to six','uí ar ÔU-pen from NÁIN tu SÍKS','Abrimos das nove às seis','Troque os números pelo seu horário.',['we are open from 9 to 6',"we're open from nine to six","we're open from 9 to 6",'were open from 9 to 6']],
+   ["It's my pleasure",'its mái PLÉ-jer','É um prazer','Resposta elegante para “Thank you”.',['it is my pleasure','its my pleasure','my pleasure']],
+   ['Thank you for coming','THÉNK iu for KÂ-min','Obrigado(a) pela visita','Para se despedir do cliente.']
+ ]},
+ { id:'pap', em:'☕', titulo:'Papo do dia a dia', sub:'Conversa leve e simpática', itens:[
+   ['How was your weekend','RÁU uóz iór UÍK-end','Como foi o seu fim de semana?','Pergunta clássica de segunda-feira.'],
+   ['Nice weather today','NÁIS UÉ-der tu-DÊI','Que tempo bom hoje','Falar do tempo é o “quebra-gelo” mais usado.'],
+   ["It's cold today",'its KÔULD tu-DÊI','Está frio hoje','“It’s hot today” = está calor hoje.',['it is cold today','its cold today']],
+   ['Where do you live','UÉR du iu LÍV','Onde você mora?','Resposta: “I live in…”'],
+   ['Me too','MÍ TÚ','Eu também','Para concordar.'],
+   ["That's great",'DÉTS GRÊIT','Que ótimo!','Para comemorar com a pessoa.',['that is great','thats great']],
+   ['Really','RÍ-li','Sério? / De verdade','Para mostrar surpresa.'],
+   ['Congratulations','kon-gré-tchu-LÊI-xans','Parabéns (por uma conquista)','Força no “LÊI”.'],
+   ['Happy birthday','RÉ-pi BÂRTH-dêi','Feliz aniversário','Língua entre os dentes no “th”.'],
+   ['Have a good weekend','RÉV a gud UÍK-end','Bom fim de semana','Para se despedir na sexta-feira.'],
+   ['See you on Monday','SÍ iu on MÂN-dêi','Até segunda','Troque o dia da semana como quiser.']
+ ]}
+];
+var UNIDADES = [
+ {id:'u1', nome:'Unidade 1 · Primeiros passos', licoes:['b1','b2','b3','b4','b5']},
+ {id:'u2', nome:'Unidade 2 · Números e tempo', licoes:['b6','b7','n2','b8','mh']},
+ {id:'u3', nome:'Unidade 3 · Pessoas', licoes:['fam','prof','sent','cor','sau']},
+ {id:'u4', nome:'Unidade 4 · No dia a dia', licoes:['cid','com','res','cmp','tel']},
+ {id:'u5', nome:'Unidade 5 · Trabalho', licoes:['b9','reu','eml','ate','pap']}
+];
+
+NOVAS.forEach(function(l){ l.modulo = 'base'; LICOES.push(l); });
+function lic(id){ return LICOES.filter(function(l){ return l.id === id; })[0]; }
 var TRILHAS = [
   {id:'internet', em:'🌐', nome:'Entender a Internet', sub:'Botões, avisos e redes sociais', aberta:'t1'},
   {id:'trabalho', em:'💼', nome:'Inglês para o Trabalho', sub:'Reuniões, e-mails e clientes'},
@@ -432,9 +674,15 @@ function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&am
 function stars(n){ return '★★★'.slice(0,n) + '☆☆☆'.slice(0,3-n); }
 
 function renderHome(){
-  $('baseList').innerHTML = LICOES.filter(function(l){ return l.modulo === 'base'; }).map(function(l){
-    var ok = l.itens.filter(function(it){ return S.ok[it[0]]; }).length, pct = Math.round(ok / l.itens.length * 100);
-    return '<button class="lesson" type="button" data-l="' + l.id + '"><span class="em">' + l.em + '</span><span style="flex:1;min-width:0"><b>' + esc(l.titulo) + '</b><small>' + esc(l.sub) + ' · ' + l.itens.length + ' palavras</small><span class="bar"><i style="width:' + pct + '%"></i></span></span><span class="st"><span class="stars">' + stars(S.stars[l.id] || 0) + '</span><br>' + ok + '/' + l.itens.length + '</span></button>';
+  var dia = 0;
+  $('baseList').innerHTML = UNIDADES.map(function(u){
+    var rows = u.licoes.map(function(id){ var l = lic(id); dia++;
+      var ok = l.itens.filter(function(it){ return S.ok[it[0]]; }).length, pct = Math.round(ok / l.itens.length * 100);
+      return '<button class="lesson" type="button" data-l="' + l.id + '"><span class="em">' + l.em + '</span><span style="flex:1;min-width:0"><small class="dia">Dia ' + dia + '</small><b>' + esc(l.titulo) + '</b><small>' + esc(l.sub) + ' · ' + l.itens.length + '</small><span class="bar"><i style="width:' + pct + '%"></i></span></span><span class="st"><span class="stars">' + stars(S.stars[l.id] || 0) + '</span><br>' + ok + '/' + l.itens.length + '</span></button>';
+    }).join('');
+    dia++;
+    var rv = '<button class="lesson revl" type="button" data-l="R' + u.id + '"><span class="em">🏆</span><span style="flex:1;min-width:0"><small class="dia">Dia ' + dia + '</small><b>Revisão da unidade</b><small>15 palavras sorteadas das 5 lições</small></span><span class="st"><span class="stars">' + stars(S.stars['R' + u.id] || 0) + '</span></span></button>';
+    return '<h3 class="unit">' + esc(u.nome) + '</h3>' + rows + rv;
   }).join('');
   $('trackList').innerHTML = TRILHAS.map(function(t){
     return '<button class="track ' + (t.aberta ? 'open' : 'locked') + '" type="button" ' + (t.aberta ? 'data-l="' + t.aberta + '"' : 'data-lock="1"') + '><span class="tag">' + (t.aberta ? 'Amostra' : 'Em breve') + '</span><span class="em">' + t.em + '</span><b>' + esc(t.nome) + '</b><small>' + esc(t.sub) + '</small></button>';
@@ -452,7 +700,11 @@ var L = null, items = [], idx = 0, tries = 0, firstTry = 0, missed = [];
 function startLesson(id){
   if (id === 'rev'){ var all = []; LICOES.forEach(function(l){ l.itens.forEach(function(it){ if (S.rev[it[0]]) all.push(it); }); });
     L = {id:'rev', titulo:'Revisão do dia', itens:all}; }
-  else L = LICOES.filter(function(l){ return l.id === id; })[0];
+  else if (id.charAt(0) === 'R'){ var un = UNIDADES.filter(function(u){ return 'R' + u.id === id; })[0], pool = [];
+    un.licoes.forEach(function(lid){ pool = pool.concat(lic(lid).itens); });
+    for (var k = pool.length - 1; k > 0; k--){ var j = Math.floor(Math.random() * (k + 1)), t = pool[k]; pool[k] = pool[j]; pool[j] = t; }
+    L = {id:id, titulo:'Revisão · ' + un.nome.split('· ')[1], itens:pool.slice(0,15)}; }
+  else L = lic(id);
   items = L.itens.slice(); idx = 0; firstTry = 0; missed = []; show('lesson'); loadItem();
 }
 $('revBtn').addEventListener('click', function(){ startLesson('rev'); });
