@@ -1,0 +1,72 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Montserrat,Arial,sans-serif;background:#e5e7eb;padding:30px;width:1500px}
+h1{font-size:30px;margin-bottom:6px;color:#0b1220}
+.sub{color:#475569;margin-bottom:24px;font-size:17px}
+.opt{display:grid;grid-template-columns:200px 1fr 1fr;gap:18px;margin-bottom:22px;align-items:stretch}
+.lab{background:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center}
+.lab b{font-size:44px;color:#2563eb;line-height:1}
+.lab span{font-weight:800;font-size:19px;margin-top:8px;color:#0b1220}
+.lab p{font-size:14px;color:#475569;margin-top:6px;line-height:1.4}
+.pane{border-radius:18px;height:230px;display:flex;align-items:center;justify-content:center;gap:28px}
+.dark{background:#0b1220}
+.light{background:#fff}
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm .n{font-weight:900;font-size:50px;letter-spacing:-1.5px}
+.wm .t{font-weight:700;font-size:15px;letter-spacing:3px;text-transform:uppercase;margin-top:8px}
+.dark .n{color:#fff}.dark .t{color:#93b4ff}
+.light .n{color:#0b1220}.light .t{color:#2563eb}
+.amb{color:#f5b041}
+.light .amb{color:#e08e0b}
+.apps{display:flex;gap:14px;align-items:center}
+</style></head><body>
+<h1>Fala Fácil · opções de logo</h1>
+<p class="sub">Cada opção aparece no fundo escuro (página de vendas) e no fundo claro (aplicativo, documentos e redes).</p>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+ <linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f8bff"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient>
+ <linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+</defs>
+ <symbol id="logoA" viewBox="0 0 120 110"><path d="M18 6h84a14 14 0 0 1 14 14v50a14 14 0 0 1-14 14H46L24 104V84h-6A14 14 0 0 1 4 70V20A14 14 0 0 1 18 6z" fill="url(#gb)"/><text x="60" y="61" text-anchor="middle" font-family="Montserrat,Arial" font-weight="900" font-size="38" fill="#fff">Hi!</text><circle cx="95" cy="25" r="6" fill="url(#ga)"/></symbol>
+ <symbol id="logoB" viewBox="0 0 130 110"><path d="M14 4h62a12 12 0 0 1 12 12v34a12 12 0 0 1-12 12H40L24 76V62h-10A12 12 0 0 1 2 50V16A12 12 0 0 1 14 4z" fill="url(#ga)"/><text x="28" y="38" text-anchor="middle" font-family="Montserrat,Arial" font-weight="900" font-size="22" fill="#3b2300">Oi</text><path d="M54 30h62a12 12 0 0 1 12 12v34a12 12 0 0 1-12 12h-10v14L90 88H54a12 12 0 0 1-12-12V42a12 12 0 0 1 12-12z" fill="url(#gb)" stroke="#0b1220" stroke-width="0"/><text x="85" y="69" text-anchor="middle" font-family="Montserrat,Arial" font-weight="900" font-size="25" fill="#fff">Hi</text></symbol>
+ <symbol id="logoC" viewBox="0 0 110 110"><rect x="4" y="4" width="102" height="102" rx="28" fill="url(#gb)"/><text x="40" y="76" text-anchor="middle" font-family="Montserrat,Arial" font-weight="900" font-size="58" fill="#fff">F</text><path d="M66 38a22 22 0 0 1 0 34M76 30a34 34 0 0 1 0 50M86 22a46 46 0 0 1 0 66" fill="none" stroke="url(#ga)" stroke-width="7" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- OPÇÃO A -->
+<div class="opt">
+ <div class="lab"><b>A</b><span>“Hi!” no balão</span><p>O balão de fala com “Hi!” diz na hora: conversa em inglês. Simples, simpático e fácil de reconhecer.</p></div>
+ <div class="pane dark"><svg width="120" height="110"><use href="#logoA"/></svg><div class="wm"><span class="n">Fala <span class="amb">Fácil</span></span><span class="t">Inglês sem medo</span></div></div>
+ <div class="pane light"><svg width="120" height="110"><use href="#logoA"/></svg><div class="wm"><span class="n">Fala <span class="amb">Fácil</span></span><span class="t">Inglês sem medo</span></div></div>
+</div>
+
+<!-- OPÇÃO B -->
+<div class="opt">
+ <div class="lab"><b>B</b><span>“Oi” → “Hi”</span><p>Dois balões: o português vira inglês. Mostra a proposta do curso, que ensina em português para você falar em inglês.</p></div>
+ <div class="pane dark"><svg width="130" height="110"><use href="#logoB"/></svg><div class="wm"><span class="n">Fala <span class="amb">Fácil</span></span><span class="t">Inglês sem medo</span></div></div>
+ <div class="pane light"><svg width="130" height="110"><use href="#logoB"/></svg><div class="wm"><span class="n">Fala <span class="amb">Fácil</span></span><span class="t">Inglês sem medo</span></div></div>
+</div>
+
+<!-- OPÇÃO C -->
+<div class="opt">
+ <div class="lab"><b>C</b><span>“F” com ondas de voz</span><p>A inicial do nome com ondas de som saindo, como quem fala. Visual de aplicativo, moderno e marcante.</p></div>
+ <div class="pane dark"><svg width="110" height="110"><use href="#logoC"/></svg><div class="wm"><span class="n">Fala <span class="amb">Fácil</span></span><span class="t">Inglês sem medo</span></div></div>
+ <div class="pane light"><svg width="110" height="110"><use href="#logoC"/></svg><div class="wm"><span class="n">Fala <span class="amb">Fácil</span></span><span class="t">Inglês sem medo</span></div></div>
+</div>
+
+<!-- ÍCONES DE APLICATIVO -->
+<div class="opt">
+ <div class="lab"><span>Ícone pequeno</span><p>Como cada opção fica na tela do celular e na aba do navegador.</p></div>
+ <div class="pane dark apps">
+  <svg width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" rx="24" fill="#0b1220" stroke="#22304d" stroke-width="2"/><svg x="14" y="16" width="68" height="64"><use href="#logoA"/></svg></svg>
+  <svg width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" rx="24" fill="#0b1220" stroke="#22304d" stroke-width="2"/><svg x="10" y="16" width="76" height="64"><use href="#logoB"/></svg></svg>
+  <svg width="96" height="96" viewBox="0 0 110 110"><use href="#logoC"/></svg>
+  <span style="color:#93b4ff;font-weight:700;font-size:14px;margin-left:10px">A · B · C</span>
+ </div>
+ <div class="pane light apps">
+  <svg width="40" height="37"><use href="#logoA"/></svg><svg width="44" height="37"><use href="#logoB"/></svg><svg width="36" height="36"><use href="#logoC"/></svg>
+  <span style="color:#2563eb;font-weight:700;font-size:14px;margin-left:10px">tamanho de aba do navegador</span>
+ </div>
+</div>
+</body></html>
