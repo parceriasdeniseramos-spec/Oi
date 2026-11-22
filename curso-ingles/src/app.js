@@ -19,13 +19,24 @@ function toast(m) { var t = $('#toast'); t.textContent = m; t.classList.add('sho
 
 /* ================= estado (salvo no aparelho) ================= */
 var KEY = 'falafacil_v2';
-var S = { onb: false, nome: '', w: {}, done: {}, aval: {}, days: {}, hist: [], frases: 0, revs: 0, medals: {}, vozPt: '', vozEn: '' };
+var S = { tema: 'auto', onb: false, nome: '', w: {}, done: {}, aval: {}, days: {}, hist: [], frases: 0, revs: 0, medals: {}, vozPt: '', vozEn: '' };
 try { var raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch (e) {}
 (function migrar() { /* aproveita o progresso da versão anterior */
   try { if (Object.keys(S.w).length) return; var v1 = JSON.parse(localStorage.getItem('falafacil_v1') || 'null'); if (!v1 || !v1.ok) return;
     Object.keys(v1.ok).forEach(function (w) { S.w[w] = { st: 'aprendendo', due: hoje(), n: 1, err: 0, fav: false, seen: hoje() }; }); } catch (e) {}
 })();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+/* tema claro / escuro */
+var mqEscuro = matchMedia('(prefers-color-scheme: dark)');
+function temaAtual() { return S.tema === 'auto' ? (mqEscuro.matches ? 'escuro' : 'claro') : S.tema; }
+function aplicarTema() {
+  var t = temaAtual(); document.documentElement.dataset.theme = t;
+  var ic = document.getElementById('temaIc'); if (ic) ic.innerHTML = '<use href="#i-' + (t === 'escuro' ? 'sun' : 'moon') + '"/>';
+  var b = document.getElementById('temaBtn'); if (b) b.setAttribute('aria-label', t === 'escuro' ? 'Usar fundo claro' : 'Usar fundo escuro');
+  var m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = t === 'escuro' ? '#0b1220' : '#2563eb';
+}
+if (mqEscuro.addEventListener) mqEscuro.addEventListener('change', function () { if (S.tema === 'auto') aplicarTema(); });
 
 function estudou(txt) {
   S.days[hoje()] = 1;
@@ -194,6 +205,7 @@ function render() {
 }
 $$('.tab').forEach(function (t) { t.addEventListener('click', function () { ir(t.dataset.tab); }); });
 $('#gearBtn').addEventListener('click', function () { abrirConfig(); });
+$('#temaBtn').addEventListener('click', function () { S.tema = temaAtual() === 'escuro' ? 'claro' : 'escuro'; save(); aplicarTema(); toast(S.tema === 'escuro' ? 'Fundo escuro ativado' : 'Fundo claro ativado'); });
 
 /* ================= boas-vindas ================= */
 var onbPasso = 0;
@@ -511,7 +523,7 @@ function guiaSom(s) { var x = SONS[s];
 function abrirConfig() {
   var pt = vozes.filter(function (v) { return /^pt/i.test(v.lang); }), en = vozes.filter(function (v) { return /^en/i.test(v.lang); });
   function ops(l, cur) { return '<option value="">Automática (recomendada)</option>' + l.map(function (v) { return '<option value="' + esc(v.name) + '"' + (v.name === cur ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + ')</option>'; }).join(''); }
-  modal('<h3>Configurações</h3><label class="field"><span>Seu nome</span><input id="cfNome" value="' + esc(S.nome) + '" autocomplete="given-name"></label>' +
+  modal('<h3>Configurações</h3><label class="field"><span>Aparência</span><select id="cfTema"><option value="auto"' + (S.tema === 'auto' ? ' selected' : '') + '>Automático (igual ao celular)</option><option value="claro"' + (S.tema === 'claro' ? ' selected' : '') + '>Fundo claro</option><option value="escuro"' + (S.tema === 'escuro' ? ' selected' : '') + '>Fundo escuro</option></select></label><label class="field"><span>Seu nome</span><input id="cfNome" value="' + esc(S.nome) + '" autocomplete="given-name"></label>' +
     '<label class="field"><span>Voz em inglês</span><select id="cfEn">' + ops(en, S.vozEn) + '</select></label><button class="btn btn-s" type="button" data-act="falar" data-t="Hello! Nice to meet you.">' + ico('play') + 'Testar voz em inglês</button>' +
     '<label class="field"><span>Voz em português</span><select id="cfPt">' + ops(pt, S.vozPt) + '</select></label>' +
     '<p class="note">As vozes vêm do seu aparelho. Experimente e escolha a mais clara. No Android, as vozes “Google” costumam ser as melhores.</p>' +
@@ -577,7 +589,7 @@ document.addEventListener('click', function (e) {
     case 'av-ini': A.ini = true; renderAval(); break;
     case 'rev-mostra': A.mostrou = true; renderRev(); break;
     case 'rev-cls': classificar(A.lista[A.k], b.dataset.v); S.revs++; A.feitas++; save(); A.k++; A.mostrou = false; renderRev(); break;
-    case 'cf-salvar': S.nome = ($('#cfNome').value || '').trim().slice(0, 40); S.vozEn = $('#cfEn').value; S.vozPt = $('#cfPt').value; save(); $('#modalRoot').innerHTML = ''; toast('Configurações salvas'); if (!AULA) render(); break;
+    case 'cf-salvar': S.nome = ($('#cfNome').value || '').trim().slice(0, 40); S.vozEn = $('#cfEn').value; S.vozPt = $('#cfPt').value; S.tema = $('#cfTema').value; save(); aplicarTema(); $('#modalRoot').innerHTML = ''; toast('Configurações salvas'); if (!AULA) render(); break;
     case 'zerar': if (confirm('Apagar todo o progresso deste aparelho? Esta ação não pode ser desfeita.')) { try { localStorage.removeItem(KEY); } catch (er) {} location.reload(); } break;
     case 'cert-nome': S.nome = ($('#certNome').value || '').trim().slice(0, 40); save(); certificado(); break;
     case 'imprimir': window.print(); break;
@@ -593,6 +605,6 @@ document.addEventListener('click', function (e) {
 });
 document.addEventListener('click', function (e) { if (e.target.classList && e.target.classList.contains('modal')) $('#modalRoot').innerHTML = ''; });
 
-conquistas(); novasMedalhas = [];
+aplicarTema(); conquistas(); novasMedalhas = [];
 $$('.tab').forEach(function (t) { t.classList.toggle('on', t.dataset.tab === ABA); });
 render();
