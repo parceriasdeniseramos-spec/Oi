@@ -3,7 +3,7 @@
    → voz → microfone → exercícios → telas → sessões (aula, avaliação, revisão, estudo rápido, desafio) → ações.
    O tutor com IA (futuro) entra pelo objeto TUTOR; hoje ele usa regras locais. */
 'use strict';
-var CONFIG = { whatsapp: '5551993759314', versao: '3.0', ia: { ativo: false, endpoint: '' } };
+var CONFIG = { whatsapp: '5551993759314', versao: '3.1', ia: { ativo: false, endpoint: '' } };
 
 /* ================= utilidades ================= */
 var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -370,7 +370,8 @@ function render() {
   $('#streakN').textContent = sequencia();
   var p = pendentes().length, b = $('#revBadge'); b.hidden = !p; b.textContent = p > 99 ? '99+' : p;
   var v = $('#view');
-  if (!S.onb) { setNav(false); v.innerHTML = telaBoasVindas(); return; }
+  if (!S.onb) { setNav(false); document.body.classList.toggle('bv', onbPasso === 0); v.innerHTML = telaBoasVindas(); if (onbPasso === 0) iniciarBoasVindas(); return; }
+  document.body.classList.remove('bv');
   if (ABA === 'inicio') v.innerHTML = telaInicio();
   else if (ABA === 'curso') v.innerHTML = telaCurso();
   else if (ABA === 'revisar') v.innerHTML = telaRevisar();
@@ -384,13 +385,40 @@ function vazio(icone, titulo, texto, acao) { return '<div class="empty">' + ico(
 
 /* boas-vindas */
 var onbPasso = 0;
+function saudacaoPt() { return S.nome ? 'Olá, ' + esc(S.nome) + '!' : 'Bem-vindo(a) ao <b>Fala Fácil</b>!'; }
+function saudacaoEn() { return S.nome ? 'Hello, ' + esc(S.nome) + '!' : 'Welcome to <b>Fala Fácil</b>!'; }
+/* boas-vindas animada: alterna português e inglês e move as camadas (paralaxe) com o dedo, o mouse ou a inclinação do celular */
+var BV = { t: null, x: 0, y: 0, tx: 0, ty: 0, on: false };
+function iniciarBoasVindas() {
+  var w = $('#welcome'); if (!w) return;
+  var reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function () { requestAnimationFrame(function () { w.classList.add('in'); }); });
+  clearInterval(BV.t); var en = false;
+  BV.t = setInterval(function () { var el = $('#welcome .wl-tit'); if (!el) { clearInterval(BV.t); return; } en = !en; el.classList.toggle('en', en); }, 2800);
+  if (reduz || BV.on) return; BV.on = true;
+  addEventListener('pointermove', function (e) { if ($('#welcome')) { BV.tx = e.clientX / innerWidth - .5; BV.ty = e.clientY / innerHeight - .5; } }, { passive: true });
+  addEventListener('deviceorientation', function (e) { if ($('#welcome') && e.gamma != null) { BV.tx = Math.max(-1, Math.min(1, e.gamma / 30)) / 2; BV.ty = Math.max(-1, Math.min(1, (e.beta - 40) / 30)) / 2; } }, { passive: true });
+  (function loop() {
+    var lay = $$('#welcome [data-p]');
+    if (lay.length) { BV.x += (BV.tx - BV.x) * .08; BV.y += (BV.ty - BV.y) * .08;
+      lay.forEach(function (l) { var d = +l.dataset.p; l.style.transform = 'translate3d(' + (-BV.x * 40 * d).toFixed(1) + 'px,' + (-BV.y * 30 * d).toFixed(1) + 'px,0)'; }); }
+    requestAnimationFrame(loop);
+  })();
+}
 function telaBoasVindas() {
-  if (onbPasso === 0) return '<div class="card" style="margin-top:8px"><span class="pill p-blue">Bem-vindo(a)</span><h1 class="h1" style="margin:12px 0 8px">Inglês do zero, sem medo e no seu ritmo.</h1>' +
+  if (onbPasso === 0) return '<section class="welcome" id="welcome" aria-labelledby="wTit">' +
+    '<div class="wl-layer" data-p="0.5" aria-hidden="true"><span class="bub b1">Oi!</span><span class="bub b2">Hello!</span><span class="bub b3">Olá!</span><span class="bub b4">Hi there!</span><span class="bub b5">Tudo bem?</span><span class="bub b6">How are you?</span></div>' +
+    '<div class="wl-layer" data-p="1.2" aria-hidden="true"><span class="flag f-br"><svg viewBox="0 0 70 50" aria-hidden="true"><rect width="70" height="50" rx="5" fill="#009b3a"/><path d="M35 6 64 25 35 44 6 25z" fill="#fedf00"/><circle cx="35" cy="25" r="10.5" fill="#002776"/><path d="M24.8 22.6c7-1.8 14.4-.6 20.6 3.2" stroke="#fff" stroke-width="2" fill="none"/></svg></span><span class="flag f-us"><svg viewBox="0 0 76 40" aria-hidden="true"><defs><clipPath id="fus"><rect width="76" height="40" rx="4"/></clipPath></defs><g clip-path="url(#fus)"><rect width="76" height="40" fill="#fff"/><rect y="0.00" width="76" height="3.08" fill="#b22234"/><rect y="6.15" width="76" height="3.08" fill="#b22234"/><rect y="12.30" width="76" height="3.08" fill="#b22234"/><rect y="18.45" width="76" height="3.08" fill="#b22234"/><rect y="24.60" width="76" height="3.08" fill="#b22234"/><rect y="30.75" width="76" height="3.08" fill="#b22234"/><rect y="36.90" width="76" height="3.08" fill="#b22234"/><rect width="31" height="21.5" fill="#3c3b6e"/><circle cx="3.5" cy="3.0" r="1.1" fill="#fff"/><circle cx="8.3" cy="3.0" r="1.1" fill="#fff"/><circle cx="13.1" cy="3.0" r="1.1" fill="#fff"/><circle cx="17.9" cy="3.0" r="1.1" fill="#fff"/><circle cx="22.7" cy="3.0" r="1.1" fill="#fff"/><circle cx="27.5" cy="3.0" r="1.1" fill="#fff"/><circle cx="3.5" cy="6.9" r="1.1" fill="#fff"/><circle cx="8.3" cy="6.9" r="1.1" fill="#fff"/><circle cx="13.1" cy="6.9" r="1.1" fill="#fff"/><circle cx="17.9" cy="6.9" r="1.1" fill="#fff"/><circle cx="22.7" cy="6.9" r="1.1" fill="#fff"/><circle cx="27.5" cy="6.9" r="1.1" fill="#fff"/><circle cx="3.5" cy="10.8" r="1.1" fill="#fff"/><circle cx="8.3" cy="10.8" r="1.1" fill="#fff"/><circle cx="13.1" cy="10.8" r="1.1" fill="#fff"/><circle cx="17.9" cy="10.8" r="1.1" fill="#fff"/><circle cx="22.7" cy="10.8" r="1.1" fill="#fff"/><circle cx="27.5" cy="10.8" r="1.1" fill="#fff"/><circle cx="3.5" cy="14.7" r="1.1" fill="#fff"/><circle cx="8.3" cy="14.7" r="1.1" fill="#fff"/><circle cx="13.1" cy="14.7" r="1.1" fill="#fff"/><circle cx="17.9" cy="14.7" r="1.1" fill="#fff"/><circle cx="22.7" cy="14.7" r="1.1" fill="#fff"/><circle cx="27.5" cy="14.7" r="1.1" fill="#fff"/><circle cx="3.5" cy="18.6" r="1.1" fill="#fff"/><circle cx="8.3" cy="18.6" r="1.1" fill="#fff"/><circle cx="13.1" cy="18.6" r="1.1" fill="#fff"/><circle cx="17.9" cy="18.6" r="1.1" fill="#fff"/><circle cx="22.7" cy="18.6" r="1.1" fill="#fff"/><circle cx="27.5" cy="18.6" r="1.1" fill="#fff"/></g></svg></span><span class="flag f-uk"><svg viewBox="0 0 60 30" aria-hidden="true"><defs><clipPath id="fuk"><rect width="60" height="30" rx="3"/></clipPath><clipPath id="fuk2"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath></defs><g clip-path="url(#fuk)"><rect width="60" height="30" fill="#012169"/><path d="M0 0l60 30M60 0 0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0 0 30" clip-path="url(#fuk2)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg></span></div>' +
+    '<div class="wl-center"><div class="wl-logo" data-p="0.8" aria-hidden="true"><svg viewBox="0 0 120 110" aria-hidden="true"><defs><linearGradient id="wg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f8bff"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs><path d="M18 6h84a14 14 0 0 1 14 14v50a14 14 0 0 1-14 14H46L24 104V84h-6A14 14 0 0 1 4 70V20A14 14 0 0 1 18 6z" fill="url(#wg)"/><text x="60" y="61" text-anchor="middle" font-family="system-ui,Arial" font-weight="900" font-size="38" fill="#fff">Hi!</text><circle cx="95" cy="25" r="6" fill="#f5b041"/></svg><span class="ring"></span></div>' +
+    '<h1 class="wl-tit" id="wTit"><span class="wl-pt">' + saudacaoPt() + '</span><span class="wl-en" lang="en">' + saudacaoEn() + '</span></h1>' +
+    '<p class="wl-sub">Inglês do zero, sem medo e no seu ritmo. <span lang="en">English made easy.</span></p>' +
+    '<button class="wl-ouvir" type="button" data-act="ouvir-boas">' + ico('play') + 'Ouvir em inglês</button>' +
+    '<label class="wl-nome"><span>Como você quer ser chamado(a)?</span><input id="onbNome" autocomplete="given-name" value="' + esc(S.nome) + '" placeholder="Seu nome ou apelido" maxlength="40"></label>' +
+    '<button class="btn btn-p full wl-go" type="button" data-act="onb-next">Vamos começar<span class="en"> · <span lang="en">Let&#39;s go!</span></span> ' + ico('right') + '</button>' +
+    '<p class="wl-note">Leva 1 minuto. Seus dados ficam só neste aparelho.</p></div></section>';
+  if (onbPasso === 1) return '<div class="card" style="margin-top:8px"><span class="pill p-blue">Passo 1 de 2</span><h2 class="h1" style="margin:12px 0 6px">' + (S.nome ? esc(S.nome) + ', veja' : 'Veja') + ' como funciona</h2>' +
     '<p class="sub">Em 30 dias, com uma aula por dia, você aprende o inglês que usa no dia a dia e no trabalho, sempre explicado em português.</p>' +
     '<div class="how"><div><b>1</b>Aprenda a palavra e veja um exemplo</div><div><b>2</b>Escute o áudio, normal ou lento</div><div><b>3</b>Pronuncie e veja se foi entendida</div><div><b>4</b>Construa e transforme frases</div><div><b>5</b>Pratique com exercícios e diálogos</div><div><b>6</b>Revise no tempo certo para não esquecer</div></div>' +
-    '<button class="btn btn-p full" type="button" data-act="onb-next">Começar ' + ico('right') + '</button></div>';
-  if (onbPasso === 1) return '<div class="card" style="margin-top:8px"><span class="pill p-blue">Passo 1 de 2</span><h2 class="h1" style="margin:12px 0 6px">Vamos combinar o seu ritmo</h2>' +
-    '<label class="field"><span>Como podemos te chamar? (opcional)</span><input id="onbNome" autocomplete="given-name" value="' + esc(S.nome) + '" placeholder="Ex.: Denise"></label>' +
     '<div class="field"><span id="metaLbl">Quanto tempo por dia?</span><div class="seg" role="radiogroup" aria-labelledby="metaLbl">' + [5, 10, 15, 20].map(function (m) { return '<button type="button" role="radio" aria-checked="' + (S.metaMin === m) + '" class="' + (S.metaMin === m ? 'on' : '') + '" data-act="meta" data-m="' + m + '">' + m + ' min</button>'; }).join('') + '</div></div>' +
     '<p class="note">Sem pressão: você pode mudar isso quando quiser. Tudo fica salvo só neste aparelho.</p>' +
     '<button class="btn btn-p full" type="button" data-act="onb-next" style="margin-top:14px">Continuar ' + ico('right') + '</button></div>';
@@ -906,7 +934,9 @@ function iniciarExerciciosAula(fase) {
   }
   A.fase = fase; renderAula(); scrollTo(0, 0);
 }
-document.addEventListener('input', function (e) { if (e.target.id === 'cadBusca') { CAD.q = e.target.value; CAD.aberto = ''; $('#cadLista').innerHTML = listaCaderno(); } });
+document.addEventListener('input', function (e) {
+  if (e.target.id === 'onbNome') { S.nome = e.target.value.trim().slice(0, 40); var pt = $('#welcome .wl-pt'), en = $('#welcome .wl-en'); if (pt) { pt.innerHTML = saudacaoPt(); en.innerHTML = saudacaoEn(); } }
+  if (e.target.id === 'cadBusca') { CAD.q = e.target.value; CAD.aberto = ''; $('#cadLista').innerHTML = listaCaderno(); } });
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' && e.target.id === 'digIn') { e.preventDefault(); var b = $('[data-act="dig-ver"]'); if (b) b.click(); }
   if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('label[for="cfImp"]')) { e.preventDefault(); $('#cfImp').click(); }
@@ -915,7 +945,8 @@ document.addEventListener('click', function (e) {
   var b = e.target.closest('[data-act]'); if (!b || b.disabled) return;
   var a = b.dataset.act, A = AULA, q = itemAtual();
   switch (a) {
-    case 'onb-next': if (onbPasso === 1) { S.nome = ($('#onbNome').value || '').trim().slice(0, 40); save(); } onbPasso++; render(); scrollTo(0, 0); break;
+    case 'onb-next': if (onbPasso === 0) { S.nome = ($('#onbNome').value || '').trim().slice(0, 40); save(); clearInterval(BV.t); } onbPasso++; render(); scrollTo(0, 0); break;
+    case 'ouvir-boas': falar(S.nome ? 'Hello, ' + S.nome + '! Welcome to Fala Fácil!' : 'Welcome to Fala Fácil!'); break;
     case 'meta': S.metaMin = +b.dataset.m; save(); $$('[data-act="meta"]').forEach(function (x) { var on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-checked', on); }); break;
     case 'onb-fim': S.onb = true; save(); pararMic(); ir('inicio'); break;
     case 'mic-onb': ouvir(['hello'], { btn: $('#micBtn'), status: $('#micSt') }, function (r) { var fb = $('#micFb'); if (!fb || r.nivel === 'parado') return;

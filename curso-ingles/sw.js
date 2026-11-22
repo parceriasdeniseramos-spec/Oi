@@ -1,6 +1,6 @@
 /* Fala Fácil · service worker: guarda o aplicativo para abrir sem internet.
    Ao mudar qualquer arquivo do app, aumente a VERSAO para os alunos receberem a atualização. */
-var VERSAO = 'falafacil-v3.0';
+var VERSAO = 'falafacil-v3.1';
 var ARQUIVOS = ['app.html', 'src/vocabulario.js', 'src/pedagogia.js', 'src/exemplos.js', 'src/app.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 self.addEventListener('install', function (e) { e.waitUntil(caches.open(VERSAO).then(function (c) { return c.addAll(ARQUIVOS); })); });
 self.addEventListener('activate', function (e) {
