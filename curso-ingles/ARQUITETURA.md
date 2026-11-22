@@ -8,7 +8,9 @@
 | `app.html` | Aplicativo do aluno (estrutura da tela e estilos) |
 | `src/vocabulario.js` | Vocabulário de cada aula: inglês, pronúncia aproximada, tradução, dica e respostas aceitas |
 | `src/pedagogia.js` | Estrutura de frase, frases-modelo, diálogo e frases para montar de cada aula; módulos; guia de sons difíceis |
-| `src/app.js` | Lógica: estado, revisão espaçada, voz, microfone, aulas, avaliações, painel, conquistas |
+| `src/exemplos.js` | Frase de exemplo com tradução para cada palavra |
+| `src/app.js` | Lógica: estado e backup, revisão espaçada, tempo de estudo, níveis, voz, microfone, gerador de exercícios, aulas, avaliações, revisões, estudo rápido, desafio diário, caderno, evolução, conquistas, certificado |
+| `manifest.webmanifest`, `sw.js`, `icons/` | Aplicativo instalável (PWA) e funcionamento sem internet |
 
 Para acrescentar conteúdo, edite só os dois arquivos de dados (`vocabulario.js` e `pedagogia.js`). As telas e os exercícios são gerados automaticamente.
 
@@ -46,3 +48,23 @@ Diretriz de comportamento do tutor: amigável, paciente, explica em português, 
 ## Trilhas futuras
 
 Viagens, Dia a dia, Trabalho e Conversação. Cada trilha é um conjunto de aulas no mesmo formato (`LICOES` + `PED`), com um módulo próprio em `MODULOS` ou uma lista separada.
+
+## Versão 3 (o que mudou)
+
+- **Exercícios**: alternativas sempre únicas; traduções equivalentes nunca aparecem como distrator (evita duas respostas certas); “complete a frase” só aceita uma resposta; dificuldade progressiva; novo exercício de **digitar** (com tolerância a um erro de digitação e uma segunda tentativa com dica). A pontuação separa **primeira tentativa** e **resultado final**.
+- **Construa**: 3 frases para montar + 2 transformações por aula (`TRANSF` em `pedagogia.js`: trocar palavra, negativa, pergunta).
+- **Revisão**: revisão espaçada com facilidade por palavra (ef) e intervalo crescente; modos: do dia (atrasadas primeiro), atrasadas, difíceis, erros, favoritas, geral, por áudio, frases e por módulo.
+- **Avaliações**: a do módulo exige as 5 aulas; a final exige os 29 dias anteriores; certificado só com tudo concluído.
+- **Painel**: orienta primeiro (aula atual, meta em minutos, revisão, desafio, estudo rápido) e mostra números depois.
+- **Evolução**: nível (pontos), habilidades, 7 dias, relatório, por módulo, o que já consegue fazer, conquistas, histórico.
+- **Dados**: cópia de segurança a cada gravação (`falafacil_v2_backup`), recuperação automática se o principal corromper, exportar e importar backup.
+- **Acessibilidade**: janelas com foco preso e Esc, confirmações próprias (sem `confirm`), rótulos ARIA, botões de no mínimo 44 px, textos de etapas maiores.
+
+## Para a próxima fase (precisa de servidor — decidir com o Diogo)
+
+1. **Contas e sincronização**: login (e-mail/senha ou link mágico), banco de dados com o mesmo formato do objeto `S`, sincronização por data de alteração, recuperação de senha. O formato do backup em JSON já é o mesmo que iria para o servidor.
+2. **Venda e acesso**: liberar o app só para quem pagou (Hotmart/Kiwify via webhook, ou login próprio).
+3. **Certificado verificável**: gravar o código no servidor e criar `verificar.html?c=CODIGO`; o QR Code aponta para essa página.
+4. **Lembretes com o app fechado**: Web Push com chaves VAPID e um agendador no servidor.
+5. **Tutor com IA** e **avaliação de pronúncia**: chamadas feitas pelo servidor (a chave nunca vai para o navegador), com limite de uso por aluno.
+6. **Painel administrativo**: editar `LICOES`, `PED`, `TRANSF` e `EXEMPLOS` num banco de dados em vez de arquivos, com áudios gravados por pessoas.

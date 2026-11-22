@@ -9,7 +9,7 @@ var PED = {
  b2:{est:{t:'It is… (É…)',x:'“It is” (ou “It’s”) quer dizer “é” ou “está”. Combine com as palavras amigas!',ex:[['It is important.','É importante.'],["It's possible.",'É possível.'],['It is a problem.','É um problema.']]},
   dlg:[['A','Is the hotel near the hospital?','O hotel fica perto do hospital?'],['B','Yes. It is near the restaurant too.','Sim. Fica perto do restaurante também.'],['A','Is it a good hotel?','É um hotel bom?'],['B','Yes, it is very good.','Sim, é muito bom.']],
   c:[['It is important','É importante'],['The hotel is different','O hotel é diferente'],['It is possible','É possível']]},
- b3:{est:{t:'Cuidado na hora de traduzir',x:'Palavras parecidas nem sempre significam a mesma coisa. Na dúvida, pense no contexto.',ex:[['Push the door.','Empurre a porta.'],['My parents live in Brazil.','Meus pais moram no Brasil.'],["Actually, I'm a teacher.",'Na verdade, eu sou professora.']]},
+ b3:{est:{t:'Cuidado na hora de traduzir',x:'Palavras parecidas nem sempre significam a mesma coisa. Na dúvida, pense no contexto.',ex:[['Push the door.','Empurre a porta.'],['My parents live in Brazil.','Meus pais moram no Brasil.'],["Actually, I'm a teacher.",'Na verdade, eu sou professor(a).']]},
   dlg:[['A','Do you go to the library?','Você vai à biblioteca?'],['B','Yes, after lunch.','Sim, depois do almoço.'],['A','With your parents?','Com os seus pais?'],['B','No, actually with my sister.','Não, na verdade com a minha irmã.']],
   c:[['Push the door','Empurre a porta'],['I go to the library','Eu vou à biblioteca'],['My parents are here','Meus pais estão aqui']]},
  b4:{est:{t:'Pedir com educação: Can you…, please?',x:'Use “Can you” (você pode) + a ação + “please” para pedir ajuda.',ex:[['Can you help me, please?','Você pode me ajudar, por favor?'],['Can you speak slowly, please?','Você pode falar devagar, por favor?'],["Sorry, I don't understand.",'Desculpe, eu não entendo.']]},
@@ -22,7 +22,7 @@ var PED = {
   dlg:[['A','Where do you live?','Onde você mora?'],['B','I live in Torres.','Eu moro em Torres.'],['A','Do you like it?','Você gosta?'],['B','Yes, I love it!','Sim, eu adoro!']],
   c:[['I live in Brazil','Eu moro no Brasil'],['I would like a coffee','Eu gostaria de um café'],['I speak a little English','Eu falo um pouco de inglês']]},
  b7:{est:{t:'Preços: It is + número',x:'Para dizer um preço, use “It is” + o número + a moeda.',ex:[['It is ten dollars.','Custa dez dólares.'],['I have two children.','Eu tenho dois filhos.'],['Room number five.','Quarto número cinco.']]},
-  dlg:[['A','How much is it?','Quanto custa?'],['B','It is twenty dollars.','Custa vinte dólares.'],['A','Twenty?','Vinte?'],['B','Yes. Two zero. Twenty.','Sim. Dois zero. Vinte.']],
+  dlg:[['A','How much is it?','Quanto custa?'],['B','It is twenty dollars.','Custa vinte dólares.'],['A','Sorry, twenty?','Desculpe, vinte?'],['B','Yes, twenty dollars.','Sim, vinte dólares.']],
   c:[['It is ten dollars','Custa dez dólares'],['I have two children','Eu tenho dois filhos'],['How much is it','Quanto custa']]},
  n2:{est:{t:'Teen ou ty? Treze ou trinta?',x:'Números terminados em “-teen” (13 a 19) têm a força no final. Os terminados em “-ty” (20, 30…) têm a força no começo.',ex:[['Thirteen or thirty?','Treze ou trinta?'],['I live on the third floor.','Eu moro no terceiro andar.'],['Half a kilo, please.','Meio quilo, por favor.']]},
   dlg:[['A','Is it fifteen or fifty?','É quinze ou cinquenta?'],['B','Fifty. Five zero.','Cinquenta. Cinco zero.'],['A','Thank you!','Obrigado(a)!'],['B',"You're welcome.",'De nada.']],
@@ -36,12 +36,12 @@ var PED = {
  fam:{est:{t:'My (meu, minha) e This is (este é, esta é)',x:'“My” serve para meu e minha. “This is” apresenta alguém: This is my sister.',ex:[['This is my husband.','Este é o meu marido.'],['My mother lives in Brazil.','Minha mãe mora no Brasil.'],['I have one daughter.','Eu tenho uma filha.']]},
   dlg:[['A','Who is she?','Quem é ela?'],['B','This is my sister, Paula.','Esta é a minha irmã, Paula.'],['A','Nice to meet you, Paula!','Prazer em conhecer, Paula!'],['C','Nice to meet you too!','Prazer também!']],
   c:[['This is my husband','Este é o meu marido'],['My mother lives in Brazil','Minha mãe mora no Brasil'],['I have one daughter','Eu tenho uma filha']]},
- prof:{est:{t:"I'm a… (Eu sou…)",x:'Antes da profissão, use “a” (ou “an” antes de som de vogal): I’m a teacher. I’m an engineer.',ex:[["I'm a teacher.",'Eu sou professora.'],["She's a lawyer.",'Ela é advogada.'],['I have a small business.','Eu tenho um pequeno negócio.']]},
+ prof:{est:{t:"I'm a… (Eu sou…)",x:'Antes da profissão, use “a” (ou “an” antes de som de vogal): I’m a teacher. I’m an engineer.',ex:[["I'm a teacher.",'Eu sou professor(a).'],["She's a lawyer.",'Ela é advogada.'],['I have a small business.','Eu tenho um pequeno negócio.']]},
   dlg:[['A','What do you do?','Você trabalha com quê?'],['B',"I'm a nurse. And you?",'Sou enfermeira. E você?'],['A',"I'm a manager in a bank.",'Sou gerente em um banco.'],['B','Nice!','Que legal!']],
-  c:[['I am a teacher','Eu sou professora'],['She is a lawyer','Ela é advogada'],['I have a small business','Eu tenho um pequeno negócio']]},
- sent:{est:{t:"I'm + como você está",x:'Para dizer como se sente, use “I’m” + a palavra: I’m tired. I’m hungry.',ex:[["I'm tired today.",'Estou cansada hoje.'],['Are you hungry?','Você está com fome?'],["I'm very happy!",'Estou muito feliz!']]},
+  c:[['I am a teacher','Eu sou professor(a)'],['She is a lawyer','Ela é advogada'],['I have a small business','Eu tenho um pequeno negócio']]},
+ sent:{est:{t:"I'm + como você está",x:'Para dizer como se sente, use “I’m” + a palavra: I’m tired. I’m hungry.',ex:[["I'm tired today.",'Estou cansado(a) hoje.'],['Are you hungry?','Você está com fome?'],["I'm very happy!",'Estou muito feliz!']]},
   dlg:[['A','Are you okay?','Você está bem?'],['B',"I'm tired. I'm very busy today.",'Estou cansada. Estou muito ocupada hoje.'],['A','Do you want a coffee?','Quer um café?'],['B','Yes, please!','Sim, por favor!']],
-  c:[['I am tired today','Estou cansada hoje'],['Are you hungry','Você está com fome'],['I am very happy','Estou muito feliz']]},
+  c:[['I am tired today','Estou cansado(a) hoje'],['Are you hungry','Você está com fome'],['I am very happy','Estou muito feliz']]},
  cor:{est:{t:'A característica vem antes da coisa',x:'Em inglês, a cor ou o tamanho vem ANTES: red car (carro vermelho), big house (casa grande).',ex:[['A red car.','Um carro vermelho.'],['A big house.','Uma casa grande.'],['It is cheap, not expensive.','É barato, não é caro.']]},
   dlg:[['A','Do you like this blue dress?','Você gosta deste vestido azul?'],['B','Yes! How much is it?','Sim! Quanto custa?'],['A','It is cheap. Ten dollars.','É barato. Dez dólares.'],['B','Great!','Ótimo!']],
   c:[['A red car','Um carro vermelho'],['A big house','Uma casa grande'],['It is not expensive','Não é caro']]},
@@ -101,3 +101,43 @@ var SONS = {
  a:{t:'O “A” aberto',como:'Abra bem a boca, como se fosse dizer “é”, e puxe os cantos dos lábios para os lados. É um som entre “é” e “á”.',evite:'Não troque por um “a” fechado: “black” é “blék”, e não “blac”.',ex:['Black','Thank you','Family']},
  w:{t:'O “W”',como:'Arredonde os lábios como para dizer “u” e solte rápido para a próxima vogal.',evite:'Não pronuncie como “v”: “water” é “uó-ter”, e não “vá-ter”.',ex:['Water','What','Week']}
 };
+
+/* Transformar frases: [tipo, instrução, frase de partida, resposta, tradução da resposta]
+   tipo: troca (substituir palavra), neg (negativa), perg (pergunta), resp (resposta) */
+var TRANSF = {
+ b1:[['troca','Troque “Brazil” por “Portugal”',"I'm from Brazil","I'm from Portugal",'Eu sou de Portugal'],['perg','Faça a pergunta para esta resposta',"I'm from Brazil",'Where are you from','De onde você é']],
+ b2:[['neg','Transforme em negativa','It is a problem','It is not a problem','Não é um problema'],['troca','Troque “important” por “different”','It is important','It is different','É diferente']],
+ b3:[['troca','Troque “Push” por “Pull”','Push the door','Pull the door','Puxe a porta'],['troca','Troque “parents” por “family”','My parents are here','My family is here','Minha família está aqui']],
+ b4:[['troca','Troque “help me” por “speak slowly”','Can you help me','Can you speak slowly','Você pode falar devagar'],['neg','Transforme em negativa','I understand','I do not understand','Eu não entendo']],
+ b5:[['troca','Troque “bank” por “hotel”','Where is the bank','Where is the hotel','Onde fica o hotel'],['troca','Troque “name” por “phone number”','What is your name','What is your phone number','Qual é o seu número de telefone']],
+ b6:[['neg','Transforme em negativa','I like coffee','I do not like coffee','Eu não gosto de café'],['perg','Transforme em pergunta (comece com Do you)','You speak English','Do you speak English','Você fala inglês']],
+ b7:[['troca','Troque “ten” por “fifty”','It is ten dollars','It is fifty dollars','Custa cinquenta dólares'],['perg','Faça a pergunta para esta resposta','It is ten dollars','How much is it','Quanto custa']],
+ n2:[['troca','Troque “third” por “second”','I live on the third floor','I live on the second floor','Eu moro no segundo andar'],['troca','Troque “first” por “last”','It is the first day','It is the last day','É o último dia']],
+ b8:[['troca','Troque “Monday” por “Friday”','See you on Monday','See you on Friday','Até sexta'],['neg','Transforme em negativa','I work on Saturday','I do not work on Saturday','Eu não trabalho no sábado']],
+ mh:[['troca','Troque “May” por “December”','My birthday is in May','My birthday is in December','Meu aniversário é em dezembro'],['perg','Faça a pergunta para esta resposta','The class is at nine','What time is the class','Que horas é a aula']],
+ fam:[['troca','Troque “husband” por “brother”','This is my husband','This is my brother','Este é o meu irmão'],['perg','Transforme em pergunta (comece com Do you)','You have children','Do you have children','Você tem filhos']],
+ prof:[['troca','Troque “teacher” por “nurse”','I am a teacher','I am a nurse','Eu sou enfermeiro(a)'],['neg','Transforme em negativa','She is a lawyer','She is not a lawyer','Ela não é advogada']],
+ sent:[['neg','Transforme em negativa','I am tired today','I am not tired today','Não estou cansado(a) hoje'],['perg','Transforme em pergunta','You are hungry','Are you hungry','Você está com fome']],
+ cor:[['troca','Troque “red” por “blue”','A red car','A blue car','Um carro azul'],['neg','Transforme em negativa','It is expensive','It is not expensive','Não é caro']],
+ sau:[['troca','Troque “headache” por “fever”','I have a headache','I have a fever','Estou com febre'],['troca','Troque “doctor” por “dentist”','I need a doctor','I need a dentist','Preciso de um dentista']],
+ cid:[['troca','Troque “left” por “right”','Turn left here','Turn right here','Vire à direita aqui'],['troca','Troque “bank” por “pharmacy”','The bank is near here','The pharmacy is near here','A farmácia fica perto daqui']],
+ com:[['troca','Troque “coffee” por “tea”','I would like a coffee','I would like a tea','Eu gostaria de um chá'],['neg','Transforme em negativa','I like rice and beans','I do not like rice and beans','Eu não gosto de arroz e feijão']],
+ res:[['troca','Troque “card” por “cash”','Can I pay by card','Can I pay in cash','Posso pagar em dinheiro'],['troca','Troque “two” por “four”','A table for two please','A table for four please','Uma mesa para quatro por favor']],
+ cmp:[['troca','Troque “bag” por “dress”','How much is this bag','How much is this dress','Quanto custa este vestido'],['neg','Transforme em negativa','It is on sale','It is not on sale','Não está em promoção']],
+ tel:[['troca','Troque “Denise” pelo seu nome: “Paul”','Hello this is Denise','Hello this is Paul','Alô aqui é o Paul'],['perg','Transforme em pergunta','You can hear me','Can you hear me','Você está me ouvindo']],
+ b9:[['troca','Troque “check” por “think”','Let me check','Let me think','Deixa eu pensar'],['troca','Troque “an email” por “the report”','I will send you an email','I will send you the report','Vou te mandar o relatório']],
+ reu:[['troca','Troque “question” por “idea”','I have a question','I have an idea','Tenho uma ideia'],['neg','Transforme em negativa','I have a question','I do not have a question','Não tenho nenhuma pergunta']],
+ eml:[['troca','Troque “delay” por “wait”','Sorry for the delay','Sorry for the wait','Desculpe a espera'],['troca','Troque “invoice” por “report”','Please find attached the invoice','Please find attached the report','Segue em anexo o relatório']],
+ ate:[['troca','Troque “seat” por “coffee”','Please have a seat','Please have a coffee','Tome um café, por favor'],['perg','Faça a pergunta para esta resposta','I have an appointment','Do you have an appointment','Você tem horário marcado']],
+ pap:[['troca','Troque “weekend” por “day”','How was your weekend','How was your day','Como foi o seu dia'],['troca','Troque “weekend” por “week”','Have a good weekend','Have a good week','Boa semana']],
+ t1:[['troca','Troque “password” por “name”','Enter your password','Enter your name','Digite o seu nome'],['troca','Troque “later” por “now”','Try again later','Try again now','Tente de novo agora']]
+};
+
+/* O que o aluno consegue fazer ao concluir cada módulo */
+var CONSEGUE = [
+ ['Cumprimentar e se apresentar','Pedir ajuda e dizer que não entendeu','Fazer perguntas simples'],
+ ['Falar números, preços e telefones','Marcar dia e horário','Dizer do que gosta e o que quer'],
+ ['Falar da família e da profissão','Dizer como está se sentindo','Explicar um sintoma na farmácia ou no médico'],
+ ['Pedir direções na rua','Pedir no restaurante e pagar a conta','Fazer compras e falar ao telefone'],
+ ['Participar de uma reunião online','Escrever um e-mail simples','Atender um cliente com educação']
+];
