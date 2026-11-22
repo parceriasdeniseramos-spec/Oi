@@ -106,6 +106,12 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 .bubble.mid{background:var(--amber-bg);border-color:#f6d58c}
 .bubble.bad{background:var(--red-bg);border-color:#f5b9b9}
 .bubble small{display:block;margin-top:6px;color:var(--muted);font-size:.85rem}
+.navw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.nbtn{padding:14px 10px;border-radius:16px;border:2px solid var(--line);background:#fff;font-weight:800;font-size:.98rem}
+.nbtn[disabled]{opacity:.35}
+.clar{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:.85rem;color:var(--muted)}
+.clar i{flex:1;height:8px;border-radius:8px;background:var(--line);overflow:hidden;max-width:160px}
+.clar i b{display:block;height:100%;border-radius:8px}
 .next{display:block;width:100%;margin-top:18px;padding:18px;border-radius:18px;background:var(--navy);color:#fff;font-weight:800;font-size:1.05rem}
 .next[disabled]{opacity:.35}
 .skip{display:block;margin:12px auto 0;color:var(--muted);text-decoration:underline;font-size:.9rem}
@@ -209,6 +215,10 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 
     <div class="tutor"><div class="av">🧑‍🏫</div><div class="bubble" id="bubble"></div></div>
 
+    <div class="navw">
+      <button class="nbtn" type="button" id="prevBtn">← Anterior</button>
+      <button class="nbtn" type="button" id="againBtn">🔁 Repetir esta</button>
+    </div>
     <button class="next" type="button" id="nextBtn" disabled>Próxima →</button>
     <button class="skip" type="button" id="skipBtn">Pular esta (vai para a revisão)</button>
   </div>
@@ -744,7 +754,7 @@ function loadItem(){
   $('lTitle').textContent = L.titulo; $('wWord').textContent = it[0]; $('wTrans').textContent = it[2]; $('wSay').textContent = it[1];
   $('wTip').innerHTML = '💡 ' + esc(it[3]);
   $('lCount').textContent = (idx + 1) + '/' + items.length; $('lProg').style.width = (idx / items.length * 100) + '%';
-  $('nextBtn').disabled = true; $('micBtn').disabled = false; $('selfBox').hidden = true;
+  $('nextBtn').disabled = !S.ok[it[0]]; $('micBtn').disabled = false; $('selfBox').hidden = true; $('prevBtn').disabled = idx === 0;
   setBubble('', 'Ouça com atenção e depois toque no microfone para repetir. Pode ouvir quantas vezes quiser! 😊');
   setTimeout(function(){ speak(it[0], 'en-US', .9); }, 350);
 }
@@ -759,7 +769,7 @@ $('micBtn').addEventListener('click', function(){
   if (synth) synth.cancel();
   rec = new SR(); rec.lang = 'en-US'; rec.interimResults = false; rec.maxAlternatives = 5; rec.continuous = false;
   var got = false;
-  rec.onresult = function(ev){ got = true; var alts = []; for (var i = 0; i < ev.results[0].length; i++) alts.push(ev.results[0][i].transcript); judge(alts); };
+  rec.onresult = function(ev){ got = true; var alts = []; for (var i = 0; i < ev.results[0].length; i++) alts.push(ev.results[0][i].transcript); judge(alts, ev.results[0][0].confidence || 0); };
   rec.onerror = function(ev){ stopRec();
     if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') fallback('O microfone está bloqueado. Toque no cadeado 🔒 ao lado do endereço, libere o microfone e tente de novo. Enquanto isso, fale em voz alta e marque se acertou.');
     else if (ev.error === 'network') fallback('Para ouvir a sua voz, o Chrome precisa de internet. Fale em voz alta e marque se acertou.');
@@ -770,34 +780,45 @@ $('micBtn').addEventListener('click', function(){
   catch(e){ fallback('Não consegui ligar o microfone. Fale em voz alta e marque se acertou.'); }
 });
 function fallback(msg){ setBubble('mid', msg); $('selfBox').hidden = false; }
-$('selfOk').addEventListener('click', function(){ success(1, null); });
+$('selfOk').addEventListener('click', function(){ success('good', 'Muito bem! 👍', '', false); });
 $('selfAgain').addEventListener('click', function(){ tries++; setBubble('mid', 'Vamos de novo! Ouça devagar 🐢 e repita sílaba por sílaba: <b>' + esc(items[idx][1]) + '</b>'); speak(items[idx][0], 'en-US', .5); });
 
-var ELOGIOS = ['Uau, perfeito!','Isso aí, arrasou!','Que pronúncia linda!','Excelente! Continue assim!','Bah, que beleza!','Maravilha! Você está indo super bem!','Muito bem! Que orgulho!','Show! Falou igualzinho!'];
-var QUASE = ['Tá quase lá! Vamos de novo, você consegue!','Quase! Mais uma vez, que já está saindo!','Pertinho! Escuta de novo e tenta outra vez!'];
-var CALMA = ['Sem pressa! Escuta devagarinho e tenta de novo.','Tudo bem, todo mundo começa assim! Vamos juntos, devagar.','Respira e tenta de novo, sem pressa!'];
+var OTIMO = ['Muito bom! Ficou claro e bem pronunciado.','Ótimo! Entendi perfeitamente.','Isso! Pronúncia clara.','Bah, que beleza! Ficou muito claro.'];
+var BOM = ['Entendi! Está no caminho certo.','Boa! Deu para entender.','Certo! Já está saindo.'];
+var QUASE = ['Quase! Ainda não ficou claro. Vamos de novo?','Pertinho! Escuta mais uma vez e repete.','Quase lá! Mais uma tentativa.'];
+var CALMA = ['Sem pressa! Escuta devagarinho e tenta de novo.','Tudo bem, todo mundo começa assim. Vamos juntos, devagar.','Respira e tenta de novo, sem pressa.'];
 function pick(a){ return a[Math.floor(Math.random() * a.length)]; }
-function judge(alts){
-  stopRec(); tries++; var it = items[idx], s = score(alts, it), heard = alts[0] || '';
-  if (s >= .78) success(s, heard);
-  else if (s >= .5){
-    setBubble('mid', '<b>Tá quase lá! 💪</b> Eu entendi: <i lang="en">“' + esc(heard) + '”</i>.<br>Ouça de novo, devagar, e tente outra vez: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
-    speak(pick(QUASE), 'pt-BR', 1, function(){ speak(it[0], 'en-US', .6); });
+function clareza(conf){ if (!conf) return ''; var p = Math.round(conf * 100), c = p >= 85 ? 'var(--mint)' : p >= 60 ? 'var(--amber)' : 'var(--coral)';
+  return '<span class="clar">Clareza da fala: <b style="color:' + c + '">' + p + '%</b><i><b style="width:' + p + '%;background:' + c + '"></b></i></span>'; }
+function judge(alts, conf){
+  stopRec(); tries++; var it = items[idx], s = score(alts, it), heard = alts[0] || '', ouvi = heard ? 'Eu entendi: <i lang="en">“' + esc(heard) + '”</i>.' : '';
+  var nivel = s >= .95 && conf >= .85 ? 'otimo' : (s >= .85 && (conf >= .55 || !conf)) ? 'bom' : s >= .6 ? 'quase' : 'longe';
+  if (nivel === 'otimo') success('good', pick(OTIMO) + ' 🎉', ouvi + clareza(conf), true);
+  else if (nivel === 'bom') success('good', pick(BOM) + ' 👍', ouvi + clareza(conf) + '<small>Para soar mais natural, ouça de novo e repita mais uma vez. Toque em <b>🔁 Repetir esta</b> se quiser treinar.</small>', false);
+  else if (nivel === 'quase'){
+    var q = pick(QUASE);
+    setBubble('mid', '<b>' + q + ' 💪</b> ' + ouvi + '<br>Ouça devagar e repita sílaba por sílaba: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
+    speak(q, 'pt-BR', 1, function(){ speak(it[0], 'en-US', .6); });
   } else {
-    setBubble('bad', (heard ? 'Eu entendi: <i lang="en">“' + esc(heard) + '”</i>. ' : '') + 'Sem pressa! 😊 Ouça devagarinho e repita sílaba por sílaba: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
-    speak(pick(CALMA), 'pt-BR', 1, function(){ speak(it[0], 'en-US', .5); });
+    var c = pick(CALMA);
+    setBubble('bad', ouvi + ' <b>' + c + '</b><br>Repita sílaba por sílaba: <b>' + esc(it[1]) + '</b>' + (tries >= 3 ? '<small>Se quiser, pode seguir em frente. Esta palavra vai para a revisão.</small>' : ''));
+    speak(c, 'pt-BR', 1, function(){ speak(it[0], 'en-US', .5); });
   }
   if (tries >= 3) $('nextBtn').disabled = false;
 }
-function success(s, heard){
-  var it = items[idx]; if (tries <= 1) firstTry++;
+function success(kind, title, html, festa){
+  var it = items[idx]; if (tries <= 1 && !S.ok['_t' + it[0]]) firstTry++;
   S.ok[it[0]] = 1; if (tries <= 2) delete S.rev[it[0]]; else S.rev[it[0]] = 1; save();
-  var e = ELOGIOS[Math.floor(Math.random() * ELOGIOS.length)];
-  setBubble('good', '<b>' + e + ' 🎉</b> ' + (heard ? 'Eu entendi: <i lang="en">“' + esc(heard) + '”</i>.' : '') + '<small>“' + esc(it[0]) + '” = ' + esc(it[2]) + '</small>');
-  chime(); confetti(); setTimeout(function(){ speak(e, 'pt-BR', 1.08); }, 350); $('nextBtn').disabled = false; $('selfBox').hidden = true; $('micBtn').disabled = true;
+  setBubble(kind, '<b>' + title + '</b> ' + (html || '') + '<small>“' + esc(it[0]) + '” = ' + esc(it[2]) + '</small>');
+  if (festa){ chime(); confetti(); }
+  setTimeout(function(){ speak(title.replace(/[🎉👍]/g,''), 'pt-BR', 1.05); }, festa ? 350 : 0);
+  $('nextBtn').disabled = false; $('selfBox').hidden = true;
 }
+$('selfOk').onclick = null;
 $('skipBtn').addEventListener('click', function(){ var it = items[idx]; S.rev[it[0]] = 1; save(); if (missed.indexOf(it[0]) < 0) missed.push(it[0]); advance(); });
 $('nextBtn').addEventListener('click', function(){ var it = items[idx]; if (!S.ok[it[0]] || S.rev[it[0]]){ S.rev[it[0]] = 1; save(); if (missed.indexOf(it[0]) < 0) missed.push(it[0]); } advance(); });
+$('prevBtn').addEventListener('click', function(){ if (idx > 0){ idx--; loadItem(); } });
+$('againBtn').addEventListener('click', function(){ stopRec(); tries = 0; $('micBtn').disabled = false; setBubble('', 'Vamos treinar de novo! Ouça e toque no microfone quando estiver pronta. 😊'); speak(items[idx][0], 'en-US', .8); });
 $('exitBtn').addEventListener('click', function(){ stopRec(); if (synth) synth.cancel(); renderHome(); show('home'); });
 function advance(){ idx++; if (idx < items.length) loadItem(); else finish(); }
 function finish(){
