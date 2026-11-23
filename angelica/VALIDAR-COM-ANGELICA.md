@@ -18,6 +18,7 @@ A seção "Quem sou" já tem espaço preparado para estes itens. Basta ela envia
 
 - **Prêmio Café com Bytes 2026, indicada na categoria Melhor DPO:** confirmar o nome exato do prêmio, da categoria e se a forma correta é "indicada" ou "finalista".
 - **Cargo:** Encarregada de Dados (DPO) na Somaxi Group.
+- **Uso do nome Somaxi Group:** perguntar se pode aparecer no site, se ela é franqueada ou parceira (e qual termo usar), e se a Somaxi tem regras de marca, logotipo ou aprovação prévia para sites de franqueados. Hoje o nome aparece em 3 lugares: no texto "Quem sou", no cartão de credenciais e nos dados que o Google lê. O Instagram (@angelica.somaxi) também leva o nome.
 - **Atendimento:** online para todo o Brasil e presencial em Porto Alegre.
 - **Contatos:** WhatsApp (51) 93300-5496 e Instagram @angelica.somaxi.
 - **Escopo dos serviços:** conferir se ela oferece todos os itens listados em "O que inclui", principalmente DPO terceirizada e IA responsável.
