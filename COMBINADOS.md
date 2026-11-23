@@ -8,6 +8,8 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 
 **Situação:** prévia pronta em `angelica/previa-angelica-teixeira.html`. Denise manda para ela na terça (24/11) e, depois da resposta, a proposta.
 
+**Atualização 23/11:** site ampliado (Central de Proteção de Dados, diagnóstico com níveis, conteúdos, política de privacidade). Hoje a Denise manda só as perguntas para a Angélica (formação, certificações, prêmio, e-mail, serviços). A prévia vai amanhã, 24/11, já com as respostas dela. Lista completa em `angelica/VALIDAR-COM-ANGELICA.md`.
+
 **Valores decididos (23/11):**
 - Site completo: **R$ 849**
 - Pagamento: **entrada de R$ 449 por Pix** para começar e **R$ 400 na entrega** do site
