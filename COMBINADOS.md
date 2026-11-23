@@ -48,6 +48,33 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 
 ---
 
+## 1b. Juliana Battisti Testa (estética facial)
+
+**Situação:** site pronto em `juliana/previa-juliana-battisti.html`, com os ajustes do checklist. O que falta confirmar com ela está em `juliana/CONFIRMAR-COM-JULIANA.md` (fotos originais, logo, CRF, atendimento online, bairro).
+
+**Valor sugerido (23/11):**
+- Site completo: **R$ 990**, com entrada de R$ 495 por Pix e R$ 495 na entrega
+- Opcional: cadastro no Google por **R$ 350**
+- Domínio no nome dela (uns R$ 40/ano)
+- Atualizações: R$ 249 cada
+- Para fechar mais rápido: **R$ 890** de lançamento, em troca do uso no portfólio (não descer abaixo disso)
+- Ideia para depois: pacote mensal de atualizações por R$ 149/mês
+
+### Proposta pronta
+
+> 💻 **Site completo: R$ 990**
+> Site profissional adaptado para celular, com a identidade visual da sua marca, agendamento direto pelo WhatsApp e hospedagem incluída.
+>
+> 💳 **Pagamento:** entrada de R$ 495 por Pix e R$ 495 na entrega.
+>
+> 🔎 **Opcional:** cadastro e configuração no Google, para as pacientes te encontrarem nas pesquisas: **R$ 350**.
+>
+> 🌐 **Domínio próprio** (ex.: julianabattisti.com.br): registrado no seu nome, em torno de R$ 40 por ano.
+>
+> ✏️ **Atualizações depois de pronto:** R$ 249 cada.
+
+---
+
 ## 2. Reels "Segunda-feira de estratégia"
 
 **Vídeo:** `marca/videos/h2d-segunda-estrategia.mp4` (18 s, vertical, sem som). Voz e música vão no CapCut.
