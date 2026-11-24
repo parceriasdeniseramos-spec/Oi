@@ -188,6 +188,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .nw p{color:var(--muted);font-size:.92rem;flex:1}
 @media(max-width:900px){.news{grid-template-columns:1fr}}
 
+
+/* contato */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cbox{background:#fff;border-radius:24px;padding:clamp(24px,4vw,36px);border:1px solid var(--line)}
+.cbox h3{font-size:1.5rem;color:var(--blue);margin-bottom:8px}
+.cbox>p{color:var(--muted);margin-bottom:18px}
+.ci{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;padding:14px;border-radius:16px;background:var(--sky);margin-bottom:10px}
+.ci i{width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;color:var(--blue);font-style:normal}
+.ci i svg{width:24px;height:24px}
+.ci b{display:block;font-family:var(--h);font-size:.95rem}
+.ci span{color:var(--muted);font-size:.92rem}
+.cform{display:grid;gap:12px}
+.cform input,.cform textarea,.cform select{width:100%;min-height:52px;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:#f7f9fc}
+.cform textarea{min-height:140px;resize:vertical;font-family:var(--b);font-size:1rem}
+.cform .msg{min-height:1.2em;font-size:.9rem;color:var(--blue)}
+.mapa{margin-top:18px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#e9eef5;position:relative;height:280px}
+.mapa svg{width:100%;height:100%}
+.mapa .lb{position:absolute;left:16px;top:16px;padding:8px 14px;border-radius:12px;background:#fff;font-weight:600;font-size:.9rem;color:var(--blue);box-shadow:0 8px 20px -12px rgba(0,0,0,.4)}
+.pin{animation:pin 1.8s ease-in-out infinite}
+@keyframes pin{50%{transform:translateY(-8px)}}
+.more{display:flex;justify-content:center;margin-top:26px}
+.nw a.lm{margin-top:12px;font-weight:600;color:var(--blue);font-size:.92rem}
+@media(max-width:860px){.ct{grid-template-columns:1fr}}
 /* rodapé */
 footer{background:var(--navy);color:#cfe0f5;padding:54px 0 34px;font-size:.94rem}
 footer .g{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
@@ -227,6 +250,9 @@ footer .cp a{color:var(--amber)}
   <symbol id="i-seg" viewBox="0 0 24 24"><path d="M12 2.8 19.5 6v5.6c0 4.7-3.2 8.3-7.5 9.6-4.3-1.3-7.5-4.9-7.5-9.6V6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.7 12 2.3 2.3 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-edu" viewBox="0 0 24 24"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6.5 11v4.5c1.6 1.6 3.4 2.4 5.5 2.4s3.9-.8 5.5-2.4V11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="i-bairro" viewBox="0 0 24 24"><path d="M3 20.5h18M5 20.5V10l5-3.5 5 3.5v10.5M15 20.5V13h4v7.5M8.5 13.5h3M8.5 16.5h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol>
 </svg>
 
@@ -235,11 +261,11 @@ footer .cp a{color:var(--amber)}
 <header class="nav" id="nav">
   <div class="wrap">
     <a href="#inicio" class="logo" aria-label="Vereador Exemplo, início"><span class="bx"><small>VEREADOR</small>RAFAEL EXEMPLO</span></a>
-    <nav class="menu" aria-label="Seções"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#agenda">Agenda</a><a href="#galeria">Fotos</a><a href="#noticias">Notícias</a></nav>
+    <nav class="menu" aria-label="Seções"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#agenda">Agenda</a><a href="#galeria">Fotos</a><a href="#noticias">Notícias</a><a href="#contato">Contato</a></nav>
     <a class="btn btn-y" href="#participe">Quero participar</a>
     <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
   </div>
-  <nav class="mm" aria-label="Menu"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação parlamentar</a><a href="#agenda">Agenda</a><a href="#galeria">Fotos</a><a href="#noticias">Notícias</a><a href="#participe">Quero participar</a></nav>
+  <nav class="mm" aria-label="Menu"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação parlamentar</a><a href="#agenda">Agenda</a><a href="#galeria">Fotos</a><a href="#noticias">Notícias</a><a href="#contato">Contato</a><a href="#participe">Quero participar</a></nav>
 </header>
 
 <main id="inicio">
@@ -367,10 +393,35 @@ footer .cp a{color:var(--amber)}
   <div class="wrap">
     <div class="tt"><h2 class="rv">Notícias</h2><p class="rv">Últimas do mandato: agenda, conquistas e prestação de contas.</p></div>
     <div class="news">
-      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#1f5fae,#12a58a)"></div><div class="bd"><span class="dt">25 NOV 2026</span><h3>Bairro Iluminado chega a mais 12 ruas</h3><p>Nova etapa do programa prioriza paradas de ônibus e entornos de escolas.</p></div></article>
-      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#f2b632,#e8913a)"></div><div class="bd"><span class="dt">18 NOV 2026</span><h3>Audiência pública debate vagas em creches</h3><p>Famílias, educadores e gestores discutiram propostas para ampliar o atendimento.</p></div></article>
-      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#0d2a4f,#1f5fae)"></div><div class="bd"><span class="dt">10 NOV 2026</span><h3>Prestação de contas do semestre</h3><p>Confira os projetos apresentados, as votações e as ações nos bairros.</p></div></article>
+      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#1f5fae,#12a58a)"></div><div class="bd"><span class="dt">25 NOV 2026</span><h3>Bairro Iluminado chega a mais 12 ruas</h3><p>Nova etapa do programa prioriza paradas de ônibus e entornos de escolas.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
+      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#f2b632,#e8913a)"></div><div class="bd"><span class="dt">18 NOV 2026</span><h3>Audiência pública debate vagas em creches</h3><p>Famílias, educadores e gestores discutiram propostas para ampliar o atendimento.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
+      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#0d2a4f,#1f5fae)"></div><div class="bd"><span class="dt">10 NOV 2026</span><h3>Prestação de contas do semestre</h3><p>Confira os projetos apresentados, as votações e as ações nos bairros.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
     </div>
+    <div class="more"><a class="btn btn-w" href="#noticias">Mais notícias →</a></div>
+  </div>
+</section>
+
+<section class="sec" id="contato" style="background:var(--sky)">
+  <div class="wrap">
+    <div class="tt"><h2 class="rv">Fale com o vereador</h2><p class="rv">A sua opinião melhora o nosso trabalho. Envie a sua ideia, sugestão ou demanda.</p></div>
+    <div class="ct">
+      <div class="cbox rv"><h3>Entre em contato</h3><p>Estamos por perto: no gabinete, nos bairros e aqui online.</p>
+        <div class="ci"><i><svg aria-hidden="true"><use href="#i-pin"/></svg></i><div><b>Endereço</b><span>Câmara Municipal · Rua Exemplo, 100 · Centro · Cidade Exemplo</span></div></div>
+        <div class="ci"><i><svg aria-hidden="true"><use href="#i-mail"/></svg></i><div><b>E-mail</b><span>gabinete@exemplo.com.br</span></div></div>
+        <div class="ci"><i><svg aria-hidden="true"><use href="#i-tel"/></svg></i><div><b>Telefone</b><span>(00) 0000-0000</span></div></div>
+      </div>
+      <form class="cbox cform rv" id="cform" novalidate>
+        <h3>Envie a sua mensagem</h3>
+        <input id="cNome" placeholder="Seu nome" autocomplete="name" aria-label="Seu nome">
+        <select id="cAss" aria-label="Assunto"><option value="">Assunto</option><option>Sugestão</option><option>Demanda do meu bairro</option><option>Convite para evento</option><option>Outro</option></select>
+        <textarea id="cMsg" placeholder="Escreva sua mensagem" aria-label="Sua mensagem"></textarea>
+        <p class="msg" id="cOut" aria-live="polite"></p>
+        <button class="btn btn-y" type="submit">Enviar mensagem</button>
+      </form>
+    </div>
+    <div class="mapa rv"><span class="lb">Gabinete · Câmara Municipal</span>
+      <svg viewBox="0 0 1000 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="1000" height="280" fill="#e9eef5"/><path d="M0 70h1000M0 190h1000M180 0v280M430 0v280M720 0v280" stroke="#fff" stroke-width="22"/><path d="M0 130 1000 230M560 0 470 280" stroke="#fff" stroke-width="12"/><rect x="200" y="85" width="210" height="85" rx="10" fill="#d4e8d8"/><rect x="740" y="210" width="240" height="60" rx="10" fill="#cfe0f5"/><g class="pin"><path d="M520 150c0-22 16-38 34-38s34 16 34 38c0 26-34 58-34 58s-34-32-34-58z" fill="#e24b3b"/><circle cx="554" cy="150" r="12" fill="#fff"/></g></svg></div>
+    <p style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:12px">No site real, aqui entra o mapa do Google com o endereço do gabinete.</p>
   </div>
 </section>
 </main>
@@ -379,14 +430,14 @@ footer .cp a{color:var(--amber)}
   <div class="wrap">
     <div class="g">
       <div><span class="logo"><span class="bx"><small>VEREADOR</small>RAFAEL EXEMPLO</span></span><p style="margin-top:14px">Gabinete na Câmara Municipal da Cidade Exemplo. Atendimento de segunda a sexta, das 9h às 18h.</p></div>
-      <div><h4>Navegação</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#atuacao">Atuação parlamentar</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#noticias">Notícias</a></li></ul></div>
+      <div><h4>Navegação</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#atuacao">Atuação parlamentar</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#noticias">Notícias</a></li><li><a href="#contato">Contato</a></li></ul></div>
       <div><h4>Contato</h4><ul><li>WhatsApp do gabinete</li><li>Instagram e Facebook</li><li>E-mail oficial</li></ul></div>
     </div>
-    <div class="cp"><span>Modelo de demonstração · personagem e dados fictícios</span><span>Desenvolvido pela <a href="https://h2d-studio.netlify.app/" target="_blank" rel="noopener">H2D Studio</a></span></div>
+    <div class="cp"><span>CNPJ 00.000.000/0001-00 (fictício) · © Vereador Rafael Exemplo · Modelo de demonstração</span><span>Desenvolvido pela <a href="https://h2d-studio.netlify.app/" target="_blank" rel="noopener">H2D Studio</a></span></div>
   </div>
 </footer>
 
-<a class="waf" href="#participe" aria-label="Falar com o gabinete"><i><svg aria-hidden="true"><use href="#wa"/></svg></i>Fale com o gabinete</a>
+<a class="waf" href="#contato" aria-label="Falar com o gabinete"><i><svg aria-hidden="true"><use href="#wa"/></svg></i>Fale com o gabinete</a>
 
 <div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popT">
   <div class="bx"><button class="x" type="button" id="popX" aria-label="Fechar">×</button>
@@ -420,6 +471,7 @@ footer .cp a{color:var(--amber)}
   $('#form').addEventListener('submit',function(e){e.preventDefault();var n=$('#fNome').value.trim(),b=$('#fBairro').value,ok=$('#fOk').checked,er=$('#fErr');
     if(!n||!b){er.textContent='Preencha o nome e o bairro.';return;} if(!ok){er.textContent='Para participar, marque a autorização.';return;}
     er.textContent='Demonstração: no site real, isto abre o WhatsApp do gabinete com a mensagem pronta.';});
+  $('#cform').addEventListener('submit',function(e){e.preventDefault();var o=$('#cOut');if(!$('#cNome').value.trim()||!$('#cMsg').value.trim()){o.textContent='Preencha o nome e a mensagem.';return;}o.textContent='Demonstração: no site real, a mensagem chega ao gabinete.';});
   /* boas-vindas */
   var pop=$('#pop'); setTimeout(function(){pop.classList.add('on');$('#popX').focus();},1400);
   function fechar(){pop.classList.remove('on');}
