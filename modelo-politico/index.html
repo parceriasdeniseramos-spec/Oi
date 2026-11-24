@@ -3,10 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modelo de site para mandato · H2D Studio</title>
-<meta name="description" content="Modelo de demonstração da H2D Studio: site institucional para vereadores e mandatos parlamentares. Personagem e dados fictícios.">
+<title>Vereador Rafael Exemplo · Modelo de site para mandatos · H2D Studio</title>
+<meta name="description" content="Modelo de demonstração da H2D Studio: plataforma institucional para vereadores, deputados e mandatos, com prestação de contas, projetos, agenda e atendimento ao cidadão. Personagem e dados fictícios.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0d2a4f">
+<meta property="og:title" content="Modelo de site para mandatos · H2D Studio">
+<meta property="og:description" content="Transparência, prestação de contas e atendimento ao cidadão num só lugar. Modelo de demonstração com personagem fictício.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/retrato.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d2a4f'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23f2b632' text-anchor='middle'%3ERE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/leaflet.css">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 @font-face{font-family:Sora;font-weight:600;font-display:swap;src:url(fonts/sora-latin-600-normal.woff2) format('woff2')}
@@ -14,167 +20,261 @@
 @font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2')}
 @font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format('woff2')}
 @font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format('woff2')}
-:root{--navy:#0d2a4f;--navy2:#143a6b;--blue:#1f5fae;--sky:#e9f1fb;--teal:#12a58a;--amber:#f2b632;--ink:#14213d;--muted:#4c5a70;--line:rgba(20,33,61,.12);--h:Sora,system-ui,sans-serif;--b:Inter,system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+/* TEMA: cada cliente recebe a sua própria paleta trocando estas variáveis */
+:root{--navy:#0d2a4f;--navy2:#143a6b;--blue:#1f5fae;--sky:#eaf1fa;--accent:#f2b632;--accent-ink:#1b1505;--teal:#12a58a;
+  --ink:#14213d;--muted:#46546a;--line:rgba(20,33,61,.12);--bg:#f6f8fb;--h:Sora,system-ui,sans-serif;--b:Inter,system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+html[data-tema="verde"]{--navy:#0f3a2e;--navy2:#165242;--blue:#1d7a5f;--sky:#e8f4ef;--accent:#e9c46a;--teal:#2a9d8f}
+html[data-tema="vinho"]{--navy:#3d1023;--navy2:#5a1a34;--blue:#8c2a4f;--sky:#f7ecef;--accent:#f0c987;--teal:#c25b7a}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:clip}
-body{font-family:var(--b);font-size:17px;line-height:1.65;color:var(--ink);background:#f7f9fc;overflow-x:clip;-webkit-font-smoothing:antialiased}
-img,svg{display:block;max-width:100%}
+body{font-family:var(--b);font-size:18px;line-height:1.65;color:var(--ink);background:var(--bg);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-button,input,select{font:inherit;color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;background:none;border:0}
-.wrap{width:min(1160px,100% - 36px);margin-inline:auto}
-section[id]{scroll-margin-top:80px}
-h1,h2,h3{font-family:var(--h);line-height:1.1;letter-spacing:-.02em}
-.sec{padding:clamp(70px,10vw,110px) 0}
-.tt{text-align:center;max-width:720px;margin:0 auto 46px}
+.wrap{width:min(1180px,100% - 36px);margin-inline:auto}
+section[id]{scroll-margin-top:78px}
+h1,h2,h3,h4{font-family:var(--h);line-height:1.12;letter-spacing:-.02em}
+.sec{padding:clamp(72px,10vw,112px) 0}
+.alt{background:#fff}
+.tt{max-width:760px;margin:0 auto 42px;text-align:center}
+.tt .k{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
 .tt h2{font-size:clamp(2rem,4.4vw,3rem)}
-.tt h2::after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin:16px auto 0;background:linear-gradient(90deg,var(--blue),var(--teal),var(--amber))}
-.tt p{color:var(--muted);margin-top:14px;font-size:1.05rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:999px;font-family:var(--h);font-weight:600;font-size:.98rem;transition:transform .25s var(--ease),box-shadow .25s,background .25s}
+.tt h2::after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin:16px auto 0;background:linear-gradient(90deg,var(--blue),var(--accent))}
+.tt p{color:var(--muted);margin-top:14px}
+.demo-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#fff4d6;color:#7a5600;font-size:.74rem;font-weight:600;letter-spacing:.04em;border:1px solid #f0d28a}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:13px 24px;border-radius:999px;font-family:var(--h);font-weight:600;font-size:.98rem;transition:transform .25s var(--ease),background .25s,box-shadow .25s;text-align:center}
 .btn:hover{transform:translateY(-2px)}
-.btn svg{width:20px;height:20px}
-.btn-y{background:var(--amber);color:#1b1505;box-shadow:0 12px 26px -12px rgba(242,182,50,.8)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-a{background:var(--accent);color:var(--accent-ink);box-shadow:0 12px 26px -14px rgba(0,0,0,.5)}
+.btn-n{background:var(--navy);color:#fff}
 .btn-w{background:#fff;color:var(--navy);border:1px solid var(--line)}
-.btn-o{border:1.5px solid rgba(255,255,255,.6);color:#fff}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
-.demo{background:#1b1505;color:#f8e7b8;text-align:center;font-size:.82rem;padding:8px 14px;letter-spacing:.04em}
-.demo b{color:var(--amber)}
+.btn-o{border:1.5px solid rgba(255,255,255,.65);color:#fff}
+.btn-s{min-height:44px;padding:9px 16px;font-size:.88rem}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,label[tabindex]:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;transition:top .2s}.skip:focus{top:12px}
+
+/* faixa de demonstração com troca de cores */
+.demo{background:#1b1505;color:#f8e7b8;font-size:.84rem;padding:8px 0}
+.demo .wrap{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 16px;text-align:center}
+.demo b{color:#f2b632}
+.temas{display:inline-flex;align-items:center;gap:6px}
+.temas button{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,.4)}
+.temas button[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px #f2b632}
 
 /* cabeçalho */
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:72px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo .bx{position:relative;padding:6px 14px 7px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-family:var(--h);font-weight:700;font-size:1.25rem;letter-spacing:.02em;line-height:1}
-.logo .bx small{display:block;font-size:.55rem;letter-spacing:.22em;color:var(--amber);margin-bottom:3px}
-.logo .bx::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--amber))}
-.menu{display:flex;gap:24px;font-weight:500;font-size:.95rem;color:var(--muted)}
+.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:74px}
+.logo{display:flex;align-items:center;gap:12px;line-height:1.1}
+.logo .mk{position:relative;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--blue));display:grid;place-items:center;color:var(--accent);font-family:var(--h);font-weight:700;font-size:1.05rem;flex:none}
+.logo .mk::after{content:"";position:absolute;left:9px;right:9px;bottom:6px;height:3px;border-radius:3px;background:var(--accent)}
+.logo b{display:block;font-family:var(--h);font-size:1.1rem;color:var(--navy)}
+.logo small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.menu{display:flex;gap:18px;font-weight:500;font-size:.92rem;color:var(--muted);white-space:nowrap}
+.nav .wrap>.btn{white-space:nowrap}
+.logo small{white-space:nowrap}
+@media(max-width:360px){.logo small{letter-spacing:.06em;font-size:.66rem}.logo{gap:8px}.logo .mk{width:40px;height:40px}}
+.menu a{padding:6px 0;position:relative}
 .menu a:hover{color:var(--navy)}
-.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);place-items:center}
+.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--accent);transition:right .3s var(--ease)}
+.menu a:hover::after{right:0}
+.burger{display:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);place-items:center}
 .burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;border-radius:2px;background:var(--navy);position:relative;transition:.3s}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0}
-.burger span::before{top:-6px}.burger span::after{top:6px}
-.open .burger span{background:transparent}.open .burger span::before{transform:translateY(6px) rotate(45deg)}.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
-.mm{position:fixed;inset:72px 0 0;z-index:45;background:#fff;padding:20px 22px;display:none;flex-direction:column}
-.open .mm{display:flex}
-.mm a{font-family:var(--h);font-weight:600;font-size:1.3rem;padding:14px 0;border-bottom:1px solid var(--line)}
-@media(max-width:960px){.menu{display:none}.burger{display:grid}.nav .btn{display:none}}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}.nav.open .burger span::before{transform:translateY(6px) rotate(45deg)}.nav.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.mm{position:fixed;inset:74px 0 0;background:#fff;padding:12px 22px 30px;display:none;flex-direction:column;overflow:auto}
+.nav.open .mm{display:flex}
+.mm a{font-family:var(--h);font-weight:600;font-size:1.25rem;padding:14px 0;border-bottom:1px solid var(--line)}
+.mm .btn{margin-top:20px}
+@media(max-width:1360px){.menu{display:none}.burger{display:grid}.nav .wrap>.btn{display:none}}
 
-/* abertura em carrossel */
+/* primeira dobra */
 .hero{position:relative;background:var(--navy);color:#fff;overflow:hidden}
-.slides{position:relative;height:clamp(520px,62vw,600px)}
-.slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:0 max(18px,calc((100% - 1160px)/2));opacity:0;visibility:hidden;transition:opacity .8s,visibility 0s .8s}
+.slides{position:relative;min-height:clamp(600px,60vw,680px)}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:40px max(18px,calc((100% - 1180px)/2)) 110px;opacity:0;visibility:hidden;transition:opacity .8s,visibility 0s .8s}
 .slide.on{opacity:1;visibility:visible;transition:opacity .8s}
 .slide .tx{position:relative;z-index:2}
-.slide .k{display:inline-block;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
-.slide h1,.slide h2{font-size:clamp(2.3rem,5.2vw,4rem);margin:18px 0 16px;text-transform:uppercase}
-.slide h1 em,.slide h2 em{font-style:normal;color:var(--amber)}
-.slide p{color:#d5e1f2;max-width:520px;font-size:1.08rem}
+.slide .k{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.slide .nm{display:block;margin-top:20px;font-family:var(--h);font-weight:600;font-size:1.05rem;color:#dbe6f6}
+.slide h1,.slide h2{font-size:clamp(2.1rem,4.2vw,3.3rem);margin:8px 0 16px;text-wrap:balance}
+.slide h1 em,.slide h2 em{font-style:normal;color:var(--accent)}
+.slide p{color:#d7e2f3;max-width:540px;font-size:1.1rem}
 .slide .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.slide .art{position:relative;height:100%;display:grid;place-items:end center}
-.slide .art svg{height:92%;width:auto}
-.slide.on .art svg{animation:rise 1s var(--ease) both}
-@keyframes rise{from{opacity:0;transform:translateY(30px)}}
-.hero .pat{position:absolute;left:0;right:0;bottom:0;height:16px;z-index:3;background:repeating-linear-gradient(90deg,var(--teal) 0 32px,var(--amber) 32px 64px,#fff 64px 96px,var(--blue) 96px 128px)}
-.dots{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;gap:8px}
-.dots button{width:32px;height:5px;border-radius:5px;background:rgba(255,255,255,.35)}
-.dots button[aria-current="true"]{background:#fff}
-.arr{position:absolute;top:50%;z-index:4;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;transform:translateY(-50%)}
-.arr.l{left:14px}.arr.r{right:14px}
-@media(max-width:820px){.slide{grid-template-columns:1fr;align-content:start;padding-top:34px}.slide .art{position:absolute;right:-10%;bottom:16px;height:56%;opacity:.95;z-index:1}.slide .tx{max-width:78%}.slide p{font-size:1rem}.arr{display:none}}
-@media(max-width:480px){.slide .tx{max-width:100%}.slide .art{height:44%;right:-18%}.slide p{max-width:68%}}
+.slide .art{position:relative;height:100%;display:grid;place-items:center}
+.slide .art .fr{position:relative;width:min(420px,90%);aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:6px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);background:#fff}
+.slide .art img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.slide.on .art .fr{animation:rise 1s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+.hero .pat{position:absolute;left:0;right:0;bottom:0;height:12px;z-index:3;background:repeating-linear-gradient(90deg,var(--accent) 0 40px,#fff 40px 80px,var(--blue) 80px 120px)}
+.hctl{position:absolute;left:0;right:0;bottom:30px;z-index:4;display:flex;justify-content:center;align-items:center;gap:10px}
+.hctl .dots{display:flex;gap:8px}
+.hctl .dots button{width:30px;height:24px;display:grid;place-items:center}
+.hctl .dots button::before{content:"";width:30px;height:5px;border-radius:5px;background:rgba(255,255,255,.35)}
+.hctl .dots button[aria-current="true"]::before{background:#fff}
+.hctl .pp,.hctl .ar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;font-size:1rem}
+@media(max-width:860px){.slide{grid-template-columns:1fr;align-content:end;padding-bottom:90px}.slide .art{position:absolute;inset:0;z-index:0}.slide .art .fr{width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;animation:none!important}.slide .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,40,.35),rgba(8,20,40,.92) 62%)}.slides{min-height:640px}.slide p{font-size:1.02rem}.slide .btns .btn{flex:1 1 220px}}
 
-/* pilares */
-.pil{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:-60px;position:relative;z-index:5}
-.pc{background:#fff;border-radius:22px;padding:30px 26px;box-shadow:0 24px 50px -30px rgba(13,42,79,.45);border:1px solid var(--line);transition:transform .3s var(--ease)}
-.pc:hover{transform:translateY(-6px)}
-.pc i{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--sky);color:var(--navy);margin-bottom:18px}
-.pc i svg{width:28px;height:28px}
-.pc h3{font-size:1.3rem;margin-bottom:8px}
-.pc p{color:var(--muted);font-size:.98rem}
-@media(max-width:860px){.pil{grid-template-columns:1fr;margin-top:-40px}}
+/* áreas */
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ar-card{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;background:#fff;border-radius:20px;padding:24px;border:1px solid var(--line);transition:transform .3s var(--ease),box-shadow .3s}
+.ar-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -28px rgba(13,42,79,.5)}
+.ar-card i{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--sky);color:var(--blue)}
+.ar-card i svg{width:28px;height:28px}
+.ar-card h3{font-size:1.2rem;margin-bottom:4px}
+.ar-card p{color:var(--muted);font-size:.98rem}
+.ar-note{text-align:center;margin-top:20px;color:var(--muted);font-size:.92rem}
+.ar-note span{display:inline-block;margin:4px 3px 0;padding:4px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.84rem}
+@media(max-width:960px){.areas{grid-template-columns:1fr 1fr}}@media(max-width:620px){.areas{grid-template-columns:1fr}}
 
-/* sobre + números */
-.about{background:var(--sky)}
-.about .in{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,70px);align-items:center}
-.about .ph{border-radius:26px;overflow:hidden;background:linear-gradient(160deg,var(--blue),var(--navy));aspect-ratio:4/4.4;display:grid;place-items:end center;position:relative}
-.about .ph::before{content:"";position:absolute;inset:18px;border:2px solid rgba(255,255,255,.18);border-radius:18px}
-.about .ph svg{width:82%}
+/* sobre */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,70px);align-items:center}
+.about .ph{border-radius:26px;overflow:hidden;aspect-ratio:4/4.6;background:#fff;box-shadow:0 30px 60px -36px rgba(13,42,79,.6)}
+.about .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
 .about h2{font-size:clamp(2rem,4vw,2.8rem)}
-.about p{color:var(--muted);margin-top:16px}
-.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
-.num{background:#fff;border-radius:18px;padding:18px;border:1px solid var(--line)}
-.num b{display:block;font-family:var(--h);font-size:2rem;color:var(--blue);line-height:1}
-.num span{font-size:.88rem;color:var(--muted)}
-@media(max-width:860px){.about .in{grid-template-columns:1fr}.about .ph{max-width:420px;width:100%;margin-inline:auto}}
-@media(max-width:420px){.nums{grid-template-columns:1fr 1fr}.num:last-child{grid-column:1/-1}}
+.about .lead{color:var(--muted);margin-top:14px}
+.bio{margin-top:22px;display:grid;gap:10px}
+.bio details{background:#fff;border:1px solid var(--line);border-radius:16px}
+.bio summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;font-family:var(--h);font-weight:600}
+.bio summary::-webkit-details-marker{display:none}
+.bio summary::after{content:"+";font-size:1.3rem;color:var(--blue);transition:transform .3s}
+.bio details[open] summary::after{transform:rotate(45deg)}
+.bio details p,.bio details ul{padding:0 18px 16px;color:var(--muted);font-size:.98rem}
+.bio ul{list-style:none;display:grid;gap:6px}
+.bio li::before{content:"• ";color:var(--accent)}
+.vals{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.vals span{padding:7px 14px;border-radius:999px;background:var(--sky);color:var(--navy);font-weight:600;font-size:.88rem}
+@media(max-width:880px){.about{grid-template-columns:1fr}.about .ph{max-width:420px;width:100%;margin-inline:auto}}
 
-/* mandato em ação */
-.acao{display:grid;grid-template-columns:1fr 1fr;border-radius:28px;overflow:hidden;background:linear-gradient(140deg,var(--navy2),var(--navy));color:#fff}
-.acao .vd{position:relative;min-height:340px;background:radial-gradient(60% 60% at 30% 30%,rgba(18,165,138,.55),transparent 70%),radial-gradient(60% 60% at 80% 80%,rgba(242,182,50,.45),transparent 70%),#0a2140;display:grid;place-items:center}
-.acao .vd button{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.6);display:grid;place-items:center;color:#fff;animation:pul 2.4s infinite}
+/* vídeo */
+.video{display:grid;grid-template-columns:1.1fr .9fr;border-radius:28px;overflow:hidden;background:linear-gradient(140deg,var(--navy2),var(--navy));color:#fff}
+.vd{position:relative;min-height:360px;background:#0a1830}
+.vd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.vd button.play{position:absolute;inset:0;display:grid;place-items:center;color:#fff}
+.vd button.play span{width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.7);display:grid;place-items:center;animation:pul 2.4s infinite}
 @keyframes pul{0%{box-shadow:0 0 0 0 rgba(255,255,255,.35)}70%{box-shadow:0 0 0 24px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
-.acao .vd small{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#cfe0f5;font-size:.86rem}
-.acao .tx{padding:clamp(30px,5vw,54px)}
-.acao h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
-.acao .lead{font-style:italic;color:#d5e1f2;margin:14px 0 20px}
-.acao ul{list-style:none;display:grid;gap:12px}
-.acao li{display:grid;grid-template-columns:24px 1fr;gap:10px;color:#e6eef9}
-.acao li::before{content:"✓";width:22px;height:22px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:.75rem;margin-top:3px}
-.acao li b{color:#fff}
-@media(max-width:860px){.acao{grid-template-columns:1fr}.acao .vd{min-height:240px}}
+.vd .cap{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;font-size:.86rem;color:#dbe6f6;text-align:center}
+.vd iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .tx{padding:clamp(28px,5vw,52px)}
+.video h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.video p{color:#d7e2f3;margin:12px 0 18px}
+.video ul{list-style:none;display:grid;gap:10px}
+.video li{display:grid;grid-template-columns:26px 1fr;gap:10px;color:#e8eef8}
+.video li::before{content:"✓";width:24px;height:24px;border-radius:50%;border:1.5px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-size:.78rem;margin-top:3px}
+@media(max-width:880px){.video{grid-template-columns:1fr}.vd{min-height:240px}}
 
-/* atuação parlamentar */
-.atu{background:linear-gradient(180deg,var(--navy),var(--navy2));color:#fff}
-.atu .tt p{color:#cfe0f5}
-.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:8px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);max-width:820px;margin:0 auto 26px}
-.tab{flex:1 1 180px;min-height:48px;padding:10px 16px;border-radius:14px;font-family:var(--h);font-weight:600;font-size:.92rem;color:#cfe0f5}
-.tab[aria-selected="true"]{background:var(--amber);color:#1b1505}
-.panel{max-width:820px;margin:0 auto;display:grid;gap:12px}
-.panel[hidden]{display:none}
-.it{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:20px 22px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);animation:up .5s var(--ease) both}
-.it .st{padding:5px 11px;border-radius:999px;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.st.ok{background:rgba(18,165,138,.2);color:#6ee3c9}.st.and{background:rgba(242,182,50,.18);color:var(--amber)}.st.fr{background:rgba(255,255,255,.14);color:#fff}
-.it h3{font-size:1.08rem;margin-bottom:4px}
-.it p{color:#cfe0f5;font-size:.94rem}
-@keyframes up{from{opacity:0;transform:translateY(12px)}}
-@media(max-width:560px){.it{grid-template-columns:1fr;gap:8px}.it .st{justify-self:start}}
+/* projetos e leis */
+.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.filters label{display:grid;gap:4px;font-size:.82rem;font-weight:600;color:var(--muted)}
+.filters select{min-height:48px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:.95rem;color:var(--ink)}
+.cnt{font-size:.92rem;color:var(--muted);margin-bottom:12px}
+.plist{display:grid;gap:10px}
+.pj{display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.pj .meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.82rem;color:var(--muted);margin-bottom:6px}
+.pj .meta b{color:var(--blue)}
+.pj h3{font-size:1.08rem;margin-bottom:4px}
+.pj p{color:var(--muted);font-size:.95rem}
+.pj .doc{grid-column:1/-1;justify-self:start;font-weight:600;font-size:.9rem;color:var(--blue);text-decoration:underline;text-underline-offset:3px;min-height:36px}
+.st{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.st.aprovado,.st.concluida{background:#e3f5ee;color:#0d7a5b}.st.tramitacao,.st.andamento{background:#fff4d6;color:#8a6100}
+.st.apresentado,.st.aberta{background:#e6eefb;color:#1f4f99}.st.arquivado{background:#eef0f3;color:#55606e}.st.rejeitado{background:#fde8e6;color:#a3342a}.st.respondida{background:#efe8fb;color:#5b3aa3}
+.empty{padding:26px;text-align:center;color:var(--muted);background:#fff;border-radius:18px;border:1px dashed var(--line)}
+.filters.f3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.filters select{width:100%;min-width:0}
+@media(max-width:860px){.filters,.filters.f3{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:420px){.filters,.filters.f3{grid-template-columns:minmax(0,1fr)}}@media(max-width:560px){.pj{grid-template-columns:1fr}}
+
+/* prestação de contas */
+.pc-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.seg button{min-height:40px;padding:6px 16px;border-radius:999px;font-weight:600;font-size:.9rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+.kpi b{display:block;font-family:var(--h);font-size:2.2rem;line-height:1;color:var(--blue)}
+.kpi span{display:block;margin-top:8px;font-size:.9rem;color:var(--muted)}
+.rel{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rel a{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;font-weight:600;font-size:.95rem}
+.rel a i{width:40px;height:40px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-style:normal;flex:none}
+.pc-note{margin-top:16px;font-size:.88rem;color:var(--muted)}
+@media(max-width:860px){.kpis{grid-template-columns:1fr 1fr}.rel{grid-template-columns:1fr}}
+
+/* fiscalização */
+.fz{display:grid;gap:10px}
+.fzi{background:#fff;border:1px solid var(--line);border-radius:18px}
+.fzi summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:8px 16px;align-items:center;padding:18px 20px}
+.fzi summary::-webkit-details-marker{display:none}
+.fzi h3{font-size:1.05rem}
+.fzi .meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.84rem;color:var(--muted)}
+.tl{list-style:none;margin:0 20px 18px;padding-left:18px;border-left:2px solid var(--sky);display:grid;gap:12px}
+.tl li{position:relative;font-size:.94rem;color:var(--muted)}
+.tl li::before{content:"";position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:2px solid #fff}
+.tl li b{display:block;color:var(--ink);font-size:.86rem}
+.fz-proto{margin:0 20px 18px;font-size:.86rem;color:var(--muted)}
+
+/* mapa */
+.mapwrap{display:grid;grid-template-columns:280px 1fr;gap:16px}
+.mapside{display:grid;gap:10px;align-content:start}
+.mapside button{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:48px;padding:10px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:.94rem;text-align:left}
+.mapside button[aria-pressed="true"]{border-color:var(--blue);background:var(--sky);color:var(--navy)}
+.mapside button i{font-style:normal;font-size:.8rem;padding:2px 9px;border-radius:999px;background:var(--navy);color:#fff}
+#mapa{height:460px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#e9eef5;z-index:1}
+.map-fb{display:grid;place-items:center;height:100%;padding:20px;text-align:center;color:var(--muted)}
+.leaflet-popup-content{font-family:var(--b);font-size:.92rem}
+.leaflet-popup-content b{font-family:var(--h)}
+@media(max-width:860px){.mapwrap{grid-template-columns:minmax(0,1fr)}.mapside{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}#mapa{height:380px}}
 
 /* agenda */
-.ag{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.ev{display:grid;grid-template-columns:72px 1fr;gap:16px;background:#fff;border-radius:20px;padding:20px;border:1px solid var(--line)}
-.ev .d{border-radius:14px;background:var(--navy);color:#fff;text-align:center;padding:10px 0;font-family:var(--h)}
-.ev .d b{display:block;font-size:1.7rem;line-height:1}
-.ev .d span{font-size:.72rem;letter-spacing:.16em;color:var(--amber)}
-.ev h3{font-size:1.05rem;margin-bottom:4px}
-.ev p{font-size:.9rem;color:var(--muted)}
-@media(max-width:900px){.ag{grid-template-columns:1fr}}
+.agenda{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px}
+.cal{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;min-width:0}
+@media(max-width:420px){.cal{padding:14px}.cal-g .d{font-size:.84rem;border-radius:9px}}
+.cal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cal-h h3{font-size:1.15rem}
+.cal-h button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);font-size:1.1rem}
+.cal-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.cal-g .dw{font-size:.76rem;font-weight:600;color:var(--muted);padding:4px 0}
+.cal-g .d{position:relative;width:100%;padding:0;aspect-ratio:1;display:grid;place-items:center;border-radius:12px;font-size:.92rem}
+.cal-g .d.ev{background:var(--sky);color:var(--navy);font-weight:700;cursor:pointer}
+.cal-g .d.ev::after{content:"";position:absolute;bottom:6px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.cal-g .d.sel{background:var(--navy);color:#fff}
+.evl{display:grid;gap:10px;align-content:start}
+.ev{display:grid;grid-template-columns:72px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-align:left;width:100%}
+.ev .dt{border-radius:14px;background:var(--navy);color:#fff;text-align:center;padding:10px 0;font-family:var(--h);height:max-content}
+.ev .dt b{display:block;font-size:1.6rem;line-height:1}.ev .dt span{font-size:.72rem;letter-spacing:.14em;color:var(--accent)}
+.ev h4{font-size:1.02rem;margin-bottom:2px}.ev p{font-size:.9rem;color:var(--muted)}
+@media(max-width:860px){.agenda{grid-template-columns:minmax(0,1fr)}}
 
-/* junte-se */
-.join{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center;border-radius:28px;padding:clamp(28px,5vw,56px);background:linear-gradient(140deg,var(--blue),var(--navy));color:#fff;overflow:hidden;position:relative}
-.join .ph{position:relative;aspect-ratio:1;max-width:360px;width:100%;margin-inline:auto}
-.join .ph::before,.join .ph::after{content:"";position:absolute;inset:0;border-radius:20px;background:rgba(255,255,255,.14);transform:rotate(-6deg)}
-.join .ph::after{transform:rotate(5deg);background:rgba(255,255,255,.22)}
-.join .ph div{position:absolute;inset:6%;z-index:2;border-radius:16px;background:#dfe8f4;display:grid;place-items:end center;overflow:hidden}
-.join h2{font-size:clamp(2rem,4vw,2.8rem)}
-.join h2 em{font-style:normal;color:var(--amber)}
-.join p{color:#d5e1f2;margin:12px 0 22px}
+/* participação e formulários */
+.join{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center;border-radius:28px;padding:clamp(26px,5vw,54px);background:linear-gradient(140deg,var(--blue),var(--navy));color:#fff}
+.join .ph{aspect-ratio:1;max-width:380px;width:100%;margin-inline:auto;border-radius:22px;overflow:hidden;border:6px solid rgba(255,255,255,.15)}
+.join .ph img{width:100%;height:100%;object-fit:cover}
+.join h2{font-size:clamp(2rem,4vw,2.7rem)}.join h2 em{font-style:normal;color:var(--accent)}
+.join>div>p{color:#d7e2f3;margin:10px 0 20px}
 .form{display:grid;gap:12px}
-.form label{display:grid;gap:6px;font-size:.88rem;font-weight:500;color:#e6eef9}
-.form input,.form select{min-height:50px;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff}
-.form select option{color:var(--ink)}
-.form input::placeholder{color:#a9bfdd}
-.form .ck{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-weight:400;font-size:.86rem;color:#d5e1f2}
-.form .ck input{min-height:0;width:20px;height:20px;margin-top:2px;accent-color:var(--amber)}
-.form .err{min-height:1.2em;color:#ffd27a;font-size:.88rem}
-@media(max-width:860px){.join{grid-template-columns:1fr}.join .ph{max-width:260px}}
+.form label{display:grid;gap:6px;font-size:.92rem;font-weight:600}
+.form input,.form select,.form textarea{width:100%;min-height:52px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:1rem;font-weight:400}
+.form textarea{min-height:130px;resize:vertical}
+.join .form input,.join .form select{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff}
+.join .form select option{color:var(--ink)}
+.join .form input::placeholder{color:#b9cbe4}
+.ck{display:grid!important;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-weight:400!important;font-size:.88rem!important}
+.ck input{width:20px!important;height:20px;min-height:0!important;margin-top:2px;accent-color:var(--accent)}
+.ck a{text-decoration:underline}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.fmsg{min-height:1.4em;font-size:.92rem}
+.fmsg.err{color:#ffd27a}.cbox .fmsg.err,.dlg .fmsg.err{color:#a3342a}.fmsg.ok{color:#9ff0cf}.cbox .fmsg.ok,.dlg .fmsg.ok{color:#0d7a5b}
+@media(max-width:880px){.join{grid-template-columns:1fr}.join .ph{max-width:280px}}
 
-/* álbum */
-.album{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:190px;gap:12px}
-.ft{position:relative;border-radius:18px;overflow:hidden;display:grid;align-items:end;padding:16px;color:#fff;font-family:var(--h);font-weight:600;font-size:.98rem}
-.ft::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,25,48,.75))}
-.ft span{position:relative;z-index:2}
-.ft svg{position:absolute;inset:0;width:100%;height:100%;transition:transform 1s var(--ease)}
-.ft:hover svg{transform:scale(1.06)}
+/* galeria */
+.gf{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px}
+.gf button{min-height:42px;padding:8px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:.9rem}
+.gf button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.album{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:200px;gap:12px}
+.ft{position:relative;border-radius:18px;overflow:hidden;color:#fff;text-align:left}
+.ft[hidden]{display:none}
+.ft img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.ft:hover img{transform:scale(1.06)}
+.ft::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,20,40,.8))}
+.ft span{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;font-family:var(--h);font-weight:600;font-size:.95rem}
 .ft.w{grid-column:span 2}.ft.t{grid-row:span 2}
 @media(max-width:860px){.album{grid-template-columns:1fr 1fr;grid-auto-rows:150px}}
 
@@ -182,262 +282,319 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .news{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .nw{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s}
 .nw:hover{transform:translateY(-5px);box-shadow:0 24px 40px -28px rgba(13,42,79,.5)}
-.nw .im{height:170px}
-.nw .bd{padding:20px 22px;flex:1;display:flex;flex-direction:column}
+.nw .im{height:180px;overflow:hidden}.nw .im img{width:100%;height:100%;object-fit:cover}
+.nw .bd{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
 .nw .dt{font-size:.8rem;color:var(--blue);font-weight:600;letter-spacing:.04em}
 .nw h3{font-size:1.12rem;margin:8px 0;line-height:1.3}
-.nw p{color:var(--muted);font-size:.92rem;flex:1}
+.nw p{color:var(--muted);font-size:.94rem;flex:1}
+.nw .lm{margin-top:12px;font-weight:600;color:var(--blue);font-size:.94rem;align-self:start;min-height:36px}
 @media(max-width:900px){.news{grid-template-columns:1fr}}
-
 
 /* contato */
 .ct{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.cbox{background:#fff;border-radius:24px;padding:clamp(24px,4vw,36px);border:1px solid var(--line)}
-.cbox h3{font-size:1.5rem;color:var(--blue);margin-bottom:8px}
-.cbox>p{color:var(--muted);margin-bottom:18px}
-.ci{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;padding:14px;border-radius:16px;background:var(--sky);margin-bottom:10px}
-.ci i{width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;color:var(--blue);font-style:normal}
-.ci i svg{width:24px;height:24px}
-.ci b{display:block;font-family:var(--h);font-size:.95rem}
-.ci span{color:var(--muted);font-size:.92rem}
-.cform{display:grid;gap:12px}
-.cform input,.cform textarea,.cform select{width:100%;min-height:52px;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:#f7f9fc}
-.cform textarea{min-height:140px;resize:vertical;font-family:var(--b);font-size:1rem}
-.cform .msg{min-height:1.2em;font-size:.9rem;color:var(--blue)}
-.mapa{margin-top:18px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#e9eef5;position:relative;height:280px}
-.mapa svg{width:100%;height:100%}
-.mapa .lb{position:absolute;left:16px;top:16px;padding:8px 14px;border-radius:12px;background:#fff;font-weight:600;font-size:.9rem;color:var(--blue);box-shadow:0 8px 20px -12px rgba(0,0,0,.4)}
-.pin{animation:pin 1.8s ease-in-out infinite}
-@keyframes pin{50%{transform:translateY(-8px)}}
-.more{display:flex;justify-content:center;margin-top:26px}
-.nw a.lm{margin-top:12px;font-weight:600;color:var(--blue);font-size:.92rem}
-@media(max-width:860px){.ct{grid-template-columns:1fr}}
+.cbox{background:#fff;border-radius:24px;padding:clamp(22px,4vw,34px);border:1px solid var(--line)}
+.cbox h3{font-size:1.4rem;color:var(--navy);margin-bottom:8px}
+.cbox>p{color:var(--muted);margin-bottom:16px}
+.ci{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--sky);margin-bottom:10px}
+.ci i{width:48px;height:48px;border-radius:14px;background:#fff;display:grid;place-items:center;color:var(--blue);font-style:normal}
+.ci i svg{width:22px;height:22px}
+.ci b{display:block;font-family:var(--h);font-size:.92rem}.ci span{color:var(--muted);font-size:.94rem}
+.map2{margin-top:18px;border-radius:24px;overflow:hidden;border:1px solid var(--line);height:300px;background:#e9eef5}
+.map2 iframe{width:100%;height:100%;border:0}
+@media(max-width:860px){.ct{grid-template-columns:minmax(0,1fr)}}
 
-.slide .art .fr{position:relative;width:min(400px,88%);aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:6px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);background:#fff;margin-bottom:46px}
-.slide .art .fr img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.slide.on .art .fr{animation:rise 1s var(--ease) both}
-.about .ph img,.join .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
-.about .ph{background:#fff}
-.acao .vd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.acao .vd button,.acao .vd small{z-index:2}
-.ft img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.ft:hover img{transform:scale(1.06)}
-.nw .im img{width:100%;height:100%;object-fit:cover}
-@media(max-width:820px){.slide .art{display:block;position:absolute;inset:0;height:auto;right:0;bottom:0;opacity:1;z-index:0}.slide .art .fr{width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:0;margin:0;box-shadow:none;animation:none!important}.slide .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,42,79,.72),rgba(13,42,79,.92))}.slide .tx{max-width:100%}.slide p{max-width:100%}.hero .slides{height:560px}}
 /* rodapé */
-footer{background:var(--navy);color:#cfe0f5;padding:54px 0 34px;font-size:.94rem}
-footer .g{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
-footer h4{font-family:var(--h);color:#fff;margin-bottom:12px}
+footer{background:var(--navy);color:#cfdcef;padding:56px 0 30px;font-size:.95rem}
+footer .g{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:28px}
+footer h4{color:#fff;margin-bottom:12px;font-size:1rem}
 footer ul{list-style:none;display:grid;gap:8px}
-footer .cp{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:.85rem}
-footer .cp a{color:var(--amber)}
-@media(max-width:760px){footer .g{grid-template-columns:1fr}}
+footer a:hover,footer button:hover{color:#fff}
+footer .logo b{color:#fff}footer .logo small{color:#9fb3cf}
+footer .leg{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:.84rem;color:#a9bad3;display:grid;gap:6px}
+footer .leg a{color:var(--accent)}
+@media(max-width:860px){footer .g{grid-template-columns:1fr 1fr}}@media(max-width:520px){footer .g{grid-template-columns:1fr}}
 
-/* flutuante e boas-vindas */
-.waf{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:8px;padding:6px 16px 6px 6px;border-radius:999px;background:var(--navy);color:#fff;border:2px solid #fff;box-shadow:0 14px 30px -14px rgba(0,0,0,.6);font-family:var(--h);font-weight:600;font-size:.9rem}
-.waf i{width:42px;height:42px;border-radius:50%;background:#25d366;display:grid;place-items:center}
-.waf i svg{width:22px;height:22px;fill:#fff}
-.pop{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px;background:rgba(8,20,40,.6);animation:popin .4s 1.2s both}
+/* atendimento flutuante */
+.atb{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:8px;padding:6px 18px 6px 6px;border-radius:999px;background:var(--navy);color:#fff;border:2px solid #fff;box-shadow:0 14px 30px -14px rgba(0,0,0,.6);font-family:var(--h);font-weight:600;font-size:.92rem}
+.atb i{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.atb i svg{width:22px;height:22px}
+@media(max-width:520px){.atb span{display:none}.atb{padding:6px}}
+
+/* painéis (modais) */
+.ov{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:14px;background:rgba(8,20,40,.62);opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.ov[hidden]{display:none}
+.ov.on{opacity:1;visibility:visible;transition:opacity .3s}
+.dlg{position:relative;width:min(560px,100%);max-height:calc(100svh - 28px);overflow:auto;background:#fff;border-radius:24px;padding:28px 24px;transform:translateY(16px);transition:transform .35s var(--ease)}
+.ov.on .dlg{transform:none}
+.dlg.wide{width:min(820px,100%)}
+.dlg .x{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;background:var(--sky);font-size:1.4rem;margin:-10px -8px 0 0;z-index:2}
+.dlg h2{font-size:1.6rem;margin:4px 0 10px}
+.dlg .k{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.dlg p{color:var(--muted);margin-bottom:12px}
+.art-img{width:100%;max-height:340px;object-fit:cover;border-radius:16px;margin:12px 0 18px}
+.share{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.tops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
+.tops button{min-height:52px;padding:8px 10px;border-radius:14px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:.9rem}
+.tops button[aria-pressed="true"]{border-color:var(--blue);background:var(--sky);color:var(--navy)}
+.warn{padding:12px 14px;border-radius:14px;background:#fff4d6;border:1px solid #f0d28a;font-size:.88rem;color:#5e4500!important;margin:10px 0}
+.hours{font-size:.88rem;color:var(--muted);margin-top:8px}
+@media(max-width:520px){.tops{grid-template-columns:1fr 1fr}}
+.lb .dlg{background:#0b1626;color:#fff;width:min(1000px,100%);padding:16px}
+.lb img{width:100%;max-height:72svh;object-fit:contain;border-radius:12px}
+.lb .cap{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
+.lb .cap button{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.2rem}
+.lb .x{background:rgba(255,255,255,.14);color:#fff}
+
+/* convite de boas-vindas */
+.popc{display:none}
+.pop{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:16px;background:rgba(8,20,40,.6);animation:popin .4s 1.4s both}
 @keyframes popin{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
 .popc:checked+.pop,html:has(#participe:target) .pop{display:none}
-.pop .x{display:grid;place-items:center;cursor:pointer}
-.pop .bx{position:relative;width:min(460px,100%);border-radius:24px;padding:34px 28px 28px;background:linear-gradient(160deg,var(--blue),var(--navy));color:#fff;border-top:5px solid var(--amber);transform:translateY(20px) scale(.97);transition:transform .45s var(--ease)}
-.pop .bx{animation:popbx .45s 1.2s both}
+.pop .bx{position:relative;width:min(460px,100%);border-radius:24px;padding:34px 26px 26px;background:linear-gradient(160deg,var(--blue),var(--navy));color:#fff;border-top:5px solid var(--accent);animation:popbx .45s 1.4s both}
 @keyframes popbx{from{transform:translateY(20px) scale(.97)}}
-.pop .x{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;color:#fff;font-size:1.5rem}
-.pop .k{display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
-.pop h2{font-size:1.9rem;margin:14px 0 16px}
-.pop h2 em{font-style:normal;color:var(--amber)}
-.pop .cv{border-radius:16px;background:var(--amber);color:#1b1505;padding:16px 18px;font-family:var(--h);font-weight:700;line-height:1.3;margin-bottom:18px}
-.pop .cv small{display:block;font-family:var(--b);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;opacity:.8}
+.pop .x{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;color:#fff;font-size:1.5rem;display:grid;place-items:center;cursor:pointer}
+.pop .kk{display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.pop h2{font-size:1.8rem;margin:14px 0 14px}.pop h2 em{font-style:normal;color:var(--accent)}
+.pop .cv{border-radius:16px;background:var(--accent);color:var(--accent-ink);padding:16px 18px;font-family:var(--h);font-weight:700;line-height:1.3;margin-bottom:16px}
+.pop .cv small{display:block;font-family:var(--b);font-weight:600;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;opacity:.8}
+.pop .btn{width:100%}
 
-.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);z-index:130;max-width:calc(100% - 32px);background:var(--navy);color:#fff;padding:12px 18px;border-radius:14px;font-size:.92rem;opacity:0;pointer-events:none;transition:.3s;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.lock{overflow:hidden}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
-<noscript><style>.rv{opacity:1;transform:none}.slide:first-child{opacity:1;visibility:visible}</style></noscript>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c6fc0"/><stop offset="1" stop-color="#173f74"/></linearGradient>
-  </defs>
-  <symbol id="pessoa" viewBox="0 0 300 360"><ellipse cx="150" cy="350" rx="150" ry="30" fill="rgba(0,0,0,.12)"/><path d="M30 360c4-70 50-110 120-110s116 40 120 110z" fill="#f4f7fb"/><path d="M118 252l32 60 32-60" fill="#14213d"/><path d="M30 360c4-70 50-110 120-110l-26 110zM270 360c-4-70-50-110-120-110l26 110z" fill="#0d2a4f"/><path d="M143 262h14l6 98h-26z" fill="#f2b632"/><rect x="130" y="205" width="40" height="52" rx="14" fill="#e8b996"/><circle cx="150" cy="150" r="64" fill="#efc4a2"/><path d="M86 146c0-48 28-76 66-76 36 0 64 24 64 70-14-24-40-34-64-34-28 0-52 14-66 40z" fill="#3a2a22"/><circle cx="128" cy="156" r="5" fill="#2b1d16"/><circle cx="172" cy="156" r="5" fill="#2b1d16"/><path d="M130 184c12 10 28 10 40 0" stroke="#a85f45" stroke-width="5" fill="none" stroke-linecap="round"/></symbol>
-  <symbol id="i-seg" viewBox="0 0 24 24"><path d="M12 2.8 19.5 6v5.6c0 4.7-3.2 8.3-7.5 9.6-4.3-1.3-7.5-4.9-7.5-9.6V6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.7 12 2.3 2.3 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-saude" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 10.5v4M10 12.5h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="i-edu" viewBox="0 0 24 24"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6.5 11v4.5c1.6 1.6 3.4 2.4 5.5 2.4s3.9-.8 5.5-2.4V11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
-  <symbol id="i-bairro" viewBox="0 0 24 24"><path d="M3 20.5h18M5 20.5V10l5-3.5 5 3.5v10.5M15 20.5V13h4v7.5M8.5 13.5h3M8.5 16.5h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-seg" viewBox="0 0 24 24"><path d="M12 2.8 19.5 6v5.6c0 4.7-3.2 8.3-7.5 9.6-4.3-1.3-7.5-4.9-7.5-9.6V6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.7 12 2.3 2.3 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-obra" viewBox="0 0 24 24"><path d="M3 20.5h18M5 20.5V10l5-3.5 5 3.5v10.5M15 20.5V13h4v7.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5 11h14M8 20.5v-3M16 20.5v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-eco" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M5 19 13 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
   <symbol id="i-tel" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
-  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16V16H9l-4 3.5V16H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9.5h8M8 12.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.230 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol>
 </svg>
+<a class="skip" href="#inicio">Pular para o conteúdo</a>
 
-<div class="demo"><b>MODELO DE DEMONSTRAÇÃO</b> · Personagem, cidade e dados fictícios · H2D Studio</div>
+<div class="demo"><div class="wrap"><span><b>MODELO DE DEMONSTRAÇÃO</b> · personagem, cidade e dados fictícios · H2D Studio</span>
+  <span class="temas" role="group" aria-label="Experimente outra identidade visual">Cores do cliente:
+    <button type="button" data-t="" aria-pressed="true" aria-label="Azul e amarelo" style="background:linear-gradient(135deg,#0d2a4f 50%,#f2b632 50%)"></button>
+    <button type="button" data-t="verde" aria-pressed="false" aria-label="Verde e dourado" style="background:linear-gradient(135deg,#0f3a2e 50%,#e9c46a 50%)"></button>
+    <button type="button" data-t="vinho" aria-pressed="false" aria-label="Vinho e creme" style="background:linear-gradient(135deg,#3d1023 50%,#f0c987 50%)"></button>
+  </span></div></div>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#inicio" class="logo" aria-label="Vereador Exemplo, início"><span class="bx"><small>VEREADOR</small>RAFAEL EXEMPLO</span></a>
-    <nav class="menu" aria-label="Seções"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#agenda">Agenda</a><a href="#galeria">Fotos</a><a href="#noticias">Notícias</a><a href="#contato">Contato</a></nav>
-    <a class="btn btn-y" href="#participe">Quero participar</a>
-    <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+    <a href="#inicio" class="logo" aria-label="Vereador Rafael Exemplo, início"><span class="mk" aria-hidden="true">RE</span><span><b>Rafael Exemplo</b><small>Vereador · Cidade Exemplo</small></span></a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#projetos">Projetos e Leis</a><a href="#contas">Prestação de Contas</a><a href="#noticias">Notícias</a><a href="#agenda">Agenda</a><a href="#contato">Contato</a>
+    </nav>
+    <button class="btn btn-a btn-s" type="button" data-atendimento>Atendimento ao cidadão</button>
+    <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mm"><span></span></button>
   </div>
-  <nav class="mm" aria-label="Menu"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação parlamentar</a><a href="#agenda">Agenda</a><a href="#galeria">Fotos</a><a href="#noticias">Notícias</a><a href="#contato">Contato</a><a href="#participe">Quero participar</a></nav>
+  <nav class="mm" id="mm" aria-label="Menu">
+    <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#projetos">Projetos e Leis</a><a href="#contas">Prestação de Contas</a><a href="#fiscalizacao">Fiscalização</a><a href="#noticias">Notícias</a><a href="#agenda">Agenda</a><a href="#contato">Contato</a>
+    <button class="btn btn-a" type="button" data-atendimento>Atendimento ao cidadão</button>
+  </nav>
 </header>
 
 <main id="inicio">
-<section class="hero" aria-roledescription="carrossel" aria-label="Destaques">
-  <div class="slides" id="slides">
-    <div class="slide on"><div class="tx"><span class="k">Vereador · Cidade Exemplo</span><h1>Trabalho sério, <em>perto de você.</em></h1><p>Um mandato presente nos bairros, com prestação de contas e portas abertas para a comunidade.</p><div class="btns"><a class="btn btn-y" href="#participe">Quero participar</a><a class="btn btn-o" href="#atuacao">Ver o mandato</a></div></div><div class="art"><div class="fr"><img src="img/retrato.webp" alt="Retrato do vereador (pessoa de banco de imagens)" fetchpriority="high"></div></div></div>
-    <div class="slide"><div class="tx"><span class="k">Educação</span><h2>Escola boa <em>em todo bairro.</em></h2><p>Mais vagas na educação infantil, escolas reformadas e segurança na porta das escolas.</p><div class="btns"><a class="btn btn-y" href="#atuacao">Ver os projetos</a></div></div><div class="art"><div class="fr"><img src="img/escola.webp" alt="Sala de aula de escola municipal" loading="lazy"></div></div></div>
-    <div class="slide"><div class="tx"><span class="k">Prestação de contas</span><h2>Cada conquista, <em>à vista de todos.</em></h2><p>Projetos, votações e agenda do gabinete, atualizados aqui, com transparência.</p><div class="btns"><a class="btn btn-y" href="#noticias">Últimas notícias</a></div></div><div class="art"><div class="fr"><img src="img/tribuna.webp" alt="Tribuna da Câmara Municipal" loading="lazy"></div></div></div>
+<section class="hero" aria-roledescription="carrossel" aria-label="Destaques do mandato">
+  <div class="slides" id="slides" aria-live="polite">
+    <div class="slide on" role="group" aria-roledescription="destaque" aria-label="1 de 3"><div class="tx"><span class="k">Vereador · 2º mandato</span><span class="nm">Rafael Exemplo · Câmara Municipal da Cidade Exemplo</span><h1>Iluminação, creches e bairros cuidados: <em>trabalho que aparece na sua rua.</em></h1><p>Um mandato que escuta os bairros, transforma demandas em projetos e presta contas de cada passo, com transparência.</p><div class="btns"><a class="btn btn-a" href="#sobre">Conheça meu trabalho</a><button class="btn btn-o" type="button" data-atendimento>Fale com meu gabinete</button></div></div><div class="art"><div class="fr"><img src="img/retrato.webp" alt="Retrato do vereador Rafael Exemplo (pessoa de banco de imagens)" fetchpriority="high"></div></div></div>
+    <div class="slide" role="group" aria-roledescription="destaque" aria-label="2 de 3"><div class="tx"><span class="k">Educação</span><span class="nm">Prioridade do mandato</span><h2>Vaga em creche <em>perto de casa.</em></h2><p>Projetos para ampliar o atendimento da educação infantil e garantir escolas bem cuidadas em todas as regiões.</p><div class="btns"><a class="btn btn-a" href="#projetos">Ver os projetos</a></div></div><div class="art"><div class="fr"><img src="img/escola.webp" alt="Sala de aula de escola municipal" loading="lazy"></div></div></div>
+    <div class="slide" role="group" aria-roledescription="destaque" aria-label="3 de 3"><div class="tx"><span class="k">Transparência</span><span class="nm">Prestação de contas</span><h2>Cada projeto, cada votação, <em>à vista de todos.</em></h2><p>Indicadores, relatórios e documentos oficiais reunidos num só lugar, atualizados pelo gabinete.</p><div class="btns"><a class="btn btn-a" href="#contas">Ver a prestação de contas</a></div></div><div class="art"><div class="fr"><img src="img/tribuna.webp" alt="Tribuna da Câmara Municipal" loading="lazy"></div></div></div>
   </div>
-  <button class="arr l" type="button" id="prev" aria-label="Destaque anterior">‹</button><button class="arr r" type="button" id="next" aria-label="Próximo destaque">›</button>
-  <div class="dots" id="dots"></div>
+  <div class="hctl"><button class="ar" type="button" id="prev" aria-label="Destaque anterior">‹</button><div class="dots" id="dots"></div><button class="ar" type="button" id="next" aria-label="Próximo destaque">›</button><button class="pp" type="button" id="pp" aria-label="Pausar troca automática">❚❚</button></div>
   <div class="pat" aria-hidden="true"></div>
 </section>
 
-<div class="wrap">
-  <div class="pil">
-    <article class="pc rv"><i><svg aria-hidden="true"><use href="#i-seg"/></svg></i><h3>Segurança nos bairros</h3><p>Iluminação, câmeras e presença do poder público onde as famílias vivem e trabalham.</p></article>
-    <article class="pc rv"><i><svg aria-hidden="true"><use href="#i-edu"/></svg></i><h3>Educação e infância</h3><p>Vagas em creches, escolas bem cuidadas e oportunidades para os jovens.</p></article>
-    <article class="pc rv"><i><svg aria-hidden="true"><use href="#i-bairro"/></svg></i><h3>Cidade que funciona</h3><p>Ruas, praças e serviços públicos que respondem às necessidades de cada região.</p></article>
+<section class="sec" id="atuacao">
+  <div class="wrap">
+    <div class="tt"><span class="k rv">Atuação</span><h2 class="rv">Prioridades do mandato</h2><p class="rv">Áreas em que o vereador concentra projetos, fiscalização e articulação com a prefeitura.</p></div>
+    <div class="areas">
+      <article class="ar-card rv"><i><svg aria-hidden="true"><use href="#i-edu"/></svg></i><div><h3>Educação</h3><p>Vagas em creches, escolas reformadas e segurança no entorno escolar.</p></div></article>
+      <article class="ar-card rv"><i><svg aria-hidden="true"><use href="#i-seg"/></svg></i><div><h3>Segurança pública</h3><p>Iluminação, câmeras e presença do poder público nos bairros.</p></div></article>
+      <article class="ar-card rv"><i><svg aria-hidden="true"><use href="#i-obra"/></svg></i><div><h3>Infraestrutura</h3><p>Ruas, calçadas, drenagem e manutenção dos espaços públicos.</p></div></article>
+      <article class="ar-card rv"><i><svg aria-hidden="true"><use href="#i-saude"/></svg></i><div><h3>Saúde</h3><p>Acompanhamento das unidades de saúde e das filas de atendimento.</p></div></article>
+      <article class="ar-card rv"><i><svg aria-hidden="true"><use href="#i-bus"/></svg></i><div><h3>Mobilidade urbana</h3><p>Paradas cobertas, horários de ônibus e travessias seguras.</p></div></article>
+      <article class="ar-card rv"><i><svg aria-hidden="true"><use href="#i-eco"/></svg></i><div><h3>Meio ambiente</h3><p>Praças, arborização e coleta seletiva nos bairros.</p></div></article>
+    </div>
+    <p class="ar-note rv">Cada mandato escolhe as suas prioridades. Outras áreas disponíveis:<br><span>Desenvolvimento econômico</span><span>Assistência social</span><span>Proteção animal</span><span>Cultura e esporte</span></p>
   </div>
-</div>
+</section>
 
-<section class="sec about" id="sobre" style="margin-top:80px">
-  <div class="wrap in">
-    <div class="ph rv"><img src="img/retrato.webp" alt="Retrato do vereador (pessoa de banco de imagens)" loading="lazy"></div>
+<section class="sec alt" id="sobre">
+  <div class="wrap about">
+    <div class="ph rv"><img src="img/retrato.webp" alt="Retrato do vereador Rafael Exemplo (pessoa de banco de imagens)" loading="lazy"></div>
     <div>
-      <h2 class="rv">Sobre o vereador</h2>
-      <p class="rv">Rafael Exemplo é vereador da Cidade Exemplo e está no segundo mandato. Antes da política, trabalhou por mais de 15 anos com projetos comunitários nos bairros da cidade. Acredita em um mandato próximo das pessoas, construído a partir do que a comunidade vive no dia a dia.</p>
-      <div class="nums">
-        <div class="num rv"><b data-n="48">48</b><span>projetos apresentados</span></div>
-        <div class="num rv"><b data-n="17">17</b><span>leis aprovadas</span></div>
-        <div class="num rv"><b data-n="120">120</b><span>visitas aos bairros</span></div>
+      <span class="demo-tag rv">Personagem fictício</span>
+      <h2 class="rv" style="margin-top:12px">Sobre o vereador</h2>
+      <p class="lead rv">Rafael Exemplo é vereador da Cidade Exemplo, no segundo mandato. Antes da política, coordenou por 15 anos projetos comunitários nos bairros, onde aprendeu que as melhores soluções nascem da escuta.</p>
+      <div class="bio rv">
+        <details><summary>Trajetória</summary><p>Nascido no bairro Vila Nova, foi presidente da associação de moradores antes de ser eleito vereador pela primeira vez. No segundo mandato, preside a Frente Parlamentar da Primeira Infância.</p></details>
+        <details><summary>Formação</summary><ul><li>Graduação em Administração Pública</li><li>Especialização em Gestão de Cidades</li></ul></details>
+        <details><summary>Compromissos do mandato</summary><ul><li>Prestação de contas a cada semestre</li><li>Gabinete aberto à comunidade</li><li>Visitas regulares a todos os bairros</li></ul></details>
       </div>
-      <p class="rv" style="font-size:.82rem">Números fictícios, apenas para demonstração.</p>
+      <div class="vals rv"><span>Transparência</span><span>Escuta</span><span>Presença nos bairros</span><span>Resultados verificáveis</span></div>
     </div>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="acao rv">
-      <div class="vd"><img src="img/microfone.webp" alt="" loading="lazy"><button type="button" aria-label="Assistir ao vídeo (demonstração)"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><small>Espaço para o vídeo de apresentação do mandato</small></div>
-      <div class="tx">
-        <h2>Mandato em ação: compromisso com a cidade</h2>
-        <p class="lead">Um trabalho que aproxima a Câmara da comunidade, com foco em resultados concretos.</p>
-        <ul><li><span><b>SEGURANÇA:</b> iluminação pública e câmeras em pontos críticos dos bairros.</span></li><li><span><b>EDUCAÇÃO:</b> ampliação das vagas na educação infantil.</span></li><li><span><b>ZELADORIA:</b> praças e calçadas acessíveis para todos.</span></li></ul>
-      </div>
+    <div class="video rv">
+      <div class="vd" id="vd"><img src="img/microfone.webp" alt="" loading="lazy"><button class="play" type="button" id="play" aria-label="Assistir ao vídeo de apresentação do mandato"><span><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button><p class="cap">O vídeo só carrega quando você tocar, e sem som automático.</p></div>
+      <div class="tx"><h2>Mandato em ação</h2><p>Um trabalho que aproxima a Câmara da comunidade, com foco em resultados concretos.</p>
+        <ul><li><span><b>Segurança:</b> iluminação e câmeras em pontos críticos dos bairros.</span></li><li><span><b>Educação:</b> ampliação das vagas na educação infantil.</span></li><li><span><b>Zeladoria:</b> praças e calçadas acessíveis para todos.</span></li></ul></div>
     </div>
   </div>
 </section>
 
-<section class="sec atu" id="atuacao">
+<section class="sec alt" id="projetos">
   <div class="wrap">
-    <div class="tt"><h2 class="rv">Atuação parlamentar</h2><p class="rv">Uma trajetória de trabalho e serviço à comunidade.</p></div>
-    <div class="tabs" role="tablist" aria-label="Atuação">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="t1" id="b1">Projetos aprovados</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="t2" id="b2" tabindex="-1">Em tramitação</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="t3" id="b3" tabindex="-1">Frentes parlamentares</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="t4" id="b4" tabindex="-1">Comissões</button>
+    <div class="tt"><span class="k rv">Atuação parlamentar</span><h2 class="rv">Projetos e leis</h2><p class="rv">Proposições de autoria do vereador, com a situação de cada uma e o link para o documento oficial.</p></div>
+    <div class="filters rv" role="group" aria-label="Filtrar proposições">
+      <label>Tipo<select id="fTipo"><option value="">Todos</option></select></label>
+      <label>Assunto<select id="fTema"><option value="">Todos</option></select></label>
+      <label>Ano<select id="fAno"><option value="">Todos</option></select></label>
+      <label>Situação<select id="fSit"><option value="">Todas</option></select></label>
     </div>
-    <div class="panel" role="tabpanel" id="t1" aria-labelledby="b1">
-      <div class="it"><span class="st ok">Lei aprovada</span><div><h3>Programa Bairro Iluminado</h3><p>Prioriza a troca de lâmpadas e a iluminação de praças e paradas de ônibus.</p></div></div>
-      <div class="it"><span class="st ok">Lei aprovada</span><div><h3>Rota Segura Escolar</h3><p>Sinalização e travessias seguras no entorno das escolas municipais.</p></div></div>
-      <div class="it"><span class="st ok">Lei aprovada</span><div><h3>Praça Acessível</h3><p>Brinquedos e calçadas adaptados para pessoas com deficiência.</p></div></div>
-    </div>
-    <div class="panel" role="tabpanel" id="t2" aria-labelledby="b2" hidden>
-      <div class="it"><span class="st and">Em análise</span><div><h3>Creche no Bairro</h3><p>Amplia o horário de atendimento das creches para pais que trabalham à noite.</p></div></div>
-      <div class="it"><span class="st and">Em análise</span><div><h3>Feira do Pequeno Produtor</h3><p>Espaços fixos para feiras de produtores locais em todas as regiões.</p></div></div>
-    </div>
-    <div class="panel" role="tabpanel" id="t3" aria-labelledby="b3" hidden>
-      <div class="it"><span class="st fr">Presidente</span><div><h3>Frente Parlamentar da Primeira Infância</h3><p>Reúne vereadores, educadores e famílias em defesa das crianças.</p></div></div>
-      <div class="it"><span class="st fr">Membro</span><div><h3>Frente Parlamentar do Empreendedorismo</h3><p>Apoio ao pequeno comércio e à geração de emprego nos bairros.</p></div></div>
-    </div>
-    <div class="panel" role="tabpanel" id="t4" aria-labelledby="b4" hidden>
-      <div class="it"><span class="st fr">Titular</span><div><h3>Comissão de Educação e Cultura</h3><p>Acompanha as políticas de educação e as escolas do município.</p></div></div>
-      <div class="it"><span class="st fr">Suplente</span><div><h3>Comissão de Urbanismo</h3><p>Debate obras, mobilidade e ocupação dos espaços públicos.</p></div></div>
-    </div>
+    <p class="cnt" id="pCnt" aria-live="polite"></p>
+    <div class="plist" id="plist"><p class="empty">Abra no navegador para ver e filtrar as proposições.</p></div>
   </div>
 </section>
 
-<section class="sec" id="agenda">
+<section class="sec" id="contas">
   <div class="wrap">
-    <div class="tt"><h2 class="rv">Agenda</h2><p class="rv">Onde o vereador vai estar nos próximos dias.</p></div>
-    <div class="ag">
-      <div class="ev rv"><div class="d"><b>02</b><span>DEZ</span></div><div><h3>Encontro no Bairro Centro</h3><p>19h · Associação de Moradores · aberto à comunidade</p></div></div>
-      <div class="ev rv"><div class="d"><b>05</b><span>DEZ</span></div><div><h3>Sessão na Câmara</h3><p>14h · Plenário · transmissão ao vivo</p></div></div>
-      <div class="ev rv"><div class="d"><b>09</b><span>DEZ</span></div><div><h3>Café com empreendedores</h3><p>8h30 · Sala de reuniões do gabinete</p></div></div>
+    <div class="tt"><span class="k rv">Transparência</span><h2 class="rv">Prestação de contas</h2><p class="rv">Indicadores do mandato, atualizados pelo gabinete e acompanhados das fontes oficiais.</p></div>
+    <div class="pc-head rv"><span class="demo-tag">Dados de demonstração</span><div class="seg" role="group" aria-label="Período"><button type="button" data-p="2026" aria-pressed="true">2026</button><button type="button" data-p="2025" aria-pressed="false">2025</button><button type="button" data-p="total" aria-pressed="false">Mandato</button></div></div>
+    <div class="kpis rv" id="kpis">
+      <div class="kpi"><b data-k="apresentados">32</b><span>projetos apresentados</span></div>
+      <div class="kpi"><b data-k="aprovados">11</b><span>projetos aprovados</span></div>
+      <div class="kpi"><b data-k="leis">7</b><span>leis de autoria</span></div>
+      <div class="kpi"><b data-k="audiencias">18</b><span>reuniões e audiências</span></div>
+      <div class="kpi"><b data-k="visitas">64</b><span>visitas institucionais</span></div>
+      <div class="kpi"><b data-k="fiscalizacoes">23</b><span>fiscalizações</span></div>
+      <div class="kpi"><b data-k="demandas">210</b><span>demandas encaminhadas</span></div>
+      <div class="kpi"><b data-k="respondidas">146</b><span>demandas respondidas</span></div>
+    </div>
+    <div class="rel rv">
+      <a href="#contas" data-demo="relatorio"><i>PDF</i>Relatório de atividades · 1º semestre</a>
+      <a href="#contas" data-demo="relatorio"><i>PDF</i>Relatório de atividades · 2º semestre</a>
+      <a href="#contas" data-demo="fonte"><i>↗</i>Portal oficial da Câmara Municipal</a>
+    </div>
+    <p class="pc-note rv">No site oficial, todos os números vêm de registros do gabinete e de fontes oficiais. Nenhum indicador é publicado sem documento que o comprove.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="fiscalizacao">
+  <div class="wrap">
+    <div class="tt"><span class="k rv">Fiscalização</span><h2 class="rv">Acompanhamento de demandas</h2><p class="rv">Problemas identificados nos bairros, os órgãos acionados e a evolução de cada caso. Sem dados pessoais de quem fez a solicitação.</p></div>
+    <div class="filters f3 rv" role="group" aria-label="Filtrar demandas">
+      <label>Bairro<select id="zBairro"><option value="">Todos</option></select></label>
+      <label>Assunto<select id="zTema"><option value="">Todos</option></select></label>
+      <label>Situação<select id="zSit"><option value="">Todas</option></select></label>
+    </div>
+    <p class="cnt" id="zCnt" aria-live="polite"></p>
+    <div class="fz" id="fz"><p class="empty">Abra no navegador para acompanhar as demandas.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="mapa-atuacao">
+  <div class="wrap">
+    <div class="tt"><span class="k rv">Presença nos bairros</span><h2 class="rv">Mapa de atuação</h2><p class="rv">Visitas e demandas acompanhadas pelo gabinete em cada região. Toque nos pontos para ver o resumo.</p></div>
+    <div class="mapwrap rv">
+      <div class="mapside" id="mapside" role="group" aria-label="Filtrar o mapa"></div>
+      <div id="mapa" role="region" aria-label="Mapa interativo de atuação"><div class="map-fb">O mapa interativo aparece ao abrir o site no navegador, com internet.</div></div>
+    </div>
+    <p class="ar-note">Localizações fictícias sobre mapa real, apenas para demonstração. No site oficial, nenhum endereço particular é exibido.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="agenda">
+  <div class="wrap">
+    <div class="tt"><span class="k rv">Agenda pública</span><h2 class="rv">Onde o vereador vai estar</h2><p class="rv">Compromissos públicos do mandato. Toque num evento para ver os detalhes e salvar na sua agenda.</p></div>
+    <div class="agenda rv">
+      <div class="cal"><div class="cal-h"><button type="button" id="cPrev" aria-label="Mês anterior">‹</button><h3 id="cMes">dezembro de 2026</h3><button type="button" id="cNext" aria-label="Próximo mês">›</button></div><div class="cal-g" id="cGrid"></div></div>
+      <div class="evl" id="evl"><p class="empty">Abra no navegador para ver a agenda.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="participe" style="padding-top:0">
+<section class="sec" id="participe">
   <div class="wrap">
     <div class="join rv">
-      <div class="ph"><div><img src="img/imprensa.webp" alt="Vereador conversando com a imprensa" loading="lazy"></div></div>
+      <div class="ph"><img src="img/imprensa.webp" alt="Vereador conversando com a imprensa (banco de imagens)" loading="lazy"></div>
       <div>
-        <h2>Junte-se ao trabalho do <em>vereador</em></h2>
-        <p>Receba novidades do mandato e participe das ações na sua região.</p>
-        <form class="form" id="form" novalidate>
-          <label>Nome<input id="fNome" autocomplete="given-name" placeholder="Seu nome" required></label>
-          <label>Bairro<select id="fBairro" required><option value="">Selecione o seu bairro</option><option>Centro</option><option>Jardim das Flores</option><option>Vila Nova</option><option>Morro Alto</option><option>Outro</option></select></label>
-          <label class="ck"><input type="checkbox" id="fOk"><span>Concordo em receber comunicações do mandato pelo WhatsApp. Posso pedir para sair a qualquer momento.</span></label>
-          <p class="err" id="fErr" aria-live="polite"></p>
-          <button class="btn btn-y" type="submit"><svg fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>Quero participar</button>
+        <h2>Receba as novidades do <em>mandato</em></h2>
+        <p>Entre na lista de transmissão do gabinete no WhatsApp e acompanhe as ações na sua região.</p>
+        <form class="form" id="fPart" novalidate>
+          <label>Seu nome<input name="nome" autocomplete="given-name" placeholder="Como podemos te chamar?" maxlength="60" required></label>
+          <label>Seu bairro<select name="bairro" required><option value="">Selecione</option><option>Centro</option><option>Jardim das Flores</option><option>Vila Nova</option><option>Morro Alto</option><option>Porto Seguro</option><option>Outro</option></select></label>
+          <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="ck"><input type="checkbox" name="ok" required><span>Autorizo receber comunicações institucionais do mandato pelo WhatsApp e posso sair a qualquer momento. Li a <a href="#privacidade" data-priv>Política de Privacidade</a>.</span></label>
+          <p class="fmsg" aria-live="polite"></p>
+          <button class="btn btn-a" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Quero receber as novidades</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="galeria" style="padding-top:0">
+<section class="sec alt" id="galeria">
   <div class="wrap">
-    <div class="tt"><h2 class="rv">Gabinete em ação</h2><p class="rv">Momentos e entregas do mandato. Cada conquista tem a colaboração de muita gente.</p></div>
-    <div class="album">
-      <div class="ft w t rv"><img src="img/aperto-mao.webp" alt="Encontro com moradores" loading="lazy"><span>Encontro com moradores</span></div>
-      <div class="ft rv"><img src="img/escola.webp" alt="Visita à escola" loading="lazy"><span>Visita à escola</span></div>
-      <div class="ft rv"><img src="img/sala-reuniao.webp" alt="Reunião de trabalho" loading="lazy"><span>Reunião de trabalho</span></div>
-      <div class="ft w rv"><img src="img/reuniao-comunidade.webp" alt="Audiência pública" loading="lazy"><span>Audiência pública</span></div>
+    <div class="tt"><span class="k rv">Gabinete em ação</span><h2 class="rv">Fotos e vídeos</h2><p class="rv">Visitas, reuniões e atividades do mandato. Toque para ampliar.</p></div>
+    <div class="gf" id="gf" role="group" aria-label="Filtrar fotos"></div>
+    <div class="album" id="album">
+      <button class="ft w t" type="button" data-i="0" data-c="Visitas"><img src="img/aperto-mao.webp" alt="Encontro com moradores" loading="lazy"><span>Encontro com moradores</span></button>
+      <button class="ft" type="button" data-i="1" data-c="Visitas"><img src="img/escola.webp" alt="Visita à escola municipal" loading="lazy"><span>Visita à escola</span></button>
+      <button class="ft" type="button" data-i="2" data-c="Reuniões"><img src="img/sala-reuniao.webp" alt="Reunião de trabalho no gabinete" loading="lazy"><span>Reunião de trabalho</span></button>
+      <button class="ft w" type="button" data-i="3" data-c="Audiências"><img src="img/reuniao-comunidade.webp" alt="Audiência pública" loading="lazy"><span>Audiência pública</span></button>
+      <button class="ft" type="button" data-i="4" data-c="Fiscalizações"><img src="img/obra-maquina.webp" alt="Fiscalização de obra" loading="lazy"><span>Fiscalização de obra</span></button>
+      <button class="ft" type="button" data-i="5" data-c="Reuniões"><img src="img/reuniao-gabinete.webp" alt="Atendimento no gabinete" loading="lazy"><span>Atendimento no gabinete</span></button>
     </div>
-    <p style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:14px">Fotos de banco de imagens. No site real, entram as fotos oficiais do gabinete.</p>
+    <p class="ar-note">Fotos de banco de imagens. No site oficial, entram as fotos do gabinete, com as autorizações de imagem necessárias.</p>
   </div>
 </section>
 
-<section class="sec" id="noticias" style="padding-top:0">
+<section class="sec" id="noticias">
   <div class="wrap">
-    <div class="tt"><h2 class="rv">Notícias</h2><p class="rv">Últimas do mandato: agenda, conquistas e prestação de contas.</p></div>
-    <div class="news">
-      <article class="nw rv"><div class="im"><img src="img/trabalhador.webp" alt="" loading="lazy"></div><div class="bd"><span class="dt">25 NOV 2026</span><h3>Bairro Iluminado chega a mais 12 ruas</h3><p>Nova etapa do programa prioriza paradas de ônibus e entornos de escolas.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
-      <article class="nw rv"><div class="im"><img src="img/reuniao-gabinete.webp" alt="" loading="lazy"></div><div class="bd"><span class="dt">18 NOV 2026</span><h3>Audiência pública debate vagas em creches</h3><p>Famílias, educadores e gestores discutiram propostas para ampliar o atendimento.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
-      <article class="nw rv"><div class="im"><img src="img/obra-rua.webp" alt="" loading="lazy"></div><div class="bd"><span class="dt">10 NOV 2026</span><h3>Obras de drenagem começam no Jardim das Flores</h3><p>Reivindicação antiga dos moradores, a obra deve reduzir os alagamentos na região.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
-    </div>
-    <div class="more"><a class="btn btn-w" href="#noticias">Mais notícias →</a></div>
+    <div class="tt"><span class="k rv">Comunicação</span><h2 class="rv">Notícias</h2><p class="rv">Agenda, conquistas e prestação de contas do mandato.</p></div>
+    <div class="gf" id="nf" role="group" aria-label="Filtrar notícias"></div>
+    <div class="news" id="news"><p class="empty">Abra no navegador para ler as notícias.</p></div>
   </div>
 </section>
 
-<section class="sec" id="contato" style="background:var(--sky)">
+<section class="sec alt" id="contato">
   <div class="wrap">
-    <div class="tt"><h2 class="rv">Fale com o vereador</h2><p class="rv">A sua opinião melhora o nosso trabalho. Envie a sua ideia, sugestão ou demanda.</p></div>
+    <div class="tt"><span class="k rv">Contato</span><h2 class="rv">Fale com o gabinete</h2><p class="rv">Envie a sua sugestão, demanda ou convite. O retorno é feito pela equipe do gabinete.</p></div>
     <div class="ct">
-      <div class="cbox rv"><h3>Entre em contato</h3><p>Estamos por perto: no gabinete, nos bairros e aqui online.</p>
-        <div class="ci"><i><svg aria-hidden="true"><use href="#i-pin"/></svg></i><div><b>Endereço</b><span>Câmara Municipal · Rua Exemplo, 100 · Centro · Cidade Exemplo</span></div></div>
-        <div class="ci"><i><svg aria-hidden="true"><use href="#i-mail"/></svg></i><div><b>E-mail</b><span>gabinete@exemplo.com.br</span></div></div>
+      <div class="cbox rv"><h3>Canais oficiais</h3><p>Atendimento de segunda a sexta, das 9h às 18h.</p>
+        <div class="ci"><i><svg aria-hidden="true"><use href="#i-pin"/></svg></i><div><b>Gabinete</b><span>Câmara Municipal · Rua Exemplo, 100 · Centro</span></div></div>
         <div class="ci"><i><svg aria-hidden="true"><use href="#i-tel"/></svg></i><div><b>Telefone</b><span>(00) 0000-0000</span></div></div>
+        <div class="ci"><i><svg aria-hidden="true"><use href="#i-mail"/></svg></i><div><b>E-mail</b><span>gabinete@exemplo.com.br</span></div></div>
+        <a class="btn btn-w btn-s" href="https://www.google.com/maps/search/?api=1&amp;query=C%C3%A2mara+Municipal" target="_blank" rel="noopener">Abrir no aplicativo de mapas</a>
       </div>
-      <form class="cbox cform rv" id="cform" novalidate>
+      <form class="cbox form rv" id="fCont" novalidate>
         <h3>Envie a sua mensagem</h3>
-        <input id="cNome" placeholder="Seu nome" autocomplete="name" aria-label="Seu nome">
-        <select id="cAss" aria-label="Assunto"><option value="">Assunto</option><option>Sugestão</option><option>Demanda do meu bairro</option><option>Convite para evento</option><option>Outro</option></select>
-        <textarea id="cMsg" placeholder="Escreva sua mensagem" aria-label="Sua mensagem"></textarea>
-        <p class="msg" id="cOut" aria-live="polite"></p>
-        <button class="btn btn-y" type="submit">Enviar mensagem</button>
+        <label>Seu nome<input name="nome" autocomplete="name" maxlength="60" required></label>
+        <label>Assunto<select name="assunto" required><option value="">Selecione</option><option>Sugestão</option><option>Demanda do meu bairro</option><option>Convite para evento</option><option>Imprensa</option><option>Outro</option></select></label>
+        <label>Mensagem<textarea name="msg" maxlength="800" required placeholder="Descreva de forma geral. Não envie documentos nem dados pessoais sensíveis."></textarea></label>
+        <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="fmsg" aria-live="polite"></p>
+        <button class="btn btn-a" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar pelo WhatsApp</button>
+        <p style="font-size:.84rem;color:var(--muted)">A mensagem abre no seu WhatsApp para você conferir e enviar ao gabinete.</p>
       </form>
     </div>
-    <div class="mapa rv"><span class="lb">Gabinete · Câmara Municipal</span>
-      <svg viewBox="0 0 1000 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="1000" height="280" fill="#e9eef5"/><path d="M0 70h1000M0 190h1000M180 0v280M430 0v280M720 0v280" stroke="#fff" stroke-width="22"/><path d="M0 130 1000 230M560 0 470 280" stroke="#fff" stroke-width="12"/><rect x="200" y="85" width="210" height="85" rx="10" fill="#d4e8d8"/><rect x="740" y="210" width="240" height="60" rx="10" fill="#cfe0f5"/><g class="pin"><path d="M520 150c0-22 16-38 34-38s34 16 34 38c0 26-34 58-34 58s-34-32-34-58z" fill="#e24b3b"/><circle cx="554" cy="150" r="12" fill="#fff"/></g></svg></div>
-    <p style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:12px">No site real, aqui entra o mapa do Google com o endereço do gabinete.</p>
+    <div class="map2 rv"><iframe title="Mapa da localização do gabinete" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=-51.2420%2C-30.0420%2C-51.2120%2C-30.0230&amp;layer=mapnik&amp;marker=-30.0330%2C-51.2270"></iframe></div>
   </div>
 </section>
 </main>
@@ -445,59 +602,297 @@ footer .cp a{color:var(--amber)}
 <footer>
   <div class="wrap">
     <div class="g">
-      <div><span class="logo"><span class="bx"><small>VEREADOR</small>RAFAEL EXEMPLO</span></span><p style="margin-top:14px">Gabinete na Câmara Municipal da Cidade Exemplo. Atendimento de segunda a sexta, das 9h às 18h.</p></div>
-      <div><h4>Navegação</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#atuacao">Atuação parlamentar</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#noticias">Notícias</a></li><li><a href="#contato">Contato</a></li></ul></div>
-      <div><h4>Contato</h4><ul><li>WhatsApp do gabinete</li><li>Instagram e Facebook</li><li>E-mail oficial</li></ul></div>
+      <div><span class="logo"><span class="mk" aria-hidden="true">RE</span><span><b>Rafael Exemplo</b><small>Vereador · Cidade Exemplo</small></span></span><p style="margin-top:14px">Site institucional do mandato. Gabinete na Câmara Municipal, de segunda a sexta, das 9h às 18h.</p></div>
+      <div><h4>Mandato</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#atuacao">Atuação</a></li><li><a href="#projetos">Projetos e Leis</a></li><li><a href="#contas">Prestação de Contas</a></li><li><a href="#fiscalizacao">Fiscalização</a></li></ul></div>
+      <div><h4>Comunicação</h4><ul><li><a href="#noticias">Notícias</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#galeria">Fotos e vídeos</a></li><li><a href="#contato">Contato</a></li></ul></div>
+      <div><h4>Canais oficiais</h4><ul><li><button type="button" data-atendimento>WhatsApp do gabinete</button></li><li>Instagram · Facebook · YouTube</li><li><a href="#privacidade" data-priv>Política de Privacidade</a></li></ul></div>
     </div>
-    <div class="cp"><span>CNPJ 00.000.000/0001-00 (fictício) · © Vereador Rafael Exemplo · Modelo de demonstração</span><span>Desenvolvido pela <a href="https://h2d-studio.netlify.app/" target="_blank" rel="noopener">H2D Studio</a></span></div>
+    <div class="leg"><span>Este é um site institucional: conteúdo eleitoral não é veiculado neste canal.</span><span>CNPJ 00.000.000/0001-00 (fictício) · © Vereador Rafael Exemplo · Modelo de demonstração com dados fictícios</span><span>Desenvolvido pela <a href="https://h2d-studio.netlify.app/" target="_blank" rel="noopener">H2D Studio</a></span></div>
   </div>
 </footer>
 
-<a class="waf" href="#contato" aria-label="Falar com o gabinete"><i><svg aria-hidden="true"><use href="#wa"/></svg></i>Fale com o gabinete</a>
+<button class="atb" type="button" data-atendimento aria-label="Atendimento ao cidadão"><i><svg aria-hidden="true"><use href="#i-chat"/></svg></i><span>Atendimento</span></button>
 
-<input type="checkbox" class="popc" id="popc" hidden aria-hidden="true">
+<input type="checkbox" class="popc" id="popc" aria-hidden="true" tabindex="-1">
 <div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popT">
-  <div class="bx"><label class="x" for="popc" id="popX" role="button" tabindex="0" aria-label="Fechar">×</label>
-    <span class="k">Portal do gabinete</span>
-    <h2 id="popT">Seja bem-vindo ao portal do <em>Vereador Rafael</em></h2>
-    <div class="cv"><small>Convite especial</small>Faça parte do grupo de novidades do mandato no WhatsApp</div>
-    <a class="btn btn-y" href="#participe" id="popGo" style="width:100%">Quero participar</a>
+  <div class="bx"><label class="x" for="popc" id="popX" role="button" tabindex="0" aria-label="Fechar convite">×</label>
+    <span class="kk">Portal do gabinete</span>
+    <h2 id="popT">Bem-vindo ao portal do <em>Vereador Rafael</em></h2>
+    <div class="cv"><small>Convite</small>Receba as novidades do mandato no WhatsApp</div>
+    <a class="btn btn-a" href="#participe" id="popGo">Quero receber</a>
   </div>
 </div>
 
+<div class="ov" id="ovAt" role="dialog" aria-modal="true" aria-labelledby="atT" hidden><div class="dlg">
+  <button class="x" type="button" data-fechar aria-label="Fechar">×</button>
+  <span class="k">Atendimento ao cidadão</span><h2 id="atT">Como podemos ajudar?</h2>
+  <p>Escolha o assunto. A mensagem abre no WhatsApp do gabinete, e o atendimento é feito por uma pessoa da equipe.</p>
+  <div class="tops" id="tops" role="group" aria-label="Assunto"></div>
+  <form class="form" id="fAt" novalidate>
+    <label>Seu bairro (opcional)<input name="bairro" maxlength="40" autocomplete="off"></label>
+    <label>Descreva em poucas palavras (opcional)<textarea name="msg" maxlength="400" placeholder="Ex.: poste apagado na rua da escola" style="min-height:90px"></textarea></label>
+    <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="fmsg" aria-live="polite"></p>
+    <button class="btn btn-a" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Abrir o WhatsApp do gabinete</button>
+  </form>
+  <p class="warn"><b>Emergências:</b> este canal não substitui os serviços públicos. Em emergência, ligue 190 (Polícia), 192 (SAMU) ou 193 (Bombeiros).</p>
+  <p class="hours">Atendimento de segunda a sexta, das 9h às 18h. Mensagens fora do horário são respondidas no próximo dia útil. Enviar a mensagem não significa que a demanda foi protocolada: a equipe confirma pelo WhatsApp.</p>
+</div></div>
+
+<div class="ov" id="ovArt" role="dialog" aria-modal="true" aria-labelledby="artT" hidden><div class="dlg wide"><button class="x" type="button" data-fechar aria-label="Fechar notícia">×</button><div id="artBody"></div></div></div>
+<div class="ov" id="ovEv" role="dialog" aria-modal="true" aria-labelledby="evT" hidden><div class="dlg"><button class="x" type="button" data-fechar aria-label="Fechar">×</button><div id="evBody"></div></div></div>
+<div class="ov lb" id="ovLb" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden><div class="dlg"><button class="x" type="button" data-fechar aria-label="Fechar foto">×</button><img id="lbImg" alt=""><div class="cap"><button type="button" id="lbPrev" aria-label="Foto anterior">‹</button><span id="lbCap"></span><button type="button" id="lbNext" aria-label="Próxima foto">›</button></div></div></div>
+<div class="ov" id="ovPriv" role="dialog" aria-modal="true" aria-labelledby="privT" hidden><div class="dlg wide"><button class="x" type="button" data-fechar aria-label="Fechar">×</button>
+  <span class="k">Transparência</span><h2 id="privT">Política de Privacidade</h2>
+  <p><b>Controlador:</b> Gabinete do Vereador Rafael Exemplo, Câmara Municipal da Cidade Exemplo. Contato do encarregado: privacidade@exemplo.com.br (fictício).</p>
+  <p><b>Formulários:</b> as informações digitadas não são armazenadas por este site. Ao enviar, abre-se o WhatsApp com a mensagem para você conferir; o gabinete recebe apenas o que você decidir enviar.</p>
+  <p><b>Finalidades:</b> responder às solicitações (atendimento e contato) e enviar comunicações institucionais do mandato a quem autorizou (lista de novidades). Não coletamos opinião política nem dados sensíveis.</p>
+  <p><b>Retenção:</b> as conversas são mantidas pelo tempo necessário ao atendimento e às obrigações legais, e excluídas depois. Quem pediu para receber novidades pode sair a qualquer momento.</p>
+  <p><b>Serviços de terceiros:</b> WhatsApp (Meta), mapas (OpenStreetMap) e vídeos (YouTube, apenas quando você tocar para assistir). Este site não usa cookies de publicidade nem rastreamento.</p>
+  <p><b>Seus direitos (LGPD, art. 18):</b> confirmação, acesso, correção, eliminação, informação sobre compartilhamento e revogação do consentimento, pelo contato acima.</p>
+</div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="vendor/leaflet.js"></script>
 <script>
+/* CONFIGURAÇÃO DO CLIENTE: o gabinete (ou o painel administrativo, na versão oficial) altera apenas estes dados. */
+var CONFIG = { whatsapp: '', youtube: '', demo: true };
+
+var PROJETOS = [
+  {tipo:'Projeto de lei', num:'PL 12/2026', ano:2026, tema:'Educação', sit:'tramitacao', t:'Creche no Bairro', r:'Amplia o horário de atendimento das creches para famílias que trabalham à noite.'},
+  {tipo:'Projeto de lei', num:'PL 41/2025', ano:2025, tema:'Segurança', sit:'aprovado', t:'Programa Bairro Iluminado', r:'Prioriza a iluminação de paradas de ônibus, praças e entornos de escolas.'},
+  {tipo:'Projeto de lei', num:'PL 33/2025', ano:2025, tema:'Educação', sit:'aprovado', t:'Rota Segura Escolar', r:'Sinalização e travessias seguras no entorno das escolas municipais.'},
+  {tipo:'Projeto de lei', num:'PL 18/2025', ano:2025, tema:'Infraestrutura', sit:'aprovado', t:'Praça Acessível', r:'Brinquedos e calçadas adaptados para pessoas com deficiência.'},
+  {tipo:'Projeto de lei', num:'PL 07/2026', ano:2026, tema:'Desenvolvimento econômico', sit:'apresentado', t:'Feira do Pequeno Produtor', r:'Espaços fixos para feiras de produtores locais em todas as regiões.'},
+  {tipo:'Projeto de lei', num:'PL 52/2024', ano:2024, tema:'Mobilidade', sit:'arquivado', t:'Tarifa Zero aos domingos', r:'Arquivado ao fim da legislatura; o tema segue em debate com a prefeitura.'},
+  {tipo:'Projeto de lei', num:'PL 29/2024', ano:2024, tema:'Meio ambiente', sit:'rejeitado', t:'Taxa de coleta diferenciada', r:'Rejeitado em plenário; parte da proposta foi incorporada em outra lei.'},
+  {tipo:'Indicação', num:'IND 88/2026', ano:2026, tema:'Infraestrutura', sit:'apresentado', t:'Recapeamento da Rua das Acácias', r:'Indica à prefeitura o recapeamento do trecho entre a escola e a unidade de saúde.'},
+  {tipo:'Pedido de providência', num:'PP 140/2026', ano:2026, tema:'Segurança', sit:'tramitacao', t:'Troca de lâmpadas no Jardim das Flores', r:'Solicita a substituição de 23 pontos de iluminação apagados.'},
+  {tipo:'Requerimento', num:'REQ 22/2026', ano:2026, tema:'Saúde', sit:'aprovado', t:'Informações sobre filas na saúde', r:'Requer à Secretaria de Saúde os dados de espera por consultas especializadas.'}
+];
+var SIT = {aprovado:'Aprovado', tramitacao:'Em tramitação', apresentado:'Apresentado', arquivado:'Arquivado', rejeitado:'Rejeitado'};
+var KPI = {
+  '2026': {apresentados:32, aprovados:11, leis:7, audiencias:18, visitas:64, fiscalizacoes:23, demandas:210, respondidas:146},
+  '2025': {apresentados:27, aprovados:9, leis:5, audiencias:15, visitas:58, fiscalizacoes:19, demandas:184, respondidas:139},
+  'total': {apresentados:96, aprovados:31, leis:19, audiencias:52, visitas:190, fiscalizacoes:61, demandas:620, respondidas:471}
+};
+var DEMANDAS = [
+  {t:'Iluminação apagada na Rua das Palmeiras', bairro:'Jardim das Flores', tema:'Iluminação pública', sit:'concluida', data:'02/09/2026', orgao:'Secretaria de Serviços Urbanos', proto:'Protocolo 2026/0412',
+   tl:[['02/09','Vistoria no local com moradores'],['05/09','Pedido de providência enviado à secretaria'],['21/09','Resposta da secretaria com prazo de 30 dias'],['14/10','Lâmpadas substituídas e vistoria de conferência']]},
+  {t:'Buraco na via em frente à escola', bairro:'Vila Nova', tema:'Infraestrutura', sit:'andamento', data:'18/10/2026', orgao:'Secretaria de Obras', proto:'Protocolo 2026/0587',
+   tl:[['18/10','Fiscalização no local'],['20/10','Ofício à Secretaria de Obras'],['04/11','Obra incluída no cronograma de dezembro']]},
+  {t:'Falta de medicamentos na unidade de saúde', bairro:'Morro Alto', tema:'Saúde', sit:'respondida', data:'27/10/2026', orgao:'Secretaria de Saúde', proto:'Requerimento 22/2026',
+   tl:[['27/10','Visita à unidade de saúde'],['29/10','Requerimento de informações aprovado'],['12/11','Secretaria informa reposição em andamento']]},
+  {t:'Praça sem manutenção', bairro:'Centro', tema:'Meio ambiente', sit:'aberta', data:'16/11/2026', orgao:'Secretaria do Meio Ambiente', proto:'Aguardando protocolo',
+   tl:[['16/11','Demanda recebida em reunião com moradores'],['19/11','Vistoria agendada']]},
+  {t:'Parada de ônibus sem cobertura', bairro:'Porto Seguro', tema:'Mobilidade', sit:'andamento', data:'03/11/2026', orgao:'Empresa Municipal de Transporte', proto:'Indicação 91/2026',
+   tl:[['03/11','Levantamento das paradas sem abrigo'],['06/11','Indicação protocolada'],['18/11','Empresa confirma estudo técnico']]}
+];
+var DSIT = {aberta:'Aberta', andamento:'Em andamento', respondida:'Respondida', concluida:'Concluída'};
+/* Pontos do mapa: coordenadas fictícias sobre o mapa real, só para demonstração */
+var PONTOS = [
+  {lat:-30.0277,lng:-51.2287,bairro:'Centro',cat:'Visita',t:'Reunião com a associação comercial',d:'12/11/2026'},
+  {lat:-30.0350,lng:-51.2190,bairro:'Jardim das Flores',cat:'Demanda',t:'Iluminação restabelecida em 23 pontos',d:'14/10/2026'},
+  {lat:-30.0420,lng:-51.2250,bairro:'Vila Nova',cat:'Demanda',t:'Buraco em frente à escola: obra programada',d:'04/11/2026'},
+  {lat:-30.0180,lng:-51.2120,bairro:'Morro Alto',cat:'Fiscalização',t:'Visita à unidade de saúde',d:'27/10/2026'},
+  {lat:-30.0480,lng:-51.2120,bairro:'Porto Seguro',cat:'Visita',t:'Encontro com moradores sobre transporte',d:'03/11/2026'},
+  {lat:-30.0230,lng:-51.2010,bairro:'Morro Alto',cat:'Visita',t:'Visita à creche comunitária',d:'09/11/2026'},
+  {lat:-30.0310,lng:-51.2350,bairro:'Centro',cat:'Fiscalização',t:'Vistoria na praça central',d:'19/11/2026'}
+];
+var EVENTOS = [
+  {d:'2026-12-02',h:'19:00',fim:'21:00',t:'Encontro no Bairro Centro',l:'Associação de Moradores do Centro',x:'Conversa aberta com a comunidade sobre as prioridades para 2027.'},
+  {d:'2026-12-05',h:'14:00',fim:'18:00',t:'Sessão ordinária na Câmara',l:'Plenário da Câmara Municipal',x:'Votação do projeto Creche no Bairro. Transmissão ao vivo pelo canal oficial.'},
+  {d:'2026-12-09',h:'08:30',fim:'10:00',t:'Café com empreendedores',l:'Sala de reuniões do gabinete',x:'Encontro com pequenos comerciantes sobre a Feira do Pequeno Produtor.'},
+  {d:'2026-12-14',h:'18:30',fim:'20:30',t:'Audiência pública: educação infantil',l:'Auditório da Câmara Municipal',x:'Debate sobre a ampliação de vagas em creches, aberto ao público.'},
+  {d:'2026-12-18',h:'10:00',fim:'12:00',t:'Prestação de contas do semestre',l:'Plenarinho da Câmara',x:'Apresentação dos resultados do mandato com perguntas do público.'},
+  {d:'2027-01-12',h:'19:00',fim:'21:00',t:'Encontro no Bairro Vila Nova',l:'Salão comunitário Vila Nova',x:'Escuta sobre infraestrutura e mobilidade na região.'}
+];
+var NOTICIAS = [
+  {s:'bairro-iluminado-12-ruas',d:'25/11/2026',c:'Conquistas',img:'img/trabalhador.webp',t:'Bairro Iluminado chega a mais 12 ruas',r:'Nova etapa do programa prioriza paradas de ônibus e entornos de escolas.',
+   b:['A nova etapa do Programa Bairro Iluminado, de autoria do vereador, levou iluminação de LED a mais 12 ruas do Jardim das Flores e da Vila Nova.','As ruas foram escolhidas a partir das demandas registradas pelos moradores e das vistorias do gabinete.','O gabinete segue acompanhando os próximos pontos com a Secretaria de Serviços Urbanos.']},
+  {s:'audiencia-vagas-creches',d:'18/11/2026',c:'Agenda',img:'img/reuniao-gabinete.webp',t:'Audiência pública debate vagas em creches',r:'Famílias, educadores e gestores discutiram propostas para ampliar o atendimento.',
+   b:['Mais de 120 pessoas participaram da audiência pública sobre educação infantil.','Entre as propostas, a ampliação do horário de atendimento, prevista no projeto Creche no Bairro.','As contribuições foram registradas e serão encaminhadas à Secretaria de Educação.']},
+  {s:'drenagem-jardim-das-flores',d:'10/11/2026',c:'Fiscalização',img:'img/obra-rua.webp',t:'Obras de drenagem começam no Jardim das Flores',r:'Reivindicação antiga dos moradores, a obra deve reduzir os alagamentos na região.',
+   b:['Depois de duas vistorias e um pedido de providência, a prefeitura iniciou as obras de drenagem.','O gabinete vai acompanhar o cronograma e publicar as atualizações aqui.']},
+  {s:'prestacao-contas-semestre',d:'02/11/2026',c:'Prestação de contas',img:'img/tribuna.webp',t:'Relatório do semestre já está disponível',r:'Confira os projetos apresentados, as votações e as ações nos bairros.',
+   b:['O relatório reúne as proposições, as votações e as fiscalizações realizadas no semestre.','O documento completo está na seção Prestação de Contas.']}
+];
+var GALERIA = [['img/aperto-mao.webp','Encontro com moradores'],['img/escola.webp','Visita à escola'],['img/sala-reuniao.webp','Reunião de trabalho'],['img/reuniao-comunidade.webp','Audiência pública'],['img/obra-maquina.webp','Fiscalização de obra'],['img/reuniao-gabinete.webp','Atendimento no gabinete']];
+var TOPICOS = ['Saúde','Educação','Segurança','Infraestrutura','Iluminação pública','Limpeza urbana','Fiscalização','Sugestões','Outros assuntos'];
+
 (function(){
   var root=document.documentElement, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function $(s){return document.querySelector(s)} function $$(s){return [].slice.call(document.querySelectorAll(s))}
+  function $(s,c){return (c||document).querySelector(s)} function $$(s,c){return [].slice.call((c||document).querySelectorAll(s))}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function wa(m){return 'https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(m)}
+  function abrirWa(m){var a=document.createElement('a');a.href=wa(m);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();}
+  var tt; function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('on')},3200)}
+  var DEMO='Demonstração: no site oficial, este link abre o documento na fonte oficial.';
+
+  /* troca de identidade visual (demonstração) */
+  $$('.temas button').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.t)root.dataset.tema=b.dataset.t;else delete root.dataset.tema;$$('.temas button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});})});
+
   /* menu */
-  var bg=$('#burger'), nav=$('#nav');
-  bg.addEventListener('click',function(){var o=!nav.classList.contains('open');nav.classList.toggle('open',o);bg.setAttribute('aria-expanded',o);});
-  $$('.mm a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');bg.setAttribute('aria-expanded',false);});});
-  /* carrossel */
-  var sl=$$('.slide'), dots=$('#dots'), i=0, tm;
+  var nav=$('#nav'), bg=$('#burger');
+  function menu(on){nav.classList.toggle('open',on);bg.setAttribute('aria-expanded',on);bg.setAttribute('aria-label',on?'Fechar menu':'Abrir menu');root.classList.toggle('lock',on);}
+  bg.addEventListener('click',function(){menu(!nav.classList.contains('open'))});
+  $$('#mm a,#mm button').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+
+  /* painéis acessíveis: foco preso, Esc fecha, foco volta */
+  var aberto=null, antes=null;
+  function abrir(id){if(aberto)fechar(true);antes=document.activeElement;aberto=$('#'+id);aberto.hidden=false;root.classList.add('lock');requestAnimationFrame(function(){aberto.classList.add('on');var f=aberto.querySelector('[data-fechar]');if(f)f.focus();});}
+  function fechar(rapido){if(!aberto)return;var o=aberto;o.classList.remove('on');aberto=null;root.classList.remove('lock');setTimeout(function(){o.hidden=true},rapido?0:300);if(antes&&antes.focus)antes.focus();if(location.hash.indexOf('#noticia/')===0)history.replaceState(null,'',location.pathname+location.search);}
+  $$('.ov').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o||e.target.closest('[data-fechar]'))fechar()})});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){if(aberto)fechar();else if(nav.classList.contains('open'))menu(false);else fecharPop();}
+    if(e.key==='Tab'&&aberto){var f=$$('button,a[href],input:not(.hp),select,textarea',aberto).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}
+  });
+
+  /* convite de boas-vindas: uma vez por visita */
+  var pc=$('#popc'), visto=false; try{visto=sessionStorage.getItem('rx_pop')==='1'}catch(e){}
+  if(visto)pc.checked=true; else setTimeout(function(){if(!pc.checked)$('#popX').focus()},1500);
+  function fecharPop(){if(pc.checked)return;pc.checked=true;try{sessionStorage.setItem('rx_pop','1')}catch(e){}}
+  $('#popX').addEventListener('click',function(){try{sessionStorage.setItem('rx_pop','1')}catch(e){}});
+  $('#popX').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();fecharPop()}});
+  $('#popGo').addEventListener('click',fecharPop);
+  $('#pop').addEventListener('click',function(e){if(e.target.id==='pop')fecharPop()});
+
+  /* carrossel com pausa */
+  var sl=$$('.slide'), dots=$('#dots'), i=0, tm, pausa=reduced;
   dots.innerHTML=sl.map(function(_,k){return '<button type="button" aria-label="Destaque '+(k+1)+'"'+(k?'':' aria-current="true"')+'></button>'}).join('');
-  function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(s,k){s.classList.toggle('on',k===i)});$$('#dots button').forEach(function(d,k){d.setAttribute('aria-current',k===i)});auto();}
-  function auto(){clearTimeout(tm);if(!reduced)tm=setTimeout(function(){go(i+1)},5500);}
+  function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(s,k){s.classList.toggle('on',k===i);s.setAttribute('aria-hidden',k!==i)});$$('#dots button').forEach(function(d,k){d.setAttribute('aria-current',k===i)});auto();}
+  function auto(){clearTimeout(tm);if(!pausa)tm=setTimeout(function(){go(i+1)},6000);}
   $$('#dots button').forEach(function(d,k){d.addEventListener('click',function(){go(k)})});
-  $('#prev').addEventListener('click',function(){go(i-1)});$('#next').addEventListener('click',function(){go(i+1)});auto();
-  /* abas */
-  var tabs=$$('.tab');
-  function aba(t,f){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(f)t.focus();}
-  tabs.forEach(function(t,k){t.addEventListener('click',function(){aba(t)});t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();aba(tabs[(k+d+tabs.length)%tabs.length],true);}});});
-  /* formulário: nada é enviado a servidor; abre o WhatsApp com a mensagem */
-  $('#form').addEventListener('submit',function(e){e.preventDefault();var n=$('#fNome').value.trim(),b=$('#fBairro').value,ok=$('#fOk').checked,er=$('#fErr');
-    if(!n||!b){er.textContent='Preencha o nome e o bairro.';return;} if(!ok){er.textContent='Para participar, marque a autorização.';return;}
-    er.textContent='Demonstração: no site real, isto abre o WhatsApp do gabinete com a mensagem pronta.';});
-  $('#cform').addEventListener('submit',function(e){e.preventDefault();var o=$('#cOut');if(!$('#cNome').value.trim()||!$('#cMsg').value.trim()){o.textContent='Preencha o nome e a mensagem.';return;}o.textContent='Demonstração: no site real, a mensagem chega ao gabinete.';});
-  /* boas-vindas */
-  var pop=$('#pop'), pc=$('#popc'); setTimeout(function(){if(!pc.checked)$('#popX').focus();},1400);
-  function fechar(){pc.checked=true;}
-  $('#popX').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();fechar();}});$('#popGo').addEventListener('click',fechar);pop.addEventListener('click',function(e){if(e.target===pop)fechar();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){fechar();nav.classList.remove('open');}});
-  /* contadores e revelação */
-  function conta(el){var to=+el.dataset.n,t0=performance.now();if(reduced){el.textContent=to;return;}el.textContent='0';(function f(t){var k=Math.min(1,(t-t0)/1300);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f);})(t0);}
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');$$('[data-n]').forEach(function(n){if(e.target.contains(n))conta(n)});io.unobserve(e.target);}});},{threshold:.12});$$('.rv').forEach(function(el){io.observe(el)});}
-  else{$$('.rv').forEach(function(el){el.classList.add('in')});$$('[data-n]').forEach(conta);}
+  $('#prev').addEventListener('click',function(){go(i-1)});$('#next').addEventListener('click',function(){go(i+1)});
+  var pp=$('#pp'); function ppu(){pp.textContent=pausa?'▶':'❚❚';pp.setAttribute('aria-label',pausa?'Retomar troca automática':'Pausar troca automática')} ppu();
+  pp.addEventListener('click',function(){pausa=!pausa;ppu();auto()});
+  $('.hero').addEventListener('focusin',function(){clearTimeout(tm)});
+  go(0);
+
+  /* vídeo: carrega só ao tocar, sem som automático */
+  $('#play').addEventListener('click',function(){
+    if(!CONFIG.youtube){toast('Demonstração: no site oficial, aqui toca o vídeo do canal do gabinete.');return;}
+    $('#vd').innerHTML='<iframe title="Vídeo de apresentação do mandato" src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(CONFIG.youtube)+'?autoplay=1&mute=1&cc_load_policy=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  });
+
+  /* projetos e leis com filtros */
+  function opts(sel,vals,lab){sel.innerHTML='<option value="">'+(sel.id==='fSit'||sel.id==='zSit'?'Todas':'Todos')+'</option>'+vals.map(function(v){return '<option value="'+esc(v)+'">'+esc(lab?lab[v]:v)+'</option>'}).join('')}
+  function uniq(a){return a.filter(function(v,k){return a.indexOf(v)===k})}
+  opts($('#fTipo'),uniq(PROJETOS.map(function(p){return p.tipo})));
+  opts($('#fTema'),uniq(PROJETOS.map(function(p){return p.tema})).sort());
+  opts($('#fAno'),uniq(PROJETOS.map(function(p){return String(p.ano)})).sort().reverse());
+  opts($('#fSit'),Object.keys(SIT),SIT);
+  function renderP(){
+    var f={tipo:$('#fTipo').value,tema:$('#fTema').value,ano:$('#fAno').value,sit:$('#fSit').value};
+    var l=PROJETOS.filter(function(p){return(!f.tipo||p.tipo===f.tipo)&&(!f.tema||p.tema===f.tema)&&(!f.ano||String(p.ano)===f.ano)&&(!f.sit||p.sit===f.sit)});
+    $('#pCnt').textContent=l.length+(l.length===1?' proposição encontrada':' proposições encontradas');
+    $('#plist').innerHTML=l.length?l.map(function(p){return '<article class="pj"><div><div class="meta"><b>'+esc(p.num)+'</b><span>'+esc(p.tipo)+'</span><span>'+esc(p.tema)+'</span></div><h3>'+esc(p.t)+'</h3><p>'+esc(p.r)+'</p></div><span class="st '+p.sit+'">'+SIT[p.sit]+'</span><button class="doc" type="button" data-demo="doc">Ver documento oficial ↗</button></article>'}).join(''):'<p class="empty">Nenhuma proposição com esses filtros.</p>';
+  }
+  $$('#fTipo,#fTema,#fAno,#fSit').forEach(function(s){s.addEventListener('change',renderP)}); renderP();
+
+  /* prestação de contas por período */
+  function renderK(p){var d=KPI[p];$$('[data-k]').forEach(function(b){var to=d[b.dataset.k];if(reduced){b.textContent=to;return;}var fr=+b.textContent||0,t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/700);b.textContent=Math.round(fr+(to-fr)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0);});}
+  $$('.seg button').forEach(function(b){b.addEventListener('click',function(){$$('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});renderK(b.dataset.p)})});
+  if('IntersectionObserver' in window&&!reduced){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){$$('[data-k]').forEach(function(b){b.textContent='0'});renderK('2026');o.disconnect()}},{threshold:.4}).observe($('#kpis'))}
+
+  /* fiscalização */
+  opts($('#zBairro'),uniq(DEMANDAS.map(function(d){return d.bairro})).sort());
+  opts($('#zTema'),uniq(DEMANDAS.map(function(d){return d.tema})).sort());
+  opts($('#zSit'),Object.keys(DSIT),DSIT);
+  function renderZ(){
+    var b=$('#zBairro').value,t=$('#zTema').value,s=$('#zSit').value;
+    var l=DEMANDAS.filter(function(d){return(!b||d.bairro===b)&&(!t||d.tema===t)&&(!s||d.sit===s)});
+    $('#zCnt').textContent=l.length+(l.length===1?' demanda':' demandas');
+    $('#fz').innerHTML=l.length?l.map(function(d){return '<details class="fzi"><summary><h3>'+esc(d.t)+'</h3><span class="st '+d.sit+'">'+DSIT[d.sit]+'</span><span class="meta"><span>📍 '+esc(d.bairro)+'</span><span>'+esc(d.tema)+'</span><span>Desde '+esc(d.data)+'</span><span>Órgão: '+esc(d.orgao)+'</span></span></summary><ol class="tl">'+d.tl.map(function(x){return '<li><b>'+esc(x[0])+'</b>'+esc(x[1])+'</li>'}).join('')+'</ol><p class="fz-proto">'+esc(d.proto)+' · documentos públicos disponíveis no site oficial</p></details>'}).join(''):'<p class="empty">Nenhuma demanda com esses filtros.</p>';
+  }
+  $$('#zBairro,#zTema,#zSit').forEach(function(s){s.addEventListener('change',renderZ)}); renderZ();
+
+  /* mapa de atuação (OpenStreetMap + Leaflet) */
+  var cats=['Todas','Visita','Demanda','Fiscalização'], cor={Visita:'#1f5fae',Demanda:'#e8913a','Fiscalização':'#12a58a'};
+  $('#mapside').innerHTML=cats.map(function(c,k){var n=c==='Todas'?PONTOS.length:PONTOS.filter(function(p){return p.cat===c}).length;return '<button type="button" data-c="'+c+'" aria-pressed="'+(k===0)+'">'+(c==='Todas'?'Todos os pontos':c==='Visita'?'Visitas':c==='Demanda'?'Demandas':'Fiscalizações')+'<i>'+n+'</i></button>'}).join('');
+  var mapa=null, camada=null;
+  function pontos(c){if(!mapa)return;camada.clearLayers();PONTOS.filter(function(p){return c==='Todas'||p.cat===c}).forEach(function(p){L.circleMarker([p.lat,p.lng],{radius:11,color:'#fff',weight:3,fillColor:cor[p.cat],fillOpacity:1}).bindPopup('<b>'+esc(p.t)+'</b><br>'+esc(p.bairro)+' · '+esc(p.cat)+'<br><small>'+esc(p.d)+'</small>').addTo(camada)});}
+  function iniciaMapa(){if(mapa||!window.L)return;$('#mapa').innerHTML='';mapa=L.map('mapa',{scrollWheelZoom:false}).setView([-30.033,-51.222],13);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(mapa);camada=L.layerGroup().addTo(mapa);pontos('Todas');}
+  $$('#mapside button').forEach(function(b){b.addEventListener('click',function(){$$('#mapside button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});pontos(b.dataset.c)})});
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){iniciaMapa();o.disconnect()}},{rootMargin:'300px'}).observe($('#mapa'))}else iniciaMapa();
+
+  /* agenda em calendário + arquivo para a agenda do visitante */
+  var MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'], cy=2026, cm=11, sel=null;
+  function evDia(s){return EVENTOS.filter(function(e){return e.d===s})}
+  function pad(n){return(n<10?'0':'')+n}
+  function renderCal(){
+    $('#cMes').textContent=MESES[cm].charAt(0).toUpperCase()+MESES[cm].slice(1)+' de '+cy;
+    var ini=new Date(cy,cm,1).getDay(), dias=new Date(cy,cm+1,0).getDate(), h=['D','S','T','Q','Q','S','S'].map(function(d){return '<span class="dw" aria-hidden="true">'+d+'</span>'}).join('');
+    for(var k=0;k<ini;k++)h+='<span></span>';
+    for(var d=1;d<=dias;d++){var s=cy+'-'+pad(cm+1)+'-'+pad(d),e=evDia(s).length;h+=e?'<button type="button" class="d ev'+(sel===s?' sel':'')+'" data-d="'+s+'" aria-label="'+d+' de '+MESES[cm]+', '+e+' evento">'+d+'</button>':'<span class="d">'+d+'</span>';}
+    $('#cGrid').innerHTML=h;
+    var l=EVENTOS.filter(function(e){return e.d.indexOf(cy+'-'+pad(cm+1))===0&&(!sel||e.d===sel)});
+    $('#evl').innerHTML=l.length?l.map(function(e){var p=e.d.split('-');return '<button type="button" class="ev" data-e="'+EVENTOS.indexOf(e)+'"><span class="dt"><b>'+p[2]+'</b><span>'+MESES[+p[1]-1].slice(0,3).toUpperCase()+'</span></span><span><h4>'+esc(e.t)+'</h4><p>'+e.h+' · '+esc(e.l)+'</p></span></button>'}).join('')+(sel?'<button type="button" class="btn btn-w btn-s" id="limpaDia">Ver todos do mês</button>':''):'<p class="empty">Nenhum compromisso público neste mês.</p>';
+  }
+  $('#cPrev').addEventListener('click',function(){cm--;if(cm<0){cm=11;cy--}sel=null;renderCal()});
+  $('#cNext').addEventListener('click',function(){cm++;if(cm>11){cm=0;cy++}sel=null;renderCal()});
+  $('#cGrid').addEventListener('click',function(e){var b=e.target.closest('[data-d]');if(!b)return;sel=sel===b.dataset.d?null:b.dataset.d;renderCal()});
+  function ics(e){var d=e.d.replace(/-/g,''),a=e.h.replace(':',''),b=e.fim.replace(':','');return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//H2D Studio//Agenda//PT','BEGIN:VEVENT','UID:'+d+a+'@exemplo','DTSTAMP:'+d+'T000000','DTSTART:'+d+'T'+a+'00','DTEND:'+d+'T'+b+'00','SUMMARY:'+e.t,'LOCATION:'+e.l,'DESCRIPTION:'+e.x,'END:VEVENT','END:VCALENDAR'].join('\r\n')}
+  $('#evl').addEventListener('click',function(ev){
+    if(ev.target.id==='limpaDia'){sel=null;renderCal();return}
+    var b=ev.target.closest('[data-e]');if(!b)return;var e=EVENTOS[+b.dataset.e],p=e.d.split('-');
+    $('#evBody').innerHTML='<span class="k">Agenda pública</span><h2 id="evT">'+esc(e.t)+'</h2><p><b>'+p[2]+' de '+MESES[+p[1]-1]+' de '+p[0]+'</b> · '+e.h+' às '+e.fim+'<br>'+esc(e.l)+'</p><p>'+esc(e.x)+'</p><div class="share"><button type="button" class="btn btn-a btn-s" id="icsBtn">Adicionar à minha agenda</button><a class="btn btn-w btn-s" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(e.l)+'">Ver no mapa</a></div>';
+    abrir('ovEv');
+    $('#icsBtn').addEventListener('click',function(){var u=URL.createObjectURL(new Blob([ics(e)],{type:'text/calendar'})),a=document.createElement('a');a.href=u;a.download='evento-gabinete.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},2000);toast('Evento salvo. Abra o arquivo para adicionar à sua agenda.')});
+  });
+  renderCal();
+
+  /* notícias: filtros, página individual com endereço próprio e compartilhamento */
+  var ncat=['Todas'].concat(uniq(NOTICIAS.map(function(n){return n.c})));
+  $('#nf').innerHTML=ncat.map(function(c,k){return '<button type="button" data-c="'+esc(c)+'" aria-pressed="'+(k===0)+'">'+esc(c)+'</button>'}).join('');
+  function renderN(c){$('#news').innerHTML=NOTICIAS.filter(function(n){return c==='Todas'||n.c===c}).slice(0,3).map(function(n){return '<article class="nw"><div class="im"><img src="'+n.img+'" alt="" loading="lazy"></div><div class="bd"><span class="dt">'+n.d+' · '+esc(n.c)+'</span><h3>'+esc(n.t)+'</h3><p>'+esc(n.r)+'</p><a class="lm" href="#noticia/'+n.s+'" data-s="'+n.s+'">Leia mais →</a></div></article>'}).join('')}
+  $('#nf').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;$$('#nf button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});renderN(b.dataset.c)});
+  renderN('Todas');
+  function lerNoticia(s){var n=NOTICIAS.filter(function(x){return x.s===s})[0];if(!n)return;var url=location.href.split('#')[0]+'#noticia/'+s;
+    $('#artBody').innerHTML='<span class="k">'+esc(n.c)+' · '+n.d+'</span><h2 id="artT">'+esc(n.t)+'</h2><img class="art-img" src="'+n.img+'" alt="">'+n.b.map(function(p){return '<p>'+esc(p)+'</p>'}).join('')+'<div class="share"><button type="button" class="btn btn-a btn-s" id="shWa"><svg aria-hidden="true"><use href="#wa"/></svg>Compartilhar</button><button type="button" class="btn btn-w btn-s" id="shCp">Copiar link</button></div><p style="font-size:.84rem;margin-top:12px">Notícia fictícia, apenas para demonstração.</p>';
+    abrir('ovArt');
+    $('#shWa').addEventListener('click',function(){if(navigator.share){navigator.share({title:n.t,url:url}).catch(function(){})}else abrirWa(n.t+' '+url)});
+    $('#shCp').addEventListener('click',function(){(navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(function(){toast('Link copiado.')},function(){toast(url)})});
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-s]');if(!a)return;e.preventDefault();history.replaceState(null,'','#noticia/'+a.dataset.s);lerNoticia(a.dataset.s)});
+  if(location.hash.indexOf('#noticia/')===0){$('#popc').checked=true;lerNoticia(location.hash.slice(9))}
+
+  /* galeria com filtro e ampliação */
+  var gcat=['Todas'].concat(uniq($$('#album .ft').map(function(f){return f.dataset.c})));
+  $('#gf').innerHTML=gcat.map(function(c,k){return '<button type="button" data-c="'+esc(c)+'" aria-pressed="'+(k===0)+'">'+esc(c)+'</button>'}).join('');
+  $('#gf').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;$$('#gf button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$$('#album .ft').forEach(function(f){f.hidden=!(b.dataset.c==='Todas'||f.dataset.c===b.dataset.c)})});
+  var gi=0; function lb(k){gi=(k+GALERIA.length)%GALERIA.length;$('#lbImg').src=GALERIA[gi][0];$('#lbImg').alt=GALERIA[gi][1];$('#lbCap').textContent=GALERIA[gi][1]+' · '+(gi+1)+' de '+GALERIA.length}
+  $('#album').addEventListener('click',function(e){var b=e.target.closest('.ft');if(!b)return;lb(+b.dataset.i);abrir('ovLb')});
+  $('#lbPrev').addEventListener('click',function(){lb(gi-1)});$('#lbNext').addEventListener('click',function(){lb(gi+1)});
+  $('#ovLb').addEventListener('keydown',function(e){if(e.key==='ArrowLeft')lb(gi-1);if(e.key==='ArrowRight')lb(gi+1)});
+
+  /* formulários: validação, proteção contra spam e duplicidade, envio pelo WhatsApp oficial */
+  var ultimo=0;
+  function guarda(f,msg){var m=$('.fmsg',f);if(f.site.value){m.className='fmsg err';m.textContent='Não foi possível enviar.';return false}
+    if(msg){m.className='fmsg err';m.textContent=msg;return false}
+    if(Date.now()-ultimo<20000){m.className='fmsg err';m.textContent='Aguarde alguns segundos antes de enviar de novo.';return false}
+    ultimo=Date.now();return true}
+  function ok(f,t){var m=$('.fmsg',f);m.className='fmsg ok';m.textContent=t}
+  $('#fPart').addEventListener('submit',function(e){e.preventDefault();var f=this;var er=!f.nome.value.trim()?'Informe o seu nome.':!f.bairro.value?'Selecione o seu bairro.':!f.ok.checked?'Para receber as novidades, marque a autorização.':'';
+    if(!guarda(f,er))return;abrirWa('Olá! Sou '+f.nome.value.trim()+', do bairro '+f.bairro.value+'. Quero receber as novidades do mandato do Vereador Rafael Exemplo.');ok(f,'Pronto! O WhatsApp abriu com a sua mensagem. Envie para concluir o cadastro.');fecharPop()});
+  $('#fCont').addEventListener('submit',function(e){e.preventDefault();var f=this;var er=!f.nome.value.trim()?'Informe o seu nome.':!f.assunto.value?'Escolha o assunto.':f.msg.value.trim().length<10?'Escreva a sua mensagem (pelo menos 10 caracteres).':'';
+    if(!guarda(f,er))return;abrirWa('Olá, gabinete do Vereador Rafael Exemplo! Sou '+f.nome.value.trim()+'.\nAssunto: '+f.assunto.value+'\n\n'+f.msg.value.trim());ok(f,'O WhatsApp abriu com a sua mensagem. Envie para que o gabinete receba.')});
+
+  /* atendimento ao cidadão */
+  var topico='';
+  $('#tops').innerHTML=TOPICOS.map(function(t){return '<button type="button" aria-pressed="false">'+esc(t)+'</button>'}).join('');
+  $('#tops').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;topico=b.textContent;$$('#tops button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
+  $$('[data-atendimento]').forEach(function(b){b.addEventListener('click',function(){fecharPop();abrir('ovAt')})});
+  $('#fAt').addEventListener('submit',function(e){e.preventDefault();var f=this;if(!guarda(f,topico?'':'Escolha um assunto.'))return;
+    var m='Olá, gabinete do Vereador Rafael Exemplo! Preciso de atendimento.\nAssunto: '+topico+(f.bairro.value.trim()?'\nBairro: '+f.bairro.value.trim():'')+(f.msg.value.trim()?'\n\n'+f.msg.value.trim():'');
+    abrirWa(m);ok(f,'O WhatsApp abriu com a sua mensagem. Envie para falar com a equipe.')});
+
+  /* política de privacidade e links de demonstração */
+  document.addEventListener('click',function(e){var p=e.target.closest('[data-priv]');if(p){e.preventDefault();abrir('ovPriv');return}var d=e.target.closest('[data-demo]');if(d){e.preventDefault();toast(d.dataset.demo==='relatorio'?'Demonstração: no site oficial, o relatório em PDF é baixado aqui.':DEMO)}});
+
+  /* revelação suave */
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});$$('.rv').forEach(function(el){io.observe(el)})}
+  else $$('.rv').forEach(function(el){el.classList.add('in')});
 })();
 </script>
 </body>

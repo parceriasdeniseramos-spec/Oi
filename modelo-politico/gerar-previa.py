@@ -3,6 +3,8 @@ d = '/home/user/Oi/modelo-politico/'
 s = open(d + 'index.html', encoding='utf-8').read()
 s = re.sub(r'<link rel="preload"[^>]*>\n', '', s)
 b = lambda p, m: 'data:' + m + ';base64,' + base64.b64encode(open(d + p, 'rb').read()).decode()
+css=open(d+'vendor/leaflet.css',encoding='utf-8').read();js=open(d+'vendor/leaflet.js',encoding='utf-8').read()
+s=s.replace('<link rel="stylesheet" href="vendor/leaflet.css">','<style>'+css+'</style>').replace('<script src="vendor/leaflet.js"></script>','<script>'+js.replace('</script','<\\/script')+'</script>')
 for p in sorted(set(re.findall(r'url\((fonts/[^)]+)\)', s))):
     s = s.replace('url(' + p + ')', 'url(' + b(p, 'font/woff2') + ')')
 for p in sorted(set(re.findall(r"(img/[\w.-]+\.webp)", s))):
