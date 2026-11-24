@@ -58,13 +58,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--bronze2);outline-of
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px}.portrait{order:-1;width:min(260px,70vw)}.badge{left:-10px}.hero .btns .btn{flex:1 1 220px}}
 
 /* números */
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line);background:#fff}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line);background:#fff}
 .num{padding:28px 18px;text-align:center;border-right:1px solid var(--line)}
 .num:last-child{border-right:0}
 .num b{display:block;font-family:var(--s);font-size:clamp(2.2rem,4vw,3rem);line-height:1;color:var(--ink);white-space:nowrap}
 .num>span{display:block;margin-top:8px;font-size:.92rem;color:var(--muted)}
 .num b,.badge b{font-variant-numeric:lining-nums}
-@media(max-width:760px){.nums{grid-template-columns:1fr 1fr}.num:nth-child(2){border-right:0}.num:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:560px){.num{padding:22px 8px}.num b{font-size:2rem}.num>span{font-size:.82rem}}
 
 /* sobre */
 .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,70px);align-items:start}
@@ -170,7 +170,6 @@ footer a{color:var(--bronze2)}
 <div class="nums">
   <div class="num rv"><b><span data-n="15">15</span></b><span>anos de mercado</span></div>
   <div class="num rv"><b>+<span data-n="320">320</span></b><span>famílias atendidas</span></div>
-  <div class="num rv"><b>R$ <span data-n="180">180</span> mi</b><span>em negócios</span></div>
   <div class="num rv"><b><span data-n="4">4</span></b><span>especialidades</span></div>
 </div>
 
