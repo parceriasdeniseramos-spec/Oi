@@ -1,0 +1,80 @@
+{
+  "_leia": "MODELO DE DEMONSTRAÇÃO da H2D Studio. Personagem e dados fictícios. Não usar estes dados em site de cliente: copie dados/novo-corretor.json.",
+
+  "modo_demonstracao": true,
+  "indexar": false,
+  "site_url": "https://h2d-modelo-corretora.netlify.app",
+
+  "nome": "Marina Exemplo",
+  "profissao": "Corretora de Imóveis",
+  "creci": "CRECI 00000 (fictício)",
+  "cidade": "Porto Alegre",
+  "uf": "RS",
+  "regiao": "Moinhos de Vento, Bela Vista e Zona Sul",
+  "especialidade": "Imóveis de alto padrão e investimentos",
+  "frase": "Encontrar o imóvel certo é uma decisão importante. Meu trabalho é que ela seja segura, clara e tranquila.",
+
+  "foto": "img/corretora.webp",
+  "foto_largura": 720,
+  "foto_altura": 900,
+  "foto_posicao": "50% 22%",
+  "foto_descricao": "Marina Exemplo, corretora de imóveis (pessoa de banco de imagens)",
+
+  "selo": { "valor": "15", "rotulo": "anos de mercado" },
+
+  "indicadores": [
+    { "valor": "15", "rotulo": "anos de experiência" },
+    { "valor": "+320", "rotulo": "clientes atendidos" },
+    { "valor": "+180", "rotulo": "negociações realizadas" },
+    { "valor": "3", "rotulo": "regiões de atuação" }
+  ],
+  "indicadores_nota": "Números ilustrativos deste modelo. No site do corretor, os indicadores só aparecem com dados reais.",
+
+  "sobre_titulo": "Experiência que *dá segurança* à sua decisão.",
+  "sobre": [
+    "Atuo no mercado imobiliário de Porto Alegre desde 2010, com foco em imóveis de alto padrão e em lançamentos.",
+    "Atendo famílias que buscam um novo lar e investidores que procuram segurança e rentabilidade."
+  ],
+  "sobre_pontos": [
+    "Atendimento feito por mim, do primeiro contato à entrega das chaves",
+    "Análise de mercado antes de cada recomendação",
+    "Acompanhamento de toda a documentação"
+  ],
+  "foto_sobre": "img/atendimento.webp",
+  "foto_sobre_largura": 900,
+  "foto_sobre_altura": 900,
+  "foto_sobre_posicao": "72% 50%",
+  "foto_sobre_descricao": "Marina Exemplo apresentando um apartamento a uma família",
+
+  "especialidades": [
+    { "icone": "chave", "titulo": "Compra e venda", "texto": "Do primeiro contato à escritura, com segurança em cada etapa." },
+    { "icone": "predio", "titulo": "Lançamentos imobiliários", "texto": "Imóveis na planta, com condições de pagamento facilitadas." },
+    { "icone": "grafico", "titulo": "Investimentos imobiliários", "texto": "Análise de valorização e de renda com aluguel." },
+    { "icone": "lupa", "titulo": "Avaliação e consultoria", "texto": "O valor certo do seu imóvel e orientação para decidir." }
+  ],
+
+  "diferenciais": [
+    { "icone": "pessoa", "titulo": "Atendimento personalizado", "texto": "Cada cliente tem um objetivo. Eu começo por ele." },
+    { "icone": "olho", "titulo": "Transparência em todas as etapas", "texto": "Você sabe o que está acontecendo, sempre." },
+    { "icone": "local", "titulo": "Conhecimento do mercado local", "texto": "Bairros, preços e tendências da região." },
+    { "icone": "escudo", "titulo": "Acompanhamento na negociação", "texto": "Ao seu lado da proposta à assinatura." }
+  ],
+
+  "ajuda": [
+    { "icone": "chave", "rotulo": "Quero comprar um imóvel", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de conversar sobre a compra de um imóvel." },
+    { "icone": "casa", "rotulo": "Quero vender meu imóvel", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de conversar sobre a venda do meu imóvel." },
+    { "icone": "grafico", "rotulo": "Quero investir", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de conversar sobre investimentos imobiliários." },
+    { "icone": "lupa", "rotulo": "Quero receber uma avaliação", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de receber uma avaliação do meu imóvel." }
+  ],
+  "mensagem_padrao": "Olá! Conheci seu trabalho pelo site e gostaria de conversar.",
+
+  "whatsapp": "",
+  "whatsapp_exibicao": "(51) 90000-0000",
+  "telefone": "",
+  "telefone_exibicao": "(51) 3000-0000",
+  "instagram": "marinaexemplo",
+  "email": "contato@seudominio.com.br",
+  "horario": "Segunda a sábado, das 9h às 19h",
+
+  "credito_h2d": true
+}

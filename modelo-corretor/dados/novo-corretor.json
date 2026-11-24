@@ -1,0 +1,75 @@
+{
+  "_leia": "Ficha para um site de cliente. Preencha só com dados reais e confirmados pelo corretor. Campo vazio (\"\") ou lista vazia ([]) não aparece no site.",
+
+  "modo_demonstracao": false,
+  "indexar": true,
+  "site_url": "https://ENDERECO-DO-SITE.netlify.app",
+
+  "nome": "Nome Sobrenome",
+  "profissao": "Corretora de Imóveis",
+  "creci": "CRECI 00000-F",
+  "cidade": "Cidade",
+  "uf": "RS",
+  "regiao": "Bairros ou região onde atua",
+  "especialidade": "Especialidade principal",
+  "frase": "Uma frase curta de posicionamento, com as palavras do corretor.",
+
+  "foto": "img/foto-principal.webp",
+  "foto_largura": 720,
+  "foto_altura": 900,
+  "foto_posicao": "50% 22%",
+  "foto_descricao": "Nome Sobrenome, corretora de imóveis",
+
+  "selo": { "valor": "", "rotulo": "anos de mercado" },
+
+  "indicadores": [],
+  "indicadores_nota": "",
+
+  "sobre_titulo": "Experiência que *dá segurança* à sua decisão.",
+  "sobre": [
+    "Primeiro parágrafo curto sobre a trajetória.",
+    "Segundo parágrafo curto sobre quem atende e como."
+  ],
+  "sobre_pontos": [
+    "Diferencial real 1",
+    "Diferencial real 2",
+    "Diferencial real 3"
+  ],
+  "foto_sobre": "img/foto-sobre.webp",
+  "foto_sobre_largura": 900,
+  "foto_sobre_altura": 900,
+  "foto_sobre_posicao": "50% 40%",
+  "foto_sobre_descricao": "Nome Sobrenome em atendimento",
+
+  "especialidades": [
+    { "icone": "chave", "titulo": "Compra e venda", "texto": "Do primeiro contato à escritura, com segurança em cada etapa." },
+    { "icone": "predio", "titulo": "Lançamentos imobiliários", "texto": "Imóveis na planta, com condições de pagamento facilitadas." },
+    { "icone": "grafico", "titulo": "Investimentos imobiliários", "texto": "Análise de valorização e de renda com aluguel." },
+    { "icone": "lupa", "titulo": "Avaliação e consultoria", "texto": "O valor certo do seu imóvel e orientação para decidir." }
+  ],
+
+  "diferenciais": [
+    { "icone": "pessoa", "titulo": "Atendimento personalizado", "texto": "Cada cliente tem um objetivo. Eu começo por ele." },
+    { "icone": "olho", "titulo": "Transparência em todas as etapas", "texto": "Você sabe o que está acontecendo, sempre." },
+    { "icone": "local", "titulo": "Conhecimento do mercado local", "texto": "Bairros, preços e tendências da região." },
+    { "icone": "escudo", "titulo": "Acompanhamento na negociação", "texto": "Ao seu lado da proposta à assinatura." }
+  ],
+
+  "ajuda": [
+    { "icone": "chave", "rotulo": "Quero comprar um imóvel", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de conversar sobre a compra de um imóvel." },
+    { "icone": "casa", "rotulo": "Quero vender meu imóvel", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de conversar sobre a venda do meu imóvel." },
+    { "icone": "grafico", "rotulo": "Quero investir", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de conversar sobre investimentos imobiliários." },
+    { "icone": "lupa", "rotulo": "Quero receber uma avaliação", "mensagem": "Olá! Conheci seu trabalho pelo site e gostaria de receber uma avaliação do meu imóvel." }
+  ],
+  "mensagem_padrao": "Olá! Conheci seu trabalho pelo site e gostaria de conversar.",
+
+  "whatsapp": "5551900000000",
+  "whatsapp_exibicao": "(51) 90000-0000",
+  "telefone": "",
+  "telefone_exibicao": "",
+  "instagram": "",
+  "email": "",
+  "horario": "",
+
+  "credito_h2d": true
+}
