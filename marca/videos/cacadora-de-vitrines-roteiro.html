@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Sora;font-weight:700;src:url(file:///home/user/Oi/angelica/fonts/sora-latin-700-normal.woff2)}
+@font-face{font-family:Sora;font-weight:600;src:url(file:///home/user/Oi/angelica/fonts/sora-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:400;src:url(file:///home/user/Oi/angelica/fonts/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:500;src:url(file:///home/user/Oi/angelica/fonts/inter-latin-500-normal.woff2)}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(file:///home/user/Oi/juliana/fonts/cormorant-garamond-latin-500-italic.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b0907;font-family:Inter,sans-serif;color:#f6efe6}
+.sc{position:absolute;inset:0;opacity:0;animation:cena var(--d) linear var(--s) both}
+@keyframes cena{0%{opacity:0}6%{opacity:1}94%{opacity:1}100%{opacity:0}}
+.g{background:linear-gradient(120deg,#f6dca6,#d6a265 45%,#a86e36);-webkit-background-clip:text;background-clip:text;color:transparent}
+.up{opacity:0;animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.kick{font-family:Sora;font-weight:600;font-size:30px;letter-spacing:.34em;color:#d6a265;text-transform:uppercase}
+
+/* 1: apresentação */
+#s1{--s:0s;--d:6s;animation-name:cena1}
+@keyframes cena1{0%{opacity:1}94%{opacity:1}100%{opacity:0}}
+#s1 .blur{position:absolute;inset:-60px;background:url(file:///root/.claude/uploads/e3e2fcc2-d34d-578e-96db-4e880cd225ca/04adbcef-image.png) center/cover;filter:blur(40px) brightness(.35)}
+#s1 .poster{position:absolute;left:0;top:300px;width:1080px;height:1182px;background:url(file:///root/.claude/uploads/e3e2fcc2-d34d-578e-96db-4e880cd225ca/04adbcef-image.png) center/cover;animation:zoom 6s linear both;box-shadow:0 0 120px 40px #0b0907}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+#s1 .top{position:absolute;top:150px;left:0;right:0;text-align:center;animation-delay:.3s}
+#s1 .bot{position:absolute;top:1560px;left:80px;right:80px;text-align:center;font-family:Sora;font-weight:600;font-size:46px;line-height:1.25;animation-delay:1.6s}
+
+/* 2: o olhar */
+#s2{--s:5.6s;--d:5.4s}
+#s2 .bg{position:absolute;inset:0;background:url(file:///root/.claude/uploads/e3e2fcc2-d34d-578e-96db-4e880cd225ca/04adbcef-image.png) 28% 22%/240% auto no-repeat;animation:pan 5.4s linear 5.6s both}
+@keyframes pan{from{background-position:22% 20%;background-size:250% auto}to{background-position:30% 24%;background-size:225% auto}}
+#s2 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,7,.05) 25%,rgba(11,9,7,.9) 52%,#0b0907 62%)}
+#s2 .t{position:absolute;left:80px;right:80px;top:1290px}
+#s2 h2{font-family:Sora;font-weight:700;font-size:76px;line-height:1.08;letter-spacing:-.02em;animation-delay:6s}
+#s2 p{margin-top:30px;font-size:44px;line-height:1.35;color:#e0d6c8;animation-delay:7.6s}
+#s2 p b{color:#f6dca6;font-weight:500}
+
+/* 3: vitrines */
+#s3{--s:10.6s;--d:6.6s;background:radial-gradient(70% 40% at 80% 10%,rgba(214,162,101,.22),transparent 70%),radial-gradient(60% 40% at 0% 100%,rgba(214,162,101,.12),transparent 70%),#0b0907}
+#s3 .t{position:absolute;left:90px;right:90px;top:340px}
+#s3 h2{font-family:Sora;font-weight:700;font-size:84px;line-height:1.05;letter-spacing:-.02em;margin:24px 0 70px;animation-delay:10.9s}
+#s3 .k{animation-delay:10.8s}
+#s3 ul{list-style:none;display:grid;gap:26px}
+#s3 li{display:flex;align-items:center;gap:30px;padding:30px 36px;border:1.5px solid rgba(214,162,101,.35);border-radius:24px;background:rgba(255,255,255,.035);font-family:Sora;font-weight:600;font-size:46px}
+#s3 li svg{width:54px;height:54px;flex:none}
+#s3 li:nth-child(1){animation-delay:11.6s}#s3 li:nth-child(2){animation-delay:12.1s}#s3 li:nth-child(3){animation-delay:12.6s}#s3 li:nth-child(4){animation-delay:13.1s}#s3 li:nth-child(5){animation-delay:13.6s}#s3 li:nth-child(6){animation-delay:14.1s}
+
+/* 4: o que ela faz */
+#s4{--s:17s;--d:6.4s;background:radial-gradient(70% 45% at 20% 0%,rgba(214,162,101,.2),transparent 70%),#0b0907}
+#s4 .t{position:absolute;left:90px;right:90px;top:420px}
+#s4 .k{animation-delay:17.3s}
+#s4 h2{font-family:Sora;font-weight:700;font-size:84px;line-height:1.05;letter-spacing:-.02em;margin:24px 0 80px;animation-delay:17.4s}
+#s4 .st{display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:start;margin-bottom:64px}
+#s4 .st b{font-family:Corm;font-style:italic;font-weight:500;font-size:130px;line-height:.8}
+#s4 .st h3{font-family:Sora;font-weight:700;font-size:58px;margin-bottom:10px}
+#s4 .st p{font-size:40px;line-height:1.35;color:#d8cec0}
+#s4 .st.p1{animation-delay:18.1s}#s4 .st.p2{animation-delay:19.2s}#s4 .st.p3{animation-delay:20.3s}
+
+/* 5: convite */
+#s5{--s:23s;--d:7.4s;animation-name:cena5}
+@keyframes cena5{0%{opacity:0}6%{opacity:1}100%{opacity:1}}
+#s5 .bg{position:absolute;left:0;right:0;top:0;height:1150px;background:url(file:///root/.claude/uploads/e3e2fcc2-d34d-578e-96db-4e880cd225ca/04adbcef-image.png) 50% 0%/1080px auto no-repeat;animation:zoom 7.4s linear 23s both}
+#s5 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,7,.15),rgba(11,9,7,.6) 19%,#0b0907 32%)}
+#s5 .t{position:absolute;left:80px;right:80px;top:820px;text-align:center}
+#s5 h2{font-family:Sora;font-weight:700;font-size:86px;line-height:1.05;letter-spacing:-.02em;animation-delay:23.5s}
+#s5 .sub{margin-top:34px;font-size:42px;line-height:1.35;color:#e0d6c8;animation-delay:24.4s}
+#s5 .logo{display:flex;align-items:center;justify-content:center;gap:26px;margin-top:90px;animation-delay:25.4s}
+#s5 .logo svg{width:130px;height:130px}
+#s5 .logo b{display:block;font-family:Sora;font-weight:700;font-size:58px;text-align:left}
+#s5 .logo small{display:block;font-size:34px;color:#cbbfb0;text-align:left}
+#s5 .cta{display:inline-block;margin-top:70px;padding:30px 60px;border-radius:999px;background:linear-gradient(120deg,#f6dca6,#d6a265 50%,#a86e36);color:#1a0f06;font-family:Sora;font-weight:700;font-size:42px;animation-delay:26.3s}
+#s5 .at{margin-top:36px;font-family:Sora;font-weight:600;font-size:44px;animation-delay:26.8s}
+.lupa{position:absolute;width:80px;height:80px;opacity:0;animation:lupa 2.2s ease-in-out both}
+@keyframes lupa{0%{opacity:0;transform:translate(-60px,30px) rotate(-10deg)}25%{opacity:1}75%{opacity:1}100%{opacity:0;transform:translate(60px,-20px) rotate(8deg)}}
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dca6"/><stop offset=".5" stop-color="#d6a265"/><stop offset="1" stop-color="#a86e36"/></linearGradient></defs>
+<symbol id="lp" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5" fill="none" stroke="url(#gd)" stroke-width="2"/><path d="m15 15 6 6" stroke="url(#gd)" stroke-width="2.4" stroke-linecap="round"/></symbol></svg>
+
+<div class="sc" id="s1"><div class="blur"></div><div class="poster"></div>
+  <div class="top up kick">H2D Studio apresenta</div>
+  <div class="bot up">Quem é a <span class="g">caçadora de vitrines</span>?</div></div>
+
+<div class="sc" id="s2"><div class="bg"></div><div class="shade"></div>
+  <div class="t"><h2 class="up">Ela observa o que <span class="g">quase ninguém vê.</span></h2>
+  <p class="up">Profissionais incríveis no Instagram, com clientes, seguidores e talento… <b>mas sem uma vitrine à altura.</b></p></div></div>
+
+<div class="sc" id="s3"><div class="t"><div class="kick up k">A caça</div><h2 class="up">As vitrines que <span class="g">ela procura</span></h2>
+  <ul><li class="up"><svg><use href="#lp"/></svg>Corretores de imóveis</li><li class="up"><svg><use href="#lp"/></svg>Clínicas de estética</li><li class="up"><svg><use href="#lp"/></svg>Advogados</li><li class="up"><svg><use href="#lp"/></svg>Saúde e bem-estar</li><li class="up"><svg><use href="#lp"/></svg>Consultores e especialistas</li><li class="up"><svg><use href="#lp"/></svg>Negócios locais</li></ul></div></div>
+
+<div class="sc" id="s4"><div class="t"><div class="kick up k">O método</div><h2 class="up">Da descoberta <span class="g">à vitrine.</span></h2>
+  <div class="st up p1"><b class="g">01</b><div><h3>Encontra</h3><p>Perfis com alto potencial e um trabalho que merece ser visto.</p></div></div>
+  <div class="st up p2"><b class="g">02</b><div><h3>Analisa</h3><p>O que o cliente precisa ver para confiar e entrar em contato.</p></div></div>
+  <div class="st up p3"><b class="g">03</b><div><h3>Constrói</h3><p>Um site interativo que transforma seguidores em clientes.</p></div></div></div></div>
+
+<div class="sc" id="s5"><div class="bg"></div><div class="shade"></div>
+  <div class="t"><h2 class="up">Seu negócio pode ser <span class="g">a próxima vitrine.</span></h2>
+  <p class="sub up">Sites interativos que valorizam o seu trabalho e atraem mais clientes.</p>
+  <div class="logo up"><svg viewBox="0 0 400 400"><circle cx="200" cy="200" r="186" fill="none" stroke="url(#gd)" stroke-width="10"/><g fill="none" stroke="url(#gd)" stroke-width="9" stroke-linejoin="round"><rect x="176" y="100" width="88" height="66" rx="10"/><rect x="148" y="122" width="88" height="66" rx="10" fill="#0b0907"/></g><text x="200" y="268" text-anchor="middle" font-family="Sora" font-weight="700" font-size="112" fill="url(#gd)">H2D</text></svg><div><b>H2D Studio</b><small>Sites que impressionam e vendem</small></div></div>
+  <div class="cta up">Fale comigo · link na bio</div>
+  <div class="at up g">@h2d.studio</div></div></div>
+
+<svg class="lupa" style="left:860px;top:250px;animation-delay:10.8s"><use href="#lp"/></svg>
+</body></html>
