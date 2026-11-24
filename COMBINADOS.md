@@ -52,6 +52,8 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 
 **Situação:** site pronto em `juliana/previa-juliana-battisti.html`, com os ajustes do checklist. O que falta confirmar com ela está em `juliana/CONFIRMAR-COM-JULIANA.md` (fotos originais, logo, CRF, atendimento online, bairro).
 
+**Publicado em 24/11 para teste de 10 dias:** https://juliana-battisti.netlify.app (15 créditos). Se ela não fechar, tirar do ar e pedir para tirar o link da bio.
+
 **Valor sugerido (23/11):**
 - Site completo: **R$ 990**, com entrada de R$ 495 por Pix e R$ 495 na entrega
 - Opcional: cadastro no Google por **R$ 350**
