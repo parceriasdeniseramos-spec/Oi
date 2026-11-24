@@ -79,6 +79,7 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 
 - **Las Santas Multimarcas (loja de roupas):** prévia enviada (`las-santas/previa-las-santas.html`), com marca d'água, aviso de exclusividade e validade até 9/12. Sugestão de valor: R$ 990, ou R$ 790 + R$ 149/mês com atualização da coleção. Falta o WhatsApp da loja e os preços.
 - **Vereador Mauro Pinheiro:** ele leu a mensagem, disse "ok" e recebeu o modelo fictício (`modelo-politico/modelo-site-vereador.html`). Aguardando retorno. Se ele gostar: pedir prints do Instagram e fazer a prévia personalizada. Valor sugerido: R$ 1.490 a R$ 1.990 + R$ 249 a R$ 349/mês de atualização. Perguntar quem paga (pessoa física ou gabinete, que pode exigir nota fiscal).
+- **Modelo de site para mandatos publicado (24/11):** https://h2d-modelo-mandato.netlify.app (15 créditos). Serve para vereadores e deputados. Fica fora do Google (noindex).
 - **Lembrete para o Mauro:** se não responder em 3 dias, mandar "Olá! Conseguiram ver o modelo? Fico à disposição. 😊"
 
 ---
