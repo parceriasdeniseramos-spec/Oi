@@ -10,6 +10,8 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 
 **Atualização 23/11:** site ampliado (Central de Proteção de Dados, diagnóstico com níveis, conteúdos, política de privacidade). Hoje a Denise manda só as perguntas para a Angélica (formação, certificações, prêmio, e-mail, serviços). A prévia vai amanhã, 24/11, já com as respostas dela. Lista completa em `angelica/VALIDAR-COM-ANGELICA.md`.
 
+**Atualização 24/11:** prévia enviada para a Angélica (versão com os selos abaixo da foto no celular). Aguardando o retorno. Depois: fazer os ajustes que ela pedir, mandar a mensagem de fechamento e publicar no Netlify só com a aprovação dela. Se não responder em 2 ou 3 dias: "Oi, Angélica! Conseguiste dar uma olhadinha no site? 😊"
+
 **Valores decididos (23/11):**
 - Site completo: **R$ 849**
 - Pagamento: **entrada de R$ 449 por Pix** para começar e **R$ 400 na entrega** do site
