@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Las Santas Multimarcas · Moda feminina com curadoria · Envio para todo o Brasil</title>
+<meta name="description" content="Las Santas Multimarcas: moda feminina com curadoria em Porto Alegre. Vestidos, conjuntos, macacões e blazers. Escolha suas peças, monte sua sacola e finalize pelo WhatsApp. Envio para todo o Brasil.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Las Santas Multimarcas · Curadoria com experiência">
+<meta property="og:description" content="Moda feminina com curadoria. Monte sua sacola e finalize pelo WhatsApp. Envio para todo o Brasil.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#f4ede4">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ClothingStore","name":"Las Santas Multimarcas","description":"Loja multimarcas de moda feminina com curadoria. Envio para todo o Brasil.","address":{"@type":"PostalAddress","addressLocality":"Porto Alegre","addressRegion":"RS","addressCountry":"BR"},"sameAs":["https://www.instagram.com/las_santas/"],
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"12:00"}]}
+</script>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-garamond-latin-400-normal.woff2" crossorigin>
+<style>
+@font-face{font-family:'Cormorant';font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant';font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:300;font-display:swap;src:url(fonts/jost-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-latin-500-normal.woff2) format('woff2')}
+:root{
+  --paper:#fbf8f4; --cream:#f4ede4; --sand:#e9dfd2; --ink:#1f1a17; --muted:#554b43; --soft:#766a5f;
+  --bronze:#a8825a; --bronze-t:#7d5c38; --line:rgba(31,26,23,.12);
+  --serif:'Cormorant',Georgia,serif; --sans:'Jost',system-ui,-apple-system,sans-serif; --ease:cubic-bezier(.22,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+section[id]{scroll-margin-top:110px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:.01em}
+.kick{display:inline-block;font-size:.8rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze-t)}
+.h2{font-size:clamp(2.4rem,5vw,3.8rem);margin:12px 0 14px}
+.h2 em,h1 em{font-style:italic;color:var(--bronze-t)}
+.lede{color:var(--muted);max-width:560px;font-size:1.06rem}
+.sec{padding:clamp(70px,10vw,120px) 0}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;transition:top .2s}.skip:focus{top:12px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 30px;font-size:.88rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:#3a312b}
+.btn-line{border:1px solid var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn:active{transform:scale(.98)}
+
+/* faixa e cabeçalho */
+.bar{background:var(--ink);color:#efe6da;text-align:center;font-size:.8rem;letter-spacing:.12em;padding:9px 16px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,248,244,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.logo{display:flex;align-items:center;gap:14px}
+.mono{font-family:var(--serif);font-size:2.1rem;line-height:1;color:var(--bronze);letter-spacing:-.06em}
+.mono span{display:inline-block;transform:translateY(.18em)}
+.logo b{display:block;font-family:var(--serif);font-weight:500;font-size:1.25rem;letter-spacing:.34em}
+.logo small{display:block;font-size:.66rem;letter-spacing:.3em;color:var(--soft)}
+.menu{display:flex;gap:30px;font-size:.84rem;letter-spacing:.16em;text-transform:uppercase}
+.menu a{position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--bronze);transition:right .35s var(--ease)}
+.menu a:hover::after{right:0}
+.acts{display:flex;align-items:center;gap:6px}
+.ib{position:relative;width:46px;height:46px;display:grid;place-items:center;border-radius:50%}
+.ib:hover{background:var(--cream)}
+.ib svg{width:22px;height:22px}
+.count{position:absolute;top:4px;right:3px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--bronze);color:#fff;font-size:.7rem;font-weight:500;display:grid;place-items:center;transform:scale(0);transition:transform .3s var(--ease)}
+.count.on{transform:scale(1)}
+.count.pulse{animation:pulse .5s}
+@keyframes pulse{50%{transform:scale(1.35)}}
+.burger{display:none}
+@media(max-width:900px){.menu{display:none}.burger{display:grid}}
+@media(max-width:420px){.logo b{font-size:1.05rem;letter-spacing:.24em}.logo small{font-size:.6rem;letter-spacing:.2em}.mono{font-size:1.8rem}}
+.mmenu{position:fixed;inset:0;z-index:60;background:var(--paper);padding:100px 28px 30px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.mmenu.open{opacity:1;visibility:visible;transition:opacity .3s}
+.mmenu a{font-family:var(--serif);font-size:2.1rem;padding:10px 0;border-bottom:1px solid var(--line)}
+.mmenu .x{position:absolute;top:18px;right:18px}
+
+/* abertura */
+.hero{position:relative;background:var(--cream);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;padding:70px 0 80px}
+.hero h1{font-size:clamp(3.2rem,7vw,6rem);margin:18px 0 20px}
+.hero .lede{font-size:1.12rem}
+.hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .info{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:30px;font-size:.92rem;color:var(--muted)}
+.hero .info span{display:inline-flex;align-items:center;gap:8px}
+.hero .info svg{width:18px;height:18px;color:var(--bronze)}
+.collage{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:1fr 1fr;gap:14px;height:min(620px,72vw)}
+.collage figure{position:relative;overflow:hidden;background:var(--sand)}
+.collage figure:first-child{grid-row:1/3}
+.collage img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform 1.4s var(--ease)}
+.collage figure:hover img{transform:scale(1.05)}
+.collage .tag{position:absolute;left:14px;bottom:14px;padding:8px 14px;background:rgba(251,248,244,.92);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding:44px 0 60px;gap:40px}.collage{height:118vw;max-height:620px}}
+@media(max-width:600px){.hero .btns .btn{width:100%}}
+
+/* coleção */
+.colhead{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px;margin:0 -2px 30px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:44px;padding:10px 20px;border:1px solid var(--line);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 20px}
+.prod{display:flex;flex-direction:column}
+.prod[hidden]{display:none}
+.prod .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--sand)}
+.prod .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;transition:transform 1.2s var(--ease)}
+.prod:hover .ph img{transform:scale(1.06)}
+.prod .flag{position:absolute;top:12px;left:12px;padding:5px 11px;background:var(--paper);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}
+.prod .flag.blk{background:var(--ink);color:var(--paper)}
+.prod h3{font-family:var(--sans);font-weight:400;font-size:1rem;line-height:1.4;margin:14px 0 4px}
+.prod .pr{font-size:.9rem;color:var(--bronze-t);letter-spacing:.04em}
+.sizes{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.sizes button{min-width:42px;height:40px;padding:0 8px;border:1px solid var(--line);font-size:.84rem;transition:.2s}
+.sizes button:hover{border-color:var(--ink)}
+.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.add{margin-top:auto;min-height:46px;border:1px solid var(--ink);font-size:.8rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,color .3s}
+.add:hover{background:var(--ink);color:var(--paper)}
+.add.ok{background:var(--bronze);border-color:var(--bronze);color:#fff}
+.hintsize{font-size:.82rem;color:#a2502f;min-height:1.2em;margin-top:-4px;margin-bottom:6px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px}.prod h3{font-size:.95rem}.sizes button{min-width:38px;height:38px}.add{font-size:.74rem;letter-spacing:.1em}}
+
+/* experiências */
+.exp{background:var(--ink);color:#f1e9de}
+.exp .kick{color:#d2b48c}
+.exp .h2 em{color:#d2b48c}
+.exp .lede{color:#cfc4b6}
+.exps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(241,233,222,.14);margin-top:46px;border:1px solid rgba(241,233,222,.14)}
+.ex{background:var(--ink);padding:32px 26px}
+.ex svg{width:34px;height:34px;color:#d2b48c;margin-bottom:18px}
+.ex h3{font-size:1.7rem;margin-bottom:8px}
+.ex p{color:#cfc4b6;font-size:.98rem}
+@media(max-width:900px){.exps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.exps{grid-template-columns:1fr}}
+
+/* como comprar */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:46px;counter-reset:s}
+.step{border-top:1px solid var(--ink);padding-top:22px}
+.step::before{counter-increment:s;content:"0" counter(s);display:block;font-family:var(--serif);font-style:italic;font-size:2.4rem;color:var(--bronze);line-height:1;margin-bottom:12px}
+.step h3{font-size:1.6rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.98rem}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.steps{grid-template-columns:1fr}}
+
+/* pagamento e horários */
+.info2{background:var(--cream)}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{background:var(--paper);padding:clamp(28px,4vw,44px);border:1px solid var(--line)}
+.card h3{font-size:2rem;margin:10px 0 18px}
+.card ul{list-style:none;display:grid;gap:16px}
+.card li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.card li i{width:44px;height:44px;border-radius:50%;border:1px solid rgba(168,130,90,.5);display:grid;place-items:center;color:var(--bronze);font-style:normal}
+.card li i svg{width:20px;height:20px}
+.card li b{display:block;font-weight:500;letter-spacing:.06em}
+.card li span{color:var(--muted);font-size:.96rem}
+.card .obs{margin-top:18px;font-size:.88rem;color:var(--soft)}
+@media(max-width:800px){.cols{grid-template-columns:1fr}}
+
+/* chamada final */
+.cta{text-align:center}
+.cta .mono{font-size:3.4rem;display:block;margin-bottom:16px}
+.cta .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+
+footer{border-top:1px solid var(--line);padding:46px 0 36px;font-size:.92rem;color:var(--muted)}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.ft nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+.ft nav a{min-height:32px;display:inline-flex;align-items:center}
+.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem;color:var(--soft)}
+.fb a{color:var(--bronze-t)}
+
+/* sacola */
+.overlay{position:fixed;inset:0;z-index:80;background:rgba(31,26,23,.4);opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.overlay.open{opacity:1;visibility:visible;transition:opacity .35s}
+.bag{position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(440px,100%);background:var(--paper);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .45s var(--ease);box-shadow:-30px 0 60px -30px rgba(0,0,0,.3)}
+.bag.open{transform:none}
+.bag header{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}
+.bag header h2{font-size:1.9rem}
+.bag .items{flex:1;overflow-y:auto;padding:8px 22px}
+.bag .empty{text-align:center;color:var(--muted);padding:60px 10px}
+.bag .empty .mono{font-size:3rem;display:block;margin-bottom:10px}
+.it{display:grid;grid-template-columns:76px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.it img{width:76px;height:100px;object-fit:cover;object-position:50% 15%}
+.it b{display:block;font-weight:400;font-size:.95rem;line-height:1.35}
+.it small{color:var(--soft);font-size:.84rem}
+.qty{display:flex;align-items:center;gap:4px;margin-top:8px}
+.qty button{width:32px;height:32px;border:1px solid var(--line)}
+.qty span{min-width:24px;text-align:center}
+.rm{font-size:.8rem;color:var(--soft);text-decoration:underline;align-self:start;min-height:32px}
+.bag footer{border-top:1px solid var(--line);padding:18px 22px calc(18px + env(safe-area-inset-bottom,0px));font-size:inherit;color:inherit}
+.bag label{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.bag input{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);background:#fff;font:inherit;margin-bottom:12px}
+.bag .note{font-size:.84rem;color:var(--soft);margin:2px 0 14px}
+.bag .btn{width:100%}
+.bag .wa{background:#1f6f43;color:#fff}
+.bag .wa:hover{background:#185a36}
+.lock{overflow:hidden}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:95;background:var(--ink);color:var(--paper);padding:12px 20px;font-size:.9rem;opacity:0;pointer-events:none;transition:.3s;display:flex;gap:14px;align-items:center;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{color:#d2b48c;text-decoration:underline;font-size:.88rem}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12.5H6.2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="7" cy="17.5" r="1.7" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="17.5" cy="17.5" r="1.7" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3 10h18M15 14.5h3" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="i-bill" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-1.6-3 1.6-3-1.6L6 21z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M12 7v8M14.2 8.6c-.5-.7-1.3-1-2.2-1-1.2 0-2 .6-2 1.5 0 2 4.4 1 4.4 3.1 0 .9-.9 1.6-2.3 1.6-1 0-1.9-.4-2.4-1.1" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16V16H9l-4 3.5V16H4z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+  <symbol id="i-suit" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M9 7V5h6v2M4 12h16" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="i-hanger" viewBox="0 0 24 24"><path d="M12 7.5a1.8 1.8 0 1 1 1.8-1.8c0 1.1-1.8 1.4-1.8 2.8v.6L3.5 15.5c-.8.6-.4 1.8.6 1.8h15.8c1 0 1.4-1.2.6-1.8L12 9.1" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3 8.5h18" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.49h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></symbol>
+</svg>
+<a class="skip" href="#colecao">Pular para a coleção</a>
+<div class="bar">Envio para todo o Brasil · Pagamento por link de cartão ou boleto programado</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="logo" aria-label="Las Santas Multimarcas, início"><span class="mono" aria-hidden="true">L<span>S</span></span><span><b>LAS SANTAS</b><small>MULTIMARCAS</small></span></a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#colecao">Coleção</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#como-comprar">Como comprar</a>
+      <a href="#atendimento">Atendimento</a>
+    </nav>
+    <div class="acts">
+      <button class="ib" id="openBag" type="button" aria-label="Abrir sacola"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="count" id="count" aria-hidden="true">0</span></button>
+      <button class="ib burger" id="openMenu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mmenu"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="ib x" id="closeMenu" type="button" aria-label="Fechar menu"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+  <a href="#colecao">Coleção</a><a href="#experiencias">Experiências</a><a href="#como-comprar">Como comprar</a><a href="#atendimento">Atendimento</a>
+</div>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kick rv">Loja multimarcas · Porto Alegre</span>
+      <h1 class="rv">Curadoria com <em>experiência.</em></h1>
+      <p class="lede rv">Peças escolhidas uma a uma para mulheres que se vestem com presença. Monte a sua sacola e finalize pelo WhatsApp, com envio para todo o Brasil.</p>
+      <div class="btns rv"><a class="btn btn-dark" href="#colecao">Ver a coleção</a><a class="btn btn-line" data-wa="Olá! Conheci o site da Las Santas e gostaria de atendimento." href="#atendimento"><svg aria-hidden="true"><use href="#wa"/></svg>Falar com a loja</a></div>
+      <div class="info rv"><span><svg aria-hidden="true"><use href="#i-truck"/></svg>Envio para todo o Brasil</span><span><svg aria-hidden="true"><use href="#i-hanger"/></svg>Provador em casa em Porto Alegre</span></div>
+    </div>
+    <div class="collage rv">
+      <figure><img src="img/vestido-longo-preto.webp" width="391" height="436" fetchpriority="high" alt="Vestido longo preto frente única"><span class="tag">Seleção Black</span></figure>
+      <figure><img src="img/vestido-midi-vermelho.webp" width="391" height="431" alt="Vestido midi vermelho"></figure>
+      <figure><img src="img/conjunto-azul.webp" width="391" height="436" alt="Conjunto azul de colete e calça"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="colecao">
+  <div class="wrap">
+    <div class="colhead"><div><span class="kick rv">A coleção</span><h2 class="h2 rv">Escolha as suas <em>peças.</em></h2></div>
+      <p class="lede rv" style="max-width:440px">Escolha o tamanho, adicione à sacola e envie o pedido pelo WhatsApp. A loja confirma a disponibilidade e o valor com você.</p></div>
+    <div class="chips" role="group" aria-label="Filtrar por categoria" id="chips"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec exp" id="experiencias">
+  <div class="wrap">
+    <span class="kick rv">Experiências</span>
+    <h2 class="h2 rv">Escolha a experiência que combina <em>com a sua rotina.</em></h2>
+    <div class="exps">
+      <div class="ex rv"><svg aria-hidden="true"><use href="#i-chat"/></svg><h3>WhatsApp</h3><p>Atendimento personalizado para tirar dúvidas, ver peças e fechar o seu pedido.</p></div>
+      <div class="ex rv"><svg aria-hidden="true"><use href="#i-web"/></svg><h3>Site</h3><p>Veja a coleção quando quiser, monte a sua sacola e envie o pedido em poucos toques.</p></div>
+      <div class="ex rv"><svg aria-hidden="true"><use href="#i-suit"/></svg><h3>Mala Fashion</h3><p>Uma seleção de peças pensada para você, de acordo com o seu estilo e tamanho.</p></div>
+      <div class="ex rv"><svg aria-hidden="true"><use href="#i-hanger"/></svg><h3>Provador em casa</h3><p>Em Porto Alegre, as peças ficam com você por até 24 horas, reservadas só para você.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="como-comprar">
+  <div class="wrap">
+    <span class="kick rv">Como comprar</span>
+    <h2 class="h2 rv">Simples, do início <em>ao fim.</em></h2>
+    <div class="steps">
+      <div class="step rv"><h3>Escolha</h3><p>Navegue pela coleção e escolha o tamanho de cada peça.</p></div>
+      <div class="step rv"><h3>Monte a sacola</h3><p>Adicione as peças e envie o pedido pelo WhatsApp.</p></div>
+      <div class="step rv"><h3>Confirme</h3><p>A loja confirma a disponibilidade, o valor e o frete.</p></div>
+      <div class="step rv"><h3>Receba</h3><p>Pague pelo link ou boleto programado e receba em casa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec info2" id="atendimento">
+  <div class="wrap cols">
+    <div class="card rv"><span class="kick">Pagamento</span><h3>Formas de pagamento</h3>
+      <ul><li><i><svg aria-hidden="true"><use href="#i-card"/></svg></i><div><b>Link de pagamento</b><span>Rápido e seguro, no cartão de crédito.</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-bill"/></svg></i><div><b>Boleto programado</b><span>Com vencimentos semanais ou quinzenais, mediante entrada no momento da compra e conforme as condições do pedido.</span></div></li></ul>
+      <p class="obs">As opções podem variar de acordo com o valor da compra. Consulte a equipe para conhecer a melhor alternativa para você.</p></div>
+    <div class="card rv"><span class="kick">Atendimento</span><h3>Horários</h3>
+      <ul><li><i><svg aria-hidden="true"><use href="#i-cal"/></svg></i><div><b>Segunda a sexta</b><span>9h às 18h</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-bag"/></svg></i><div><b>Sábados</b><span>9h às 12h</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-clock"/></svg></i><div><b>Atendimento estendido</b><span>Segunda a sexta, das 18h às 21h, conforme disponibilidade da equipe.</span></div></li></ul></div>
+  </div>
+</section>
+
+<section class="sec cta">
+  <div class="wrap">
+    <span class="mono rv" aria-hidden="true">L<span>S</span></span>
+    <h2 class="h2 rv">Peças especiais <em>esperando por você.</em></h2>
+    <p class="lede rv" style="margin-inline:auto">Novidades toda semana nos stories e aqui no site.</p>
+    <div class="btns rv"><a class="btn btn-dark" href="#colecao">Ver a coleção</a><a class="btn btn-line" href="https://www.instagram.com/las_santas/" target="_blank" rel="noopener">Seguir no Instagram</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft"><a href="#inicio" class="logo"><span class="mono" aria-hidden="true">L<span>S</span></span><span><b>LAS SANTAS</b><small>MULTIMARCAS</small></span></a>
+      <nav aria-label="Rodapé"><a href="#colecao">Coleção</a><a href="#experiencias">Experiências</a><a href="#como-comprar">Como comprar</a><a href="#atendimento">Atendimento</a><a href="https://www.instagram.com/las_santas/" target="_blank" rel="noopener">Instagram</a></nav></div>
+    <div class="fb"><span>© <span id="ano">2026</span> Las Santas Multimarcas · Porto Alegre/RS · Envio para todo o Brasil</span><span>Desenvolvido pela <a href="https://h2d-studio.netlify.app/" target="_blank" rel="noopener">H2D Studio</a></span></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="bag" id="bag" role="dialog" aria-modal="true" aria-labelledby="bagTit" aria-hidden="true">
+  <header><h2 id="bagTit">Sua sacola</h2><button class="ib" id="closeBag" type="button" aria-label="Fechar sacola"><svg aria-hidden="true"><use href="#i-x"/></svg></button></header>
+  <div class="items" id="items"></div>
+  <footer id="bagFoot">
+    <label for="cNome">Seu nome</label><input id="cNome" autocomplete="given-name" placeholder="Como podemos te chamar?" maxlength="60">
+    <label for="cCidade">Cidade ou CEP (para o frete)</label><input id="cCidade" autocomplete="postal-code" placeholder="Ex.: Porto Alegre ou 90000-000" maxlength="60">
+    <p class="note">A loja confirma a disponibilidade, o valor e o frete pelo WhatsApp.</p>
+    <a class="btn wa" id="sendBag" href="#"><svg aria-hidden="true"><use href="#wa"/></svg>Finalizar pelo WhatsApp</a>
+  </footer>
+</aside>
+<div class="toast" id="toast" role="status"><span id="toastTxt">Adicionado à sacola</span><button type="button" id="toastBtn">Ver sacola</button></div>
+
+<script>
+/* CONFIGURAÇÃO: número do WhatsApp da loja (DDI + DDD + número, só dígitos). Vazio = o WhatsApp pede para escolher o contato. */
+var CONFIG = { whatsapp: '' };
+
+/* Produtos: para incluir uma peça nova, copie uma linha e troque os dados.
+   preco: deixe '' para mostrar "Consulte o valor". tamanhos: os disponíveis. */
+var PRODUTOS = [
+  {id:'p1', nome:'Vestido longo preto frente única', cat:'Vestidos', img:'img/vestido-longo-preto.webp', preco:'', tam:['P','M','G'], flag:'Black'},
+  {id:'p2', nome:'Vestido midi vermelho', cat:'Vestidos', img:'img/vestido-midi-vermelho.webp', preco:'', tam:['P','M','G'], flag:'Novidade'},
+  {id:'p3', nome:'Macacão pantalona vermelho', cat:'Macacões', img:'img/macacao-vermelho.webp', preco:'', tam:['P','M','G']},
+  {id:'p4', nome:'Conjunto peplum preto', cat:'Conjuntos', img:'img/conjunto-peplum-preto.webp', preco:'', tam:['P','M','G'], flag:'Black'},
+  {id:'p5', nome:'Conjunto cropped e saia midi preta', cat:'Conjuntos', img:'img/conjunto-saia-preta.webp', preco:'', tam:['P','M','G'], flag:'Black'},
+  {id:'p6', nome:'Conjunto colete e calça azul', cat:'Conjuntos', img:'img/conjunto-azul.webp', preco:'', tam:['P','M','G']},
+  {id:'p7', nome:'Camisa e saia azul com renda', cat:'Conjuntos', img:'img/camisa-azul-renda.webp', preco:'', tam:['P','M','G']},
+  {id:'p8', nome:'Blazer branco e short com renda', cat:'Blazers e casacos', img:'img/blazer-branco-renda.webp', preco:'', tam:['P','M','G']},
+  {id:'p9', nome:'Macacão tomara que caia marinho', cat:'Macacões', img:'img/macacao-marinho.webp', preco:'', tam:['P','M','G']},
+  {id:'p10', nome:'Conjunto jogger caramelo', cat:'Conjuntos', img:'img/conjunto-caramelo.webp', preco:'', tam:['P','M','G']},
+  {id:'p11', nome:'Conjunto blazer e short bordô', cat:'Blazers e casacos', img:'img/blazer-bordo.webp', preco:'', tam:['P','M','G']},
+  {id:'p12', nome:'Casaco de pelo marrom', cat:'Blazers e casacos', img:'img/casaco-pelo.webp', preco:'', tam:['P','M','G'], flag:'Novidade'}
+];
+
+(function(){
+  var root = document.documentElement;
+  function $(s, c){ return (c || document).querySelector(s); }
+  function $$(s, c){ return [].slice.call((c || document).querySelectorAll(s)); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function wa(m){ return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(m); }
+  $$('[data-wa]').forEach(function(a){ a.href = wa(a.getAttribute('data-wa')); a.target = '_blank'; a.rel = 'noopener'; });
+  $('#ano').textContent = new Date().getFullYear();
+
+  /* menu */
+  var mm = $('#mmenu'), ob = $('#openMenu');
+  function menu(on){ mm.classList.toggle('open', on); ob.setAttribute('aria-expanded', on); root.classList.toggle('lock', on); if (on) $('a', mm).focus(); else ob.focus(); }
+  ob.addEventListener('click', function(){ menu(true); });
+  $('#closeMenu').addEventListener('click', function(){ menu(false); });
+  mm.addEventListener('click', function(e){ if (e.target.closest('a')){ mm.classList.remove('open'); ob.setAttribute('aria-expanded', false); root.classList.remove('lock'); } });
+
+  /* coleção */
+  var grid = $('#grid'), chips = $('#chips');
+  var cats = ['Todas'].concat(PRODUTOS.map(function(p){ return p.cat; }).filter(function(c, i, a){ return a.indexOf(c) === i; }));
+  chips.innerHTML = cats.map(function(c, i){ return '<button class="chip" type="button" aria-pressed="' + (i === 0) + '" data-c="' + esc(c) + '">' + esc(c) + '</button>'; }).join('');
+  grid.innerHTML = PRODUTOS.map(function(p){
+    return '<article class="prod rv" data-id="' + p.id + '" data-c="' + esc(p.cat) + '"><div class="ph"><img src="' + p.img + '" loading="lazy" decoding="async" alt="' + esc(p.nome) + '">' +
+      (p.flag ? '<span class="flag' + (p.flag === 'Black' ? ' blk' : '') + '">' + esc(p.flag) + '</span>' : '') + '</div>' +
+      '<h3>' + esc(p.nome) + '</h3><span class="pr">' + (p.preco ? 'R$ ' + esc(p.preco) : 'Consulte o valor') + '</span>' +
+      '<div class="sizes" role="group" aria-label="Tamanho">' + p.tam.map(function(t){ return '<button type="button" aria-pressed="false" data-t="' + t + '">' + t + '</button>'; }).join('') + '</div>' +
+      '<p class="hintsize" aria-live="polite"></p><button class="add" type="button">Adicionar à sacola</button></article>';
+  }).join('');
+  chips.addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if (!b) return;
+    $$('.chip', chips).forEach(function(x){ x.setAttribute('aria-pressed', x === b); });
+    $$('.prod', grid).forEach(function(p){ p.hidden = !(b.dataset.c === 'Todas' || p.dataset.c === b.dataset.c); });
+  });
+  grid.addEventListener('click', function(e){
+    var card = e.target.closest('.prod'); if (!card) return;
+    var sz = e.target.closest('.sizes button');
+    if (sz){ $$('.sizes button', card).forEach(function(x){ x.setAttribute('aria-pressed', x === sz); }); $('.hintsize', card).textContent = ''; return; }
+    var add = e.target.closest('.add'); if (!add) return;
+    var sel = $('.sizes button[aria-pressed="true"]', card);
+    if (!sel){ $('.hintsize', card).textContent = 'Escolha um tamanho.'; return; }
+    adicionar(card.dataset.id, sel.dataset.t);
+    add.classList.add('ok'); add.textContent = 'Adicionado ✓';
+    setTimeout(function(){ add.classList.remove('ok'); add.textContent = 'Adicionar à sacola'; }, 1600);
+  });
+
+  /* sacola */
+  var CH = 'lassantas_sacola', sacola = [];
+  try { sacola = JSON.parse(localStorage.getItem(CH)) || []; } catch(e){}
+  function salvar(){ try { localStorage.setItem(CH, JSON.stringify(sacola)); } catch(e){} }
+  function prod(id){ return PRODUTOS.filter(function(p){ return p.id === id; })[0]; }
+  function adicionar(id, t){
+    var it = sacola.filter(function(x){ return x.id === id && x.t === t; })[0];
+    if (it) it.q++; else sacola.push({id:id, t:t, q:1});
+    salvar(); render(); pulse(); aviso('Adicionado à sacola');
+  }
+  var bag = $('#bag'), ov = $('#overlay'), items = $('#items'), count = $('#count'), foot = $('#bagFoot'), antes = null;
+  function total(){ return sacola.reduce(function(s, x){ return s + x.q; }, 0); }
+  function pulse(){ count.classList.remove('pulse'); void count.offsetWidth; count.classList.add('pulse'); }
+  function render(){
+    var n = total(); count.textContent = n; count.classList.toggle('on', n > 0);
+    $('#openBag').setAttribute('aria-label', 'Abrir sacola, ' + n + (n === 1 ? ' peça' : ' peças'));
+    foot.hidden = !n;
+    items.innerHTML = n ? sacola.map(function(x, i){ var p = prod(x.id); if (!p) return '';
+      return '<div class="it"><img src="' + p.img + '" alt=""><div><b>' + esc(p.nome) + '</b><small>Tamanho ' + x.t + (p.preco ? ' · R$ ' + esc(p.preco) : '') + '</small>' +
+        '<div class="qty"><button type="button" data-a="-" data-i="' + i + '" aria-label="Diminuir quantidade">−</button><span>' + x.q + '</span><button type="button" data-a="+" data-i="' + i + '" aria-label="Aumentar quantidade">+</button></div></div>' +
+        '<button class="rm" type="button" data-a="x" data-i="' + i + '">Remover</button></div>'; }).join('') :
+      '<div class="empty"><span class="mono" aria-hidden="true">L<span>S</span></span><p>Sua sacola está vazia.</p><a class="btn btn-line" href="#colecao" data-fechar style="margin-top:18px">Ver a coleção</a></div>';
+    atualizarLink();
+  }
+  function atualizarLink(){
+    var nome = $('#cNome').value.trim(), cid = $('#cCidade').value.trim();
+    var l = ['Olá! ' + (nome ? 'Sou ' + nome + '. ' : '') + 'Montei minha sacola no site da Las Santas:', ''];
+    sacola.forEach(function(x){ var p = prod(x.id); if (p) l.push('• ' + x.q + 'x ' + p.nome + ' (tamanho ' + x.t + ')'); });
+    if (cid) l.push('', 'Entrega: ' + cid);
+    l.push('', 'Pode confirmar a disponibilidade, o valor e o frete?');
+    var a = $('#sendBag'); a.href = wa(l.join('\n')); a.target = '_blank'; a.rel = 'noopener';
+  }
+  items.addEventListener('click', function(e){
+    if (e.target.closest('[data-fechar]')){ abrir(false); return; }
+    var b = e.target.closest('[data-a]'); if (!b) return;
+    var i = +b.dataset.i;
+    if (b.dataset.a === '+') sacola[i].q++;
+    else if (b.dataset.a === '-'){ sacola[i].q--; if (!sacola[i].q) sacola.splice(i, 1); }
+    else sacola.splice(i, 1);
+    salvar(); render();
+  });
+  $('#cNome').addEventListener('input', atualizarLink); $('#cCidade').addEventListener('input', atualizarLink);
+  function abrir(on){
+    bag.classList.toggle('open', on); ov.classList.toggle('open', on); root.classList.toggle('lock', on); bag.setAttribute('aria-hidden', !on);
+    if (on){ toast.classList.remove('show'); antes = document.activeElement; setTimeout(function(){ $('#closeBag').focus(); }, 50); } else if (antes) antes.focus();
+  }
+  $('#openBag').addEventListener('click', function(){ abrir(true); });
+  $('#closeBag').addEventListener('click', function(){ abrir(false); });
+  ov.addEventListener('click', function(){ abrir(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ if (bag.classList.contains('open')) abrir(false); if (mm.classList.contains('open')) menu(false); } });
+
+  var toast = $('#toast'), tt;
+  function aviso(t){ $('#toastTxt').textContent = t; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 2600); }
+  $('#toastBtn').addEventListener('click', function(){ toast.classList.remove('show'); abrir(true); });
+  render();
+
+  /* revelação suave */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.1});
+    $$('.rv').forEach(function(el){ io.observe(el); });
+  } else $$('.rv').forEach(function(el){ el.classList.add('in'); });
+})();
+</script>
+</body>
+</html>
