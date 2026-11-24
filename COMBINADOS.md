@@ -83,6 +83,7 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 - **Vereador Mauro Pinheiro:** ele leu a mensagem, disse "ok" e recebeu o modelo fictício (`modelo-politico/modelo-site-vereador.html`). Aguardando retorno. Se ele gostar: pedir prints do Instagram e fazer a prévia personalizada. Valor sugerido: R$ 1.490 a R$ 1.990 + R$ 249 a R$ 349/mês de atualização. Perguntar quem paga (pessoa física ou gabinete, que pode exigir nota fiscal).
 - **Modelo de site para mandatos publicado (24/11):** https://h2d-modelo-mandato.netlify.app (15 créditos). Serve para vereadores e deputados. Fica fora do Google (noindex).
 - **Nani Vais (corretora, alto padrão):** recebeu o link do Áurea Litoral (site com imóveis, que foi cobrado R$ 549 na promoção). Se ela pedir um para ela, mandar o modelo de corretora como exemplo. Valores sugeridos: site pessoal **R$ 449** de lançamento (valor cheio R$ 790), com entrada de R$ 249 por Pix e R$ 200 na entrega. Com vitrine de imóveis: **R$ 549**. Opcional: atualização mensal dos imóveis por R$ 149/mês; domínio no nome dela (uns R$ 40/ano).
+- **Modelo de site para corretores publicado (24/11):** https://h2d-modelo-corretora.netlify.app (15 créditos). Site pessoal do corretor, fora do Google (noindex). Botão "Quero um site assim" leva ao WhatsApp da H2D. Para fazer o de um cliente: `modelo-corretor/COMO-PERSONALIZAR.md`.
 - **Lembrete para o Mauro:** se não responder em 3 dias, mandar "Olá! Conseguiram ver o modelo? Fico à disposição. 😊"
 
 ---
