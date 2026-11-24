@@ -211,6 +211,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .more{display:flex;justify-content:center;margin-top:26px}
 .nw a.lm{margin-top:12px;font-weight:600;color:var(--blue);font-size:.92rem}
 @media(max-width:860px){.ct{grid-template-columns:1fr}}
+
+.slide .art .fr{position:relative;width:min(400px,88%);aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:6px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);background:#fff;margin-bottom:46px}
+.slide .art .fr img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.slide.on .art .fr{animation:rise 1s var(--ease) both}
+.about .ph img,.join .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.about .ph{background:#fff}
+.acao .vd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.acao .vd button,.acao .vd small{z-index:2}
+.ft img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.ft:hover img{transform:scale(1.06)}
+.nw .im img{width:100%;height:100%;object-fit:cover}
+@media(max-width:820px){.slide .art{display:block;position:absolute;inset:0;height:auto;right:0;bottom:0;opacity:1;z-index:0}.slide .art .fr{width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:0;margin:0;box-shadow:none;animation:none!important}.slide .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,42,79,.72),rgba(13,42,79,.92))}.slide .tx{max-width:100%}.slide p{max-width:100%}.hero .slides{height:560px}}
 /* rodapé */
 footer{background:var(--navy);color:#cfe0f5;padding:54px 0 34px;font-size:.94rem}
 footer .g{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
@@ -271,9 +283,9 @@ footer .cp a{color:var(--amber)}
 <main id="inicio">
 <section class="hero" aria-roledescription="carrossel" aria-label="Destaques">
   <div class="slides" id="slides">
-    <div class="slide on"><div class="tx"><span class="k">Vereador · Cidade Exemplo</span><h1>Trabalho sério, <em>perto de você.</em></h1><p>Um mandato presente nos bairros, com prestação de contas e portas abertas para a comunidade.</p><div class="btns"><a class="btn btn-y" href="#participe">Quero participar</a><a class="btn btn-o" href="#atuacao">Ver o mandato</a></div></div><div class="art"><svg viewBox="0 0 300 360" aria-hidden="true"><use href="#pessoa"/></svg></div></div>
-    <div class="slide"><div class="tx"><span class="k">Educação</span><h2>Escola boa <em>em todo bairro.</em></h2><p>Mais vagas na educação infantil, escolas reformadas e segurança na porta das escolas.</p><div class="btns"><a class="btn btn-y" href="#atuacao">Ver os projetos</a></div></div><div class="art"><svg viewBox="0 0 300 360" aria-hidden="true"><use href="#pessoa"/></svg></div></div>
-    <div class="slide"><div class="tx"><span class="k">Prestação de contas</span><h2>Cada conquista, <em>à vista de todos.</em></h2><p>Projetos, votações e agenda do gabinete, atualizados aqui, com transparência.</p><div class="btns"><a class="btn btn-y" href="#noticias">Últimas notícias</a></div></div><div class="art"><svg viewBox="0 0 300 360" aria-hidden="true"><use href="#pessoa"/></svg></div></div>
+    <div class="slide on"><div class="tx"><span class="k">Vereador · Cidade Exemplo</span><h1>Trabalho sério, <em>perto de você.</em></h1><p>Um mandato presente nos bairros, com prestação de contas e portas abertas para a comunidade.</p><div class="btns"><a class="btn btn-y" href="#participe">Quero participar</a><a class="btn btn-o" href="#atuacao">Ver o mandato</a></div></div><div class="art"><div class="fr"><img src="img/retrato.webp" alt="Retrato do vereador (pessoa de banco de imagens)" fetchpriority="high"></div></div></div>
+    <div class="slide"><div class="tx"><span class="k">Educação</span><h2>Escola boa <em>em todo bairro.</em></h2><p>Mais vagas na educação infantil, escolas reformadas e segurança na porta das escolas.</p><div class="btns"><a class="btn btn-y" href="#atuacao">Ver os projetos</a></div></div><div class="art"><div class="fr"><img src="img/escola.webp" alt="Sala de aula de escola municipal" loading="lazy"></div></div></div>
+    <div class="slide"><div class="tx"><span class="k">Prestação de contas</span><h2>Cada conquista, <em>à vista de todos.</em></h2><p>Projetos, votações e agenda do gabinete, atualizados aqui, com transparência.</p><div class="btns"><a class="btn btn-y" href="#noticias">Últimas notícias</a></div></div><div class="art"><div class="fr"><img src="img/tribuna.webp" alt="Tribuna da Câmara Municipal" loading="lazy"></div></div></div>
   </div>
   <button class="arr l" type="button" id="prev" aria-label="Destaque anterior">‹</button><button class="arr r" type="button" id="next" aria-label="Próximo destaque">›</button>
   <div class="dots" id="dots"></div>
@@ -290,7 +302,7 @@ footer .cp a{color:var(--amber)}
 
 <section class="sec about" id="sobre" style="margin-top:80px">
   <div class="wrap in">
-    <div class="ph rv"><svg viewBox="0 0 300 360" aria-hidden="true"><use href="#pessoa"/></svg></div>
+    <div class="ph rv"><img src="img/retrato.webp" alt="Retrato do vereador (pessoa de banco de imagens)" loading="lazy"></div>
     <div>
       <h2 class="rv">Sobre o vereador</h2>
       <p class="rv">Rafael Exemplo é vereador da Cidade Exemplo e está no segundo mandato. Antes da política, trabalhou por mais de 15 anos com projetos comunitários nos bairros da cidade. Acredita em um mandato próximo das pessoas, construído a partir do que a comunidade vive no dia a dia.</p>
@@ -307,7 +319,7 @@ footer .cp a{color:var(--amber)}
 <section class="sec">
   <div class="wrap">
     <div class="acao rv">
-      <div class="vd"><button type="button" aria-label="Assistir ao vídeo (demonstração)"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><small>Espaço para o vídeo de apresentação do mandato</small></div>
+      <div class="vd"><img src="img/microfone.webp" alt="" loading="lazy"><button type="button" aria-label="Assistir ao vídeo (demonstração)"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><small>Espaço para o vídeo de apresentação do mandato</small></div>
       <div class="tx">
         <h2>Mandato em ação: compromisso com a cidade</h2>
         <p class="lead">Um trabalho que aproxima a Câmara da comunidade, com foco em resultados concretos.</p>
@@ -360,7 +372,7 @@ footer .cp a{color:var(--amber)}
 <section class="sec" id="participe" style="padding-top:0">
   <div class="wrap">
     <div class="join rv">
-      <div class="ph"><div><svg viewBox="0 0 300 360" style="width:82%" aria-hidden="true"><use href="#pessoa"/></svg></div></div>
+      <div class="ph"><div><img src="img/imprensa.webp" alt="Vereador conversando com a imprensa" loading="lazy"></div></div>
       <div>
         <h2>Junte-se ao trabalho do <em>vereador</em></h2>
         <p>Receba novidades do mandato e participe das ações na sua região.</p>
@@ -380,12 +392,12 @@ footer .cp a{color:var(--amber)}
   <div class="wrap">
     <div class="tt"><h2 class="rv">Gabinete em ação</h2><p class="rv">Momentos e entregas do mandato. Cada conquista tem a colaboração de muita gente.</p></div>
     <div class="album">
-      <div class="ft w t rv"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="400" fill="#1f5fae"/><circle cx="300" cy="90" r="140" fill="#12a58a" opacity=".55"/><circle cx="90" cy="320" r="160" fill="#0d2a4f" opacity=".7"/></svg><span>Entrega da praça reformada</span></div>
-      <div class="ft rv"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="400" fill="#f2b632"/><circle cx="120" cy="120" r="150" fill="#e8913a" opacity=".6"/></svg><span>Visita à escola</span></div>
-      <div class="ft rv"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="400" fill="#12a58a"/><circle cx="320" cy="300" r="170" fill="#0d6f5d" opacity=".6"/></svg><span>Sessão na Câmara</span></div>
-      <div class="ft w rv"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="400" fill="#0d2a4f"/><circle cx="200" cy="80" r="170" fill="#1f5fae" opacity=".6"/><circle cx="380" cy="360" r="120" fill="#f2b632" opacity=".45"/></svg><span>Encontro com moradores</span></div>
+      <div class="ft w t rv"><img src="img/aperto-mao.webp" alt="Encontro com moradores" loading="lazy"><span>Encontro com moradores</span></div>
+      <div class="ft rv"><img src="img/escola.webp" alt="Visita à escola" loading="lazy"><span>Visita à escola</span></div>
+      <div class="ft rv"><img src="img/sala-reuniao.webp" alt="Reunião de trabalho" loading="lazy"><span>Reunião de trabalho</span></div>
+      <div class="ft w rv"><img src="img/reuniao-comunidade.webp" alt="Audiência pública" loading="lazy"><span>Audiência pública</span></div>
     </div>
-    <p style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:14px">No site real, aqui entram as fotos oficiais do gabinete.</p>
+    <p style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:14px">Fotos de banco de imagens. No site real, entram as fotos oficiais do gabinete.</p>
   </div>
 </section>
 
@@ -393,9 +405,9 @@ footer .cp a{color:var(--amber)}
   <div class="wrap">
     <div class="tt"><h2 class="rv">Notícias</h2><p class="rv">Últimas do mandato: agenda, conquistas e prestação de contas.</p></div>
     <div class="news">
-      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#1f5fae,#12a58a)"></div><div class="bd"><span class="dt">25 NOV 2026</span><h3>Bairro Iluminado chega a mais 12 ruas</h3><p>Nova etapa do programa prioriza paradas de ônibus e entornos de escolas.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
-      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#f2b632,#e8913a)"></div><div class="bd"><span class="dt">18 NOV 2026</span><h3>Audiência pública debate vagas em creches</h3><p>Famílias, educadores e gestores discutiram propostas para ampliar o atendimento.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
-      <article class="nw rv"><div class="im" style="background:linear-gradient(135deg,#0d2a4f,#1f5fae)"></div><div class="bd"><span class="dt">10 NOV 2026</span><h3>Prestação de contas do semestre</h3><p>Confira os projetos apresentados, as votações e as ações nos bairros.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
+      <article class="nw rv"><div class="im"><img src="img/trabalhador.webp" alt="" loading="lazy"></div><div class="bd"><span class="dt">25 NOV 2026</span><h3>Bairro Iluminado chega a mais 12 ruas</h3><p>Nova etapa do programa prioriza paradas de ônibus e entornos de escolas.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
+      <article class="nw rv"><div class="im"><img src="img/reuniao-gabinete.webp" alt="" loading="lazy"></div><div class="bd"><span class="dt">18 NOV 2026</span><h3>Audiência pública debate vagas em creches</h3><p>Famílias, educadores e gestores discutiram propostas para ampliar o atendimento.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
+      <article class="nw rv"><div class="im"><img src="img/obra-rua.webp" alt="" loading="lazy"></div><div class="bd"><span class="dt">10 NOV 2026</span><h3>Obras de drenagem começam no Jardim das Flores</h3><p>Reivindicação antiga dos moradores, a obra deve reduzir os alagamentos na região.</p><a class="lm" href="#noticias">Ler mais →</a></div></article>
     </div>
     <div class="more"><a class="btn btn-w" href="#noticias">Mais notícias →</a></div>
   </div>
