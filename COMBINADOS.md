@@ -12,6 +12,8 @@ Arquivo de referência com o que já foi decidido. Atualizado em 23/11/2026.
 
 **Atualização 24/11:** prévia enviada para a Angélica (versão com os selos abaixo da foto no celular). Aguardando o retorno. Depois: fazer os ajustes que ela pedir, mandar a mensagem de fechamento e publicar no Netlify só com a aprovação dela. Se não responder em 2 ou 3 dias: "Oi, Angélica! Conseguiste dar uma olhadinha no site? 😊"
 
+**Atualização 25/11 (noite):** a Angélica AMOU o site ("Que trabalho maaaaais liiiiindo!!!!"). Vai ler com calma. Viaja para um treinamento de 3 dias na Somaxi em BC e volta para POA no domingo (29/11) de manhã. Próximo passo: retomar na segunda (30/11), pedir os ajustes e mandar a proposta de fechamento.
+
 **Valores decididos (23/11):**
 - Site completo: **R$ 849**
 - Pagamento: **entrada de R$ 449 por Pix** para começar e **R$ 400 na entrega** do site
