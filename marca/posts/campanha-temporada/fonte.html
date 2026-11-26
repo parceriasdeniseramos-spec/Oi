@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><base href="file:///home/user/Oi/modelo-corretor/"><style>
+@font-face{font-family:Corm;font-weight:500;src:url(fonts/cormorant-garamond-latin-500-normal.woff2)}@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(fonts/cormorant-garamond-latin-500-italic.woff2)}@font-face{font-family:Jost;src:url(fonts/jost-latin-400-normal.woff2)}@font-face{font-family:Jost;font-weight:500;src:url(fonts/jost-latin-500-normal.woff2)}
+*{margin:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;font-family:Jost;color:#12302f;background:linear-gradient(180deg,#f7efe3 0%,#f3e6d3 62%,#ecdcc4 100%);position:relative}
+.sun{position:absolute;right:-60px;top:250px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#f6d7a6,#e9b878 55%,#dca263);opacity:.85}
+.sun::after{content:"";position:absolute;inset:-60px;border-radius:50%;border:1px solid rgba(184,137,79,.35)}
+.mar{position:absolute;left:0;right:0;bottom:0;height:330px}
+.k{position:absolute;left:84px;top:96px;display:flex;align-items:center;gap:16px;font-size:22px;letter-spacing:.26em;text-transform:uppercase;color:#9a6f3c;font-weight:500}
+.k::before{content:"";width:44px;height:1px;background:currentColor}
+h1{position:absolute;left:80px;top:150px;width:680px;font-family:Corm;font-weight:500;font-size:98px;line-height:1;letter-spacing:-.01em}
+h1 em{display:block;color:#9a6f3c}
+.sub{position:absolute;left:84px;top:478px;width:520px;font-size:29px;line-height:1.45;color:#3d4f4c}
+.ops{position:absolute;left:84px;top:640px;display:grid;gap:16px}
+.op{display:flex;align-items:center;gap:18px;padding:18px 26px 18px 18px;border-radius:20px;background:rgba(255,255,255,.72);box-shadow:0 18px 36px -24px rgba(18,48,47,.5);font-size:27px;font-weight:500;width:470px}
+.op i{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#12302f;color:#e9c891;flex:none}
+.op svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.op small{display:block;font-weight:400;font-size:20px;color:#5f6b68}
+.fone{position:absolute;right:96px;top:300px;width:372px;height:780px;border-radius:58px;background:#111;padding:13px;box-shadow:0 50px 90px -30px rgba(18,48,47,.65),0 0 0 2px #2a2a2a inset;transform:rotate(4deg)}
+.fone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:46px}
+.fone::before{content:"";position:absolute;left:50%;top:26px;transform:translateX(-50%);width:110px;height:30px;border-radius:20px;background:#000;z-index:2}
+.selo{position:absolute;right:400px;top:930px;width:210px;height:210px;border-radius:50%;background:#12302f;color:#f3e6d3;display:grid;place-items:center;text-align:center;transform:rotate(-8deg);box-shadow:0 24px 44px -20px rgba(0,0,0,.5);z-index:3}
+.selo div{font-size:17px;letter-spacing:.16em;text-transform:uppercase;line-height:1.3}
+.selo b{display:block;font-variant-numeric:lining-nums;font-family:Corm;font-weight:500;font-size:58px;letter-spacing:0;color:#e9c891;line-height:1;margin:6px 0}
+.rod{position:absolute;left:84px;right:84px;bottom:60px;display:flex;justify-content:space-between;align-items:flex-end;color:#f7efe3;z-index:4}
+.rod .cta{font-size:28px;line-height:1.35}.rod .cta b{display:block;font-family:Corm;font-size:44px;font-weight:500;color:#e9c891}
+.rod .marca{text-align:right;font-size:19px;letter-spacing:.2em;text-transform:uppercase;color:#cfe0dc}
+.rod .marca b{display:block;font-family:Corm;font-size:42px;letter-spacing:.06em;text-transform:none;color:#fff;font-weight:500}
+</style></head><body>
+<div class="sun"></div>
+<svg class="mar" viewBox="0 0 1080 330" preserveAspectRatio="none">
+<path d="M0 70 C180 20 330 110 540 70 S900 20 1080 60 V330 H0Z" fill="#2f6b67" opacity=".55"/>
+<path d="M0 120 C200 70 360 160 560 115 S900 70 1080 110 V330 H0Z" fill="#1d4f4c" opacity=".85"/>
+<path d="M0 170 C220 130 380 200 600 165 S920 130 1080 160 V330 H0Z" fill="#12302f"/>
+<path d="M0 118 C200 68 360 158 560 113 S900 68 1080 108" fill="none" stroke="#f7efe3" stroke-opacity=".5" stroke-width="2"/>
+</svg>
+<span class="k">Temporada de verão · Litoral Norte</span>
+<h1>Seu site pronto <em>antes da<br>temporada.</em></h1>
+<p class="sub">Para corretores que querem ser encontrados por quem procura casa na praia.</p>
+<div class="ops">
+ <div class="op"><i><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V20h13V9.5M10 20v-5h4v5"/></svg></i><span>Catálogo de imóveis<small>fotos, detalhes e WhatsApp</small></span></div>
+ <div class="op"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i><span>Apresentação do corretor<small>sua trajetória e seus contatos</small></span></div>
+</div>
+<div class="fone"><img src="tela-corretor.png"></div>
+<div class="selo"><div>Vagas até<b>15/12</b>entrega rápida</div></div>
+<div class="rod"><div class="cta"><b>Garanta a sua vaga</b>Chame no direct ☀️</div><div class="marca"><b>H2D Studio</b>sites que vendem</div></div>
+</body></html>
